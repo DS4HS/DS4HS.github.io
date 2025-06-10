@@ -1,5 +1,5 @@
 ---
-title: "Saturday Data Workshop"
+title: "Tree Equity Lesson"
 author: "Paityn Richardson"
 format:
   revealjs:
@@ -7,8 +7,8 @@ format:
     transition: fade
     incremental: true
     scrollable: true
-    css: ../styles.css 
-execute: 
+    css: ../styles.css
+execute:
   warning: false
   message: false
 ---
@@ -469,7 +469,7 @@ ca_tes|>
 
 :::
 
-![](statesdata.png){ width=500px }
+![](statesdata.png){ width=500px}
 
 
 ## Getting the data
