@@ -8,10 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - text: "Tree Equity Materials"
-        menu: 
-          - text: "Lecture Slides"
-            href: TreeLesson.qmd
+
 format:
   html:
     theme: journal
