@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="prep-work for saturday ‘data days’">
+
+<title>DS4HS - Goals and Logistics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">DS4HS</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tree-equity-lesson" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Tree Equity Lesson</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tree-equity-lesson">    
+        <li>
+    <a class="dropdown-item" href="../Saturdata/TreeLesson.html" rel="" target="">
+ <span class="dropdown-text">Lesson Lecture</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals:</a></li>
+  <li><a href="#how-to-achieve" id="toc-how-to-achieve" class="nav-link" data-scroll-target="#how-to-achieve">How to achieve:</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics:</a></li>
+  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure:</a></li>
+  <li><a href="#using-r-studio-server" id="toc-using-r-studio-server" class="nav-link" data-scroll-target="#using-r-studio-server">Using r studio server:</a></li>
+  <li><a href="#data-4-all-read-through" id="toc-data-4-all-read-through" class="nav-link" data-scroll-target="#data-4-all-read-through">Data 4 all read through:</a></li>
+  <li><a href="#ucla-ids" id="toc-ucla-ids" class="nav-link" data-scroll-target="#ucla-ids">UCLA IDS</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Goals_and_Logistics.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Goals and Logistics</h1>
+</div>
+
+<div>
+  <div class="description">
+    prep-work for saturday ‘data days’
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="goals" class="level1">
+<h1>Goals:</h1>
+<ul>
+<li><p>Build confidence in problem solving mindset/skills through interaction with tangible examples.</p></li>
+<li><p>Broaden the scope of imagination within the realm of data science and programming. Get students to see the bigger picture of data within scientific reasoning.</p></li>
+<li><p>Promote higher education and career goals by connecting data science to numerous professional fields.</p></li>
+<li><p>Reaching students from diverse backgrounds of ethnicity, gender, and socioeconomic status. Making content accessible for those of all incoming skill levels and educational backgrounds.(not assuming nay prior knowledge)</p></li>
+<li><p>Increased confidence in understanding foundational statistics and data science concepts.</p>
+<ul>
+<li>Identifying a problem and hypothesis formation</li>
+<li>Collecting and finding unbiased and helpful data</li>
+<li>Data wrangling and exploration</li>
+<li>statistic analysis for significance</li>
+<li>data visualization and communication</li>
+</ul></li>
+<li><p>Communicating what is data science? Who does Data science?</p></li>
+</ul>
+</section>
+<section id="how-to-achieve" class="level1">
+<h1>How to achieve:</h1>
+<ul>
+<li><p>Promote inclusivity when reaching out to high schools and students</p></li>
+<li><p>Potentially having student volunteers and or mentors serve as guest speakers and give examples of research or projects they have done that have connected their interests to data science. (similar to data4all lunch speakers)</p></li>
+<li><p>Ice breakers to facilitate connections between students(improve attendance)</p></li>
+<li><p>instruction framework: observing scenario -&gt; what do we want to know and why? -&gt; data exploration -&gt; result analysis -&gt; communication of results(visualizations or presentations)</p></li>
+<li><p>Use of physical activities/simulations to understand weekly concepts before delving into programming work.</p></li>
+<li><p>implementing feedback methods before, during, and after the program through student and mentor surveys</p></li>
+<li><p>Potentially connect with Pomona college community engagement center to better out outreach plans.</p></li>
+<li><p>connecting all goals with a part of the structure/curriculum intended to achieve said goal(similar to data4all visualizations slide 56)</p></li>
+</ul>
+</section>
+<section id="topics" class="level1">
+<h1>Topics:</h1>
+<ul>
+<li><p>Students were interested in topics that extended past the scope of just the medical field. They wanted to delve into prospects of community engagement or violence prevention. It will be important to reckon with a multitude of interests and also maybe include the possibility for flexibility of work in the form of projects.</p></li>
+<li><p>Approaching data wrangling through physical interaction with mathlink cubes. This will help ease the connection between a common sense mindset and a coding/programming mindset when exploring data.</p></li>
+</ul>
+</section>
+<section id="structure" class="level1">
+<h1>Structure:</h1>
+<ul>
+<li><p>Students working in groups of 2 - 4 on loaner devices?? Or potentially their own but definitely not required. CS labs at Pomona host at least computers that could be connected to the R server.</p></li>
+<li><p>Day Schedule: Ice breaker(possibly connected to learning goals of the day) -&gt; Introduction to content and lecture -&gt; activity/lab/simulation with connection to applicable skills -&gt; lunch/speaker series -&gt; introduce problem -&gt; group data exploration -&gt; presentations w/ mentor/ student leader on findings</p></li>
+<li><h1 id="examplescases">Examples/Cases:</h1></li>
+</ul>
+<p>Data4all: - Cholera: started with many different hypothesis for the cause of the disease and explained the scientific theory behind each one.</p>
+<ul>
+<li><p>Students may be interested in global warming/environmentalism. This could start with observations such as the hottest recorded year in 2024 or a rising sea level.And from there questions and hypotheses can be formed around the causes and data can be used to prove and visualize.</p></li>
+<li><p>I also think a city plan could be a good example for understanding data science. This unit could start with the history of a city, perhaps LA, and search for root causes of problems and issues that modernly plague the city. And then, student scan explore issues that affect their everyday life such as traffic, over consumption of energy, lack of resources(poor planning or something else), and even high crime and poverty rates. Tying these all back to the initial planning of the city helps draw a connection between dat science and the professional field of urban planning. Many students may find interest in aiding these social issues from a lens other than social justice.</p></li>
+<li><p>public infrastructure planning</p></li>
+<li><p>planting of trees</p></li>
+<li><p>access to parks</p></li>
+<li><p>benches, sidewalks, bike lanes</p></li>
+<li><p>food deserts/ resource placement</p></li>
+</ul>
+<p>city planning as an ongoing process of data science</p>
+</section>
+<section id="using-r-studio-server" class="level1">
+<h1>Using r studio server:</h1>
+<ul>
+<li>opened the rstudio server very easily from a quick google search and using my Pomona id login. I dont know if data days students will have log-ins unlike the pays student though.</li>
+</ul>
+</section>
+<section id="data-4-all-read-through" class="level1">
+<h1>Data 4 all read through:</h1>
+<ul>
+<li><p>“redesigning learning environments and creating equitable access to curriculum that exposes students from non-dominant communities to programming, statistics, and mapping in the context of scientific reasoning and real-world problem-solving with data.”</p></li>
+<li><p>“Starting with a real world puzzle to solve made data science more accessible and relevant for students who did not intend to major in computer science – compared to traditional data science bootcamps that only code.”</p></li>
+</ul>
+</section>
+<section id="ucla-ids" class="level1">
+<h1>UCLA IDS</h1>
+<ul>
+<li><p>program abides by standards of CCSS-Math for High School Statistics and Probability and Practice for Modeling.</p></li>
+<li><p>talks about the concept of data collection and how differences in these practices have a clear effect on the patterns recognized and reported</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

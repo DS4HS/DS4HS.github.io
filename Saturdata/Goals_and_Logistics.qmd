@@ -1,0 +1,85 @@
+---
+title: Goals and Logistics
+description: "prep-work for saturday 'data days'" 
+format: pdf
+execute:
+  warning: false
+  message: false
+---
+
+# Goals:
+- Build confidence in problem solving mindset/skills through interaction with tangible examples. 
+
+- Broaden the scope of imagination within the realm of data science and programming. Get students to see the bigger picture of data within scientific reasoning.
+
+- Promote higher education and career goals by connecting data science to numerous professional fields. 
+
+- Reaching students from diverse backgrounds of ethnicity, gender, and socioeconomic status. Making content accessible for those of all incoming skill levels and educational backgrounds.(not assuming nay prior knowledge)
+
+- Increased confidence in understanding foundational statistics and data science concepts. 
+  - Identifying a problem and hypothesis formation
+  - Collecting and finding unbiased and helpful data
+  - Data wrangling and exploration
+  - statistic analysis for significance
+  - data visualization and communication
+  
+- Communicating what is data science? Who does Data science? 
+
+# How to achieve: 
+- Promote inclusivity when reaching out to high schools and students 
+
+- Potentially having student volunteers and or mentors serve as guest speakers and give examples of research or projects they have done that have connected their interests to data science. (similar to data4all lunch speakers)
+
+- Ice breakers to facilitate connections between students(improve attendance) 
+
+- instruction framework: observing scenario -> what do we want to know and why? -> data exploration -> result analysis -> communication of results(visualizations or presentations)
+
+- Use of physical activities/simulations to understand weekly concepts before delving into programming work. 
+
+- implementing feedback methods before, during, and after the program through student and mentor surveys 
+
+- Potentially connect with Pomona college community engagement center to better out outreach plans. 
+
+- connecting all goals with a part of the structure/curriculum intended to achieve said goal(similar to data4all visualizations slide 56)
+
+# Topics: 
+- Students were interested in topics that extended past the scope of just the medical field. They wanted to delve into prospects of community engagement or violence prevention. It will be important to reckon with a multitude of interests and also maybe include the possibility for flexibility of work in the form of projects.
+
+- Approaching data wrangling through physical interaction with mathlink cubes. This will help ease the connection between a common sense mindset and a coding/programming mindset when exploring data. 
+
+
+# Structure:
+- Students working in groups of 2 - 4 on loaner devices?? Or potentially their own but definitely not required. CS labs at Pomona host at least computers that could be connected to the R server.
+
+- Day Schedule: Ice breaker(possibly connected to learning goals of the day) -> Introduction to content and lecture -> activity/lab/simulation with connection to applicable skills -> lunch/speaker series -> introduce problem -> group data exploration -> presentations w/ mentor/ student leader on findings
+
+- 
+# Examples/Cases:
+
+Data4all: 
+- Cholera: started with many different hypothesis for the cause of the disease and explained the scientific theory behind each one. 
+
+- Students may be interested in global warming/environmentalism. This could start with observations such as the hottest recorded year in 2024 or a rising sea level.And from there questions and hypotheses can be formed around the causes and data can be used to prove and visualize. 
+
+- I also think a city plan could be a good example for understanding data science. This unit could start with the history of a city, perhaps LA, and search for root causes of problems and issues that modernly plague the city. And then, student scan explore issues that affect their everyday life such as traffic, over consumption of energy, lack of resources(poor planning or something else), and even high crime and poverty rates. Tying these all back to the initial planning of the city helps draw a connection between dat science and the professional field of urban planning. Many students may find interest in aiding these social issues from a lens other than social justice. 
+
+- public infrastructure planning
+- planting of trees
+- access to parks
+- benches, sidewalks, bike lanes
+- food deserts/ resource placement
+
+city planning as an ongoing process of data science
+
+# Using r studio server: 
+- opened the rstudio server very easily from a quick google search and using my Pomona id login. I dont know if data days students will have log-ins unlike the pays student though. 
+
+# Data 4 all read through:
+- “redesigning learning environments and creating equitable access to curriculum that exposes students from non-dominant communities to programming, statistics, and mapping in the context of scientific reasoning and real-world problem-solving with data.”
+
+- “Starting with a real world puzzle to solve made data science more accessible and relevant for students who did not intend to major in computer science – compared to traditional data science bootcamps that only code.”
+
+# UCLA IDS
+-  program abides by standards of CCSS-Math for High School Statistics and Probability and Practice for Modeling.
+
+- talks about the concept of data collection and how differences in these practices have a clear effect on the patterns recognized and reported

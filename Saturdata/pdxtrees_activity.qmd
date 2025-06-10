@@ -1,0 +1,12 @@
+```{r}
+library(readr)
+ca_trees <- read_csv("ca_csv/ca_tes.csv")
+
+```
+
+```{r}
+library(tidyverse)
+
+ca_trees|> 
+  filter(place == "Los Angeles")
+```
