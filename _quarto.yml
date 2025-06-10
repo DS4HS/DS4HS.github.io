@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "DS4HS"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "Tree Equity Materials"
+        menu: 
+          - text: "Lecture Slides"
+            href: TreeLesson.qmd
+format:
+  html:
+    theme: journal
+    css: styles.css
+    toc: true
+
+

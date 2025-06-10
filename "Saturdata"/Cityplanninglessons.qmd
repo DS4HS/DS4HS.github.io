@@ -1,0 +1,61 @@
+---
+title: "Lesson Plan: Urban Planning"
+format: pdf
+execute: 
+  message: false
+  warning: false
+---
+
+## Lesson 1: History of the City and Planning Foundations
+
+### Lesson Goal: Introduce the idea of city design and how it play a role in shaping the long term outcome of communities.
+
+-   Begin with initial city plans of LA
+-   https://urbanla.weebly.com/history-of-planning.html
+-   Began with the problem of dramatic population and real estate market growth
+-   moved to solutions such as zoning and physical development
+-   1906: Charles Robinson proposal
+-   Full city plan started to come together in 1964 when the Statistical Profile for Los Angeles was released.
+-   Proposed regional centers and transit blue print was created by analyzing population density on a map(data visualization)
+-   Identify how data (or lack thereof) informed early city planning decisions.
+-   not dealing with any real data yet but talking about all of these examples as ideas of what data can be, not necessarily just observations in a spreadsheet.
+
+### Skills learned:
+
+## Lesson 2: Transportation and Infrastrcuture
+
+### Lesson Goal: Look at communting, traffic, and transit data -\> connect to accessibilty, socioeconomic status and other demographical markers.
+
+-   potentially look at traffic collision data
+
+- Looking at pre made data visualizations to start introducing this idea/concept
+  - **Crossing Guard Assignment:**https://controllerdata.lacity.org/dataset/Transportation-Crossing-Guard-Assignments-FY19-/mehf-ag3r
+  - **Traffic Signals Repaired:** https://controllerdata.lacity.org/d/riis-xa76
+- **Parking Citation Data:** Potentially look at location and number of citations analyze based on country and economic development. 
+
+### Skills goal: begin working in tidy verse learning to summarise data and calculate new variables
+
+-   work wih mathlink cubes in an activity on tidyverse data verbs.
+
+LA Open Data: https://data.lacity.org/browse?sortBy=relevance&page=1&pageSize=20
+
+## Lesson 3: Enviromental Equity and Green Spaces
+
+- Looking at Tree Equity Score Interactive map
+- Tree equity score data/ tree canopy meansures vs.demographic measures
+
+- Mconville: imposing structure on categorical variables
+  - restructuring ggplot graph using levels 
+  - using `fct()` functions
+  - data wrangling using dates
+  
+
+## Lesson 4:
+
+## Lesson 5:
+
+## Lesson 6:
+
+## Lesson 7:
+
+## Lesson 8:
