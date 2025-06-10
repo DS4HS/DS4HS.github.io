@@ -8,6 +8,10 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - text: "Tree Equity Lesson"
+        menu: 
+          - text: "Lesson Lecture"
+            href: TreeLesson.qmd
 
 format:
   html:
