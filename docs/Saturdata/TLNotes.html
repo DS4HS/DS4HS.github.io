@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="prep-work for saturday ‘data days’">
+<meta name="description" content="This instructor guide accompanies the lecture slides for the Tree Equity Lesson. It includes teaching notes, key concepts, and reminders to support effective instruction.">
 
-<title>DS4HS - Goals and Logistics</title>
+<title>DS4HS - Tree Equity Instructor Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -61,16 +60,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../Saturdata/custom_theme.css">
+<link rel="stylesheet" href="custom_theme.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../Saturdata/DS4HS.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">DS4HS</span>
     </a>
@@ -80,24 +83,37 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tree-equity-lesson" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Tree Equity Lesson</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-curriculum" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Curriculum</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tree-equity-lesson">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-curriculum">    
         <li>
     <a class="dropdown-item" href="../Saturdata/TreeLesson.html" rel="" target="">
- <span class="dropdown-text">Lesson Lecture</span></a>
+ <span class="dropdown-text">Tree Equity Lesson</span></a>
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-instructor-materials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Instructor Materials</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-instructor-materials">    
+        <li>
+    <a class="dropdown-item" href="../Saturdata/TLNotes.html" rel="" target="">
+ <span class="dropdown-text">Tree Equity Guide</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="dropdown-header">
+ <span class="menu-text">Contact</span></li>
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -107,32 +123,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals:</a></li>
-  <li><a href="#how-to-achieve" id="toc-how-to-achieve" class="nav-link" data-scroll-target="#how-to-achieve">How to achieve:</a></li>
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics:</a></li>
-  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure:</a></li>
-  <li><a href="#using-r-studio-server" id="toc-using-r-studio-server" class="nav-link" data-scroll-target="#using-r-studio-server">Using r studio server:</a></li>
-  <li><a href="#data-4-all-read-through" id="toc-data-4-all-read-through" class="nav-link" data-scroll-target="#data-4-all-read-through">Data 4 all read through:</a></li>
-  <li><a href="#ucla-ids" id="toc-ucla-ids" class="nav-link" data-scroll-target="#ucla-ids">UCLA IDS</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Goals_and_Logistics.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Goals and Logistics</h1>
+<h1 class="title">Tree Equity Instructor Guide</h1>
 </div>
 
 <div>
   <div class="description">
-    prep-work for saturday ‘data days’
+    This instructor guide accompanies the lecture slides for the Tree Equity Lesson. It includes teaching notes, key concepts, and reminders to support effective instruction.
   </div>
 </div>
 
@@ -147,82 +149,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="goals" class="level1">
-<h1>Goals:</h1>
+<section id="what-is-data-science-and-why-urban-planning" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-data-science-and-why-urban-planning">What is Data Science and Why Urban Planning</h2>
 <ul>
-<li><p>Build confidence in problem solving mindset/skills through interaction with tangible examples.</p></li>
-<li><p>Broaden the scope of imagination within the realm of data science and programming. Get students to see the bigger picture of data within scientific reasoning.</p></li>
-<li><p>Promote higher education and career goals by connecting data science to numerous professional fields.</p></li>
-<li><p>Reaching students from diverse backgrounds of ethnicity, gender, and socioeconomic status. Making content accessible for those of all incoming skill levels and educational backgrounds.(not assuming nay prior knowledge)</p></li>
-<li><p>Increased confidence in understanding foundational statistics and data science concepts.</p>
-<ul>
-<li>Identifying a problem and hypothesis formation</li>
-<li>Collecting and finding unbiased and helpful data</li>
-<li>Data wrangling and exploration</li>
-<li>statistic analysis for significance</li>
-<li>data visualization and communication</li>
-</ul></li>
-<li><p>Communicating what is data science? Who does Data science?</p></li>
+<li><p><strong>Key Idea:</strong> Data science is about extracting insight from data to inform action.</p></li>
+<li><p><strong>Focus</strong> on applications for data science that</p></li>
+<li><p>Ask students to add their own example of data science they’ve seen and why they suspect it to be data science.</p></li>
 </ul>
-</section>
-<section id="how-to-achieve" class="level1">
-<h1>How to achieve:</h1>
-<ul>
-<li><p>Promote inclusivity when reaching out to high schools and students</p></li>
-<li><p>Potentially having student volunteers and or mentors serve as guest speakers and give examples of research or projects they have done that have connected their interests to data science. (similar to data4all lunch speakers)</p></li>
-<li><p>Ice breakers to facilitate connections between students(improve attendance)</p></li>
-<li><p>instruction framework: observing scenario -&gt; what do we want to know and why? -&gt; data exploration -&gt; result analysis -&gt; communication of results(visualizations or presentations)</p></li>
-<li><p>Use of physical activities/simulations to understand weekly concepts before delving into programming work.</p></li>
-<li><p>implementing feedback methods before, during, and after the program through student and mentor surveys</p></li>
-<li><p>Potentially connect with Pomona college community engagement center to better out outreach plans.</p></li>
-<li><p>connecting all goals with a part of the structure/curriculum intended to achieve said goal(similar to data4all visualizations slide 56)</p></li>
-</ul>
-</section>
-<section id="topics" class="level1">
-<h1>Topics:</h1>
-<ul>
-<li><p>Students were interested in topics that extended past the scope of just the medical field. They wanted to delve into prospects of community engagement or violence prevention. It will be important to reckon with a multitude of interests and also maybe include the possibility for flexibility of work in the form of projects.</p></li>
-<li><p>Approaching data wrangling through physical interaction with mathlink cubes. This will help ease the connection between a common sense mindset and a coding/programming mindset when exploring data.</p></li>
-</ul>
-</section>
-<section id="structure" class="level1">
-<h1>Structure:</h1>
-<ul>
-<li><p>Students working in groups of 2 - 4 on loaner devices?? Or potentially their own but definitely not required. CS labs at Pomona host at least computers that could be connected to the R server.</p></li>
-<li><p>Day Schedule: Ice breaker(possibly connected to learning goals of the day) -&gt; Introduction to content and lecture -&gt; activity/lab/simulation with connection to applicable skills -&gt; lunch/speaker series -&gt; introduce problem -&gt; group data exploration -&gt; presentations w/ mentor/ student leader on findings</p></li>
-<li><h1 id="examplescases">Examples/Cases:</h1></li>
-</ul>
-<p>Data4all: - Cholera: started with many different hypothesis for the cause of the disease and explained the scientific theory behind each one.</p>
-<ul>
-<li><p>Students may be interested in global warming/environmentalism. This could start with observations such as the hottest recorded year in 2024 or a rising sea level.And from there questions and hypotheses can be formed around the causes and data can be used to prove and visualize.</p></li>
-<li><p>I also think a city plan could be a good example for understanding data science. This unit could start with the history of a city, perhaps LA, and search for root causes of problems and issues that modernly plague the city. And then, student scan explore issues that affect their everyday life such as traffic, over consumption of energy, lack of resources(poor planning or something else), and even high crime and poverty rates. Tying these all back to the initial planning of the city helps draw a connection between dat science and the professional field of urban planning. Many students may find interest in aiding these social issues from a lens other than social justice.</p></li>
-<li><p>public infrastructure planning</p></li>
-<li><p>planting of trees</p></li>
-<li><p>access to parks</p></li>
-<li><p>benches, sidewalks, bike lanes</p></li>
-<li><p>food deserts/ resource placement</p></li>
-</ul>
-<p>city planning as an ongoing process of data science</p>
-</section>
-<section id="using-r-studio-server" class="level1">
-<h1>Using r studio server:</h1>
-<ul>
-<li>opened the rstudio server very easily from a quick google search and using my Pomona id login. I dont know if data days students will have log-ins unlike the pays student though.</li>
-</ul>
-</section>
-<section id="data-4-all-read-through" class="level1">
-<h1>Data 4 all read through:</h1>
-<ul>
-<li><p>“redesigning learning environments and creating equitable access to curriculum that exposes students from non-dominant communities to programming, statistics, and mapping in the context of scientific reasoning and real-world problem-solving with data.”</p></li>
-<li><p>“Starting with a real world puzzle to solve made data science more accessible and relevant for students who did not intend to major in computer science – compared to traditional data science bootcamps that only code.”</p></li>
-</ul>
-</section>
-<section id="ucla-ids" class="level1">
-<h1>UCLA IDS</h1>
-<ul>
-<li><p>program abides by standards of CCSS-Math for High School Statistics and Probability and Practice for Modeling.</p></li>
-<li><p>talks about the concept of data collection and how differences in these practices have a clear effect on the patterns recognized and reported</p></li>
-</ul>
+<p>The diagram is meant to help visualize the process of data science and urban panning as a continuous cycle.</p>
 
 
 </section>

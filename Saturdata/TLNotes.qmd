@@ -1,0 +1,19 @@
+---
+title: "Tree Equity Instructor Guide"
+description: "This instructor guide accompanies the lecture slides for the Tree Equity Lesson. It includes teaching notes, key concepts, and reminders to support effective instruction."
+format:
+  html:
+    css: custom_theme.css
+execute: 
+  warning: false
+  message: false
+---
+
+## What is Data Science and Why Urban Planning
+
+- **Key Idea:** Data science is about extracting insight from data to inform action.
+- **Focus** on applications for data science that
+
+- Ask students to add their own example of data science they’ve seen and why they suspect it to be data science. 
+
+The diagram is meant to help visualize the process of data science and urban panning as a continuous cycle. 

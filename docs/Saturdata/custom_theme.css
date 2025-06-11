@@ -1,0 +1,30 @@
+body {
+  font-family: 'Courier New',monospace;
+  background-color: #cfe2cf; 
+  color: #2a3418;
+  font-size: 14px;
+}
+
+.navbar a,
+.navbar .navbar-brand {
+  font-size: 1rem;
+  color: white !important;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: #437043; 
+  border-bottom: 4px solid #396039; 
+}
+
+
+.navbar-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1.5rem;
+}
+
+.navbar-nav .nav-item {
+  float: none;
+}
