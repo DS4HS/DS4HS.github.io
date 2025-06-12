@@ -469,10 +469,11 @@ ca_tes|>
 
 :::
 
+. . .
+
 ![](statesdata.png){ width=500px}
 
-
-## Getting the data
+## Getting the Data
 
 ```{r}
 #| echo: true

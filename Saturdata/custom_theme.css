@@ -1,21 +1,24 @@
 body {
-  font-family: 'Courier New',monospace;
-  background-color: #cfe2cf; 
-  color: #2a3418;
-  font-size: 14px;
+  font-family: "Garamond", serif;
+  background-color:  #d7ffb3; 
+  color: #001a00;
+  font-size: 15px;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #1a53ff;  /* Replace with any hex code or color name you like */
 }
 
-.navbar a,
+
 .navbar .navbar-brand {
   font-size: 1rem;
-  color: white !important;
+  color: #1a53ff !important;
   font-weight: 500;
   text-decoration: none;
 }
 
 .navbar {
-  background-color: #437043; 
-  border-bottom: 4px solid #396039; 
+  background-color: #bfff80; 
+  border-bottom: 4px solid #bfff80; 
 }
 
 
@@ -28,3 +31,17 @@ body {
 .navbar-nav .nav-item {
   float: none;
 }
+
+.dropdown_menu {
+  background-color: white;
+}
+
+.dropdown_menu .dropdown-item {
+  color: black !important;
+}
+
+
+.dropdown_menu .dropdown_item:hover {
+  background-color: grey;
+}
+

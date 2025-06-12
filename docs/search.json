@@ -4,14 +4,63 @@
     "href": "Saturdata/TLNotes.html",
     "title": "Tree Equity Instructor Guide",
     "section": "",
-    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications for data science that\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nThe diagram is meant to help visualize the process of data science and urban panning as a continuous cycle."
+    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students.\n\n\n\n\n\nUrban Planning as reflection of Data science Cycle."
   },
   {
     "objectID": "Saturdata/TLNotes.html#what-is-data-science-and-why-urban-planning",
     "href": "Saturdata/TLNotes.html#what-is-data-science-and-why-urban-planning",
     "title": "Tree Equity Instructor Guide",
     "section": "",
-    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications for data science that\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nThe diagram is meant to help visualize the process of data science and urban panning as a continuous cycle."
+    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students.\n\n\n\n\n\nUrban Planning as reflection of Data science Cycle."
+  },
+  {
+    "objectID": "Saturdata/TLNotes.html#tree-coverage-as-a-social-issue",
+    "href": "Saturdata/TLNotes.html#tree-coverage-as-a-social-issue",
+    "title": "Tree Equity Instructor Guide",
+    "section": "2 Tree Coverage as a Social Issue",
+    "text": "2 Tree Coverage as a Social Issue\n\nRemember This concept might be difficult for students to grasp. “How does the amount of trees in my neighborhood affect me?”\nAsk Students, “What does a tree do? What is its purpose” Answers might be “Provides Shade” or “Creates Oxygen” These are already good markers to highlight disparity but informing students of trees other functions and how their presence in a community or the lack thereof can make a large difference in the well-being of its members will help make their studies feel relevant and impactful."
+  },
+  {
+    "objectID": "Saturdata/TLNotes.html#understanding-the-tree-equity-score",
+    "href": "Saturdata/TLNotes.html#understanding-the-tree-equity-score",
+    "title": "Tree Equity Instructor Guide",
+    "section": "3 Understanding the Tree Equity Score",
+    "text": "3 Understanding the Tree Equity Score\nHere you can find the methodology behind American Forests Tree Equity Research.\n\nThe Tree Equity Score represents the Need for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees."
+  },
+  {
+    "objectID": "Saturdata/TLNotes.html#foundational-learning",
+    "href": "Saturdata/TLNotes.html#foundational-learning",
+    "title": "Tree Equity Instructor Guide",
+    "section": "4 Foundational Learning",
+    "text": "4 Foundational Learning\nDS4HS places a priority on shifting the narrative on data scienc and its accessibility. One of the main goals of this curriculum is to make content as tangible as possible for those with experience in data or statistical analysis. This section introduces key concepts in data science and we want to make sure these concepts are grasped as thoroughly as possible.\n\nObservation vs. Observational Unit: Be explicit—each row is one observation, and the observational unit is the “thing” each row represents (e.g., a tree, a bus stop, a city block).In this example the “GEOID” represents one city block group\nAsk: “What is one row describing?” Have students answer in plain language.\nVariable Types: Clarify the difference between categorical and numerical variables. Use color/highlight in your slides or board to mark a few examples from the dataset. Students often confuse column headers for variable values. Reinforce that variables are columns, values are entries in rows.\nIf possible, have students follow along in R to observe the data set. This can help them get used to the variable names and what a typical value looks like for a given variable."
+  },
+  {
+    "objectID": "Saturdata/TLNotes.html#mathlink-cubes",
+    "href": "Saturdata/TLNotes.html#mathlink-cubes",
+    "title": "Tree Equity Instructor Guide",
+    "section": "5 Mathlink Cubes",
+    "text": "5 Mathlink Cubes\nIn every lesson, there is some for of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning. Using Mathlink Cubes to Introduce Data Wrangling1 helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example."
+  },
+  {
+    "objectID": "Saturdata/TLNotes.html#teaching-tidyverse-and-ggplot",
+    "href": "Saturdata/TLNotes.html#teaching-tidyverse-and-ggplot",
+    "title": "Tree Equity Instructor Guide",
+    "section": "6 Teaching tidyverse and ggplot",
+    "text": "6 Teaching tidyverse and ggplot\n\n6.1 Core Goals\n\nStudents experience transforming a dataset using tidyverse data verbs\nThey start asking questions of the data: Who’s impacted? Where? What relationships exist?\nStudents see visualization as a tool for insight, not just graphics.\n\n\n\n6.2 Pedagogical Tips and Emphases\n1. Emphasize the “verbs” as actions\n\nAnchor each function to a mental model:\n\nfilter() = “cut out rows you don’t need”\nselect() = “keep only the columns you care about”\nmutate() = “make new columns using calucaltions with exsisting ones”\ngroupby() = “Sort data into baskets by value”\nsummarize() = “Pull out the big-picture”\n\n\n2. Highlight data types when visualizing\n\nCategorical → bar/column\nContinuous → histogram, scatter\nTime-based → line plot\nEncourage asking: “What kind of variable is this? What would help me see patterns?”\n\n3. Don’t skip reading outputs\n\nStop after each code chunk and ask: “What changed? What does this output tell us?”\nIt’s easy for students to focus on syntax and miss what the data is really saying.\n\n4. Ask real-world connection questions\n\n“What trend do you notice?”, “What might explain that relationship?”, “What other variable might influence both?”\nEncourage students to answer these questions in normal and confortable language rather than expecting a more refined “data-sciency” answer. This will help bridge the gap between their common sense and trained data analysis"
+  },
+  {
+    "objectID": "Saturdata/TLNotes.html#student-exploration-final-project",
+    "href": "Saturdata/TLNotes.html#student-exploration-final-project",
+    "title": "Tree Equity Instructor Guide",
+    "section": "7 Student Exploration + Final Project",
+    "text": "7 Student Exploration + Final Project\nThis capstone activity gives students the chance to apply everything they’ve learned from the lesson. It should feel open-ended and empowering, encouraging curiosity and creative problem-solving.\nThis is also the moment where data becomes personal and meaningful: students choose their question, their variables, and their visualization. The instructor’s role shifts from direct teaching to coaching, guiding students to sharpen questions, troubleshoot code, and draw clear, grounded conclusions.\n\n7.1 Group Work Guidance\nStudents should work in groups of 2–4, ideally with access to a shared device\nEncourage them to:\n\nSettle on a single state or comparison they find interesting.\nWrite out a clear, answerable question (this may take several revisions).\n\nStudents will use R to generate at least one graph and one statistical summary.\nInstructors or mentors should:\n\nCirculate and offer help with debugging.\nAsk clarifying questions to refine vague research questions.\n“What are you trying to compare? What variable would show that?”\n\n\n\n7.2 Managing Student Presentations\nEach group should give a short (~3–4 min) presentation of: - Their question - What data they used - Their plot(s) and the trends they suggest - A brief interpretation: “What does this mean?” and “Why does it matter?”\nWhile students present:\n\nHighlight clarity of visualizations, originality of questions, or insightful interpretations.\nCelebrate one strong point from each group to model good data science communication:\n\n“What I loved about this presentation was how clear the graph labels were — it helped us understand the pattern immediately.”"
+  },
+  {
+    "objectID": "Saturdata/TLNotes.html#footnotes",
+    "href": "Saturdata/TLNotes.html#footnotes",
+    "title": "Tree Equity Instructor Guide",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nD’Agostino McGowan, L. (2025). Using Mathlink Cubes to Introduce Data Wrangling with Examples in R. Journal of Statistics and Data Science Education, 1–10. https://doi.org/10.1080/26939169.2025.2485234↩︎"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#the-big-idea-why-urban-planning",
@@ -346,8 +395,8 @@
     "objectID": "Saturdata/TreeLesson.html#getting-the-data-1",
     "href": "Saturdata/TreeLesson.html#getting-the-data-1",
     "title": "Tree Equity Lesson",
-    "section": "Getting the data",
-    "text": "Getting the data\n\n# Example code to load your state data\n\nlibrary(readr)\nyou_data_name &lt;- read_csv(\"path_to_your_data.csv\")"
+    "section": "Getting the Data",
+    "text": "Getting the Data\n\n# Example code to load your state data\n\nlibrary(readr)\nyou_data_name &lt;- read_csv(\"path_to_your_data.csv\")"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#more-to-come",
