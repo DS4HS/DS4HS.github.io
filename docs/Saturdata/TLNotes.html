@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -58,10 +77,6 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="../site_libs/viz-1.8.2/viz.js"></script>
-<link href="../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="../site_libs/grViz-binding-1.0.11/grViz.js"></script>
 
 
 <link rel="stylesheet" href="../Saturdata/custom_theme.css">
@@ -150,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="TLNotes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -174,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="what-is-data-science-and-why-urban-planning" class="level2 page-columns page-full" data-number="1">
+<section id="what-is-data-science-and-why-urban-planning" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="what-is-data-science-and-why-urban-planning"><span class="header-section-number">1</span> What is Data Science and Why Urban Planning</h2>
 <ul>
 <li><strong>Key Idea:</strong> Data science is about extracting insight from data to inform action.</li>
@@ -182,13 +197,6 @@ ul.task-list li input[type="checkbox"] {
 <li>Ask students to add their own example of data science they’ve seen and why they suspect it to be data science.</li>
 </ul>
 <p>Emphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students.</p>
-<div class="cell page-columns page-full">
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1c52d25aa669f279123c" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-1c52d25aa669f279123c">{"x":{"diagram":"\n  digraph cycle {\n    graph [rankdir=LR]\n    node [shape = ellipse, style=filled, color=lightblue, width=1, height=1, fontsize=12]\n\n    Observe [label=\"Observe a Problem\"]\n    Collect [label=\"Collect Data\"]\n    Analyze [label=\"Analyze & Present\"]\n    Intervene [label=\"Intervene\"]\n    Evaluate [label=\"Evaluate & Repeat\"]\n\n    Observe -> Collect -> Analyze -> Intervene -> Evaluate -> Observe\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Urban Planning as reflection of Data science Cycle.</p>
-</div></div></div>
 </section>
 <section id="tree-coverage-as-a-social-issue" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="tree-coverage-as-a-social-issue"><span class="header-section-number">2</span> Tree Coverage as a Social Issue</h2>
@@ -197,16 +205,26 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Ask</strong> Students, “What does a tree do? What is its purpose” Answers might be “Provides Shade” or “Creates Oxygen” These are already good markers to highlight disparity but informing students of trees other functions and how their presence in a community or the lack thereof can make a large difference in the well-being of its members will help make their studies feel relevant and impactful.</li>
 </ul>
 </section>
-<section id="understanding-the-tree-equity-score" class="level2 page-columns page-full" data-number="3">
+<section id="understanding-the-tree-equity-score" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="understanding-the-tree-equity-score"><span class="header-section-number">3</span> Understanding the Tree Equity Score</h2>
 <p><a href="https://www.treeequityscore.org/methodology">Here</a> you can find the methodology behind American Forests Tree Equity Research.</p>
 <ul>
 <li>The Tree Equity Score represents the <strong>Need</strong> for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees.</li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TESCalc.png" class="img-fluid figure-img" width="332"></p>
+<figcaption class="figure-caption">Calculation of the TES score.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="format=pdf">
 
-<div class="no-row-height column-margin column-container"><div class="">
-<p><img src="TESCalc.png" class="img-fluid"></p>
-</div></div></section>
+</div>
+</section>
 <section id="foundational-learning" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="foundational-learning"><span class="header-section-number">4</span> Foundational Learning</h2>
 <p>DS4HS places a priority on shifting the narrative on data scienc and its accessibility. One of the main goals of this curriculum is to make content as tangible as possible for those with experience in data or statistical analysis. This section introduces key concepts in data science and we want to make sure these concepts are grasped as thoroughly as possible.</p>
@@ -220,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="mathlink-cubes" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="mathlink-cubes"><span class="header-section-number">5</span> Mathlink Cubes</h2>
 <p>In every lesson, there is some for of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.</p>
-<p>This example comes from an article in the Journal of Statistics and Data Science Learning. <a href="https://www.tandfonline.com/doi/citedby/10.1080/26939169.2025.2485234?scroll=top&amp;needAccess=true">Using Mathlink Cubes to Introduce Data Wrangling</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> helps to facilitate a tangible understanding of datasets and data manipulation.</p>
+<p>This example comes from an article in the Journal of Statistics and Data Science Learning <span class="citation" data-cites="mcgowan2025">(<a href="#ref-mcgowan2025" role="doc-biblioref">McGowan 2025</a>)</span>. <a href="https://www.tandfonline.com/doi/citedby/10.1080/26939169.2025.2485234?scroll=top&amp;needAccess=true">Using Mathlink Cubes to Introduce Data Wrangling</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> helps to facilitate a tangible understanding of datasets and data manipulation.</p>
 <p>This example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)</p>
 <ul>
 <li>Hand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example.</li>
@@ -299,11 +317,16 @@ ul.task-list li input[type="checkbox"] {
 <p>“What I loved about this presentation was how clear the graph labels were — it helped us understand the pattern immediately.”</p>
 
 
+
 </section>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-mcgowan2025" class="csl-entry" role="listitem">
+McGowan, Lucy D’Agostino. 2025. <span>“Using Mathlink Cubes to Introduce Data Wrangling with Examples in r.”</span> <em>Journal of Statistics and Data Science Education</em> 0 (0): 1–10. <a href="https://doi.org/10.1080/26939169.2025.2485234">https://doi.org/10.1080/26939169.2025.2485234</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>D’Agostino McGowan, L. (2025). Using Mathlink Cubes to Introduce Data Wrangling with Examples in R. Journal of Statistics and Data Science Education, 1–10. https://doi.org/10.1080/26939169.2025.2485234<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

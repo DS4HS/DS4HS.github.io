@@ -4,14 +4,14 @@
     "href": "Saturdata/TLNotes.html",
     "title": "Tree Equity Instructor Guide",
     "section": "",
-    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students.\n\n\n\n\n\nUrban Planning as reflection of Data science Cycle."
+    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
   },
   {
     "objectID": "Saturdata/TLNotes.html#what-is-data-science-and-why-urban-planning",
     "href": "Saturdata/TLNotes.html#what-is-data-science-and-why-urban-planning",
     "title": "Tree Equity Instructor Guide",
     "section": "",
-    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students.\n\n\n\n\n\nUrban Planning as reflection of Data science Cycle."
+    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
   },
   {
     "objectID": "Saturdata/TLNotes.html#tree-coverage-as-a-social-issue",
@@ -25,7 +25,7 @@
     "href": "Saturdata/TLNotes.html#understanding-the-tree-equity-score",
     "title": "Tree Equity Instructor Guide",
     "section": "3 Understanding the Tree Equity Score",
-    "text": "3 Understanding the Tree Equity Score\nHere you can find the methodology behind American Forests Tree Equity Research.\n\nThe Tree Equity Score represents the Need for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees."
+    "text": "3 Understanding the Tree Equity Score\nHere you can find the methodology behind American Forests Tree Equity Research.\n\nThe Tree Equity Score represents the Need for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees.\n\n\n\n\n\n\nCalculation of the TES score."
   },
   {
     "objectID": "Saturdata/TLNotes.html#foundational-learning",
@@ -39,7 +39,7 @@
     "href": "Saturdata/TLNotes.html#mathlink-cubes",
     "title": "Tree Equity Instructor Guide",
     "section": "5 Mathlink Cubes",
-    "text": "5 Mathlink Cubes\nIn every lesson, there is some for of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning. Using Mathlink Cubes to Introduce Data Wrangling1 helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example."
+    "text": "5 Mathlink Cubes\nIn every lesson, there is some for of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning (McGowan 2025). Using Mathlink Cubes to Introduce Data Wrangling1 helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example."
   },
   {
     "objectID": "Saturdata/TLNotes.html#teaching-tidyverse-and-ggplot",

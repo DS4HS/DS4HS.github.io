@@ -9,25 +9,23 @@ format:
     documentclass: article
     toc: true
     number-sections: true
+    include-in-header: texstuff.tex
 execute: 
   warning: false
   message: false
+bibliography:
+  - ../ds4hs.bib
 ---
 
 
 ## What is Data Science and Why Urban Planning
 
--   **Key Idea:** Data science is about extracting insight from data to inform action.
--   **Focus** on applications of data science that connect to students interests
--   Ask students to add their own example of data science they've seen and why they suspect it to be data science.
-
-Emphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students.
 
 ```{r}
-#| label: "Data Science Cycle"
+#| label: cycle
 #| fig-cap: "Urban Planning as reflection of Data science Cycle."
-#| column: margin
 #| echo: false
+#| eval: false
 
 library(DiagrammeR)
 
@@ -47,6 +45,13 @@ grViz("
 ")
 ```
 
+-   **Key Idea:** Data science is about extracting insight from data to inform action.
+-   **Focus** on applications of data science that connect to students interests
+-   Ask students to add their own example of data science they've seen and why they suspect it to be data science.
+
+Emphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students.
+
+
 ## Tree Coverage as a Social Issue
 
 -   **Remember** This concept might be difficult for students to grasp. "How does the amount of trees in my neighborhood affect me?"
@@ -58,8 +63,17 @@ grViz("
 
 -   The Tree Equity Score represents the **Need** for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees.
 
-::: column-margin
-![](TESCalc.png)
+```{r, eval= knitr::is_html_output()}
+#| label: tes
+#| fig-cap: "Calculation of the TES score."
+#| echo: false
+
+knitr::include_graphics("TESCalc.png")
+```
+
+
+::: format=pdf
+\marginnote{\includegraphics{TESCalc.png}}
 :::
 
 ## Foundational Learning
@@ -78,7 +92,7 @@ DS4HS places a priority on shifting the narrative on data scienc and its accessi
 
 In every lesson, there is some for of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.
 
-This example comes from an article in the Journal of Statistics and Data Science Learning. [Using Mathlink Cubes to Introduce Data Wrangling](https://www.tandfonline.com/doi/citedby/10.1080/26939169.2025.2485234?scroll=top&needAccess=true)[^1] helps to facilitate a tangible understanding of datasets and data manipulation. 
+This example comes from an article in the Journal of Statistics and Data Science Learning [@mcgowan2025]. [Using Mathlink Cubes to Introduce Data Wrangling](https://www.tandfonline.com/doi/citedby/10.1080/26939169.2025.2485234?scroll=top&needAccess=true)[^1] helps to facilitate a tangible understanding of datasets and data manipulation. 
 
 This example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)
 
