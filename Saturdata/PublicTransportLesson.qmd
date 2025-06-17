@@ -1,0 +1,127 @@
+---
+title: "CA Public Transportation"
+author: "Paityn Richardson"
+format:
+  revealjs:
+    theme: simple
+    transition: fade
+    incremental: true
+    scrollable: true
+    css: ../styles.css
+execute:
+  warning: false
+  message: false
+---
+
+## Public Transportation in Urbn Planning
+
+Public Transit is a Key factor in shaping how a city/society functions 
+
+  - Reduces Traffic Congestion and Pollution (sustainability)
+  - Increases access to Jobs, Education, Healthcare, etc.
+  - Impacts Housing affordability and community equity
+
+### Useful Analyses include:
+
+- Trends in ridership over time
+- Efficiency: Cost per rider or mile
+- Equity: *Who uses transit?* *Where is/isn't transit accessible?*
+
+. . .
+
+> *What types of variables should we look for in a dataset/sets to conduct these useful analyses?*
+
+## Dataset: National Transit Database (NTD)
+
+- Data is filtered from US data -> CA specific Data
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true
+library(readr)
+library(tidyverse)
+
+ca_transit <- read_csv("ca_transit.csv")
+head(ca_transit, 1)
+```
+
+Discuss: 
+- *What are the variables? *
+-*What kinds of questions can we ask?*
+
+## Wrangling for Summary
+
+> Goal: Compare Agencies Ridership over time
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: false 
+#| code-line-numbers: 1|2|3|4
+
+summary <- ca_transit|>
+  group_by(Agency, Year)|>
+  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = "drop")|>
+  arrange(desc(tot_pass))
+
+```
+
+. . .
+
+> What might be *problematic* about this summary?
+
+## Wrangling for Summary
+
+Total ridership alone doesn’t account for how many people live in the area.
+Let’s consider `tot_pass` using `Primary_UZA_Population`:
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: 2|3|4|5
+
+rev_summary <- ca_transit|>
+  group_by(Agency, Year)|>
+  summarise(tot_pass = sum(Unlinked.Passenger.Trips),
+            pop = first(Primary.UZA.Population),
+            riders_per_person = round(tot_pass / pop),
+            .groups = "drop")
+rev_summary
+```
+
+. . .
+
+This gives a better sense of how **heavily transit is used relative to population size**.
+
+## Visualizing with ggplot2
+
+> Let's look at the agencies with the top 5 `riders_per_person`
+
+```{r}
+#| echo: true
+#| code-line-numbers: 1|2|3|4|6|7|8|9|10|11|12
+
+top5 <- rev_summary|>
+  filter(Year == 2023)|>
+  slice_max(riders_per_person, n = 10)|>
+  pull(Agency)
+
+rev_summary |>
+  filter(Agency %in% top5) |>
+  ggplot(aes(x = Year, y = riders_per_person, color = Agency)) +
+  geom_line(linewidth = .6) +
+  labs(title = "Transit Ridership Over Time (Top 5 Agencies)",
+       y = "Riders/(pop.)",
+       x = "Year")
+```
+
+## Your Turn
+
+Work With a partner/group to:
+  - Filter dataset for 1 agency
+  - Create a linegraph of ridership over time
+  - 

@@ -2,10 +2,10 @@ body {
   font-family: "Garamond", serif;
   background-color:  #d7ffb3; 
   color: #001a00;
-  font-size: 15px;
+  font-size: 16px;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #1a53ff;  /* Replace with any hex code or color name you like */
+  color: #1a53ff;  
 }
 
 
@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dropdown_menu {
-  background-color: white;
+  background-color: #d7ffb3;
 }
 
 .dropdown_menu .dropdown-item {

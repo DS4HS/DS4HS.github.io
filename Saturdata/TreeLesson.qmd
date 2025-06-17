@@ -91,7 +91,7 @@ grViz("
 library(readr)
 ca_tes <- read_csv("ca_csv/ca_tes.csv")
 
-head(ca_tes)
+head(ca_tes, 1)
 ```
 
 ## An Observation
@@ -235,13 +235,11 @@ summarize(count = n())
 
 ## 
 
-> Show only neighborhoods with low tree equity scores (TES \< 50)
+> Show only neighborhoods with low tree equity scores (`tes` \< 50)
 
 -   Hint: `filter()`
 
-## 
-
-> Show only neighborhoods with low tree equity scores (TES \< 50)
+. . .
 
 
 ```{r}
@@ -254,13 +252,11 @@ ca_tes|>
 
 ## 
 
-> Focus on tree coverage, TES, and unemployment (keep these columns)
+> Focus on `treecanopy`, `tes`, and `unemplnorm` (keep these columns)
 
 -   Hint: `select()`
 
-##
-
-> Focus on tree coverage, TES, and unemployment (keep these columns)
+. . .
 
 
 ```{r}
@@ -276,9 +272,7 @@ ca_tes |>
 
 -   Hint: `mutate()`
 
-## 
-
-> What percent of the tree coverage goal has been met?
+. . .
 
 
 ```{r}
@@ -290,13 +284,11 @@ ca_tes |>
 
 ## 
 
-> Compute the average TES score by place
+> Compute the average `tes` score by place
 
--   Hint: `groupby()` and `summarise()`
+-   Hint: `group_by()` and `summarise()`
 
-## 
-
-> Compute the average TES score by place
+. . . 
 
 
 ```{r}
@@ -309,6 +301,9 @@ ca_tes |>
 
 ## Which neighborhoods have the greatest tree equity need?
 
+. . . 
+
+
 ```{r}
 #| echo: true
 #| code-line-numbers: "1|2|3|4"
@@ -320,12 +315,11 @@ ca_tes |>
 
 ## How does tree equity relate to both poverty and health disparity?
 
-- create combined index of `pctpovnorm` and `health_nor`
-- cut data set down to desired variables (place, combined_index_, and tes)
+- create variable `combined_index` that connects `pctpovnorm` and `health_nor`
+- cut data set down to desired variables (`place`, `combined_index`, and `tes`)
 - organize data to see which places have highest combined index
 
-
-## How does tree equity relate to both poverty and health disparity?
+. . .
 
 ```{r}
 #| echo: true
@@ -338,6 +332,7 @@ ca_tes|>
   arrange(desc(combined_index))
 
 ```
+
 ## 
 
 <div style="text-align: center;">
@@ -348,7 +343,7 @@ ca_tes|>
 
 -   Data visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret
 
--   Communicate Results **Clearly** and **Effectivley**
+-   Communicate Results **Clearly** and **Effectively**
 
 -   Supports evidence-based decisions in fields like:
 
@@ -368,7 +363,7 @@ ca_tes|>
 ```{r}
 #| echo: true
 #| eval: false
-#| #| code-line-numbers: "2|3|4"
+#| code-line-numbers: "2|3|4|5"
 
 # General structure
 data|>

@@ -5,6 +5,7 @@ format:
   html:
     toc: true
     number-sections: true
+    css: Saturdata/custom_theme.css
   pdf:
     documentclass: article
     toc: true
@@ -17,33 +18,13 @@ bibliography:
   - ../ds4hs.bib
 ---
 
+<a href="TreeLesson_WS.pdff" download style="padding:10px 15px; background:#007ACC; color:white; text-decoration:none; border-radius:5px;">Download PDF Worksheet</a>
+
 
 ## What is Data Science and Why Urban Planning
 
 
-```{r}
-#| label: cycle
-#| fig-cap: "Urban Planning as reflection of Data science Cycle."
-#| echo: false
-#| eval: false
-
-library(DiagrammeR)
-
-grViz("
-  digraph cycle {
-    graph [rankdir=LR]
-    node [shape = ellipse, style=filled, color=lightblue, width=1, height=1, fontsize=12]
-
-    Observe [label='Observe a Problem']
-    Collect [label='Collect Data']
-    Analyze [label='Analyze & Present']
-    Intervene [label='Intervene']
-    Evaluate [label='Evaluate & Repeat']
-
-    Observe -> Collect -> Analyze -> Intervene -> Evaluate -> Observe
-  }
-")
-```
+![](DSCycle.png)
 
 -   **Key Idea:** Data science is about extracting insight from data to inform action.
 -   **Focus** on applications of data science that connect to students interests
@@ -63,18 +44,8 @@ Emphasis on Data science and Urban Planning as a cycle that is repetitive. There
 
 -   The Tree Equity Score represents the **Need** for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees.
 
-```{r, eval= knitr::is_html_output()}
-#| label: tes
-#| fig-cap: "Calculation of the TES score."
-#| echo: false
+![](TESCalc.png)
 
-knitr::include_graphics("TESCalc.png")
-```
-
-
-::: format=pdf
-\marginnote{\includegraphics{TESCalc.png}}
-:::
 
 ## Foundational Learning
 

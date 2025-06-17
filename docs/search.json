@@ -4,14 +4,14 @@
     "href": "Saturdata/TLNotes.html",
     "title": "Tree Equity Instructor Guide",
     "section": "",
-    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
+    "text": "Download PDF Worksheet"
   },
   {
     "objectID": "Saturdata/TLNotes.html#what-is-data-science-and-why-urban-planning",
     "href": "Saturdata/TLNotes.html#what-is-data-science-and-why-urban-planning",
     "title": "Tree Equity Instructor Guide",
-    "section": "",
-    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
+    "section": "1 What is Data Science and Why Urban Planning",
+    "text": "1 What is Data Science and Why Urban Planning\n\n\nKey Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
   },
   {
     "objectID": "Saturdata/TLNotes.html#tree-coverage-as-a-social-issue",
@@ -25,7 +25,7 @@
     "href": "Saturdata/TLNotes.html#understanding-the-tree-equity-score",
     "title": "Tree Equity Instructor Guide",
     "section": "3 Understanding the Tree Equity Score",
-    "text": "3 Understanding the Tree Equity Score\nHere you can find the methodology behind American Forests Tree Equity Research.\n\nThe Tree Equity Score represents the Need for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees.\n\n\n\n\n\n\nCalculation of the TES score."
+    "text": "3 Understanding the Tree Equity Score\nHere you can find the methodology behind American Forests Tree Equity Research.\n\nThe Tree Equity Score represents the Need for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees."
   },
   {
     "objectID": "Saturdata/TLNotes.html#foundational-learning",
@@ -116,7 +116,7 @@
     "href": "Saturdata/TreeLesson.html#a-look-at-the-data",
     "title": "Tree Equity Lesson",
     "section": "A Look at the data",
-    "text": "A Look at the data\nCalifornia Tree Coverage Data 1\n\n\n# A tibble: 6 × 39\n  GEOID        place state state_abbr county ua_name ua_pop congressio\n  &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n1 060014001001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n2 060014001002 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n3 060014002001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n4 060014002002 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n5 060014003001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n6 060014003002 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;,\n#   health_nor &lt;dbl&gt;, temp_diff &lt;dbl&gt;, temp_norm &lt;dbl&gt;, tes &lt;dbl&gt;, …\n\n\n“Tree Equity Score. 2023. American Forests.”"
+    "text": "A Look at the data\nCalifornia Tree Coverage Data 1\n\n\n# A tibble: 1 × 39\n  GEOID        place state state_abbr county ua_name ua_pop congressio\n  &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n1 060014001001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;,\n#   health_nor &lt;dbl&gt;, temp_diff &lt;dbl&gt;, temp_norm &lt;dbl&gt;, tes &lt;dbl&gt;, …\n\n\n“Tree Equity Score. 2023. American Forests.”"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#an-observation",
@@ -221,81 +221,46 @@
     "href": "Saturdata/TreeLesson.html#section-3",
     "title": "Tree Equity Lesson",
     "section": "",
-    "text": "Show only neighborhoods with low tree equity scores (TES &lt; 50)\n\n\nHint: filter()"
+    "text": "Show only neighborhoods with low tree equity scores (tes &lt; 50)\n\n\nHint: filter()\n\n\n\nlibrary(tidyverse)\nca_tes|&gt;\n  filter(tes &lt; 50)\n\n# A tibble: 578 × 39\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600145010… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 2 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 3 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 4 0600145120… Live… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 5 0600700370… Orov… Cali… CA         Butte… Orovil…  40190 CA Congre…\n 6 0601330400… Byron Cali… CA         Contr… Discov…  15939 CA Congre…\n 7 0601330400… Disc… Cali… CA         Contr… Discov…  15939 CA Congre…\n 8 0601330720… Anti… Cali… CA         Contr… Antioc… 327378 CA Congre…\n 9 0601331000… Pitt… Cali… CA         Contr… Antioc… 327378 CA Congre…\n10 0601500010… Cres… Cali… CA         Del N… Cresce…  15620 CA Congre…\n# ℹ 568 more rows\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#section-4",
     "href": "Saturdata/TreeLesson.html#section-4",
     "title": "Tree Equity Lesson",
     "section": "",
-    "text": "Show only neighborhoods with low tree equity scores (TES &lt; 50)\n\n\nlibrary(tidyverse)\nca_tes|&gt;\n  filter(tes &lt; 50)\n\n# A tibble: 578 × 39\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600145010… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 2 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 3 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 4 0600145120… Live… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 5 0600700370… Orov… Cali… CA         Butte… Orovil…  40190 CA Congre…\n 6 0601330400… Byron Cali… CA         Contr… Discov…  15939 CA Congre…\n 7 0601330400… Disc… Cali… CA         Contr… Discov…  15939 CA Congre…\n 8 0601330720… Anti… Cali… CA         Contr… Antioc… 327378 CA Congre…\n 9 0601331000… Pitt… Cali… CA         Contr… Antioc… 327378 CA Congre…\n10 0601500010… Cres… Cali… CA         Del N… Cresce…  15620 CA Congre…\n# ℹ 568 more rows\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
+    "text": "Focus on treecanopy, tes, and unemplnorm (keep these columns)\n\n\nHint: select()\n\n\n\nca_tes |&gt;\n  select(treecanopy, tes, unemplnorm)\n\n# A tibble: 24,253 × 3\n   treecanopy   tes unemplnorm\n        &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n 1      0.598   100     0.0450\n 2      0.458   100     0.100 \n 3      0.282    98     0.0756\n 4      0.309   100     0.188 \n 5      0.22     94     0.0502\n 6      0.208    96     0.0867\n 7      0.191    90     0.0565\n 8      0.195    96     0.0676\n 9      0.323   100     0     \n10      0.258    96     0.0226\n# ℹ 24,243 more rows"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#section-5",
     "href": "Saturdata/TreeLesson.html#section-5",
     "title": "Tree Equity Lesson",
     "section": "",
-    "text": "Focus on tree coverage, TES, and unemployment (keep these columns)\n\n\nHint: select()"
+    "text": "What percent of the tree coverage goal has been met?\n\n\nHint: mutate()\n\n\n\nca_tes |&gt;\n  mutate(pct_coverage_met = treecanopy / tc_goal * 100)\n\n# A tibble: 24,253 × 40\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600140010… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 2 0600140010… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 3 0600140020… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 4 0600140020… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 5 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 6 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 7 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 8 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 9 0600140040… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n10 0600140040… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 24,243 more rows\n# ℹ 32 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#section-6",
     "href": "Saturdata/TreeLesson.html#section-6",
     "title": "Tree Equity Lesson",
     "section": "",
-    "text": "Focus on tree coverage, TES, and unemployment (keep these columns)\n\n\nca_tes |&gt;\n  select(treecanopy, tes, unemplnorm)\n\n# A tibble: 24,253 × 3\n   treecanopy   tes unemplnorm\n        &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n 1      0.598   100     0.0450\n 2      0.458   100     0.100 \n 3      0.282    98     0.0756\n 4      0.309   100     0.188 \n 5      0.22     94     0.0502\n 6      0.208    96     0.0867\n 7      0.191    90     0.0565\n 8      0.195    96     0.0676\n 9      0.323   100     0     \n10      0.258    96     0.0226\n# ℹ 24,243 more rows"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-7",
-    "href": "Saturdata/TreeLesson.html#section-7",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "What percent of the tree coverage goal has been met?\n\n\nHint: mutate()"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-8",
-    "href": "Saturdata/TreeLesson.html#section-8",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "What percent of the tree coverage goal has been met?\n\n\nca_tes |&gt;\n  mutate(pct_coverage_met = treecanopy / tc_goal * 100)\n\n# A tibble: 24,253 × 40\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600140010… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 2 0600140010… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 3 0600140020… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 4 0600140020… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 5 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 6 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 7 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 8 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 9 0600140040… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n10 0600140040… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 24,243 more rows\n# ℹ 32 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-9",
-    "href": "Saturdata/TreeLesson.html#section-9",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "Compute the average TES score by place\n\n\nHint: groupby() and summarise()"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-10",
-    "href": "Saturdata/TreeLesson.html#section-10",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "Compute the average TES score by place\n\n\nca_tes |&gt;\n  group_by(place) |&gt;\n  summarize(avg_tes = mean(tes, na.rm = TRUE))\n\n# A tibble: 874 × 2\n   place        avg_tes\n   &lt;chr&gt;          &lt;dbl&gt;\n 1 Adelanto        54.6\n 2 Agoura Hills    81.9\n 3 Airport         43  \n 4 Alameda         87.5\n 5 Alamo           99.2\n 6 Albany          90.2\n 7 Alhambra        73.0\n 8 Aliso Viejo     85.7\n 9 Alondra Park    65.7\n10 Alpine          74.1\n# ℹ 864 more rows"
+    "text": "Compute the average tes score by place\n\n\nHint: group_by() and summarise()\n\n\n\nca_tes |&gt;\n  group_by(place) |&gt;\n  summarize(avg_tes = mean(tes, na.rm = TRUE))\n\n# A tibble: 874 × 2\n   place        avg_tes\n   &lt;chr&gt;          &lt;dbl&gt;\n 1 Adelanto        54.6\n 2 Agoura Hills    81.9\n 3 Airport         43  \n 4 Alameda         87.5\n 5 Alamo           99.2\n 6 Albany          90.2\n 7 Alhambra        73.0\n 8 Aliso Viejo     85.7\n 9 Alondra Park    65.7\n10 Alpine          74.1\n# ℹ 864 more rows"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#which-neighborhoods-have-the-greatest-tree-equity-need",
     "href": "Saturdata/TreeLesson.html#which-neighborhoods-have-the-greatest-tree-equity-need",
     "title": "Tree Equity Lesson",
     "section": "Which neighborhoods have the greatest tree equity need?",
-    "text": "Which neighborhoods have the greatest tree equity need?\n\nca_tes |&gt;\n  select(GEOID, place, tes)|&gt;\n  arrange(tes)|&gt;\n  slice_head(n = 5)\n\n# A tibble: 5 × 3\n  GEOID        place           tes\n  &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt;\n1 060310013001 Corcoran         13\n2 060650462002 Blythe           16\n3 060470003053 Livingston       17\n4 060290058042 Rosamond         18\n5 060150001012 Crescent City    19"
+    "text": "Which neighborhoods have the greatest tree equity need?\n\n\nca_tes |&gt;\n  select(GEOID, place, tes)|&gt;\n  arrange(tes)|&gt;\n  slice_head(n = 5)\n\n# A tibble: 5 × 3\n  GEOID        place           tes\n  &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt;\n1 060310013001 Corcoran         13\n2 060650462002 Blythe           16\n3 060470003053 Livingston       17\n4 060290058042 Rosamond         18\n5 060150001012 Crescent City    19"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity",
     "href": "Saturdata/TreeLesson.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity",
     "title": "Tree Equity Lesson",
     "section": "How does tree equity relate to both poverty and health disparity?",
-    "text": "How does tree equity relate to both poverty and health disparity?\n\ncreate combined index of pctpovnorm and health_nor\ncut data set down to desired variables (place, combined_index_, and tes)\norganize data to see which places have highest combined index"
+    "text": "How does tree equity relate to both poverty and health disparity?\n\ncreate variable combined_index that connects pctpovnorm and health_nor\ncut data set down to desired variables (place, combined_index, and tes)\norganize data to see which places have highest combined index\n\n\n\nca_tes|&gt;\n  filter(!is.na(pctpovnorm), !is.na(health_nor))|&gt;\n  mutate(combined_index = pctpov * health_nor)|&gt;\n  select(place, combined_index, tes)|&gt;\n  arrange(desc(combined_index))\n\n# A tibble: 24,253 × 3\n   place      combined_index   tes\n   &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;\n 1 Napa                1        69\n 2 Chowchilla          0.997    61\n 3 Hanford             0.920    26\n 4 Wasco               0.908    37\n 5 Shafter             0.903    58\n 6 Arvin               0.899    24\n 7 Delano              0.899    30\n 8 Shafter             0.876    44\n 9 Brawley             0.875    50\n10 Rosamond            0.875    18\n# ℹ 24,243 more rows"
   },
   {
-    "objectID": "Saturdata/TreeLesson.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity-1",
-    "href": "Saturdata/TreeLesson.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity-1",
-    "title": "Tree Equity Lesson",
-    "section": "How does tree equity relate to both poverty and health disparity?",
-    "text": "How does tree equity relate to both poverty and health disparity?\n\nca_tes|&gt;\n  filter(!is.na(pctpovnorm), !is.na(health_nor))|&gt;\n  mutate(combined_index = pctpov * health_nor)|&gt;\n  select(place, combined_index, tes)|&gt;\n  arrange(desc(combined_index))\n\n# A tibble: 24,253 × 3\n   place      combined_index   tes\n   &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;\n 1 Napa                1        69\n 2 Chowchilla          0.997    61\n 3 Hanford             0.920    26\n 4 Wasco               0.908    37\n 5 Shafter             0.903    58\n 6 Arvin               0.899    24\n 7 Delano              0.899    30\n 8 Shafter             0.876    44\n 9 Brawley             0.875    50\n10 Rosamond            0.875    18\n# ℹ 24,243 more rows"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-11",
-    "href": "Saturdata/TreeLesson.html#section-11",
+    "objectID": "Saturdata/TreeLesson.html#section-7",
+    "href": "Saturdata/TreeLesson.html#section-7",
     "title": "Tree Equity Lesson",
     "section": "",
     "text": "Visualizing the Data"
@@ -305,7 +270,7 @@
     "href": "Saturdata/TreeLesson.html#what-and-why",
     "title": "Tree Equity Lesson",
     "section": "What and Why",
-    "text": "What and Why\n\nData visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret\nCommunicate Results Clearly and Effectivley\nSupports evidence-based decisions in fields like:\n\nPublic health\nClimate research\nUrban planning\nBusiness & marketing"
+    "text": "What and Why\n\nData visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret\nCommunicate Results Clearly and Effectively\nSupports evidence-based decisions in fields like:\n\nPublic health\nClimate research\nUrban planning\nBusiness & marketing"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#what-is-ggplot2",
@@ -357,8 +322,8 @@
     "text": "Add more plots"
   },
   {
-    "objectID": "Saturdata/TreeLesson.html#section-12",
-    "href": "Saturdata/TreeLesson.html#section-12",
+    "objectID": "Saturdata/TreeLesson.html#section-8",
+    "href": "Saturdata/TreeLesson.html#section-8",
     "title": "Tree Equity Lesson",
     "section": "",
     "text": "“Explore, Analyze, Present!”"
@@ -404,6 +369,76 @@
     "title": "Tree Equity Lesson",
     "section": "More to come",
     "text": "More to come"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#public-transportation-in-urbn-planning",
+    "href": "Saturdata/PublicTransportLesson.html#public-transportation-in-urbn-planning",
+    "title": "CA Public Transportation",
+    "section": "Public Transportation in Urbn Planning",
+    "text": "Public Transportation in Urbn Planning\nPublic Transit is a Key factor in shaping how a city/society functions\n\nReduces Traffic Congestion and Pollution (sustainability)\nIncreases access to Jobs, Education, Healthcare, etc.\nImpacts Housing affordability and community equity\n\nUseful Analyses include:\n\nTrends in ridership over time\nEfficiency: Cost per rider or mile\nEquity: Who uses transit? Where is/isn’t transit accessible?\n\n. . .\n\nWhat types of variables should we look for in a dataset/sets to conduct these useful analyses?"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#dataset-national-transit-database-ntd",
+    "href": "Saturdata/PublicTransportLesson.html#dataset-national-transit-database-ntd",
+    "title": "CA Public Transportation",
+    "section": "Dataset: National Transit Database (NTD)",
+    "text": "Dataset: National Transit Database (NTD)\n\nData is filtered from US data -&gt; CA specific Data\n\n\n\nlibrary(readr)\nlibrary(tidyverse)\n\nca_transit &lt;- read_csv(\"ca_transit.csv\")\nhead(ca_transit, 1)\n\n# A tibble: 1 × 75\n  NTD.ID Agency        Organization.Type Mode  Type.of.Service Rail..True.False.\n   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt;           &lt;lgl&gt;            \n1  90044 City of Arca… County or Local … DR    PT              FALSE            \n# ℹ 69 more variables: Primary.UZA.UACE.Code &lt;dbl&gt;, Primary.UZA.Name &lt;chr&gt;,\n#   Primary.UZA.Sq.Miles &lt;dbl&gt;, Primary.UZA.Population &lt;dbl&gt;,\n#   Service.Area.Sq.Miles &lt;dbl&gt;, Service.Area.Population &lt;dbl&gt;, Year &lt;dbl&gt;,\n#   Month &lt;chr&gt;, Month_Year..timestamp. &lt;dbl&gt;, VOMS &lt;dbl&gt;,\n#   Vehicle.Revenue.Miles &lt;dbl&gt;, Vehicle.Revenue.Hours &lt;dbl&gt;,\n#   Unlinked.Passenger.Trips &lt;dbl&gt;, Collisions.with.Motor.Vehicle &lt;dbl&gt;,\n#   Collisions.with.Person &lt;dbl&gt;, Collisions.with.Fixed.Object &lt;dbl&gt;, …\n\n\nDiscuss: - What are the variables?  -What kinds of questions can we ask?"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#wrangling-for-summary",
+    "href": "Saturdata/PublicTransportLesson.html#wrangling-for-summary",
+    "title": "CA Public Transportation",
+    "section": "Wrangling for Summary",
+    "text": "Wrangling for Summary\n\nGoal: Compare Agencies Ridership over time\n\n\n\nsummary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = \"drop\")|&gt;\n  arrange(desc(tot_pass))\n\n\n\n\nWhat might be problematic about this summary?"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#wrangling-for-summary-1",
+    "href": "Saturdata/PublicTransportLesson.html#wrangling-for-summary-1",
+    "title": "CA Public Transportation",
+    "section": "Wrangling for Summary",
+    "text": "Wrangling for Summary\nTotal ridership alone doesn’t account for how many people live in the area. Let’s consider tot_pass using Primary_UZA_Population:\n\n\nrev_summary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips),\n            pop = first(Primary.UZA.Population),\n            riders_per_person = round(tot_pass / pop),\n            .groups = \"drop\")\nrev_summary\n\n# A tibble: 974 × 5\n   Agency           Year tot_pass      pop riders_per_person\n   &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;             &lt;dbl&gt;\n 1 Access Services  2014  3910498 12237376                 0\n 2 Access Services  2015  4200314 12237376                 0\n 3 Access Services  2016  4326614 12237376                 0\n 4 Access Services  2017  4354702 12237376                 0\n 5 Access Services  2018  4407041 12237376                 0\n 6 Access Services  2019  4586125 12237376                 0\n 7 Access Services  2020  2291445 12237376                 0\n 8 Access Services  2021  2567076 12237376                 0\n 9 Access Services  2022  3189810 12237376                 0\n10 Access Services  2023  3902800 12237376                 0\n# ℹ 964 more rows\n\n\n\n\nThis gives a better sense of how heavily transit is used relative to population size."
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#visualizing-with-ggplot2",
+    "href": "Saturdata/PublicTransportLesson.html#visualizing-with-ggplot2",
+    "title": "CA Public Transportation",
+    "section": "Visualizing with ggplot2",
+    "text": "Visualizing with ggplot2\n\nLet’s look at the agencies with the top 5 riders_per_person\n\n\ntop5 &lt;- rev_summary|&gt;\n  filter(Year == 2023)|&gt;\n  slice_max(riders_per_person, n = 10)|&gt;\n  pull(Agency)\n\nrev_summary |&gt;\n  filter(Agency %in% top5) |&gt;\n  ggplot(aes(x = Year, y = riders_per_person, color = Agency)) +\n  geom_line(linewidth = .6) +\n  labs(title = \"Transit Ridership Over Time (Top 5 Agencies)\",\n       y = \"Riders/(pop.)\",\n       x = \"Year\")"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#your-turn",
+    "href": "Saturdata/PublicTransportLesson.html#your-turn",
+    "title": "CA Public Transportation",
+    "section": "Your Turn",
+    "text": "Your Turn\nWork With a partner/group to: - Filter dataset for 1 agency - Create a linegraph of ridership over time -"
+  },
+  {
+    "objectID": "Saturdata/PTNotes.html",
+    "href": "Saturdata/PTNotes.html",
+    "title": "DS4HS",
+    "section": "",
+    "text": "Initial Dataset from US Department of Transportation titled “Monthly Modal Time Series”\nFiltered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that’s easier for students to explore and model.\n\n\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(stringr)\npt_data &lt;- read.csv(\"NTD_TimeSeries.csv\")\n\npt_data1 &lt;- pt_data|&gt;\n  filter(str_detect(Primary.UZA.Name, \"CA$\"))\n\nwrite_csv(pt_data1, \"ca_transit.csv\")"
+  },
+  {
+    "objectID": "Saturdata/PTNotes.html#cleaning-initial-dataset",
+    "href": "Saturdata/PTNotes.html#cleaning-initial-dataset",
+    "title": "DS4HS",
+    "section": "",
+    "text": "Initial Dataset from US Department of Transportation titled “Monthly Modal Time Series”\nFiltered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that’s easier for students to explore and model.\n\n\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(stringr)\npt_data &lt;- read.csv(\"NTD_TimeSeries.csv\")\n\npt_data1 &lt;- pt_data|&gt;\n  filter(str_detect(Primary.UZA.Name, \"CA$\"))\n\nwrite_csv(pt_data1, \"ca_transit.csv\")"
+  },
+  {
+    "objectID": "Saturdata/PTNotes.html#dataset-national-transit-database-ntd",
+    "href": "Saturdata/PTNotes.html#dataset-national-transit-database-ntd",
+    "title": "DS4HS",
+    "section": "2 Dataset: National Transit Database (NTD)",
+    "text": "2 Dataset: National Transit Database (NTD)\nDiscuss: The goal here is to get students to understand that the NTD dataset itself desnot caontain enough information for the insighful analysis we are looking for."
+  },
+  {
+    "objectID": "Saturdata/PTNotes.html#cleaning-distribution-materials",
+    "href": "Saturdata/PTNotes.html#cleaning-distribution-materials",
+    "title": "DS4HS",
+    "section": "3 Cleaning Distribution Materials",
+    "text": "3 Cleaning Distribution Materials\ncreating shapefile folder that joins public transit data with CA census tracts.\n\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidyverse)\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)\n\nRetrieving census data from tidycensus package\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / tot_workers))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
   },
   {
     "objectID": "index.html",

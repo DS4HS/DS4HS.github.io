@@ -2,12 +2,15 @@ project:
   type: website
   output-dir: docs
 
+resources:
+  - Saturdata/TreeLesson_WS.pdf
+
 website:
   title: "DS4HS"
   navbar:
-    logo: Saturdata/DS4HS.png  
-    pinned: true            
-    collapse: true          
+    logo: Saturdata/DS4HS.png
+    pinned: true
+    collapse: true
     right:
       - text: "Home"
         href: index.qmd
@@ -15,11 +18,14 @@ website:
         menu:
           - text: "Tree Equity Lesson"
             href: Saturdata/TreeLesson.qmd
+          - text: "Public Transportation Lesson"
+            href: Saturdata/PublicTransportLesson.qmd
       - text: "Instructor Materials"
         menu:
           - text: "Tree Equity Guide"
             href: Saturdata/TLNotes.qmd
       - text: "Contact"
+
 format:
   html:
     theme: cosmo

@@ -432,8 +432,8 @@ HOW??
 <section id="data-science-cycle---urban-planning-cycle" class="slide level2">
 <h2>Data Science Cycle -&gt; Urban Planning Cycle</h2>
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7a4bf7552b0932e47d4c" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7a4bf7552b0932e47d4c">{"x":{"diagram":"\n  digraph cycle {\n    graph [rankdir=LR]\n    node [shape = ellipse, style=filled, color=lightblue, width=1, height=1, fontsize=12]\n\n    Observe [label=\"Observe a Problem\"]\n    Collect [label=\"Collect Data\"]\n    Analyze [label=\"Analyze & Present\"]\n    Intervene [label=\"Intervene\"]\n    Evaluate [label=\"Evaluate & Repeat\"]\n\n    Observe -> Collect -> Analyze -> Intervene -> Evaluate -> Observe\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-303977a6b0ed3d2c6f7c" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-303977a6b0ed3d2c6f7c">{"x":{"diagram":"\n  digraph cycle {\n    graph [rankdir=LR]\n    node [shape = ellipse, style=filled, color=lightblue, width=1, height=1, fontsize=12]\n\n    Observe [label=\"Observe a Problem\"]\n    Collect [label=\"Collect Data\"]\n    Analyze [label=\"Analyze & Present\"]\n    Intervene [label=\"Intervene\"]\n    Evaluate [label=\"Evaluate & Repeat\"]\n\n    Observe -> Collect -> Analyze -> Intervene -> Evaluate -> Observe\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </section>
 <section id="introduction-tree-equity-and-city-planning" class="slide level2">
@@ -469,15 +469,10 @@ HOW??
 <h3 id="california-tree-coverage-data-1">California Tree Coverage Data <sup>1</sup></h3>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 39
+<pre><code># A tibble: 1 × 39
   GEOID        place state state_abbr county ua_name ua_pop congressio
   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     
 1 060014001001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…
-2 060014001002 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…
-3 060014002001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…
-4 060014002002 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…
-5 060014003001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…
-6 060014003002 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…
 # ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,
 #   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,
 #   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,
@@ -628,17 +623,12 @@ Going From Question to Answer
 <section id="section-3" class="slide level2">
 <h2></h2>
 <blockquote>
-<p>Show only neighborhoods with low tree equity scores (TES &lt; 50)</p>
+<p>Show only neighborhoods with low tree equity scores (<code>tes</code> &lt; 50)</p>
 </blockquote>
 <ul>
 <li class="fragment">Hint: <code>filter()</code></li>
 </ul>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<blockquote>
-<p>Show only neighborhoods with low tree equity scores (TES &lt; 50)</p>
-</blockquote>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb8-2"><a href="#cb8-2"></a>ca_tes<span class="sc">|&gt;</span></span>
@@ -666,21 +656,17 @@ Going From Question to Answer
 #   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
+</div>
 </section>
-<section id="section-5" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <blockquote>
-<p>Focus on tree coverage, TES, and unemployment (keep these columns)</p>
+<p>Focus on <code>treecanopy</code>, <code>tes</code>, and <code>unemplnorm</code> (keep these columns)</p>
 </blockquote>
 <ul>
 <li class="fragment">Hint: <code>select()</code></li>
 </ul>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<blockquote>
-<p>Focus on tree coverage, TES, and unemployment (keep these columns)</p>
-</blockquote>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>ca_tes <span class="sc">|&gt;</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">select</span>(treecanopy, tes, unemplnorm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -701,8 +687,9 @@ Going From Question to Answer
 # ℹ 24,243 more rows</code></pre>
 </div>
 </div>
+</div>
 </section>
-<section id="section-7" class="slide level2">
+<section id="section-5" class="slide level2">
 <h2></h2>
 <blockquote>
 <p>What percent of the tree coverage goal has been met?</p>
@@ -710,12 +697,7 @@ Going From Question to Answer
 <ul>
 <li class="fragment">Hint: <code>mutate()</code></li>
 </ul>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<blockquote>
-<p>What percent of the tree coverage goal has been met?</p>
-</blockquote>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>ca_tes <span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">mutate</span>(<span class="at">pct_coverage_met =</span> treecanopy <span class="sc">/</span> tc_goal <span class="sc">*</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -742,21 +724,17 @@ Going From Question to Answer
 #   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
+</div>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
 <blockquote>
-<p>Compute the average TES score by place</p>
+<p>Compute the average <code>tes</code> score by place</p>
 </blockquote>
 <ul>
-<li class="fragment">Hint: <code>groupby()</code> and <code>summarise()</code></li>
+<li class="fragment">Hint: <code>group_by()</code> and <code>summarise()</code></li>
 </ul>
-</section>
-<section id="section-10" class="slide level2">
-<h2></h2>
-<blockquote>
-<p>Compute the average TES score by place</p>
-</blockquote>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>ca_tes <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">group_by</span>(place) <span class="sc">|&gt;</span></span>
@@ -778,9 +756,11 @@ Going From Question to Answer
 # ℹ 864 more rows</code></pre>
 </div>
 </div>
+</div>
 </section>
 <section id="which-neighborhoods-have-the-greatest-tree-equity-need" class="slide level2">
 <h2>Which neighborhoods have the greatest tree equity need?</h2>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="1|2|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>ca_tes <span class="sc">|&gt;</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">select</span>(GEOID, place, tes)<span class="sc">|&gt;</span></span>
@@ -797,17 +777,16 @@ Going From Question to Answer
 5 060150001012 Crescent City    19</code></pre>
 </div>
 </div>
+</div>
 </section>
 <section id="how-does-tree-equity-relate-to-both-poverty-and-health-disparity" class="slide level2">
 <h2>How does tree equity relate to both poverty and health disparity?</h2>
 <ul>
-<li class="fragment">create combined index of <code>pctpovnorm</code> and <code>health_nor</code></li>
-<li class="fragment">cut data set down to desired variables (place, combined_index_, and tes)</li>
+<li class="fragment">create variable <code>combined_index</code> that connects <code>pctpovnorm</code> and <code>health_nor</code></li>
+<li class="fragment">cut data set down to desired variables (<code>place</code>, <code>combined_index</code>, and <code>tes</code>)</li>
 <li class="fragment">organize data to see which places have highest combined index</li>
 </ul>
-</section>
-<section id="how-does-tree-equity-relate-to-both-poverty-and-health-disparity-1" class="slide level2">
-<h2>How does tree equity relate to both poverty and health disparity?</h2>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18" data-code-line-numbers="2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>ca_tes<span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(pctpovnorm), <span class="sc">!</span><span class="fu">is.na</span>(health_nor))<span class="sc">|&gt;</span></span>
@@ -831,8 +810,9 @@ Going From Question to Answer
 # ℹ 24,243 more rows</code></pre>
 </div>
 </div>
+</div>
 </section>
-<section id="section-11" class="slide level2">
+<section id="section-7" class="slide level2">
 <h2></h2>
 <div style="text-align: center;">
 
@@ -844,7 +824,7 @@ Visualizing the Data
 <h2>What and Why</h2>
 <ul>
 <li class="fragment"><p>Data visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret</p></li>
-<li class="fragment"><p>Communicate Results <strong>Clearly</strong> and <strong>Effectivley</strong></p></li>
+<li class="fragment"><p>Communicate Results <strong>Clearly</strong> and <strong>Effectively</strong></p></li>
 <li class="fragment"><p>Supports evidence-based decisions in fields like:</p>
 <ul>
 <li class="fragment">Public health</li>
@@ -865,7 +845,7 @@ Visualizing the Data
 <section id="basic-structure-of-a-ggplot" class="slide level2">
 <h2>Basic Structure of a ggplot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># General structure</span></span>
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># General structure</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>data<span class="sc">|&gt;</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ..., <span class="at">y =</span> ...)) <span class="sc">+</span></span>
 <span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">geom_function</span>() <span class="sc">+</span></span>
@@ -959,7 +939,7 @@ Visualizing the Data
 <section id="add-more-plots" class="slide level2">
 <h2>Add more plots</h2>
 </section>
-<section id="section-12" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
 <div style="text-align: center;">
 
