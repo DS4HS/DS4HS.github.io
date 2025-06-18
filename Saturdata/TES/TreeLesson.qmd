@@ -1,0 +1,546 @@
+---
+title: "Tree Equity Lesson"
+author: "Paityn Richardson"
+format:
+  revealjs:
+    theme: simple
+    transition: fade
+    incremental: true
+    scrollable: true
+    css: ../../styles.css
+execute:
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+
+options(pillar.width = 70)
+```
+
+## 🌐 The Big Idea: Why Urban Planning
+
+> Urban planning **IS** data science in action.
+
+## 
+
+<div style="text-align: center;">
+
+<h1>HOW??</h1>
+
+## What is Data Science??
+
+-   From IBM US: Data science is the practice of "uncovering actionable insights hidden in data. These insights can be used to guide decision making and strategic planning."
+-   🎓 Schools study attendance and grade trends to identify students who may need extra support before they fall behind.
+-   🏥 Hospitals use patient records and trends to predict who's at risk for certain illnesses --- helping doctors intervene earlier.
+
+## Data Science Cycle -\> Urban Planning Cycle
+
+```{r}
+#| echo: false
+#| results: asis
+
+library(DiagrammeR)
+library(tidyverse)
+
+grViz("
+  digraph cycle {
+    graph [rankdir=LR]
+    node [shape = ellipse, style=filled, color=lightblue, width=1, height=1, fontsize=12]
+
+    Observe [label='Observe a Problem']
+    Collect [label='Collect Data']
+    Analyze [label='Analyze & Present']
+    Intervene [label='Intervene']
+    Evaluate [label='Evaluate & Repeat']
+
+    Observe -> Collect -> Analyze -> Intervene -> Evaluate -> Observe
+  }
+")
+```
+
+## 🌳 Introduction: Tree Equity and City Planning
+
+-   Tree Planting is a direct action of City Planning Initiatives
+-   *Why do some neighborhoods have less trees than others? How are these Neighborhoods affected? What can we do?*
+
+## American Forests: Tree Equity Score
+
+![](../images/TES.png)
+
+-   Tree Canopy Coverage...
+    -   Improves Air Quality and Stabalizes Enviromental Hazzards
+    -   Intercepts Rainfall and prevents Stormwater Runnoff
+    -   Reduces Heat extremity improving peoples physical and mental health
+
+## Todays Goals
+
+-   Learn to use R for data analysis and communication
+-   Understand what makes a dataset meaningful
+-   Ask important questions about data and the observed world
+-   Explore how data can inform **just** and **sustainable** practices
+
+## A Look at the data
+
+### California Tree Coverage Data [^1]
+
+[^1]: "Tree Equity Score. 2023. American Forests."
+
+```{r}
+library(readr)
+ca_tes <- read_csv("ca_csv/ca_tes.csv")
+
+head(ca_tes, 1)
+```
+
+## An Observation
+
+> Observational Unit: object by which data is collected and analyzed
+
+-   Person
+
+-   County
+
+-   State
+
+-   Country
+
+-   *What is the observational unit in the `ca_tes` data set?*
+
+## 
+
+```{r}
+ca_tes[1, ]
+```
+
+-   The GEOID or Census block Group describes a particular community or neighborhood in a given area contains between 600 - 3,000 people [^2]
+
+[^2]: American Forests Methods and Data Glossary
+
+## What are the Variables?
+
+-   `treecanopy`: Actual tree coverage in an area
+-   `tc_goal`: Ideal tree coverage based on needs
+-   `tc_gap`: How far behind the area is (tc_goal - treecanopy)
+-   `pctpocnorm`: % residents who are people of color
+-   `pctpovnorm`, `unemplnorm`: Indicators of equity
+-   `lingnorm`: % of non-english households (linguistic isolation)
+-   `tes`: Tree Equity Score (gap × need)
+
+## What do we want to know
+
+-   **Its not always easy to start analyzing such a large data set. Thats why it is important to ask SMART questions**
+-   **S**pecific: Clear, detailed, and not too broad
+-   **M**easureable: Can be answered using the available data
+-   **A**pplicable: Tied to real-world meaningful contexts
+-   **R**easoned: Based on logic or a thoughtful assumption
+-   **T**estable: Can be analyzed to reveal patterns or relationships
+
+## SMART vs. Not-so-SMART Questions
+
+**Don't ask:**
+
+-   Is "given neighborhood" affected?
+-   Does tree coverage matter?
+
+. . . 
+
+**Instead ask:**
+
+-   *How does tree coverage relate to income in LA neighborhoods?*
+-   *Is the tree coverage gap higher in areas with high unemployment?*
+
+## 
+
+<div style="text-align: center;">
+
+<h1>Going From Question to Answer</h1>
+
+## Data Wrangling
+
+Before we can answer our questions, we need to **prepare** the data.
+
+. . . 
+
+**Data wrangling includes:**
+
+-   Cleaning messy or incomplete data
+-   Selecting the most relevant information
+-   Reshaping data into a usable form
+-   Creating new variables that help us analyze
+
+. . . 
+
+Think of it like *organizing your workspace before starting a project*.
+
+## Mathlink Cubes
+
+![](../Mathlink/dataset.jpg)
+
+## `filter()`: Keep Certain Rows
+
+`filter()` lets us select only the rows that meet specific conditions.
+
+```{r}
+#| echo: true
+#| eval: false
+
+filter(red == "triangle")
+```
+
+. . . 
+
+![](../Mathlink/filter.jpg)
+
+## `select()`: Keep Certain Columns
+
+`select()` lets us keep only the variables (columns) we care about.
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+select(red, green)
+```
+
+. . . 
+
+![](../Mathlink/select.jpg)
+
+## `mutate()`: Add a New Insightful Column
+
+`mutate()` lets us create a new column (variable) by transforming existing ones.
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Triangle = yes, Square = no
+mutate(is_hexagon = (blue == "hexagon"))
+```
+
+. . . 
+
+![](../Mathlink/mutate.jpg)
+
+## `arrange()`: Ordering our data
+
+`arrange()` Sort rows by the values of a variable (ascending or descending).
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Hexagon → Square → Triangle → Pentagon.
+arrange(purple)
+```
+
+. . . 
+
+![](../Mathlink/arrange.jpg)
+
+## `group_by()` and `summarise()`: Summariing by Category
+
+`group_by()` lets us group the data by a specific variable.
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1|2"
+
+group_by(yellow)|> 
+summarize(count = n())
+```
+
+. . . 
+
+![](../Mathlink/group_by.jpg)
+
+## Now you Try
+
+## 
+
+> Show only neighborhoods with low tree equity scores (`tes` \< 50)
+
+-   Hint: `filter()`
+
+. . .
+
+
+```{r}
+#| echo: true
+
+library(tidyverse)
+ca_tes|>
+  filter(tes < 50)
+```
+
+## 
+
+> Focus on `treecanopy`, `tes`, and `unemplnorm` (keep these columns)
+
+-   Hint: `select()`
+
+. . .
+
+
+```{r}
+#| echo: true
+
+ca_tes |>
+  select(treecanopy, tes, unemplnorm)
+```
+
+## 
+
+> What percent of the tree coverage goal has been met?
+
+-   Hint: `mutate()`
+
+. . .
+
+
+```{r}
+#| echo: true
+
+ca_tes |>
+  mutate(pct_coverage_met = treecanopy / tc_goal * 100)
+```
+
+## 
+
+> Compute the average `tes` score by place
+
+-   Hint: `group_by()` and `summarise()`
+
+. . . 
+
+
+```{r}
+#| echo: true
+
+ca_tes |>
+  group_by(place) |>
+  summarize(avg_tes = mean(tes, na.rm = TRUE))
+```
+
+## Which neighborhoods have the greatest tree equity need?
+
+. . . 
+
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|2|3|4"
+ca_tes |>
+  select(GEOID, place, tes)|>
+  arrange(tes)|>
+  slice_head(n = 5)
+```
+
+## How does tree equity relate to both poverty and health disparity?
+
+- create variable `combined_index` that connects `pctpovnorm` and `health_nor`
+- cut data set down to desired variables (`place`, `combined_index`, and `tes`)
+- organize data to see which places have highest combined index
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2|3|4|5"
+
+ca_tes|>
+  filter(!is.na(pctpovnorm), !is.na(health_nor))|>
+  mutate(combined_index = pctpov * health_nor)|>
+  select(place, combined_index, tes)|>
+  arrange(desc(combined_index))
+
+```
+
+## 
+
+<div style="text-align: center;">
+
+<h1>Visualizing the Data</h1>
+
+## What and Why
+
+-   Data visualization is the process of transforming raw data into visual formats, like **charts**, **graphs**, or **maps**, to make it easier to understand and interpret
+
+-   Communicate Results **Clearly** and **Effectively**
+
+-   Supports evidence-based decisions in fields like:
+
+    -   Public health
+    -   Climate research
+    -   Urban planning
+    -   Business & marketing
+
+## What is ggplot2?
+
+-   ggplot2 is an R package for data visualization.
+-   Encoded functions for numerous different plot types
+-   Builds plots in layers using +
+
+## Basic Structure of a ggplot
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "2|3|4|5"
+
+# General structure
+data|>
+  ggplot(aes(x = ..., y = ...)) +
+  geom_function() +
+  labs("label for you plot and axes")
+      
+```
+
+## Common `geom()` functions
+
+-   geom_point(): scatterplots (x vs y)
+-   geom_bar(): bar charts (categorical data)
+-   geom_col(): bar chart with height from y var
+-   geom_histogram(): distribution of numeric variable
+-   geom_line(): trends over continuous x-axis
+
+## Which plot should I use?
+
+::: {.small}
+
+| Variable Type   | Plot Type    | `geom()`?    | When to Use   |
+|-----------------|----------------|----------------|-----------|
+| Categorical             | Bar Chart    | `geom_bar()`       | Count frequency of categories      |
+| Continuous              | Histogram    | `geom_histogram()` | Show distribution of one variables |
+| Continuous + Continuous | Scatter Plot | `geom_point()`     | Explore relationships between vars |
+| Continuous + Time       | Line Chart   | `geom_line()`      | Show change over time              |
+| Category + Value        | Column Chart | `geom_col()`       | Compare totals across categories   |
+
+:::
+
+## Types of Variables
+
+-   insert graphic on variable types
+
+## Tree Equity vs. Poverty
+
+> Is there a relationship between poverty and tree equity?
+
+. . . 
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|3|4|5|6"
+
+ca_tes|>
+  ggplot(aes(x = pctpov, y = tes)) +
+  geom_point(color = "green") + 
+  labs(title = "Tree Equity vs. Poverty",
+       x = "Percent in Poverty",
+       y = "Tree Equity Score")
+```
+
+## Distribution of Tree Equity Scores
+
+> How many places have each Tree equity score? 
+
+. . . 
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2|3|4|5|6"
+
+ca_tes|>
+  ggplot(aes(x = tes)) +
+  geom_histogram(bins = 15, fill = "red") +
+  labs(title = "Distribution of Tree Equity Scores",
+       x = "Tree Equity Score",
+       y = "Number of Places")
+
+```
+
+## Tree Equity vs. Linguistic Isolation
+
+> Is there a relationship between linnguistic isolation(`lingnorm`) and `tes` in an area. 
+
+  - Use ggplot to plot the relationship between `tes` and `lingnorm`
+  - Choose the **best** plot for the variable types
+  - Create fitting labels for your axes and plot title
+
+##
+
+```{r}
+#| echo: true
+#| eval: true
+#| #| code-line-numbers: "1|2|3|4|5|6"
+
+ca_tes|>
+  ggplot(aes(x = lingnorm, y = tes)) +
+  geom_point(color = "turquoise") + 
+  labs(title = "Tree Equity vs. Linguistiv Isolation",
+       x = "Percent in Linguistic Isolation",
+       y = "Tree Equity Score")
+```
+
+##
+
+<div style="text-align: center;">  
+
+<h1>"Explore, Analyze, Present!"</h1>
+
+
+## Its Your Turn 
+
+> You will work in small groups to investigate tree equity in a new state(s) 
+
+-   **Each Group Will: **   
+  -   Choose a research question(s)    
+  -   Use tidyverse tools to explore the data     
+  -   Create plot(s) with ggplot2     
+  -   Present findings to the class 
+
+## Your Goals  
+
+-   Clearly state your research question  
+-   Support it with r code and graphs  
+-   Use the data to identify a trend, pattern, or disparity  
+-   Communicate **WHY** it matters 
+
+## Examples Questions
+
+-   How does tree canopy vary across different neighborhoods in *chosen state*?  
+-   Is there a relationship between percent in poverty and tree equity score in *chosen state*? 
+-   How do tree equity trends compare between two or more *chosen states*?  
+-   Are places with lower tree equity also more likely to have higher health disparities in *chosen state*?  
+
+## Getting the Data 
+
+**Navigate to treeequityscore.org:**
+
+-   in drop down menu on top left, click "methods and data" tab 
+-   choose the "data download" page and you should see something like this: 
+
+
+. . .  
+
+![](../images/statesdata.png){ width=500px}
+
+##
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Example code to load your state data
+
+library(readr)
+you_data_name <- read_csv("path_to_your_data.csv")
+```

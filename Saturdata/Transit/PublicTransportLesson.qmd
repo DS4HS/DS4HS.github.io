@@ -1,0 +1,255 @@
+---
+title: "CA Public Transportation"
+author: "Paityn Richardson"
+format:
+  revealjs:
+    theme: simple
+    transition: fade
+    incremental: true
+    scrollable: true
+execute:
+  warning: false
+  message: false
+---
+
+```{r}
+#: include: false
+options(pillar.width = 70)
+```
+
+## Public Transportation in Urbn Planning
+
+**Public Transit is a Key factor in shaping how a city/society functions **
+
+  - Reduces Traffic Congestion and Pollution (sustainability)
+  - Increases access to Jobs, Education, Healthcare, etc.
+  - Impacts Housing affordability and community equity
+
+. . . 
+
+### Useful Analyses include:
+
+- Trends in ridership over time
+- Efficiency: Cost per rider or mile
+- Equity: *Who uses transit?* *Where is/isn't transit accessible?*
+
+
+. . .
+
+
+> *What types of variables should we look for in a dataset/sets to conduct these useful analyses?*
+
+
+## Dataset: National Transit Database (NTD)
+
+- Data is filtered from US data -> CA specific Data
+
+
+```{r}
+#| echo: false
+#| eval: true
+library(readr)
+library(tidyverse)
+
+ca_transit <- read_csv("ca_transit.csv")
+head(ca_transit, 1)
+```
+
+. . . 
+
+**Discuss:**
+
+- *What are the variables? *
+- *What kinds of questions can we ask?*
+
+## Wrangling for Summary
+
+> Goal: Compare Agencies Ridership over time
+
+. . .
+
+```{r}
+#| echo: true
+#| eval: true 
+#| code-line-numbers: 1|2|3|4
+
+summary <- ca_transit|>
+  group_by(Agency, Year)|>
+  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = "drop")|>
+  arrange(desc(tot_pass))
+
+```
+
+. . . 
+
+*What does `summary` look like?*
+
+
+## Visualizing with ggplot2
+
+> Let's look at the agencies with the top 5 `tot_pass`
+
+. . . 
+
+```{r}
+#| echo: true
+#| code-line-numbers: 1|2|3|4|6|7|8|9|10|11|12
+
+top5 <- summary|>
+  filter(Year == 2023)|>
+  slice_max(tot_pass, n = 10)|>
+  pull(Agency)
+
+summary |>
+  filter(Agency %in% top5) |>
+  ggplot(aes(x = Year, y = tot_pass, color = Agency)) +
+  geom_line(linewidth = .6) +
+  labs(title = "Transit Ridership Over Time (Top 5 Agencies)",
+       y = "Persons",
+       x = "Year")
+```
+
+## Your Turn
+
+**Work With a partner/group to:**
+
+  - Filter data for specific Agency -> "Pomona Valley Transit Authority"
+  - Create line plot of `tot_pass` over time
+
+  
+. . .
+
+```{r}
+#| eval: true
+#| echo: true
+
+summary |> 
+  filter(Agency == "Pomona Valley Transportation Authority") |>
+  ggplot(aes(x = Year, y = tot_pass)) +
+  geom_line(linewidth = 0.6) +
+  labs(
+    title = "Pomona Valley Transportation Authority Ridership Over Time",
+    y = "Riders/(pop.)",
+    x = "Year"
+  )
+```
+
+
+## New Dataset: California Transit Stops
+
+- Each **row** is a public transit stop in California.
+
+. . . 
+
+```{r}
+#| echo: false
+#| eval: true
+#| include: false
+library(sf)
+stop_data <- st_read("output_shapefile/CA_Transit_Stops.shp")
+```
+
+```{r}
+#| echo: false
+head(stop_data, 5) |> select(-district_n) |> as_tibble() |> print(width = Inf)
+```
+
+## Variables
+
+**Similar to previous dataset:**
+ 
+  - Agency
+
+. . . 
+
+**New:**
+
+  - stop_name/id
+  - routetype
+  - **geomotry?**
+  
+. . .
+
+This dataset is stored as a **shapefile**.
+
+## What Is a Shapefile?
+
+A **shapefile** is a special type of dataset used to:
+
+- Store geographic information
+- Plot points, lines, or areas on a map
+- Perform spatial joins and analysis
+
+```{r}
+#| eval: true
+#| echo: true
+#| include: false
+
+geomotry <- stop_data|>
+  select(GEOID, geometry)
+
+head(geomotry, 5)
+```
+
+## What Can this Data Tell Us?
+
+**On its own, this data shows:** 
+
+  - Where stops are located
+  - How many stops an agency operates
+  - How often stop is used/How many routes serve a stop
+
+. . . 
+
+
+**What the data doesn't show is:**
+
+  - Who lives near a certain stop
+  - What the area is like demographically
+  - Whether transit access is equitable
+  
+## Adding Context
+
+. . . 
+
+> A common data wrangling practice used to connect variable that share a common identifier is called **joining**
+
+- We can use functions like `right_join()` or `left_join()` to connect our `stop_data` to a data set with socioeconomic identifiers. 
+
+## Mathlinks Lesson on Joining
+
+
+## Adding Context
+
+```{r}
+#| echo: false
+#| eval: true
+
+library(readr)
+census_data <- read_csv("acs_clean_data.csv")
+```
+
+- Each stop in our `stop_data` is connected to a `GEOID`
+- In our census data, each `GEOID` has information on the areas demographics and socioeconomic indicators
+
+. . . 
+
+> This means we can joing these 2 datasets on the variable `GEOID` !
+
+. . . 
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(tidyverse)
+library(sf)
+
+
+joined_data <- stop_data |> 
+  left_join(st_drop_geometry(census_data), by = "GEOID")
+
+```
+
+

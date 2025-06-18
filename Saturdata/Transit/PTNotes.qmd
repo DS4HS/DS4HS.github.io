@@ -1,0 +1,110 @@
+---
+format:
+  html:
+    toc: true
+    number-sections: true
+    css: custom_theme.css
+  pdf:
+    documentclass: article
+    toc: true
+    number-sections: true
+    include-in-header: texstuff.tex
+execute: 
+  warning: false
+  message: false
+---
+
+## Cleaning Initial Dataset
+
+- Initial Dataset from US Department of Transportation titled *"Monthly Modal Time Series"*
+- Filtered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that's easier for students to explore and model. 
+
+```{r}
+library(readr)
+library(tidyverse)
+library(stringr)
+pt_data <- read.csv("NTD_TimeSeries.csv")
+
+pt_data1 <- pt_data|>
+  filter(str_detect(Primary.UZA.Name, "CA$"))
+
+write_csv(pt_data1, "ca_transit.csv")
+```
+
+## Dataset: National Transit Database (NTD)
+
+**Discuss:** The goal here is to get students to understand that the NTD dataset itself desnot caontain enough information for the insighful analysis we are looking for. 
+
+## Cleaning Distribution Materials 
+
+**creating shapefile folder that joins public transit data with CA census tracts.**
+```{r}
+#| echo: true
+#| eval: false
+
+library(sf)
+library(tigris)
+library(tidyverse)
+
+# Original sf at California Open Data Portal titled "California Transit Stops"
+cts_sf <- st_read("cts_sf")
+
+# pulling geography from Tigris and transforming to uniform CRS (NAD83)
+ca_tracts <- tracts(state = "CA", year = 2024, class = "sf")
+stops_sf <- st_transform(cts_sf, crs = st_crs(ca_tracts))
+
+# Joining where stop is within tract
+stops_with_tract <- st_join(stops_sf, ca_tracts, join = st_within)
+
+clean_sf <- stops_with_tract|>
+  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)
+
+# Creates sf folder in working directory
+dir.create("output_shapefile")
+st_write(clean_sf, "output_shapefile/CA_Transit_Stops.shp", delete_layer = TRUE)
+```
+
+**Retrieving census data from tidycensus package**
+```{r}
+#| echo: true
+#| eval: false
+
+# Pulling relevant variables
+vars <- c(median_income = "B19013_001",
+          num_pov = "B17001_002",
+          avg_commute = "DP03_0025",
+          no_vehicle = "B08201_002",
+          white = "B02001_002",
+          black = "B02001_003",
+          asian = "B02001_005",
+          hispanic_latino = "B03003_003",
+          transit_users = "B08301_010",
+          tot_workers = "B08301_001",
+          total_pop = "B02001_001"
+          )
+
+# Retrieve unique API here "https://api.census.gov/data/key_signup.html"
+library(tidycensus)
+
+census_data <- get_acs(
+  geography = "tract",
+  variables = vars,
+  state = "CA",
+  year = 2023, # Most recent acs5 survey
+  survey = "acs5",
+  geometry = FALSE)
+
+# Cleaning and Transforming Data
+census_data1 <- census_data |>
+  select(GEOID, variable, estimate)|>
+  pivot_wider(names_from = variable, values_from = estimate) |>
+  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|>
+  mutate(pctpov = (num_pov / total_pop) * 100)|>
+  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|>
+  mutate(pct_transit_users = 100 * (transit_users / total_pop))|>
+  mutate(GEOID = as.character(GEOID))|>
+  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)
+
+write_csv(census_data1, "acs_clean_data.csv")
+```
+

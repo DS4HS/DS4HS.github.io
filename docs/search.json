@@ -1,506 +1,492 @@
 [
   {
-    "objectID": "Saturdata/TreeProject.html#instructions-for-students-delete-this-slide-before-submitting",
-    "href": "Saturdata/TreeProject.html#instructions-for-students-delete-this-slide-before-submitting",
-    "title": "Tree Equity Student Presentation",
-    "section": "Instructions for Students (️ Delete This Slide Before Submitting)",
-    "text": "Instructions for Students (️ Delete This Slide Before Submitting)\n\nThis is your template for presenting your mini research project.\nYour final presentation should have 4 slides:\n\nResearch Question + Dataset\nData Wrangling Code\nPlot + ggplot Code\nKey Insights\n\n\nOnce you’ve completed the slides, delete this instruction slide before rendering."
-  },
-  {
-    "objectID": "Saturdata/TreeProject.html#slide-1-your-dataset-research-question",
-    "href": "Saturdata/TreeProject.html#slide-1-your-dataset-research-question",
-    "title": "Tree Equity Student Presentation",
-    "section": "Slide 1: Your Dataset & Research Question",
-    "text": "Slide 1: Your Dataset & Research Question\nDataset Chosen:\n&gt; e.g., Tree Equity data from Alabama, Arizona, etc.\nResearch Question:\n&gt; Write the question you’re investigating using this dataset."
-  },
-  {
-    "objectID": "Saturdata/TreeProject.html#slide-2-data-wrangling",
-    "href": "Saturdata/TreeProject.html#slide-2-data-wrangling",
-    "title": "Tree Equity Student Presentation",
-    "section": "Slide 2: Data Wrangling",
-    "text": "Slide 2: Data Wrangling\nUse tidyverse functions like filter(), mutate(), select(), group_by(), summarise(), etc. Show all the code that’s you used to clean or transform the data for your plot."
-  },
-  {
-    "objectID": "Saturdata/TreeProject.html#slide-3-plot",
-    "href": "Saturdata/TreeProject.html#slide-3-plot",
-    "title": "Tree Equity Student Presentation",
-    "section": "Slide 3: Plot",
-    "text": "Slide 3: Plot\nUse ggplot2 to visualize your findings. Include code and plot"
-  },
-  {
-    "objectID": "Saturdata/TreeProject.html#slide-4-key-takeaways",
-    "href": "Saturdata/TreeProject.html#slide-4-key-takeaways",
-    "title": "Tree Equity Student Presentation",
-    "section": "Slide 4: Key Takeaways",
-    "text": "Slide 4: Key Takeaways\nWhat did you learn from your analysis? Only render the answer to questions and not the questions themselves.\n\nWhat patterns or disparities did you observe?\nWhat conclusions can you draw from your plot?\nWhy do these findings matter?"
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html",
-    "href": "Saturdata/TLNotes.html",
-    "title": "Tree Equity Instructor Guide",
-    "section": "",
-    "text": "Download PDF Worksheet"
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html#what-is-data-science-and-why-urban-planning",
-    "href": "Saturdata/TLNotes.html#what-is-data-science-and-why-urban-planning",
-    "title": "Tree Equity Instructor Guide",
-    "section": "1 What is Data Science and Why Urban Planning",
-    "text": "1 What is Data Science and Why Urban Planning\n\n\nKey Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html#tree-coverage-as-a-social-issue",
-    "href": "Saturdata/TLNotes.html#tree-coverage-as-a-social-issue",
-    "title": "Tree Equity Instructor Guide",
-    "section": "2 Tree Coverage as a Social Issue",
-    "text": "2 Tree Coverage as a Social Issue\n\nRemember This concept might be difficult for students to grasp. “How does the amount of trees in my neighborhood affect me?”\nAsk Students, “What does a tree do? What is its purpose” Answers might be “Provides Shade” or “Creates Oxygen” These are already good markers to highlight disparity but informing students of trees other functions and how their presence in a community or the lack thereof can make a large difference in the well-being of its members will help make their studies feel relevant and impactful."
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html#understanding-the-tree-equity-score",
-    "href": "Saturdata/TLNotes.html#understanding-the-tree-equity-score",
-    "title": "Tree Equity Instructor Guide",
-    "section": "3 Understanding the Tree Equity Score",
-    "text": "3 Understanding the Tree Equity Score\nHere you can find the methodology behind American Forests Tree Equity Research.\n\nThe Tree Equity Score represents the Need for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees."
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html#foundational-learning",
-    "href": "Saturdata/TLNotes.html#foundational-learning",
-    "title": "Tree Equity Instructor Guide",
-    "section": "4 Foundational Learning",
-    "text": "4 Foundational Learning\nDS4HS places a priority on shifting the narrative on data scienc and its accessibility. One of the main goals of this curriculum is to make content as tangible as possible for those with experience in data or statistical analysis. This section introduces key concepts in data science and we want to make sure these concepts are grasped as thoroughly as possible.\n\nObservation vs. Observational Unit: Be explicit—each row is one observation, and the observational unit is the “thing” each row represents (e.g., a tree, a bus stop, a city block).In this example the “GEOID” represents one city block group\nAsk: “What is one row describing?” Have students answer in plain language.\nVariable Types: Clarify the difference between categorical and numerical variables. Use color/highlight in your slides or board to mark a few examples from the dataset. Students often confuse column headers for variable values. Reinforce that variables are columns, values are entries in rows.\nIf possible, have students follow along in R to observe the data set. This can help them get used to the variable names and what a typical value looks like for a given variable."
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html#mathlink-cubes",
-    "href": "Saturdata/TLNotes.html#mathlink-cubes",
-    "title": "Tree Equity Instructor Guide",
-    "section": "5 Mathlink Cubes",
-    "text": "5 Mathlink Cubes\nIn every lesson, there is some for of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning (McGowan 2025). Using Mathlink Cubes to Introduce Data Wrangling1 helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example.\n\nThe images below show the process of connecting the Mathlink cubes inta a data-like structure that can be purposfulley taken apart and reconstructed by students.\nFirst, connect one column vertically.\n Next, connect one row horizontally, anchored to the first cube in your columnn.\n Each subsequent row should then be connected horizontally and connected to a cube in the column:\n Finally, reconstruct your first column vertically and you should be left with something like this:"
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html#teaching-tidyverse-and-ggplot",
-    "href": "Saturdata/TLNotes.html#teaching-tidyverse-and-ggplot",
-    "title": "Tree Equity Instructor Guide",
-    "section": "6 Teaching tidyverse and ggplot",
-    "text": "6 Teaching tidyverse and ggplot\n\n6.1 Core Goals\n\nStudents experience transforming a dataset using tidyverse data verbs\nThey start asking questions of the data: Who’s impacted? Where? What relationships exist?\nStudents see visualization as a tool for insight, not just graphics.\n\n\n\n6.2 Pedagogical Tips and Emphases\n1. Emphasize the “verbs” as actions\n\nAnchor each function to a mental model:\n\nfilter() = “cut out rows you don’t need”\nselect() = “keep only the columns you care about”\nmutate() = “make new columns using calucaltions with exsisting ones”\ngroupby() = “Sort data into baskets by value”\nsummarize() = “Pull out the big-picture”\n\n\n2. Highlight data types when visualizing\n\nCategorical → bar/column\nContinuous → histogram, scatter\nTime-based → line plot\nEncourage asking: “What kind of variable is this? What would help me see patterns?”\n\n3. Don’t skip reading outputs\n\nStop after each code chunk and ask: “What changed? What does this output tell us?”\nIt’s easy for students to focus on syntax and miss what the data is really saying.\n\n4. Ask real-world connection questions\n\n“What trend do you notice?”, “What might explain that relationship?”, “What other variable might influence both?”\nEncourage students to answer these questions in normal and confortable language rather than expecting a more refined “data-sciency” answer. This will help bridge the gap between their common sense and trained data analysis"
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html#student-exploration-final-project",
-    "href": "Saturdata/TLNotes.html#student-exploration-final-project",
-    "title": "Tree Equity Instructor Guide",
-    "section": "7 Student Exploration + Final Project",
-    "text": "7 Student Exploration + Final Project\nThis capstone activity gives students the chance to apply everything they’ve learned from the lesson. It should feel open-ended and empowering, encouraging curiosity and creative problem-solving.\nThis is also the moment where data becomes personal and meaningful: students choose their question, their variables, and their visualization. The instructor’s role shifts from direct teaching to coaching, guiding students to sharpen questions, troubleshoot code, and draw clear, grounded conclusions.\n\n7.1 Group Work Guidance\nStudents should work in groups of 2–4, ideally with access to a shared device\nEncourage them to:\n\nSettle on a single state or comparison they find interesting.\nWrite out a clear, answerable question (this may take several revisions).\n\nStudents will use R to generate at least one graph and one statistical summary.\nInstructors or mentors should:\n\nCirculate and offer help with debugging.\nAsk clarifying questions to refine vague research questions.\n“What are you trying to compare? What variable would show that?”\n\n\n\n7.2 Managing Student Presentations\nEach group should give a short (~3–4 min) presentation of: - Their question - What data they used - Their plot(s) and the trends they suggest - A brief interpretation: “What does this mean?” and “Why does it matter?”\nWhile students present:\n\nHighlight clarity of visualizations, originality of questions, or insightful interpretations.\nCelebrate one strong point from each group to model good data science communication:\n\n“What I loved about this presentation was how clear the graph labels were — it helped us understand the pattern immediately.”"
-  },
-  {
-    "objectID": "Saturdata/TLNotes.html#footnotes",
-    "href": "Saturdata/TLNotes.html#footnotes",
-    "title": "Tree Equity Instructor Guide",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nD’Agostino McGowan, L. (2025). Using Mathlink Cubes to Introduce Data Wrangling with Examples in R. Journal of Statistics and Data Science Education, 1–10. https://doi.org/10.1080/26939169.2025.2485234↩︎"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#the-big-idea-why-urban-planning",
-    "href": "Saturdata/TreeLesson.html#the-big-idea-why-urban-planning",
-    "title": "Tree Equity Lesson",
-    "section": "🌐 The Big Idea: Why Urban Planning",
-    "text": "🌐 The Big Idea: Why Urban Planning\n\nUrban planning IS data science in action."
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section",
-    "href": "Saturdata/TreeLesson.html#section",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "HOW??"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#what-is-data-science",
-    "href": "Saturdata/TreeLesson.html#what-is-data-science",
-    "title": "Tree Equity Lesson",
-    "section": "What is Data Science??",
-    "text": "What is Data Science??\n\nFrom IBM US: Data science is the practice of “uncovering actionable insights hidden in data. These insights can be used to guide decision making and strategic planning.”\n🎓 Schools study attendance and grade trends to identify students who may need extra support before they fall behind.\n🏥 Hospitals use patient records and trends to predict who’s at risk for certain illnesses — helping doctors intervene earlier."
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#data-science-cycle---urban-planning-cycle",
-    "href": "Saturdata/TreeLesson.html#data-science-cycle---urban-planning-cycle",
-    "title": "Tree Equity Lesson",
-    "section": "Data Science Cycle -> Urban Planning Cycle",
-    "text": "Data Science Cycle -&gt; Urban Planning Cycle"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#introduction-tree-equity-and-city-planning",
-    "href": "Saturdata/TreeLesson.html#introduction-tree-equity-and-city-planning",
-    "title": "Tree Equity Lesson",
-    "section": "🌳 Introduction: Tree Equity and City Planning",
-    "text": "🌳 Introduction: Tree Equity and City Planning\n\nTree Planting is a direct action of City Planning Initiatives\nWhy do some neighborhoods have less trees than others? How are these Neighborhoods affected? What can we do?"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#american-forests-tree-equity-score",
-    "href": "Saturdata/TreeLesson.html#american-forests-tree-equity-score",
-    "title": "Tree Equity Lesson",
-    "section": "American Forests: Tree Equity Score",
-    "text": "American Forests: Tree Equity Score\n\n\nTree Canopy Coverage…\n\nImproves Air Quality and Stabalizes Enviromental Hazzards\nIntercepts Rainfall and prevents Stormwater Runnoff\nReduces Heat extremity improving peoples physical and mental health"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#todays-goals",
-    "href": "Saturdata/TreeLesson.html#todays-goals",
-    "title": "Tree Equity Lesson",
-    "section": "Todays Goals",
-    "text": "Todays Goals\n\nLearn to use R for data analysis and communication\nUnderstand what makes a dataset meaningful\nAsk important questions about data and the observed world\nExplore how data can inform just and sustainable practices"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#a-look-at-the-data",
-    "href": "Saturdata/TreeLesson.html#a-look-at-the-data",
-    "title": "Tree Equity Lesson",
-    "section": "A Look at the data",
-    "text": "A Look at the data\nCalifornia Tree Coverage Data 1\n\n\n# A tibble: 1 × 39\n  GEOID        place state state_abbr county ua_name ua_pop congressio\n  &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n1 060014001001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;,\n#   health_nor &lt;dbl&gt;, temp_diff &lt;dbl&gt;, temp_norm &lt;dbl&gt;, tes &lt;dbl&gt;, …\n\n\n“Tree Equity Score. 2023. American Forests.”"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#an-observation",
-    "href": "Saturdata/TreeLesson.html#an-observation",
-    "title": "Tree Equity Lesson",
-    "section": "An Observation",
-    "text": "An Observation\n\nObservational Unit: object by which data is collected and analyzed\n\n\nPerson\nCounty\nState\nCountry\nWhat is the observational unit in the ca_tes data set?"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-1",
-    "href": "Saturdata/TreeLesson.html#section-1",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "# A tibble: 1 × 39\n  GEOID        place state state_abbr county ua_name ua_pop congressio\n  &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n1 060014001001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;,\n#   health_nor &lt;dbl&gt;, temp_diff &lt;dbl&gt;, temp_norm &lt;dbl&gt;, tes &lt;dbl&gt;, …\n\n\n\nThe GEOID or Census block Group describes a particular community or neighborhood in a given area contains between 600 - 3,000 people 1\n\nAmerican Forests Methods and Data Glossary"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#what-are-the-variables",
-    "href": "Saturdata/TreeLesson.html#what-are-the-variables",
-    "title": "Tree Equity Lesson",
-    "section": "What are the Variables?",
-    "text": "What are the Variables?\n\ntreecanopy: Actual tree coverage in an area\ntc_goal: Ideal tree coverage based on needs\ntc_gap: How far behind the area is (tc_goal - treecanopy)\npctpocnorm: % residents who are people of color\npctpovnorm, unemplnorm: Indicators of equity\nlingnorm: % of non-english households (linguistic isolation)\ntes: Tree Equity Score (gap × need)"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#what-do-we-want-to-know",
-    "href": "Saturdata/TreeLesson.html#what-do-we-want-to-know",
-    "title": "Tree Equity Lesson",
-    "section": "What do we want to know",
-    "text": "What do we want to know\n\nIts not always easy to start analyzing such a large data set. Thats why it is important to ask SMART questions\nSpecific: Clear, detailed, and not too broad\nMeasureable: Can be answered using the available data\nApplicable: Tied to real-world meaningful contexts\nReasoned: Based on logic or a thoughtful assumption\nTestable: Can be analyzed to reveal patterns or relationships"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#smart-vs.-not-so-smart-questions",
-    "href": "Saturdata/TreeLesson.html#smart-vs.-not-so-smart-questions",
-    "title": "Tree Equity Lesson",
-    "section": "SMART vs. Not-so-SMART Questions",
-    "text": "SMART vs. Not-so-SMART Questions\nDon’t ask:\n\nIs “given neighborhood” affected?\nDoes tree coverage matter?\n\nInstead ask:\n\nHow does tree coverage relate to income in LA neighborhoods?\nIs the tree coverage gap higher in areas with high unemployment?"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-2",
-    "href": "Saturdata/TreeLesson.html#section-2",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "Going From Question to Answer"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#data-wrangling",
-    "href": "Saturdata/TreeLesson.html#data-wrangling",
-    "title": "Tree Equity Lesson",
-    "section": "Data Wrangling",
-    "text": "Data Wrangling\nBefore we can answer our questions, we need to prepare the data.\nData wrangling includes:\n\nCleaning messy or incomplete data\nSelecting the most relevant information\nReshaping data into a usable form\nCreating new variables that help us analyze\n\n🧹 Think of it like organizing your workspace before starting a project."
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#mathlink-cubes",
-    "href": "Saturdata/TreeLesson.html#mathlink-cubes",
-    "title": "Tree Equity Lesson",
-    "section": "Mathlink Cubes",
-    "text": "Mathlink Cubes"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#filter-keep-certain-rows",
-    "href": "Saturdata/TreeLesson.html#filter-keep-certain-rows",
-    "title": "Tree Equity Lesson",
-    "section": "filter(): Keep Certain Rows",
-    "text": "filter(): Keep Certain Rows\nfilter() lets us select only the rows that meet specific conditions.\n\nfilter(red == \"triangle\")"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#select-keep-certain-columns",
-    "href": "Saturdata/TreeLesson.html#select-keep-certain-columns",
-    "title": "Tree Equity Lesson",
-    "section": "select(): Keep Certain Columns",
-    "text": "select(): Keep Certain Columns\nselect() lets us keep only the variables (columns) we care about.\n\nselect(red, green)"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#mutate-add-a-new-insightful-column",
-    "href": "Saturdata/TreeLesson.html#mutate-add-a-new-insightful-column",
-    "title": "Tree Equity Lesson",
-    "section": "mutate(): Add a New Insightful Column",
-    "text": "mutate(): Add a New Insightful Column\nmutate() lets us create a new column (variable) by transforming existing ones.\n\n# Triangle = yes, Square = no\nmutate(is_hexagon = (blue == \"hexagon\"))"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#arrange-ordering-our-data",
-    "href": "Saturdata/TreeLesson.html#arrange-ordering-our-data",
-    "title": "Tree Equity Lesson",
-    "section": "arrange(): Ordering our data",
-    "text": "arrange(): Ordering our data\narrange() Sort rows by the values of a variable (ascending or descending).\n\n# Hexagon → Square → Triangle → Pentagon.\narrange(purple)"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#group_by-and-summarise-summariing-by-category",
-    "href": "Saturdata/TreeLesson.html#group_by-and-summarise-summariing-by-category",
-    "title": "Tree Equity Lesson",
-    "section": "group_by() and summarise(): Summariing by Category",
-    "text": "group_by() and summarise(): Summariing by Category\ngroup_by() lets us group the data by a specific variable.\n\ngroup_by(yellow)|&gt; \nsummarize(count = n())"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#now-you-try",
-    "href": "Saturdata/TreeLesson.html#now-you-try",
-    "title": "Tree Equity Lesson",
-    "section": "Now you Try",
-    "text": "Now you Try"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-3",
-    "href": "Saturdata/TreeLesson.html#section-3",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "Show only neighborhoods with low tree equity scores (tes &lt; 50)\n\n\nHint: filter()\n\n\n\nlibrary(tidyverse)\nca_tes|&gt;\n  filter(tes &lt; 50)\n\n# A tibble: 578 × 39\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600145010… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 2 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 3 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 4 0600145120… Live… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 5 0600700370… Orov… Cali… CA         Butte… Orovil…  40190 CA Congre…\n 6 0601330400… Byron Cali… CA         Contr… Discov…  15939 CA Congre…\n 7 0601330400… Disc… Cali… CA         Contr… Discov…  15939 CA Congre…\n 8 0601330720… Anti… Cali… CA         Contr… Antioc… 327378 CA Congre…\n 9 0601331000… Pitt… Cali… CA         Contr… Antioc… 327378 CA Congre…\n10 0601500010… Cres… Cali… CA         Del N… Cresce…  15620 CA Congre…\n# ℹ 568 more rows\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-4",
-    "href": "Saturdata/TreeLesson.html#section-4",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "Focus on treecanopy, tes, and unemplnorm (keep these columns)\n\n\nHint: select()\n\n\n\nca_tes |&gt;\n  select(treecanopy, tes, unemplnorm)\n\n# A tibble: 24,253 × 3\n   treecanopy   tes unemplnorm\n        &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n 1      0.598   100     0.0450\n 2      0.458   100     0.100 \n 3      0.282    98     0.0756\n 4      0.309   100     0.188 \n 5      0.22     94     0.0502\n 6      0.208    96     0.0867\n 7      0.191    90     0.0565\n 8      0.195    96     0.0676\n 9      0.323   100     0     \n10      0.258    96     0.0226\n# ℹ 24,243 more rows"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-5",
-    "href": "Saturdata/TreeLesson.html#section-5",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "What percent of the tree coverage goal has been met?\n\n\nHint: mutate()\n\n\n\nca_tes |&gt;\n  mutate(pct_coverage_met = treecanopy / tc_goal * 100)\n\n# A tibble: 24,253 × 40\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600140010… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 2 0600140010… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 3 0600140020… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 4 0600140020… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 5 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 6 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 7 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 8 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 9 0600140040… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n10 0600140040… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 24,243 more rows\n# ℹ 32 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-6",
-    "href": "Saturdata/TreeLesson.html#section-6",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "Compute the average tes score by place\n\n\nHint: group_by() and summarise()\n\n\n\nca_tes |&gt;\n  group_by(place) |&gt;\n  summarize(avg_tes = mean(tes, na.rm = TRUE))\n\n# A tibble: 874 × 2\n   place        avg_tes\n   &lt;chr&gt;          &lt;dbl&gt;\n 1 Adelanto        54.6\n 2 Agoura Hills    81.9\n 3 Airport         43  \n 4 Alameda         87.5\n 5 Alamo           99.2\n 6 Albany          90.2\n 7 Alhambra        73.0\n 8 Aliso Viejo     85.7\n 9 Alondra Park    65.7\n10 Alpine          74.1\n# ℹ 864 more rows"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#which-neighborhoods-have-the-greatest-tree-equity-need",
-    "href": "Saturdata/TreeLesson.html#which-neighborhoods-have-the-greatest-tree-equity-need",
-    "title": "Tree Equity Lesson",
-    "section": "Which neighborhoods have the greatest tree equity need?",
-    "text": "Which neighborhoods have the greatest tree equity need?\n\n\nca_tes |&gt;\n  select(GEOID, place, tes)|&gt;\n  arrange(tes)|&gt;\n  slice_head(n = 5)\n\n# A tibble: 5 × 3\n  GEOID        place           tes\n  &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt;\n1 060310013001 Corcoran         13\n2 060650462002 Blythe           16\n3 060470003053 Livingston       17\n4 060290058042 Rosamond         18\n5 060150001012 Crescent City    19"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity",
-    "href": "Saturdata/TreeLesson.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity",
-    "title": "Tree Equity Lesson",
-    "section": "How does tree equity relate to both poverty and health disparity?",
-    "text": "How does tree equity relate to both poverty and health disparity?\n\ncreate variable combined_index that connects pctpovnorm and health_nor\ncut data set down to desired variables (place, combined_index, and tes)\norganize data to see which places have highest combined index\n\n\n\nca_tes|&gt;\n  filter(!is.na(pctpovnorm), !is.na(health_nor))|&gt;\n  mutate(combined_index = pctpov * health_nor)|&gt;\n  select(place, combined_index, tes)|&gt;\n  arrange(desc(combined_index))\n\n# A tibble: 24,253 × 3\n   place      combined_index   tes\n   &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;\n 1 Napa                1        69\n 2 Chowchilla          0.997    61\n 3 Hanford             0.920    26\n 4 Wasco               0.908    37\n 5 Shafter             0.903    58\n 6 Arvin               0.899    24\n 7 Delano              0.899    30\n 8 Shafter             0.876    44\n 9 Brawley             0.875    50\n10 Rosamond            0.875    18\n# ℹ 24,243 more rows"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#section-7",
-    "href": "Saturdata/TreeLesson.html#section-7",
-    "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "Visualizing the Data"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#what-and-why",
-    "href": "Saturdata/TreeLesson.html#what-and-why",
-    "title": "Tree Equity Lesson",
-    "section": "What and Why",
-    "text": "What and Why\n\nData visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret\nCommunicate Results Clearly and Effectively\nSupports evidence-based decisions in fields like:\n\nPublic health\nClimate research\nUrban planning\nBusiness & marketing"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#what-is-ggplot2",
-    "href": "Saturdata/TreeLesson.html#what-is-ggplot2",
-    "title": "Tree Equity Lesson",
-    "section": "What is ggplot2?",
-    "text": "What is ggplot2?\n\nggplot2 is an R package for data visualization.\nIt uses a grammar of graphics — building plots in layers.\nWe always start with ggplot(data) and add layers with +."
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#basic-structure-of-a-ggplot",
-    "href": "Saturdata/TreeLesson.html#basic-structure-of-a-ggplot",
-    "title": "Tree Equity Lesson",
-    "section": "Basic Structure of a ggplot",
-    "text": "Basic Structure of a ggplot\n\n# General structure\ndata|&gt;\n  ggplot(aes(x = ..., y = ...)) +\n  geom_function() +\n  labs(\"label for you plot and axes\")"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#common-geom-functions",
-    "href": "Saturdata/TreeLesson.html#common-geom-functions",
-    "title": "Tree Equity Lesson",
-    "section": "Common geom() functions",
-    "text": "Common geom() functions\n\ngeom_point(): scatterplots (x vs y)\ngeom_bar(): bar charts (categorical data)\ngeom_col(): bar chart with height from y var\ngeom_histogram(): distribution of numeric variable\ngeom_line(): trends over continuous x-axis"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#which-plot-should-i-use",
-    "href": "Saturdata/TreeLesson.html#which-plot-should-i-use",
-    "title": "Tree Equity Lesson",
-    "section": "Which plot should I use?",
-    "text": "Which plot should I use?\n\n\n\n\n\n\n\n\n\n\nVariable Type\nPlot Type\ngeom()?\nWhen to Use\n\n\n\n\nCategorical\nBar Chart\ngeom_bar()\nCount frequency of categories\n\n\nContinuous\nHistogram\ngeom_histogram()\nShow distribution of one variables\n\n\nContinuous + Continuous\nScatter Plot\ngeom_point()\nExplore relationships between vars\n\n\nContinuous + Time\nLine Chart\ngeom_line()\nShow change over time\n\n\nCategory + Value\nColumn Chart\ngeom_col()\nCompare totals across categories"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#types-of-variables",
-    "href": "Saturdata/TreeLesson.html#types-of-variables",
-    "title": "Tree Equity Lesson",
-    "section": "Types of Variables",
-    "text": "Types of Variables\n\ninsert graphic on variable types"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#tree-equity-vs.-poverty",
-    "href": "Saturdata/TreeLesson.html#tree-equity-vs.-poverty",
-    "title": "Tree Equity Lesson",
-    "section": "Tree Equity vs. Poverty",
-    "text": "Tree Equity vs. Poverty\n\nIs there a relationship between poverty and tree equity?\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = pctpov, y = tes)) +\n  geom_point(color = \"green\") + \n  labs(title = \"Tree Equity vs. Poverty\",\n       x = \"Percent in Poverty\",\n       y = \"Tree Equity Score\")"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#distribution-of-tree-equity-scores",
-    "href": "Saturdata/TreeLesson.html#distribution-of-tree-equity-scores",
-    "title": "Tree Equity Lesson",
-    "section": "Distribution of Tree Equity Scores",
-    "text": "Distribution of Tree Equity Scores\n\nHow many places hac each Tree equity score?\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = tes)) +\n  geom_histogram(bins = 15, fill = \"red\") +\n  labs(title = \"Distribution of Tree Equity Scores\",\n       x = \"Tree Equity Score\",\n       y = \"Number of Places\")"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
-    "href": "Saturdata/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
-    "title": "Tree Equity Lesson",
-    "section": "Tree Equity vs. Linguistic Isolation",
-    "text": "Tree Equity vs. Linguistic Isolation\n\nIs there a relationship between linnguistic isolation(lingnorm) and tesin an area.\n\n\nUse ggplot to plot the relationship between tes and lingnorm\nChoose the best plot for the variable types\nCreate fitting labels for your axes and plot title\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = lingnorm, y = tes)) +\n  geom_point(color = \"turquoise\") + \n  labs(title = \"Tree Equity vs. Linguistiv Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#getting-the-data",
-    "href": "Saturdata/TreeLesson.html#getting-the-data",
-    "title": "Tree Equity Lesson",
-    "section": "Getting the Data",
-    "text": "Getting the Data\n\n# Example code to load your state data\n\nlibrary(readr)\nyou_data_name &lt;- read_csv(\"path_to_your_data.csv\")"
-  },
-  {
-    "objectID": "Saturdata/PublicTransportLesson.html#public-transportation-in-urbn-planning",
-    "href": "Saturdata/PublicTransportLesson.html#public-transportation-in-urbn-planning",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning",
     "title": "CA Public Transportation",
     "section": "Public Transportation in Urbn Planning",
-    "text": "Public Transportation in Urbn Planning\nPublic Transit is a Key factor in shaping how a city/society functions\n\nReduces Traffic Congestion and Pollution (sustainability)\nIncreases access to Jobs, Education, Healthcare, etc.\nImpacts Housing affordability and community equity\n\nUseful Analyses include:\n\nTrends in ridership over time\nEfficiency: Cost per rider or mile\nEquity: Who uses transit? Where is/isn’t transit accessible?\n\n. . .\n\nWhat types of variables should we look for in a dataset/sets to conduct these useful analyses?"
+    "text": "Public Transportation in Urbn Planning\nPublic Transit is a Key factor in shaping how a city/society functions \n\nReduces Traffic Congestion and Pollution (sustainability)\nIncreases access to Jobs, Education, Healthcare, etc.\nImpacts Housing affordability and community equity\n\n\nUseful Analyses include:\n\nTrends in ridership over time\nEfficiency: Cost per rider or mile\nEquity: Who uses transit? Where is/isn’t transit accessible?\n\n. . .\n\nWhat types of variables should we look for in a dataset/sets to conduct these useful analyses?"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#dataset-national-transit-database-ntd",
-    "href": "Saturdata/PublicTransportLesson.html#dataset-national-transit-database-ntd",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#dataset-national-transit-database-ntd",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#dataset-national-transit-database-ntd",
     "title": "CA Public Transportation",
     "section": "Dataset: National Transit Database (NTD)",
-    "text": "Dataset: National Transit Database (NTD)\n\nData is filtered from US data -&gt; CA specific Data\n\n\n\nlibrary(readr)\nlibrary(tidyverse)\n\nca_transit &lt;- read_csv(\"ca_transit.csv\")\nhead(ca_transit, 1)\n\n# A tibble: 1 × 75\n  NTD.ID Agency        Organization.Type Mode  Type.of.Service Rail..True.False.\n   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt;           &lt;lgl&gt;            \n1  90044 City of Arca… County or Local … DR    PT              FALSE            \n# ℹ 69 more variables: Primary.UZA.UACE.Code &lt;dbl&gt;, Primary.UZA.Name &lt;chr&gt;,\n#   Primary.UZA.Sq.Miles &lt;dbl&gt;, Primary.UZA.Population &lt;dbl&gt;,\n#   Service.Area.Sq.Miles &lt;dbl&gt;, Service.Area.Population &lt;dbl&gt;, Year &lt;dbl&gt;,\n#   Month &lt;chr&gt;, Month_Year..timestamp. &lt;dbl&gt;, VOMS &lt;dbl&gt;,\n#   Vehicle.Revenue.Miles &lt;dbl&gt;, Vehicle.Revenue.Hours &lt;dbl&gt;,\n#   Unlinked.Passenger.Trips &lt;dbl&gt;, Collisions.with.Motor.Vehicle &lt;dbl&gt;,\n#   Collisions.with.Person &lt;dbl&gt;, Collisions.with.Fixed.Object &lt;dbl&gt;, …\n\n\nDiscuss: - What are the variables?  -What kinds of questions can we ask?"
+    "text": "Dataset: National Transit Database (NTD)\n\nData is filtered from US data -&gt; CA specific Data\n\n\n\n# A tibble: 1 × 75\n  NTD.ID Agency          Organization.Type       Mode  Type.of.Service\n   &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;                   &lt;chr&gt; &lt;chr&gt;          \n1  90044 City of Arcadia County or Local Govern… DR    PT             \n# ℹ 70 more variables: Rail..True.False. &lt;lgl&gt;,\n#   Primary.UZA.UACE.Code &lt;dbl&gt;, Primary.UZA.Name &lt;chr&gt;,\n#   Primary.UZA.Sq.Miles &lt;dbl&gt;, Primary.UZA.Population &lt;dbl&gt;,\n#   Service.Area.Sq.Miles &lt;dbl&gt;, Service.Area.Population &lt;dbl&gt;,\n#   Year &lt;dbl&gt;, Month &lt;chr&gt;, Month_Year..timestamp. &lt;dbl&gt;,\n#   VOMS &lt;dbl&gt;, Vehicle.Revenue.Miles &lt;dbl&gt;,\n#   Vehicle.Revenue.Hours &lt;dbl&gt;, Unlinked.Passenger.Trips &lt;dbl&gt;, …\n\n\n\nDiscuss:\n\nWhat are the variables? \nWhat kinds of questions can we ask?"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#wrangling-for-summary",
-    "href": "Saturdata/PublicTransportLesson.html#wrangling-for-summary",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#wrangling-for-summary",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#wrangling-for-summary",
     "title": "CA Public Transportation",
     "section": "Wrangling for Summary",
-    "text": "Wrangling for Summary\n\nGoal: Compare Agencies Ridership over time\n\n\n\nsummary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = \"drop\")|&gt;\n  arrange(desc(tot_pass))\n\n\n\n\nWhat might be problematic about this summary?"
+    "text": "Wrangling for Summary\n\nGoal: Compare Agencies Ridership over time\n\n\n\nsummary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = \"drop\")|&gt;\n  arrange(desc(tot_pass))\n\n\n\nWhat does summary look like?"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#wrangling-for-summary-1",
-    "href": "Saturdata/PublicTransportLesson.html#wrangling-for-summary-1",
-    "title": "CA Public Transportation",
-    "section": "Wrangling for Summary",
-    "text": "Wrangling for Summary\nTotal ridership alone doesn’t account for how many people live in the area. Let’s consider tot_pass using Primary_UZA_Population:\n\n\nrev_summary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips),\n            pop = first(Primary.UZA.Population),\n            riders_per_person = round(tot_pass / pop),\n            .groups = \"drop\")\nrev_summary\n\n# A tibble: 974 × 5\n   Agency           Year tot_pass      pop riders_per_person\n   &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;             &lt;dbl&gt;\n 1 Access Services  2014  3910498 12237376                 0\n 2 Access Services  2015  4200314 12237376                 0\n 3 Access Services  2016  4326614 12237376                 0\n 4 Access Services  2017  4354702 12237376                 0\n 5 Access Services  2018  4407041 12237376                 0\n 6 Access Services  2019  4586125 12237376                 0\n 7 Access Services  2020  2291445 12237376                 0\n 8 Access Services  2021  2567076 12237376                 0\n 9 Access Services  2022  3189810 12237376                 0\n10 Access Services  2023  3902800 12237376                 0\n# ℹ 964 more rows\n\n\n\n\nThis gives a better sense of how heavily transit is used relative to population size."
-  },
-  {
-    "objectID": "Saturdata/PublicTransportLesson.html#visualizing-with-ggplot2",
-    "href": "Saturdata/PublicTransportLesson.html#visualizing-with-ggplot2",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#visualizing-with-ggplot2",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#visualizing-with-ggplot2",
     "title": "CA Public Transportation",
     "section": "Visualizing with ggplot2",
-    "text": "Visualizing with ggplot2\n\nLet’s look at the agencies with the top 5 riders_per_person\n\n\ntop5 &lt;- rev_summary|&gt;\n  filter(Year == 2023)|&gt;\n  slice_max(riders_per_person, n = 10)|&gt;\n  pull(Agency)\n\nrev_summary |&gt;\n  filter(Agency %in% top5) |&gt;\n  ggplot(aes(x = Year, y = riders_per_person, color = Agency)) +\n  geom_line(linewidth = .6) +\n  labs(title = \"Transit Ridership Over Time (Top 5 Agencies)\",\n       y = \"Riders/(pop.)\",\n       x = \"Year\")"
+    "text": "Visualizing with ggplot2\n\nLet’s look at the agencies with the top 5 tot_pass\n\n\n\ntop5 &lt;- summary|&gt;\n  filter(Year == 2023)|&gt;\n  slice_max(tot_pass, n = 10)|&gt;\n  pull(Agency)\n\nsummary |&gt;\n  filter(Agency %in% top5) |&gt;\n  ggplot(aes(x = Year, y = tot_pass, color = Agency)) +\n  geom_line(linewidth = .6) +\n  labs(title = \"Transit Ridership Over Time (Top 5 Agencies)\",\n       y = \"Persons\",\n       x = \"Year\")"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#your-turn",
-    "href": "Saturdata/PublicTransportLesson.html#your-turn",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#your-turn",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#your-turn",
     "title": "CA Public Transportation",
     "section": "Your Turn",
-    "text": "Your Turn\nWork With a partner/group to: - Filter dataset for 1 agency - Create a line graph of ridership over time - Analyze patterns in your plot? What may have caused certain trends you see?"
+    "text": "Your Turn\nWork With a partner/group to:\n\nFilter data for specific Agency -&gt; “Pomona Valley Transit Authority”\nCreate line plot of tot_pass over time\n\n\n\nsummary |&gt; \n  filter(Agency == \"Pomona Valley Transportation Authority\") |&gt;\n  ggplot(aes(x = Year, y = tot_pass)) +\n  geom_line(linewidth = 0.6) +\n  labs(\n    title = \"Pomona Valley Transportation Authority Ridership Over Time\",\n    y = \"Riders/(pop.)\",\n    x = \"Year\"\n  )"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#new-dataset-california-transit-stops",
-    "href": "Saturdata/PublicTransportLesson.html#new-dataset-california-transit-stops",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#new-dataset-california-transit-stops",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#new-dataset-california-transit-stops",
     "title": "CA Public Transportation",
     "section": "New Dataset: California Transit Stops",
-    "text": "New Dataset: California Transit Stops\n\nEach row is a public transit stop in California.\n\n\n\n\nReading layer `CA_Transit_Stops' from data source \n  `/Users/paityn_leigh/DS4HS/Saturdata/output_shapefile/CA_Transit_Stops.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 132779 features and 10 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -124.4976 ymin: 24.55257 xmax: -68.81178 ymax: 53.58837\nGeodetic CRS:  NAD83\n\n\nSimple feature collection with 1 feature and 10 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -118.1252 ymin: 33.89693 xmax: -118.1252 ymax: 33.89693\nGeodetic CRS:  NAD83\n              agency stop_id                       stop_name routetypes\n1 City of Bellflower 2623823 Bellflower Blvd & Somerset Blvd          3\n  n_arrivals n_hours_in                 district_n COUNTYFP TRACTCE       GEOID\n1         10         10 07 - Los Angeles / Ventura      037  554101 06037554101\n                    geometry\n1 POINT (-118.1252 33.89693)"
+    "text": "New Dataset: California Transit Stops\n\nEach row is a public transit stop in California.\n\n\n\n\n# A tibble: 5 × 10\n  agency             stop_id stop_name                             routetypes\n  &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;     \n1 City of Bellflower 2623823 Bellflower Blvd & Somerset Blvd       3         \n2 City of Bellflower 2623825 Bellflower Blvd and Rosencrans Ave    3         \n3 City of Bellflower 2623826 Bellflower Blvd-St. Johns High School 3         \n4 City of Bellflower 2623827 Woodruff Ave & Foster Rd              3         \n5 City of Bellflower 2623828 Woodruff Ave & Arthurdale St          3         \n  n_arrivals n_hours_in COUNTYFP TRACTCE GEOID                   geometry\n       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;                &lt;POINT [°]&gt;\n1         10         10 037      554101  06037554101 (-118.1252 33.89693)\n2          0          0 037      554106  06037554106 (-118.1252 33.90181)\n3          0          0 037      553201  06037553201 (-118.1252 33.90624)\n4         10         10 037      553202  06037553202  (-118.1168 33.9095)\n5          0          0 037      553202  06037553202 (-118.1168 33.90573)"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#variables",
-    "href": "Saturdata/PublicTransportLesson.html#variables",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#variables",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#variables",
     "title": "CA Public Transportation",
     "section": "Variables",
-    "text": "Variables\nSimilar to previous dataset: - Agency New: - stop_name/id - routetype - geomotry?\n\nThis dataset is stored as a shapefile."
+    "text": "Variables\nSimilar to previous dataset:\n\nAgency\n\n\nNew:\n\nstop_name/id\nroutetype\ngeomotry?\n\n\n\nThis dataset is stored as a shapefile."
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#what-is-a-shapefile",
-    "href": "Saturdata/PublicTransportLesson.html#what-is-a-shapefile",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#what-is-a-shapefile",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#what-is-a-shapefile",
     "title": "CA Public Transportation",
     "section": "What Is a Shapefile?",
-    "text": "What Is a Shapefile?\nA shapefile is a special type of dataset used to: - Store geographic information - Plot points, lines, or areas on a map - Perform spatial joins and analysis\nWe’ll use the sf package to read and work with shapefiles."
+    "text": "What Is a Shapefile?\nA shapefile is a special type of dataset used to:\n\nStore geographic information\nPlot points, lines, or areas on a map\nPerform spatial joins and analysis"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#what-can-this-data-tell-us",
-    "href": "Saturdata/PublicTransportLesson.html#what-can-this-data-tell-us",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#what-can-this-data-tell-us",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#what-can-this-data-tell-us",
     "title": "CA Public Transportation",
     "section": "What Can this Data Tell Us?",
-    "text": "What Can this Data Tell Us?\nOn its own, this data shows: - Where stops are located - How many stops an agency operates - How often stop is used/How many routes serve a stop\nWhat the data doesn’t show is: - Who lives near a certain stop - What the area is like demographically - Whether transit access is equitable"
+    "text": "What Can this Data Tell Us?\nOn its own, this data shows:\n\nWhere stops are located\nHow many stops an agency operates\nHow often stop is used/How many routes serve a stop\n\n\nWhat the data doesn’t show is:\n\nWho lives near a certain stop\nWhat the area is like demographically\nWhether transit access is equitable"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#adding-context",
-    "href": "Saturdata/PublicTransportLesson.html#adding-context",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#adding-context",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#adding-context",
     "title": "CA Public Transportation",
     "section": "Adding Context",
     "text": "Adding Context\n\n\nA common data wrangling practice used to connect variable that share a common identifier is called joining\n\n\nWe can use functions like right_join() or left_join() to connect our stop_data to a data set with socioeconomic identifiers."
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#mathlinks-lesson-on-joining",
-    "href": "Saturdata/PublicTransportLesson.html#mathlinks-lesson-on-joining",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#mathlinks-lesson-on-joining",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#mathlinks-lesson-on-joining",
     "title": "CA Public Transportation",
     "section": "Mathlinks Lesson on Joining",
     "text": "Mathlinks Lesson on Joining"
   },
   {
-    "objectID": "Saturdata/PublicTransportLesson.html#adding-context-1",
-    "href": "Saturdata/PublicTransportLesson.html#adding-context-1",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#adding-context-1",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#adding-context-1",
     "title": "CA Public Transportation",
     "section": "Adding Context",
-    "text": "Adding Context\n\nEach stop in our stop_data is connected to a GEOID\nIn our census data, each GEOID has information on the areas demographics and socioeconomic indicators\n\n\nlibrary(tidyverse)\n\n\njoined_data &lt;- stop_data |&gt;\n  left_join(census_data, by = \"GEOID\")"
+    "text": "Adding Context\n\nEach stop in our stop_data is connected to a GEOID\nIn our census data, each GEOID has information on the areas demographics and socioeconomic indicators\n\n\n\nThis means we can joing these 2 datasets on the variable GEOID !\n\n\n\n\nlibrary(tidyverse)\nlibrary(sf)\n\n\njoined_data &lt;- stop_data |&gt; \n  left_join(st_drop_geometry(census_data), by = \"GEOID\")"
   },
   {
-    "objectID": "Saturdata/PTNotes.html",
-    "href": "Saturdata/PTNotes.html",
+    "objectID": "Saturdata/Transit/PTNotes.html",
+    "href": "Saturdata/Transit/PTNotes.html",
     "title": "DS4HS",
     "section": "",
     "text": "Initial Dataset from US Department of Transportation titled “Monthly Modal Time Series”\nFiltered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that’s easier for students to explore and model.\n\n\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(stringr)\npt_data &lt;- read.csv(\"NTD_TimeSeries.csv\")\n\npt_data1 &lt;- pt_data|&gt;\n  filter(str_detect(Primary.UZA.Name, \"CA$\"))\n\nwrite_csv(pt_data1, \"ca_transit.csv\")"
   },
   {
-    "objectID": "Saturdata/PTNotes.html#cleaning-initial-dataset",
-    "href": "Saturdata/PTNotes.html#cleaning-initial-dataset",
+    "objectID": "Saturdata/Transit/PTNotes.html#cleaning-initial-dataset",
+    "href": "Saturdata/Transit/PTNotes.html#cleaning-initial-dataset",
     "title": "DS4HS",
     "section": "",
     "text": "Initial Dataset from US Department of Transportation titled “Monthly Modal Time Series”\nFiltered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that’s easier for students to explore and model.\n\n\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(stringr)\npt_data &lt;- read.csv(\"NTD_TimeSeries.csv\")\n\npt_data1 &lt;- pt_data|&gt;\n  filter(str_detect(Primary.UZA.Name, \"CA$\"))\n\nwrite_csv(pt_data1, \"ca_transit.csv\")"
   },
   {
-    "objectID": "Saturdata/PTNotes.html#dataset-national-transit-database-ntd",
-    "href": "Saturdata/PTNotes.html#dataset-national-transit-database-ntd",
+    "objectID": "Saturdata/Transit/PTNotes.html#dataset-national-transit-database-ntd",
+    "href": "Saturdata/Transit/PTNotes.html#dataset-national-transit-database-ntd",
     "title": "DS4HS",
     "section": "2 Dataset: National Transit Database (NTD)",
     "text": "2 Dataset: National Transit Database (NTD)\nDiscuss: The goal here is to get students to understand that the NTD dataset itself desnot caontain enough information for the insighful analysis we are looking for."
   },
   {
-    "objectID": "Saturdata/PTNotes.html#cleaning-distribution-materials",
-    "href": "Saturdata/PTNotes.html#cleaning-distribution-materials",
+    "objectID": "Saturdata/Transit/PTNotes.html#cleaning-distribution-materials",
+    "href": "Saturdata/Transit/PTNotes.html#cleaning-distribution-materials",
     "title": "DS4HS",
     "section": "3 Cleaning Distribution Materials",
-    "text": "3 Cleaning Distribution Materials\ncreating shapefile folder that joins public transit data with CA census tracts.\n\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidyverse)\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)\n\nRetrieving census data from tidycensus package\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / tot_pop))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
+    "text": "3 Cleaning Distribution Materials\ncreating shapefile folder that joins public transit data with CA census tracts.\n\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidyverse)\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)\n\nRetrieving census data from tidycensus package\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / total_pop))|&gt;\n  mutate(GEOID = as.character(GEOID))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TLNotes.html",
+    "href": "Saturdata/TES/TLNotes.html",
+    "title": "Tree Equity Instructor Guide",
+    "section": "",
+    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
+  },
+  {
+    "objectID": "Saturdata/TES/TLNotes.html#what-is-data-science-and-why-urban-planning",
+    "href": "Saturdata/TES/TLNotes.html#what-is-data-science-and-why-urban-planning",
+    "title": "Tree Equity Instructor Guide",
+    "section": "",
+    "text": "Key Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
+  },
+  {
+    "objectID": "Saturdata/TES/TLNotes.html#tree-coverage-as-a-social-issue",
+    "href": "Saturdata/TES/TLNotes.html#tree-coverage-as-a-social-issue",
+    "title": "Tree Equity Instructor Guide",
+    "section": "2 Tree Coverage as a Social Issue",
+    "text": "2 Tree Coverage as a Social Issue\n\nRemember This concept might be difficult for students to grasp. “How does the amount of trees in my neighborhood affect me?”\nAsk Students, “What does a tree do? What is its purpose” Answers might be “Provides Shade” or “Creates Oxygen” These are already good markers to highlight disparity but informing students of trees other functions and how their presence in a community or the lack thereof can make a large difference in the well-being of its members will help make their studies feel relevant and impactful."
+  },
+  {
+    "objectID": "Saturdata/TES/TLNotes.html#understanding-the-tree-equity-score",
+    "href": "Saturdata/TES/TLNotes.html#understanding-the-tree-equity-score",
+    "title": "Tree Equity Instructor Guide",
+    "section": "3 Understanding the Tree Equity Score",
+    "text": "3 Understanding the Tree Equity Score\nHere you can find the methodology behind American Forests Tree Equity Research.\n\nThe Tree Equity Score represents the Need for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees."
+  },
+  {
+    "objectID": "Saturdata/TES/TLNotes.html#foundational-learning",
+    "href": "Saturdata/TES/TLNotes.html#foundational-learning",
+    "title": "Tree Equity Instructor Guide",
+    "section": "4 Foundational Learning",
+    "text": "4 Foundational Learning\nDS4HS places a priority on shifting the narrative on data scienc and its accessibility. One of the main goals of this curriculum is to make content as tangible as possible for those with little to no experience in data or statistical analysis. This section introduces key concepts in data science and we want to make sure these concepts are grasped as thoroughly as possible.\n\nObservation vs. Observational Unit: Be explicit—each row is one observation, and the observational unit is the “thing” each row represents (e.g., a tree, a bus stop, a city block). In this example the “GEOID” represents one city block group.\nAsk: “What is one row describing?” Have students answer in plain language.\nVariable Types: Clarify the difference between categorical and numerical variables. Use color/highlight in your slides or board to mark a few examples from the dataset. Students often confuse column headers for variable values. Reinforce that variables are columns, values are entries in rows.\nIf possible, have students follow along in R to observe the data set. This can help them get used to the variable names and what a typical value looks like for a given variable."
+  },
+  {
+    "objectID": "Saturdata/TES/TLNotes.html#mathlink-cubes",
+    "href": "Saturdata/TES/TLNotes.html#mathlink-cubes",
+    "title": "Tree Equity Instructor Guide",
+    "section": "5 Mathlink Cubes",
+    "text": "5 Mathlink Cubes\nIn every lesson, there is some sort of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning (McGowan 2025). Using Mathlink Cubes to Introduce Data Wrangling[^1] helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example.\n\nThe images below show the process of connecting the Mathlink cubes inta a data-like structure that can be purposfulley taken apart and reconstructed by students.\nFirst, connect one column vertically.\n\nNext, connect one row horizontally, anchored to the first cube in your columnn.\n\nEach subsequent row should then be connected horizontally and connected to a cube in the first column:\n\nFinally, reconstruct your first column vertically and you should be left with something like this:"
+  },
+  {
+    "objectID": "Saturdata/TES/TLNotes.html#teaching-tidyverse-and-ggplot",
+    "href": "Saturdata/TES/TLNotes.html#teaching-tidyverse-and-ggplot",
+    "title": "Tree Equity Instructor Guide",
+    "section": "6 Teaching tidyverse and ggplot",
+    "text": "6 Teaching tidyverse and ggplot\nThe worksheet below is intended to follow along with the “Tree Equity Lesson” lecture slides. The goal of an activity like this is to help students commit data wrangling and visualization strategies to memory and think bout the processes critically.\nIn-Class Data Wrangling Practice\n\n6.1 Core Goals\n\nStudents experience transforming a dataset using tidyverse data verbs\nThey start asking questions of the data: Who’s impacted? Where? What relationships exist?\nStudents see visualization as a tool for insight, not just graphics.\n\n\n\n6.2 Pedagogical Tips and Emphases\n1. Emphasize the “verbs” as actions\n\nAnchor each function to a mental model:\n\nfilter() = “cut out rows you don’t need”\nselect() = “keep only the columns you care about”\nmutate() = “make new columns using calucaltions with exsisting ones”\ngroupby() = “Sort data into baskets by value”\nsummarize() = “Pull out the big-picture”\n\n\n2. Highlight data types when visualizing\n\nCategorical → bar/column\nContinuous → histogram, scatter\nTime-based → line plot\nEncourage asking: “What kind of variable is this? What would help me see patterns?”\n\n3. Don’t skip reading outputs\n\nStop after each code chunk and ask: “What changed? What does this output tell us?”\nIt’s easy for students to focus on syntax and miss what the data is really saying.\n\n4. Ask real-world connection questions\n\n“What trend do you notice?”, “What might explain that relationship?”, “What other variable might influence both?”\nEncourage students to answer these questions in normal and confortable language rather than expecting a more refined “data-sciency” answer. This will help bridge the gap between their common sense and trained data analysis"
+  },
+  {
+    "objectID": "Saturdata/TES/TLNotes.html#student-exploration-final-project",
+    "href": "Saturdata/TES/TLNotes.html#student-exploration-final-project",
+    "title": "Tree Equity Instructor Guide",
+    "section": "7 Student Exploration + Final Project",
+    "text": "7 Student Exploration + Final Project\nThis capstone activity gives students the chance to apply everything they’ve learned from the lesson. It should feel open-ended and empowering, encouraging curiosity and creative problem-solving.\nThis is also the moment where data becomes personal and meaningful: students choose their question, their variables, and their visualization. The instructor’s role shifts from direct teaching to coaching, guiding students to sharpen questions, troubleshoot code, and draw clear, grounded conclusions. A presenation template for this project is provided below as a .qmd file.\nDownload Student Quarto Guide \n\n7.1 Group Work Guidance\nStudents should work in groups of 2–4, ideally with access to a shared device\nEncourage them to:\n\nSettle on a single state or comparison they find interesting.\nWrite out a clear, answerable question (this may take several revisions).\n\nStudents will use R studio to generate at least one graph and one statistical summary.\nInstructors or mentors should:\n\nCirculate and offer help with debugging.\nAsk clarifying questions to refine vague research questions.\n“What are you trying to compare? What variable would show that?”\n\n\n\n7.2 Managing Student Presentations\nEach group should give a short (~3–4 min) presentation of:\n\nTheir question/data use\nTheir data wrangling process\nTheir plot(s) and the trends they suggest\nA brief interpretation: “What does this mean?” and “Why does it matter?”\n\nWhile students present:\n\nHighlight clarity of visualizations, originality of questions, or insightful interpretations.\nCelebrate one strong point from each group to model good data science communication. For Example,\n\n“What I loved about this presentation was how clear the graph labels were — it helped us understand the pattern immediately.”"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#the-big-idea-why-urban-planning",
+    "href": "Saturdata/TES/TreeLesson.html#the-big-idea-why-urban-planning",
+    "title": "Tree Equity Lesson",
+    "section": "🌐 The Big Idea: Why Urban Planning",
+    "text": "🌐 The Big Idea: Why Urban Planning\n\nUrban planning IS data science in action."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section",
+    "href": "Saturdata/TES/TreeLesson.html#section",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "HOW??"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#what-is-data-science",
+    "href": "Saturdata/TES/TreeLesson.html#what-is-data-science",
+    "title": "Tree Equity Lesson",
+    "section": "What is Data Science??",
+    "text": "What is Data Science??\n\nFrom IBM US: Data science is the practice of “uncovering actionable insights hidden in data. These insights can be used to guide decision making and strategic planning.”\n🎓 Schools study attendance and grade trends to identify students who may need extra support before they fall behind.\n🏥 Hospitals use patient records and trends to predict who’s at risk for certain illnesses — helping doctors intervene earlier."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#data-science-cycle---urban-planning-cycle",
+    "href": "Saturdata/TES/TreeLesson.html#data-science-cycle---urban-planning-cycle",
+    "title": "Tree Equity Lesson",
+    "section": "Data Science Cycle -> Urban Planning Cycle",
+    "text": "Data Science Cycle -&gt; Urban Planning Cycle"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#introduction-tree-equity-and-city-planning",
+    "href": "Saturdata/TES/TreeLesson.html#introduction-tree-equity-and-city-planning",
+    "title": "Tree Equity Lesson",
+    "section": "🌳 Introduction: Tree Equity and City Planning",
+    "text": "🌳 Introduction: Tree Equity and City Planning\n\nTree Planting is a direct action of City Planning Initiatives\nWhy do some neighborhoods have less trees than others? How are these Neighborhoods affected? What can we do?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#american-forests-tree-equity-score",
+    "href": "Saturdata/TES/TreeLesson.html#american-forests-tree-equity-score",
+    "title": "Tree Equity Lesson",
+    "section": "American Forests: Tree Equity Score",
+    "text": "American Forests: Tree Equity Score\n\n\nTree Canopy Coverage…\n\nImproves Air Quality and Stabalizes Enviromental Hazzards\nIntercepts Rainfall and prevents Stormwater Runnoff\nReduces Heat extremity improving peoples physical and mental health"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#todays-goals",
+    "href": "Saturdata/TES/TreeLesson.html#todays-goals",
+    "title": "Tree Equity Lesson",
+    "section": "Todays Goals",
+    "text": "Todays Goals\n\nLearn to use R for data analysis and communication\nUnderstand what makes a dataset meaningful\nAsk important questions about data and the observed world\nExplore how data can inform just and sustainable practices"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#a-look-at-the-data",
+    "href": "Saturdata/TES/TreeLesson.html#a-look-at-the-data",
+    "title": "Tree Equity Lesson",
+    "section": "A Look at the data",
+    "text": "A Look at the data\nCalifornia Tree Coverage Data 1\n\n\n# A tibble: 1 × 39\n  GEOID        place state state_abbr county ua_name ua_pop congressio\n  &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n1 060014001001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;,\n#   health_nor &lt;dbl&gt;, temp_diff &lt;dbl&gt;, temp_norm &lt;dbl&gt;, tes &lt;dbl&gt;, …\n\n\n“Tree Equity Score. 2023. American Forests.”"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#an-observation",
+    "href": "Saturdata/TES/TreeLesson.html#an-observation",
+    "title": "Tree Equity Lesson",
+    "section": "An Observation",
+    "text": "An Observation\n\nObservational Unit: object by which data is collected and analyzed\n\n\nPerson\nCounty\nState\nCountry\nWhat is the observational unit in the ca_tes data set?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-1",
+    "href": "Saturdata/TES/TreeLesson.html#section-1",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "# A tibble: 1 × 39\n  GEOID        place state state_abbr county ua_name ua_pop congressio\n  &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n1 060014001001 Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;,\n#   health_nor &lt;dbl&gt;, temp_diff &lt;dbl&gt;, temp_norm &lt;dbl&gt;, tes &lt;dbl&gt;, …\n\n\n\nThe GEOID or Census block Group describes a particular community or neighborhood in a given area contains between 600 - 3,000 people 1\n\nAmerican Forests Methods and Data Glossary"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#what-are-the-variables",
+    "href": "Saturdata/TES/TreeLesson.html#what-are-the-variables",
+    "title": "Tree Equity Lesson",
+    "section": "What are the Variables?",
+    "text": "What are the Variables?\n\ntreecanopy: Actual tree coverage in an area\ntc_goal: Ideal tree coverage based on needs\ntc_gap: How far behind the area is (tc_goal - treecanopy)\npctpocnorm: % residents who are people of color\npctpovnorm, unemplnorm: Indicators of equity\nlingnorm: % of non-english households (linguistic isolation)\ntes: Tree Equity Score (gap × need)"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#what-do-we-want-to-know",
+    "href": "Saturdata/TES/TreeLesson.html#what-do-we-want-to-know",
+    "title": "Tree Equity Lesson",
+    "section": "What do we want to know",
+    "text": "What do we want to know\n\nIts not always easy to start analyzing such a large data set. Thats why it is important to ask SMART questions\nSpecific: Clear, detailed, and not too broad\nMeasureable: Can be answered using the available data\nApplicable: Tied to real-world meaningful contexts\nReasoned: Based on logic or a thoughtful assumption\nTestable: Can be analyzed to reveal patterns or relationships"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#smart-vs.-not-so-smart-questions",
+    "href": "Saturdata/TES/TreeLesson.html#smart-vs.-not-so-smart-questions",
+    "title": "Tree Equity Lesson",
+    "section": "SMART vs. Not-so-SMART Questions",
+    "text": "SMART vs. Not-so-SMART Questions\nDon’t ask:\n\nIs “given neighborhood” affected?\nDoes tree coverage matter?\n\n\nInstead ask:\n\nHow does tree coverage relate to income in LA neighborhoods?\nIs the tree coverage gap higher in areas with high unemployment?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-2",
+    "href": "Saturdata/TES/TreeLesson.html#section-2",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "Going From Question to Answer"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#data-wrangling",
+    "href": "Saturdata/TES/TreeLesson.html#data-wrangling",
+    "title": "Tree Equity Lesson",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nBefore we can answer our questions, we need to prepare the data.\n\nData wrangling includes:\n\nCleaning messy or incomplete data\nSelecting the most relevant information\nReshaping data into a usable form\nCreating new variables that help us analyze\n\n\n\nThink of it like organizing your workspace before starting a project."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#mathlink-cubes",
+    "href": "Saturdata/TES/TreeLesson.html#mathlink-cubes",
+    "title": "Tree Equity Lesson",
+    "section": "Mathlink Cubes",
+    "text": "Mathlink Cubes"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#filter-keep-certain-rows",
+    "href": "Saturdata/TES/TreeLesson.html#filter-keep-certain-rows",
+    "title": "Tree Equity Lesson",
+    "section": "filter(): Keep Certain Rows",
+    "text": "filter(): Keep Certain Rows\nfilter() lets us select only the rows that meet specific conditions.\n\nfilter(red == \"triangle\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#select-keep-certain-columns",
+    "href": "Saturdata/TES/TreeLesson.html#select-keep-certain-columns",
+    "title": "Tree Equity Lesson",
+    "section": "select(): Keep Certain Columns",
+    "text": "select(): Keep Certain Columns\nselect() lets us keep only the variables (columns) we care about.\n\nselect(red, green)"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#mutate-add-a-new-insightful-column",
+    "href": "Saturdata/TES/TreeLesson.html#mutate-add-a-new-insightful-column",
+    "title": "Tree Equity Lesson",
+    "section": "mutate(): Add a New Insightful Column",
+    "text": "mutate(): Add a New Insightful Column\nmutate() lets us create a new column (variable) by transforming existing ones.\n\n# Triangle = yes, Square = no\nmutate(is_hexagon = (blue == \"hexagon\"))"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#arrange-ordering-our-data",
+    "href": "Saturdata/TES/TreeLesson.html#arrange-ordering-our-data",
+    "title": "Tree Equity Lesson",
+    "section": "arrange(): Ordering our data",
+    "text": "arrange(): Ordering our data\narrange() Sort rows by the values of a variable (ascending or descending).\n\n# Hexagon → Square → Triangle → Pentagon.\narrange(purple)"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#group_by-and-summarise-summariing-by-category",
+    "href": "Saturdata/TES/TreeLesson.html#group_by-and-summarise-summariing-by-category",
+    "title": "Tree Equity Lesson",
+    "section": "group_by() and summarise(): Summariing by Category",
+    "text": "group_by() and summarise(): Summariing by Category\ngroup_by() lets us group the data by a specific variable.\n\ngroup_by(yellow)|&gt; \nsummarize(count = n())"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#now-you-try",
+    "href": "Saturdata/TES/TreeLesson.html#now-you-try",
+    "title": "Tree Equity Lesson",
+    "section": "Now you Try",
+    "text": "Now you Try"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-3",
+    "href": "Saturdata/TES/TreeLesson.html#section-3",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "Show only neighborhoods with low tree equity scores (tes &lt; 50)\n\n\nHint: filter()\n\n\n\nlibrary(tidyverse)\nca_tes|&gt;\n  filter(tes &lt; 50)\n\n# A tibble: 578 × 39\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600145010… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 2 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 3 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 4 0600145120… Live… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 5 0600700370… Orov… Cali… CA         Butte… Orovil…  40190 CA Congre…\n 6 0601330400… Byron Cali… CA         Contr… Discov…  15939 CA Congre…\n 7 0601330400… Disc… Cali… CA         Contr… Discov…  15939 CA Congre…\n 8 0601330720… Anti… Cali… CA         Contr… Antioc… 327378 CA Congre…\n 9 0601331000… Pitt… Cali… CA         Contr… Antioc… 327378 CA Congre…\n10 0601500010… Cres… Cali… CA         Del N… Cresce…  15620 CA Congre…\n# ℹ 568 more rows\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-4",
+    "href": "Saturdata/TES/TreeLesson.html#section-4",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "Focus on treecanopy, tes, and unemplnorm (keep these columns)\n\n\nHint: select()\n\n\n\nca_tes |&gt;\n  select(treecanopy, tes, unemplnorm)\n\n# A tibble: 24,253 × 3\n   treecanopy   tes unemplnorm\n        &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;\n 1      0.598   100     0.0450\n 2      0.458   100     0.100 \n 3      0.282    98     0.0756\n 4      0.309   100     0.188 \n 5      0.22     94     0.0502\n 6      0.208    96     0.0867\n 7      0.191    90     0.0565\n 8      0.195    96     0.0676\n 9      0.323   100     0     \n10      0.258    96     0.0226\n# ℹ 24,243 more rows"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-5",
+    "href": "Saturdata/TES/TreeLesson.html#section-5",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "What percent of the tree coverage goal has been met?\n\n\nHint: mutate()\n\n\n\nca_tes |&gt;\n  mutate(pct_coverage_met = treecanopy / tc_goal * 100)\n\n# A tibble: 24,253 × 40\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600140010… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 2 0600140010… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 3 0600140020… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 4 0600140020… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 5 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 6 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 7 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 8 0600140030… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n 9 0600140040… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n10 0600140040… Oakl… Cali… CA         Alame… San Fr… 3.52e6 CA Congre…\n# ℹ 24,243 more rows\n# ℹ 32 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-6",
+    "href": "Saturdata/TES/TreeLesson.html#section-6",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "Compute the average tes score by place\n\n\nHint: group_by() and summarise()\n\n\n\nca_tes |&gt;\n  group_by(place) |&gt;\n  summarize(avg_tes = mean(tes, na.rm = TRUE))\n\n# A tibble: 874 × 2\n   place        avg_tes\n   &lt;chr&gt;          &lt;dbl&gt;\n 1 Adelanto        54.6\n 2 Agoura Hills    81.9\n 3 Airport         43  \n 4 Alameda         87.5\n 5 Alamo           99.2\n 6 Albany          90.2\n 7 Alhambra        73.0\n 8 Aliso Viejo     85.7\n 9 Alondra Park    65.7\n10 Alpine          74.1\n# ℹ 864 more rows"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#which-neighborhoods-have-the-greatest-tree-equity-need",
+    "href": "Saturdata/TES/TreeLesson.html#which-neighborhoods-have-the-greatest-tree-equity-need",
+    "title": "Tree Equity Lesson",
+    "section": "Which neighborhoods have the greatest tree equity need?",
+    "text": "Which neighborhoods have the greatest tree equity need?\n\n\nca_tes |&gt;\n  select(GEOID, place, tes)|&gt;\n  arrange(tes)|&gt;\n  slice_head(n = 5)\n\n# A tibble: 5 × 3\n  GEOID        place           tes\n  &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt;\n1 060310013001 Corcoran         13\n2 060650462002 Blythe           16\n3 060470003053 Livingston       17\n4 060290058042 Rosamond         18\n5 060150001012 Crescent City    19"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity",
+    "href": "Saturdata/TES/TreeLesson.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity",
+    "title": "Tree Equity Lesson",
+    "section": "How does tree equity relate to both poverty and health disparity?",
+    "text": "How does tree equity relate to both poverty and health disparity?\n\ncreate variable combined_index that connects pctpovnorm and health_nor\ncut data set down to desired variables (place, combined_index, and tes)\norganize data to see which places have highest combined index\n\n\n\nca_tes|&gt;\n  filter(!is.na(pctpovnorm), !is.na(health_nor))|&gt;\n  mutate(combined_index = pctpov * health_nor)|&gt;\n  select(place, combined_index, tes)|&gt;\n  arrange(desc(combined_index))\n\n# A tibble: 24,253 × 3\n   place      combined_index   tes\n   &lt;chr&gt;               &lt;dbl&gt; &lt;dbl&gt;\n 1 Napa                1        69\n 2 Chowchilla          0.997    61\n 3 Hanford             0.920    26\n 4 Wasco               0.908    37\n 5 Shafter             0.903    58\n 6 Arvin               0.899    24\n 7 Delano              0.899    30\n 8 Shafter             0.876    44\n 9 Brawley             0.875    50\n10 Rosamond            0.875    18\n# ℹ 24,243 more rows"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-7",
+    "href": "Saturdata/TES/TreeLesson.html#section-7",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "Visualizing the Data"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#what-and-why",
+    "href": "Saturdata/TES/TreeLesson.html#what-and-why",
+    "title": "Tree Equity Lesson",
+    "section": "What and Why",
+    "text": "What and Why\n\nData visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret\nCommunicate Results Clearly and Effectively\nSupports evidence-based decisions in fields like:\n\nPublic health\nClimate research\nUrban planning\nBusiness & marketing"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#what-is-ggplot2",
+    "href": "Saturdata/TES/TreeLesson.html#what-is-ggplot2",
+    "title": "Tree Equity Lesson",
+    "section": "What is ggplot2?",
+    "text": "What is ggplot2?\n\nggplot2 is an R package for data visualization.\nEncoded functions for numerous different plot types\nBuilds plots in layers using +"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#basic-structure-of-a-ggplot",
+    "href": "Saturdata/TES/TreeLesson.html#basic-structure-of-a-ggplot",
+    "title": "Tree Equity Lesson",
+    "section": "Basic Structure of a ggplot",
+    "text": "Basic Structure of a ggplot\n\n# General structure\ndata|&gt;\n  ggplot(aes(x = ..., y = ...)) +\n  geom_function() +\n  labs(\"label for you plot and axes\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#common-geom-functions",
+    "href": "Saturdata/TES/TreeLesson.html#common-geom-functions",
+    "title": "Tree Equity Lesson",
+    "section": "Common geom() functions",
+    "text": "Common geom() functions\n\ngeom_point(): scatterplots (x vs y)\ngeom_bar(): bar charts (categorical data)\ngeom_col(): bar chart with height from y var\ngeom_histogram(): distribution of numeric variable\ngeom_line(): trends over continuous x-axis"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#which-plot-should-i-use",
+    "href": "Saturdata/TES/TreeLesson.html#which-plot-should-i-use",
+    "title": "Tree Equity Lesson",
+    "section": "Which plot should I use?",
+    "text": "Which plot should I use?\n\n\n\n\n\n\n\n\n\n\nVariable Type\nPlot Type\ngeom()?\nWhen to Use\n\n\n\n\nCategorical\nBar Chart\ngeom_bar()\nCount frequency of categories\n\n\nContinuous\nHistogram\ngeom_histogram()\nShow distribution of one variables\n\n\nContinuous + Continuous\nScatter Plot\ngeom_point()\nExplore relationships between vars\n\n\nContinuous + Time\nLine Chart\ngeom_line()\nShow change over time\n\n\nCategory + Value\nColumn Chart\ngeom_col()\nCompare totals across categories"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#types-of-variables",
+    "href": "Saturdata/TES/TreeLesson.html#types-of-variables",
+    "title": "Tree Equity Lesson",
+    "section": "Types of Variables",
+    "text": "Types of Variables\n\ninsert graphic on variable types"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-poverty",
+    "href": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-poverty",
+    "title": "Tree Equity Lesson",
+    "section": "Tree Equity vs. Poverty",
+    "text": "Tree Equity vs. Poverty\n\nIs there a relationship between poverty and tree equity?\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = pctpov, y = tes)) +\n  geom_point(color = \"green\") + \n  labs(title = \"Tree Equity vs. Poverty\",\n       x = \"Percent in Poverty\",\n       y = \"Tree Equity Score\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#distribution-of-tree-equity-scores",
+    "href": "Saturdata/TES/TreeLesson.html#distribution-of-tree-equity-scores",
+    "title": "Tree Equity Lesson",
+    "section": "Distribution of Tree Equity Scores",
+    "text": "Distribution of Tree Equity Scores\n\nHow many places have each Tree equity score?\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = tes)) +\n  geom_histogram(bins = 15, fill = \"red\") +\n  labs(title = \"Distribution of Tree Equity Scores\",\n       x = \"Tree Equity Score\",\n       y = \"Number of Places\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
+    "href": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
+    "title": "Tree Equity Lesson",
+    "section": "Tree Equity vs. Linguistic Isolation",
+    "text": "Tree Equity vs. Linguistic Isolation\n\nIs there a relationship between linnguistic isolation(lingnorm) and tes in an area.\n\n\nUse ggplot to plot the relationship between tes and lingnorm\nChoose the best plot for the variable types\nCreate fitting labels for your axes and plot title"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-8",
+    "href": "Saturdata/TES/TreeLesson.html#section-8",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "ca_tes|&gt;\n  ggplot(aes(x = lingnorm, y = tes)) +\n  geom_point(color = \"turquoise\") + \n  labs(title = \"Tree Equity vs. Linguistiv Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-9",
+    "href": "Saturdata/TES/TreeLesson.html#section-9",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "“Explore, Analyze, Present!”"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#its-your-turn",
+    "href": "Saturdata/TES/TreeLesson.html#its-your-turn",
+    "title": "Tree Equity Lesson",
+    "section": "Its Your Turn",
+    "text": "Its Your Turn\n\nYou will work in small groups to investigate tree equity in a new state(s)\n\n\nEach Group Will: \n\nChoose a research question(s)\n\nUse tidyverse tools to explore the data\n\nCreate plot(s) with ggplot2\n\nPresent findings to the class"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#your-goals",
+    "href": "Saturdata/TES/TreeLesson.html#your-goals",
+    "title": "Tree Equity Lesson",
+    "section": "Your Goals",
+    "text": "Your Goals\n\nClearly state your research question\n\nSupport it with r code and graphs\n\nUse the data to identify a trend, pattern, or disparity\n\nCommunicate WHY it matters"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#examples-questions",
+    "href": "Saturdata/TES/TreeLesson.html#examples-questions",
+    "title": "Tree Equity Lesson",
+    "section": "Examples Questions",
+    "text": "Examples Questions\n\nHow does tree canopy vary across different neighborhoods in chosen state?\n\nIs there a relationship between percent in poverty and tree equity score in chosen state?\nHow do tree equity trends compare between two or more chosen states?\n\nAre places with lower tree equity also more likely to have higher health disparities in chosen state?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#getting-the-data",
+    "href": "Saturdata/TES/TreeLesson.html#getting-the-data",
+    "title": "Tree Equity Lesson",
+    "section": "Getting the Data",
+    "text": "Getting the Data\nNavigate to treeequityscore.org:\n\nin drop down menu on top left, click “methods and data” tab\nchoose the “data download” page and you should see something like this:"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#section-10",
+    "href": "Saturdata/TES/TreeLesson.html#section-10",
+    "title": "Tree Equity Lesson",
+    "section": "",
+    "text": "# Example code to load your state data\n\nlibrary(readr)\nyou_data_name &lt;- read_csv(\"path_to_your_data.csv\")"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "DS4HS",
     "section": "",
-    "text": "Welcome to DS4HS: Data Science for High School, a community-centered educational initiative hosted at Pomona College. Our Saturday workshops are designed to introduce high school students to the powerful world of data science. Through hands on activities and interactive coding practice, our aim is to make the field of data science accessible to those of any educational background. Whether you’re exploring data for the first time or deepening existing skills, DS4HS aims to create a collaborative and engaging space for all learners. Our curriculum is open-source and accessible, supporting both student exploration and teacher development."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Welcome to DS4HS: Data Science for High School, a community-centered, educational initiative hosted at Pomona College. Our Saturday workshops are designed to introduce high school students to the powerful world of data science. Through hands on activities and interactive coding practice, our aim is to make the field of data science accessible to those of any educational background. Whether you’re exploring data for the first time or deepening existing skills, DS4HS aims to create a collaborative and engaging space for all learners. Our curriculum is open-source and accessible, supporting both student exploration and teacher development."
   }
 ]
