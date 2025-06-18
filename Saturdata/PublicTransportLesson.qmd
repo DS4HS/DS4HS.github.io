@@ -123,5 +123,106 @@ rev_summary |>
 
 Work With a partner/group to:
   - Filter dataset for 1 agency
-  - Create a linegraph of ridership over time
-  - 
+  - Create a line graph of ridership over time
+  - Analyze patterns in your plot? *What may have caused certain trends you see?*
+  
+. . .
+
+```{r}
+ca_transit |> 
+  filter(Agency == "Pomona Valley Transportation Authority") |>
+  ggplot(aes(x = Year, y = Unlinked.Passenger.Trips)) +
+  geom_line(linewidth = 0.6) +
+  labs(
+    title = "Pomona Valley Transportation Authority Ridership Over Time",
+    y = "Riders/(pop.)",
+    x = "Year"
+  )
+```
+
+
+## New Dataset: California Transit Stops
+
+- Each **row** is a public transit stop in California.
+
+. . . 
+
+```{r}
+#| echo: false
+#| eval: true
+library(sf)
+stop_data <- st_read("output_shapefile/CA_Transit_Stops.shp")
+
+head(stop_data, 1)
+```
+
+## Variables
+
+Similar to previous dataset:
+  - Agency
+New: 
+  - stop_name/id
+  - routetype
+  - geomotry?
+  
+. . .
+
+This dataset is stored as a **shapefile**.
+
+## What Is a Shapefile?
+
+A **shapefile** is a special type of dataset used to:
+- Store geographic information
+- Plot points, lines, or areas on a map
+- Perform spatial joins and analysis
+
+We’ll use the `sf` package to read and work with shapefiles.
+
+## What Can this Data Tell Us?
+
+On its own, this data shows: 
+  - Where stops are located
+  - How many stops an agency operates
+  - How often stop is used/How many routes serve a stop
+
+What the data doesn't show is:
+  - Who lives near a certain stop
+  - What the area is like demographically
+  - Whether transit access is equitable
+  
+## Adding Context
+
+. . . 
+
+> A common data wrangling practice used to connect variable that share a common identifier is called **joining**
+
+- We can use functions like `right_join()` or `left_join()` to connect our `stop_data` to a data set with socioeconomic identifiers. 
+
+## Mathlinks Lesson on Joining
+
+
+## Adding Context
+
+```{r}
+#| echo: false
+#| eval: true
+
+library(readr)
+census_data <- read.csv("acs_clean_data.csv")
+```
+
+- Each stop in our `stop_data` is connected to a `GEOID`
+- In our census data, each `GEOID` has information on the areas demographics and socioeconomic indicators
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(tidyverse)
+
+
+joined_data <- stop_data |>
+  left_join(census_data, by = "GEOID")
+```
+
+

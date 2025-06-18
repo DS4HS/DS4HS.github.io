@@ -432,8 +432,8 @@ HOW??
 <section id="data-science-cycle---urban-planning-cycle" class="slide level2">
 <h2>Data Science Cycle -&gt; Urban Planning Cycle</h2>
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-303977a6b0ed3d2c6f7c" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-303977a6b0ed3d2c6f7c">{"x":{"diagram":"\n  digraph cycle {\n    graph [rankdir=LR]\n    node [shape = ellipse, style=filled, color=lightblue, width=1, height=1, fontsize=12]\n\n    Observe [label=\"Observe a Problem\"]\n    Collect [label=\"Collect Data\"]\n    Analyze [label=\"Analyze & Present\"]\n    Intervene [label=\"Intervene\"]\n    Evaluate [label=\"Evaluate & Repeat\"]\n\n    Observe -> Collect -> Analyze -> Intervene -> Evaluate -> Observe\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-fa7ed00bc50f25c7879c" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-fa7ed00bc50f25c7879c">{"x":{"diagram":"\n  digraph cycle {\n    graph [rankdir=LR]\n    node [shape = ellipse, style=filled, color=lightblue, width=1, height=1, fontsize=12]\n\n    Observe [label=\"Observe a Problem\"]\n    Collect [label=\"Collect Data\"]\n    Analyze [label=\"Analyze & Present\"]\n    Intervene [label=\"Intervene\"]\n    Evaluate [label=\"Evaluate & Repeat\"]\n\n    Observe -> Collect -> Analyze -> Intervene -> Evaluate -> Observe\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </section>
 <section id="introduction-tree-equity-and-city-planning" class="slide level2">
@@ -575,22 +575,26 @@ Going From Question to Answer
 </section>
 <section id="mathlink-cubes" class="slide level2">
 <h2>Mathlink Cubes</h2>
-</section>
+
+<img data-src="Mathlink/dataset.jpg" class="r-stretch"></section>
 <section id="filter-keep-certain-rows" class="slide level2">
 <h2><code>filter()</code>: Keep Certain Rows</h2>
 <p><code>filter()</code> lets us select only the rows that meet specific conditions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">filter</span>(red <span class="sc">==</span> <span class="st">"triangle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="fragment">
+<p><img data-src="Mathlink/filter.jpg"></p>
+</div>
 </section>
 <section id="select-keep-certain-columns" class="slide level2">
 <h2><code>select()</code>: Keep Certain Columns</h2>
 <p><code>select()</code> lets us keep only the variables (columns) we care about.</p>
-<blockquote>
-<p>Example</p>
-</blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">select</span>(red, green)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><img data-src="Mathlink/select.jpg"></p>
 </div>
 </section>
 <section id="mutate-add-a-new-insightful-column" class="slide level2">
@@ -598,15 +602,21 @@ Going From Question to Answer
 <p><code>mutate()</code> lets us create a new column (variable) by transforming existing ones.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Triangle = yes, Square = no</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">mutate</span>(<span class="at">is_circle =</span> (blue <span class="sc">==</span> <span class="st">"circle"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">mutate</span>(<span class="at">is_hexagon =</span> (blue <span class="sc">==</span> <span class="st">"hexagon"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><img data-src="Mathlink/mutate.jpg"></p>
 </div>
 </section>
 <section id="arrange-ordering-our-data" class="slide level2">
 <h2><code>arrange()</code>: Ordering our data</h2>
 <p><code>arrange()</code> Sort rows by the values of a variable (ascending or descending).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Circle → Square → Triangle → Pentagon.</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Hexagon → Square → Triangle → Pentagon.</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">arrange</span>(purple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><img data-src="Mathlink/arrange.jpg"></p>
 </div>
 </section>
 <section id="group_by-and-summarise-summariing-by-category" class="slide level2">
@@ -615,6 +625,9 @@ Going From Question to Answer
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">group_by</span>(yellow)<span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><img data-src="Mathlink/group_by.jpg"></p>
 </div>
 </section>
 <section id="now-you-try" class="slide level2">
@@ -926,6 +939,7 @@ Visualizing the Data
 <blockquote>
 <p>Is there a relationship between poverty and tree equity?</p>
 </blockquote>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>ca_tes<span class="sc">|&gt;</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pctpov, <span class="at">y =</span> tes)) <span class="sc">+</span></span>
@@ -933,77 +947,66 @@ Visualizing the Data
 <span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tree Equity vs. Poverty"</span>,</span>
 <span id="cb21-5"><a href="#cb21-5"></a>       <span class="at">x =</span> <span class="st">"Percent in Poverty"</span>,</span>
 <span id="cb21-6"><a href="#cb21-6"></a>       <span class="at">y =</span> <span class="st">"Tree Equity Score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="cell-output-display">
+<p><img data-src="TreeLesson_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
 </div>
-<img data-src="TreeLesson_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
-<section id="add-more-plots" class="slide level2">
-<h2>Add more plots</h2>
+</div>
+</div>
+</section>
+<section id="distribution-of-tree-equity-scores" class="slide level2">
+<h2>Distribution of Tree Equity Scores</h2>
+<blockquote>
+<p>How many places hac each Tree equity score?</p>
+</blockquote>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>ca_tes<span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tes)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Tree Equity Scores"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5"></a>       <span class="at">x =</span> <span class="st">"Tree Equity Score"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6"></a>       <span class="at">y =</span> <span class="st">"Number of Places"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="TreeLesson_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="tree-equity-vs.-linguistic-isolation" class="slide level2">
+<h2>Tree Equity vs.&nbsp;Linguistic Isolation</h2>
+<blockquote>
+<p>Is there a relationship between linnguistic isolation(<code>lingnorm</code>) and <code>tes</code>in an area.</p>
+</blockquote>
+<ul>
+<li class="fragment">Use ggplot to plot the relationship between <code>tes</code> and <code>lingnorm</code></li>
+<li class="fragment">Choose the best plot for the variable types</li>
+<li class="fragment">Create fitting labels for your axes and plot title</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>ca_tes<span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> lingnorm, <span class="at">y =</span> tes)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"turquoise"</span>) <span class="sc">+</span> </span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tree Equity vs. Linguistiv Isolation"</span>,</span>
+<span id="cb23-5"><a href="#cb23-5"></a>       <span class="at">x =</span> <span class="st">"Percent in Linguistic Isolation"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6"></a>       <span class="at">y =</span> <span class="st">"Tree Equity Score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="TreeLesson_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+</div>
+</div>
+</div>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
-<div style="text-align: center;">
-
-<h1>
-“Explore, Analyze, Present!”
-</h1>
-</div></section>
-<section id="its-your-turn" class="slide level2">
-<h2>Its Your Turn</h2>
-<ul>
-<li class="fragment">Work in small groups to investigate tree equity in a new state(s)</li>
-<li class="fragment">Each Group Will:
-<ul>
-<li class="fragment">Choose a research question(s)</li>
-<li class="fragment">Use tidyverse tools to explore the data</li>
-<li class="fragment">Create plot(s) with ggplot2</li>
-<li class="fragment">Present findings to the class</li>
-</ul></li>
-</ul>
-</section>
-<section id="your-goals" class="slide level2">
-<h2>Your Goals</h2>
-<ul>
-<li class="fragment"><p>Clearly state your research question</p></li>
-<li class="fragment"><p>Support it with r code and graphs</p></li>
-<li class="fragment"><p>Use the data to identify a trend, pattern, or disparity</p></li>
-<li class="fragment"><p>Communicate <strong>WHY</strong> it matters</p></li>
-</ul>
-</section>
-<section id="examples" class="slide level2">
-<h2>Examples</h2>
-<ul>
-<li class="fragment"><p>How does tree canopy vary across different neighborhoods in <em>chosen state</em>?</p></li>
-<li class="fragment"><p>Is there a relationship between percent in poverty and tree equity score in <em>chosen state</em>?</p></li>
-<li class="fragment"><p>How do tree equity trends compare between two or more <em>chosen states</em>?</p></li>
-<li class="fragment"><p>Are places with lower tree equity also more likely to have higher health disparities in <em>chosen state</em>?</p></li>
-</ul>
 </section>
 <section id="getting-the-data" class="slide level2">
 <h2>Getting the Data</h2>
-<div class="small">
-<blockquote>
-<p>Navigate to treeequityscore.org</p>
-</blockquote>
-<ul>
-<li class="fragment">in drop down menu on top left, click “methods and data” tab</li>
-<li class="fragment">choose the “data download” page and you should see something like this:</li>
-</ul>
-</div>
-<div class="fragment">
-<p><img data-src="statesdata.png" width="500"></p>
-</div>
-</section>
-<section id="getting-the-data-1" class="slide level2">
-<h2>Getting the Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Example code to load your state data</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">library</span>(readr)</span>
-<span id="cb22-4"><a href="#cb22-4"></a>you_data_name <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"path_to_your_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Example code to load your state data</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="fu">library</span>(readr)</span>
+<span id="cb24-4"><a href="#cb24-4"></a>you_data_name <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"path_to_your_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="more-to-come" class="slide level2">
-<h2>More to come</h2>
 
 <div class="footer footer-default">
 

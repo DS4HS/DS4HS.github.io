@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "Saturdata/TreeProject.html#instructions-for-students-delete-this-slide-before-submitting",
+    "href": "Saturdata/TreeProject.html#instructions-for-students-delete-this-slide-before-submitting",
+    "title": "Tree Equity Student Presentation",
+    "section": "Instructions for Students (️ Delete This Slide Before Submitting)",
+    "text": "Instructions for Students (️ Delete This Slide Before Submitting)\n\nThis is your template for presenting your mini research project.\nYour final presentation should have 4 slides:\n\nResearch Question + Dataset\nData Wrangling Code\nPlot + ggplot Code\nKey Insights\n\n\nOnce you’ve completed the slides, delete this instruction slide before rendering."
+  },
+  {
+    "objectID": "Saturdata/TreeProject.html#slide-1-your-dataset-research-question",
+    "href": "Saturdata/TreeProject.html#slide-1-your-dataset-research-question",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 1: Your Dataset & Research Question",
+    "text": "Slide 1: Your Dataset & Research Question\nDataset Chosen:\n&gt; e.g., Tree Equity data from Alabama, Arizona, etc.\nResearch Question:\n&gt; Write the question you’re investigating using this dataset."
+  },
+  {
+    "objectID": "Saturdata/TreeProject.html#slide-2-data-wrangling",
+    "href": "Saturdata/TreeProject.html#slide-2-data-wrangling",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 2: Data Wrangling",
+    "text": "Slide 2: Data Wrangling\nUse tidyverse functions like filter(), mutate(), select(), group_by(), summarise(), etc. Show all the code that’s you used to clean or transform the data for your plot."
+  },
+  {
+    "objectID": "Saturdata/TreeProject.html#slide-3-plot",
+    "href": "Saturdata/TreeProject.html#slide-3-plot",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 3: Plot",
+    "text": "Slide 3: Plot\nUse ggplot2 to visualize your findings. Include code and plot"
+  },
+  {
+    "objectID": "Saturdata/TreeProject.html#slide-4-key-takeaways",
+    "href": "Saturdata/TreeProject.html#slide-4-key-takeaways",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 4: Key Takeaways",
+    "text": "Slide 4: Key Takeaways\nWhat did you learn from your analysis? Only render the answer to questions and not the questions themselves.\n\nWhat patterns or disparities did you observe?\nWhat conclusions can you draw from your plot?\nWhy do these findings matter?"
+  },
+  {
     "objectID": "Saturdata/TLNotes.html",
     "href": "Saturdata/TLNotes.html",
     "title": "Tree Equity Instructor Guide",
@@ -39,7 +74,7 @@
     "href": "Saturdata/TLNotes.html#mathlink-cubes",
     "title": "Tree Equity Instructor Guide",
     "section": "5 Mathlink Cubes",
-    "text": "5 Mathlink Cubes\nIn every lesson, there is some for of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning (McGowan 2025). Using Mathlink Cubes to Introduce Data Wrangling1 helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example."
+    "text": "5 Mathlink Cubes\nIn every lesson, there is some for of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning (McGowan 2025). Using Mathlink Cubes to Introduce Data Wrangling1 helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example.\n\nThe images below show the process of connecting the Mathlink cubes inta a data-like structure that can be purposfulley taken apart and reconstructed by students.\nFirst, connect one column vertically.\n Next, connect one row horizontally, anchored to the first cube in your columnn.\n Each subsequent row should then be connected horizontally and connected to a cube in the column:\n Finally, reconstruct your first column vertically and you should be left with something like this:"
   },
   {
     "objectID": "Saturdata/TLNotes.html#teaching-tidyverse-and-ggplot",
@@ -186,21 +221,21 @@
     "href": "Saturdata/TreeLesson.html#select-keep-certain-columns",
     "title": "Tree Equity Lesson",
     "section": "select(): Keep Certain Columns",
-    "text": "select(): Keep Certain Columns\nselect() lets us keep only the variables (columns) we care about.\n\nExample\n\n\nselect(red, green)"
+    "text": "select(): Keep Certain Columns\nselect() lets us keep only the variables (columns) we care about.\n\nselect(red, green)"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#mutate-add-a-new-insightful-column",
     "href": "Saturdata/TreeLesson.html#mutate-add-a-new-insightful-column",
     "title": "Tree Equity Lesson",
     "section": "mutate(): Add a New Insightful Column",
-    "text": "mutate(): Add a New Insightful Column\nmutate() lets us create a new column (variable) by transforming existing ones.\n\n# Triangle = yes, Square = no\nmutate(is_circle = (blue == \"circle\"))"
+    "text": "mutate(): Add a New Insightful Column\nmutate() lets us create a new column (variable) by transforming existing ones.\n\n# Triangle = yes, Square = no\nmutate(is_hexagon = (blue == \"hexagon\"))"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#arrange-ordering-our-data",
     "href": "Saturdata/TreeLesson.html#arrange-ordering-our-data",
     "title": "Tree Equity Lesson",
     "section": "arrange(): Ordering our data",
-    "text": "arrange(): Ordering our data\narrange() Sort rows by the values of a variable (ascending or descending).\n\n# Circle → Square → Triangle → Pentagon.\narrange(purple)"
+    "text": "arrange(): Ordering our data\narrange() Sort rows by the values of a variable (ascending or descending).\n\n# Hexagon → Square → Triangle → Pentagon.\narrange(purple)"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#group_by-and-summarise-summariing-by-category",
@@ -312,63 +347,28 @@
     "href": "Saturdata/TreeLesson.html#tree-equity-vs.-poverty",
     "title": "Tree Equity Lesson",
     "section": "Tree Equity vs. Poverty",
-    "text": "Tree Equity vs. Poverty\n\nIs there a relationship between poverty and tree equity?\n\n\nca_tes|&gt;\n  ggplot(aes(x = pctpov, y = tes)) +\n  geom_point(color = \"green\") + \n  labs(title = \"Tree Equity vs. Poverty\",\n       x = \"Percent in Poverty\",\n       y = \"Tree Equity Score\")"
+    "text": "Tree Equity vs. Poverty\n\nIs there a relationship between poverty and tree equity?\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = pctpov, y = tes)) +\n  geom_point(color = \"green\") + \n  labs(title = \"Tree Equity vs. Poverty\",\n       x = \"Percent in Poverty\",\n       y = \"Tree Equity Score\")"
   },
   {
-    "objectID": "Saturdata/TreeLesson.html#add-more-plots",
-    "href": "Saturdata/TreeLesson.html#add-more-plots",
+    "objectID": "Saturdata/TreeLesson.html#distribution-of-tree-equity-scores",
+    "href": "Saturdata/TreeLesson.html#distribution-of-tree-equity-scores",
     "title": "Tree Equity Lesson",
-    "section": "Add more plots",
-    "text": "Add more plots"
+    "section": "Distribution of Tree Equity Scores",
+    "text": "Distribution of Tree Equity Scores\n\nHow many places hac each Tree equity score?\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = tes)) +\n  geom_histogram(bins = 15, fill = \"red\") +\n  labs(title = \"Distribution of Tree Equity Scores\",\n       x = \"Tree Equity Score\",\n       y = \"Number of Places\")"
   },
   {
-    "objectID": "Saturdata/TreeLesson.html#section-8",
-    "href": "Saturdata/TreeLesson.html#section-8",
+    "objectID": "Saturdata/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
+    "href": "Saturdata/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
     "title": "Tree Equity Lesson",
-    "section": "",
-    "text": "“Explore, Analyze, Present!”"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#its-your-turn",
-    "href": "Saturdata/TreeLesson.html#its-your-turn",
-    "title": "Tree Equity Lesson",
-    "section": "Its Your Turn",
-    "text": "Its Your Turn\n\nWork in small groups to investigate tree equity in a new state(s)\nEach Group Will:\n\nChoose a research question(s)\nUse tidyverse tools to explore the data\nCreate plot(s) with ggplot2\nPresent findings to the class"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#your-goals",
-    "href": "Saturdata/TreeLesson.html#your-goals",
-    "title": "Tree Equity Lesson",
-    "section": "Your Goals",
-    "text": "Your Goals\n\nClearly state your research question\nSupport it with r code and graphs\nUse the data to identify a trend, pattern, or disparity\nCommunicate WHY it matters"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#examples",
-    "href": "Saturdata/TreeLesson.html#examples",
-    "title": "Tree Equity Lesson",
-    "section": "Examples",
-    "text": "Examples\n\nHow does tree canopy vary across different neighborhoods in chosen state?\nIs there a relationship between percent in poverty and tree equity score in chosen state?\nHow do tree equity trends compare between two or more chosen states?\nAre places with lower tree equity also more likely to have higher health disparities in chosen state?"
+    "section": "Tree Equity vs. Linguistic Isolation",
+    "text": "Tree Equity vs. Linguistic Isolation\n\nIs there a relationship between linnguistic isolation(lingnorm) and tesin an area.\n\n\nUse ggplot to plot the relationship between tes and lingnorm\nChoose the best plot for the variable types\nCreate fitting labels for your axes and plot title\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = lingnorm, y = tes)) +\n  geom_point(color = \"turquoise\") + \n  labs(title = \"Tree Equity vs. Linguistiv Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
   },
   {
     "objectID": "Saturdata/TreeLesson.html#getting-the-data",
     "href": "Saturdata/TreeLesson.html#getting-the-data",
     "title": "Tree Equity Lesson",
     "section": "Getting the Data",
-    "text": "Getting the Data\n\n\nNavigate to treeequityscore.org\n\n\nin drop down menu on top left, click “methods and data” tab\nchoose the “data download” page and you should see something like this:"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#getting-the-data-1",
-    "href": "Saturdata/TreeLesson.html#getting-the-data-1",
-    "title": "Tree Equity Lesson",
-    "section": "Getting the Data",
     "text": "Getting the Data\n\n# Example code to load your state data\n\nlibrary(readr)\nyou_data_name &lt;- read_csv(\"path_to_your_data.csv\")"
-  },
-  {
-    "objectID": "Saturdata/TreeLesson.html#more-to-come",
-    "href": "Saturdata/TreeLesson.html#more-to-come",
-    "title": "Tree Equity Lesson",
-    "section": "More to come",
-    "text": "More to come"
   },
   {
     "objectID": "Saturdata/PublicTransportLesson.html#public-transportation-in-urbn-planning",
@@ -410,7 +410,56 @@
     "href": "Saturdata/PublicTransportLesson.html#your-turn",
     "title": "CA Public Transportation",
     "section": "Your Turn",
-    "text": "Your Turn\nWork With a partner/group to: - Filter dataset for 1 agency - Create a linegraph of ridership over time -"
+    "text": "Your Turn\nWork With a partner/group to: - Filter dataset for 1 agency - Create a line graph of ridership over time - Analyze patterns in your plot? What may have caused certain trends you see?"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#new-dataset-california-transit-stops",
+    "href": "Saturdata/PublicTransportLesson.html#new-dataset-california-transit-stops",
+    "title": "CA Public Transportation",
+    "section": "New Dataset: California Transit Stops",
+    "text": "New Dataset: California Transit Stops\n\nEach row is a public transit stop in California.\n\n\n\n\nReading layer `CA_Transit_Stops' from data source \n  `/Users/paityn_leigh/DS4HS/Saturdata/output_shapefile/CA_Transit_Stops.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 132779 features and 10 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -124.4976 ymin: 24.55257 xmax: -68.81178 ymax: 53.58837\nGeodetic CRS:  NAD83\n\n\nSimple feature collection with 1 feature and 10 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: -118.1252 ymin: 33.89693 xmax: -118.1252 ymax: 33.89693\nGeodetic CRS:  NAD83\n              agency stop_id                       stop_name routetypes\n1 City of Bellflower 2623823 Bellflower Blvd & Somerset Blvd          3\n  n_arrivals n_hours_in                 district_n COUNTYFP TRACTCE       GEOID\n1         10         10 07 - Los Angeles / Ventura      037  554101 06037554101\n                    geometry\n1 POINT (-118.1252 33.89693)"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#variables",
+    "href": "Saturdata/PublicTransportLesson.html#variables",
+    "title": "CA Public Transportation",
+    "section": "Variables",
+    "text": "Variables\nSimilar to previous dataset: - Agency New: - stop_name/id - routetype - geomotry?\n\nThis dataset is stored as a shapefile."
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#what-is-a-shapefile",
+    "href": "Saturdata/PublicTransportLesson.html#what-is-a-shapefile",
+    "title": "CA Public Transportation",
+    "section": "What Is a Shapefile?",
+    "text": "What Is a Shapefile?\nA shapefile is a special type of dataset used to: - Store geographic information - Plot points, lines, or areas on a map - Perform spatial joins and analysis\nWe’ll use the sf package to read and work with shapefiles."
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#what-can-this-data-tell-us",
+    "href": "Saturdata/PublicTransportLesson.html#what-can-this-data-tell-us",
+    "title": "CA Public Transportation",
+    "section": "What Can this Data Tell Us?",
+    "text": "What Can this Data Tell Us?\nOn its own, this data shows: - Where stops are located - How many stops an agency operates - How often stop is used/How many routes serve a stop\nWhat the data doesn’t show is: - Who lives near a certain stop - What the area is like demographically - Whether transit access is equitable"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#adding-context",
+    "href": "Saturdata/PublicTransportLesson.html#adding-context",
+    "title": "CA Public Transportation",
+    "section": "Adding Context",
+    "text": "Adding Context\n\n\nA common data wrangling practice used to connect variable that share a common identifier is called joining\n\n\nWe can use functions like right_join() or left_join() to connect our stop_data to a data set with socioeconomic identifiers."
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#mathlinks-lesson-on-joining",
+    "href": "Saturdata/PublicTransportLesson.html#mathlinks-lesson-on-joining",
+    "title": "CA Public Transportation",
+    "section": "Mathlinks Lesson on Joining",
+    "text": "Mathlinks Lesson on Joining"
+  },
+  {
+    "objectID": "Saturdata/PublicTransportLesson.html#adding-context-1",
+    "href": "Saturdata/PublicTransportLesson.html#adding-context-1",
+    "title": "CA Public Transportation",
+    "section": "Adding Context",
+    "text": "Adding Context\n\nEach stop in our stop_data is connected to a GEOID\nIn our census data, each GEOID has information on the areas demographics and socioeconomic indicators\n\n\nlibrary(tidyverse)\n\n\njoined_data &lt;- stop_data |&gt;\n  left_join(census_data, by = \"GEOID\")"
   },
   {
     "objectID": "Saturdata/PTNotes.html",
@@ -438,7 +487,7 @@
     "href": "Saturdata/PTNotes.html#cleaning-distribution-materials",
     "title": "DS4HS",
     "section": "3 Cleaning Distribution Materials",
-    "text": "3 Cleaning Distribution Materials\ncreating shapefile folder that joins public transit data with CA census tracts.\n\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidyverse)\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)\n\nRetrieving census data from tidycensus package\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / tot_workers))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
+    "text": "3 Cleaning Distribution Materials\ncreating shapefile folder that joins public transit data with CA census tracts.\n\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidyverse)\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)\n\nRetrieving census data from tidycensus package\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / tot_pop))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
   },
   {
     "objectID": "index.html",

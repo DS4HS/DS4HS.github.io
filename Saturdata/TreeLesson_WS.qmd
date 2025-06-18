@@ -1,19 +1,20 @@
 ---
 title: "Practicing Data Wrangling with Tree Equity Data"
-format: pdf
+format:
+  pdf: 
+    fontsize: 10.5pt
+    geometry: margin=0.75in
+    toc: false
 execute: 
   warning: false
   message: false
 ---
 
-How to link pdf
-
-
 ## Instructions
 
-In this worksheet, you’ll practice writing **tidyverse-style R code** for data wrangling tasks. Each question guides you through filtering, selecting, mutating, and summarizing a the `ca_tes` dataset. 
+In this worksheet, you’ll practice writing **tidyverse-style R code** for data wrangling tasks. Each question guides you through filtering, selecting, mutating, and summarizing the `ca_tes` dataset. 
 
-**Don't** stress yourself out over perfect syntax -- the goal is to practice what you've  learned about data wrangling so far
+**Don't stress yourself out over perfect syntax** -- the goal is to practice what you've  learned about data wrangling so far
 
 
 ## Practice Questions
@@ -27,8 +28,6 @@ Show only neighborhoods where the `tes` (Tree Equity Score) is **less than 50**.
 ```
 
 
- 
- 
 
 
 
@@ -45,9 +44,6 @@ From the filtered data, keep only the following columns: `treecanopy`, `tes`, an
 
 
  
- 
-
-
 ```
 
 ### 3. Calculate percent of tree coverage goal met
@@ -55,13 +51,12 @@ From the filtered data, keep only the following columns: `treecanopy`, `tes`, an
 Compute a new column that represents **the percent of the tree coverage goal that has been met**.
 
 **Hint:** Use `mutate()`  
-- (You’ll need to make an assumption about how to calculate this — discuss with a partner if unsure!)
+- You’ll need to make an assumption about how to calculate this — discuss with a partner if unsure!
 
 ```
 
 
- 
- 
+
 
 
 ```
@@ -74,13 +69,11 @@ Group the data by `place` (city or neighborhood), and compute the **average `tes
 
 ```
 
+ 
 
- 
- 
 
 
 ```
-
 
 ## 5. How does tree equity relate to both poverty and health disparity?
 
@@ -90,5 +83,23 @@ In this question, you’ll explore the relationship between **Tree Equity Score 
 - Cut the dataset down to just the relevant variables: `place`, `combined_index`, and `tes`.
 - Organize the data so you can easily compare which places have the **highest combined index**.
   - **Hint:** Use `arrange()` to sort by the index in descending order
+  
+```
 
 
+
+
+
+
+
+```
+
+## 3. Tree Equity vs. Linguistic Isolation
+
+Explore whether there’s a relationship between **linguistic isolation** and **tree equity** in different areas.
+
+- Use `ggplot()` to visualize the relationship between `lingnorm` (linguistic isolation) and `te`
+  - **Hint:** Choose the best type of plot for these two numerical variables.
+
+- Add meaningful labels to your plot:
+  - Use `labs()` to set an informative **title** and **axis labels**.

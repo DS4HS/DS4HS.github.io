@@ -103,7 +103,7 @@ census_data1 <- census_data |>
   mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|>
   mutate(pctpov = (num_pov / total_pop) * 100)|>
   mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|>
-  mutate(pct_transit_users = 100 * (transit_users / tot_workers))|>
+  mutate(pct_transit_users = 100 * (transit_users / tot_pop))|>
   select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)
 
 write_csv(census_data1, "acs_clean_data.csv")

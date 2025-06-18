@@ -527,7 +527,92 @@ Paityn Richardson
 <img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
-<p>Work With a partner/group to: - Filter dataset for 1 agency - Create a linegraph of ridership over time -</p>
+<p>Work With a partner/group to: - Filter dataset for 1 agency - Create a line graph of ridership over time - Analyze patterns in your plot? <em>What may have caused certain trends you see?</em></p>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="new-dataset-california-transit-stops" class="slide level2">
+<h2>New Dataset: California Transit Stops</h2>
+<ul>
+<li class="fragment">Each <strong>row</strong> is a public transit stop in California.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `CA_Transit_Stops' from data source 
+  `/Users/paityn_leigh/DS4HS/Saturdata/output_shapefile/CA_Transit_Stops.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 132779 features and 10 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: -124.4976 ymin: 24.55257 xmax: -68.81178 ymax: 53.58837
+Geodetic CRS:  NAD83</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 1 feature and 10 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: -118.1252 ymin: 33.89693 xmax: -118.1252 ymax: 33.89693
+Geodetic CRS:  NAD83
+              agency stop_id                       stop_name routetypes
+1 City of Bellflower 2623823 Bellflower Blvd &amp; Somerset Blvd          3
+  n_arrivals n_hours_in                 district_n COUNTYFP TRACTCE       GEOID
+1         10         10 07 - Los Angeles / Ventura      037  554101 06037554101
+                    geometry
+1 POINT (-118.1252 33.89693)</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="variables" class="slide level2">
+<h2>Variables</h2>
+<p>Similar to previous dataset: - Agency New: - stop_name/id - routetype - geomotry?</p>
+<div class="fragment">
+<p>This dataset is stored as a <strong>shapefile</strong>.</p>
+</div>
+</section>
+<section id="what-is-a-shapefile" class="slide level2">
+<h2>What Is a Shapefile?</h2>
+<p>A <strong>shapefile</strong> is a special type of dataset used to: - Store geographic information - Plot points, lines, or areas on a map - Perform spatial joins and analysis</p>
+<p>We’ll use the <code>sf</code> package to read and work with shapefiles.</p>
+</section>
+<section id="what-can-this-data-tell-us" class="slide level2">
+<h2>What Can this Data Tell Us?</h2>
+<p>On its own, this data shows: - Where stops are located - How many stops an agency operates - How often stop is used/How many routes serve a stop</p>
+<p>What the data doesn’t show is: - Who lives near a certain stop - What the area is like demographically - Whether transit access is equitable</p>
+</section>
+<section id="adding-context" class="slide level2">
+<h2>Adding Context</h2>
+<div class="fragment">
+<blockquote>
+<p>A common data wrangling practice used to connect variable that share a common identifier is called <strong>joining</strong></p>
+</blockquote>
+<ul>
+<li class="fragment">We can use functions like <code>right_join()</code> or <code>left_join()</code> to connect our <code>stop_data</code> to a data set with socioeconomic identifiers.</li>
+</ul>
+</div>
+</section>
+<section id="mathlinks-lesson-on-joining" class="slide level2">
+<h2>Mathlinks Lesson on Joining</h2>
+</section>
+<section id="adding-context-1" class="slide level2">
+<h2>Adding Context</h2>
+<ul>
+<li class="fragment">Each stop in our <code>stop_data</code> is connected to a <code>GEOID</code></li>
+<li class="fragment">In our census data, each <code>GEOID</code> has information on the areas demographics and socioeconomic indicators</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a>joined_data <span class="ot">&lt;-</span> stop_data <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">left_join</span>(census_data, <span class="at">by =</span> <span class="st">"GEOID"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 <div class="footer footer-default">
 

@@ -170,6 +170,8 @@ Data wrangling includes:
 
 ## Mathlink Cubes
 
+![](Mathlink/dataset.jpg)
+
 ## `filter()`: Keep Certain Rows
 
 `filter()` lets us select only the rows that meet specific conditions.
@@ -181,11 +183,14 @@ Data wrangling includes:
 filter(red == "triangle")
 ```
 
+. . . 
+
+![](Mathlink/filter.jpg)
+
 ## `select()`: Keep Certain Columns
 
 `select()` lets us keep only the variables (columns) we care about.
 
-> Example
 
 ```{r}
 #| echo: true
@@ -193,6 +198,10 @@ filter(red == "triangle")
 
 select(red, green)
 ```
+
+. . . 
+
+![](Mathlink/select.jpg)
 
 ## `mutate()`: Add a New Insightful Column
 
@@ -203,8 +212,12 @@ select(red, green)
 #| eval: false
 
 # Triangle = yes, Square = no
-mutate(is_circle = (blue == "circle"))
+mutate(is_hexagon = (blue == "hexagon"))
 ```
+
+. . . 
+
+![](Mathlink/mutate.jpg)
 
 ## `arrange()`: Ordering our data
 
@@ -214,9 +227,13 @@ mutate(is_circle = (blue == "circle"))
 #| echo: true
 #| eval: false
 
-# Circle → Square → Triangle → Pentagon.
+# Hexagon → Square → Triangle → Pentagon.
 arrange(purple)
 ```
+
+. . . 
+
+![](Mathlink/arrange.jpg)
 
 ## `group_by()` and `summarise()`: Summariing by Category
 
@@ -230,6 +247,10 @@ arrange(purple)
 group_by(yellow)|> 
 summarize(count = n())
 ```
+
+. . . 
+
+![](Mathlink/group_by.jpg)
 
 ## Now you Try
 
@@ -403,6 +424,9 @@ data|>
 
 > Is there a relationship between poverty and tree equity?
 
+. . . 
+
+
 ```{r}
 #| echo: true
 #| eval: true
@@ -416,57 +440,53 @@ ca_tes|>
        y = "Tree Equity Score")
 ```
 
-## Add more plots
+## Distribution of Tree Equity Scores
 
-## 
+> How many places hac each Tree equity score? 
 
-<div style="text-align: center;">
-
-<h1>"Explore, Analyze, Present!"</h1>
-
-## Its Your Turn
-
--   Work in small groups to investigate tree equity in a new state(s)
--   Each Group Will:
-    -   Choose a research question(s)
-    -   Use tidyverse tools to explore the data
-    -   Create plot(s) with ggplot2
-    -   Present findings to the class
-
-## Your Goals
-
--   Clearly state your research question
-
--   Support it with r code and graphs
-
--   Use the data to identify a trend, pattern, or disparity
-
--   Communicate **WHY** it matters
-
-## Examples
-
--   How does tree canopy vary across different neighborhoods in *chosen state*?
-
--   Is there a relationship between percent in poverty and tree equity score in *chosen state*?
-
--   How do tree equity trends compare between two or more *chosen states*?
-
--   Are places with lower tree equity also more likely to have higher health disparities in *chosen state*?
+. . . 
 
 
-## Getting the Data
-::: {.small}
+```{r}
+#| echo: true
+#| eval: true
+#| #| code-line-numbers: "1|2|3|4|5|6"
 
-> Navigate to treeequityscore.org
+ca_tes|>
+  ggplot(aes(x = tes)) +
+  geom_histogram(bins = 15, fill = "red") +
+  labs(title = "Distribution of Tree Equity Scores",
+       x = "Tree Equity Score",
+       y = "Number of Places")
 
--   in drop down menu on top left, click "methods and data" tab
--   choose the "data download" page and you should see something like this:
+```
 
-:::
+## Tree Equity vs. Linguistic Isolation
+
+> Is there a relationship between linnguistic isolation(`lingnorm`) and `tes`in an area. 
+
+  - Use ggplot to plot the relationship between `tes` and `lingnorm`
+  - Choose the best plot for the variable types
+  - Create fitting labels for your axes and plot title
 
 . . .
 
-![](statesdata.png){ width=500px}
+```{r}
+#| echo: true
+#| eval: true
+#| #| code-line-numbers: "1|2|3|4|5|6"
+
+ca_tes|>
+  ggplot(aes(x = lingnorm, y = tes)) +
+  geom_point(color = "turquoise") + 
+  labs(title = "Tree Equity vs. Linguistiv Isolation",
+       x = "Percent in Linguistic Isolation",
+       y = "Tree Equity Score")
+```
+
+## 
+
+
 
 ## Getting the Data
 
@@ -479,4 +499,3 @@ ca_tes|>
 library(readr)
 you_data_name <- read_csv("path_to_your_data.csv")
 ```
-## More to come

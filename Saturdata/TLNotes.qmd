@@ -18,7 +18,7 @@ bibliography:
   - ../ds4hs.bib
 ---
 
-<a href="TreeLesson_WS.pdff" download style="padding:10px 15px; background:#007ACC; color:white; text-decoration:none; border-radius:5px;">Download PDF Worksheet</a>
+<a href="TreeLesson_WS.pdf" download style="padding:10px 15px; background:#007ACC; color:white; text-decoration:none; border-radius:5px;">Download PDF Worksheet</a>
 
 
 ## What is Data Science and Why Urban Planning
@@ -68,6 +68,21 @@ This example comes from an article in the Journal of Statistics and Data Science
 This example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)
 
 - Hand out Mathlink Cubes to students in the form of "a dataset" meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example.
+
+The images below show the process of connecting the Mathlink cubes inta a data-like structure that can be purposfulley taken apart and reconstructed by students. 
+
+First, connect one column vertically. 
+
+![](Mathlink/column.jpg)
+Next, connect one row horizontally, anchored to the first cube in your columnn. 
+
+![](Mathlink/row.jpg)
+Each subsequent row should then be connected horizontally and connected to a cube in the column: 
+
+![](Mathlink/rows.jpg)
+Finally, reconstruct your first column vertically and you should be left with something like this: 
+
+![](Mathlink/dataset.jpg)
 
 [^1]: D'Agostino McGowan, L. (2025). Using Mathlink Cubes to Introduce Data Wrangling with Examples in R. Journal of Statistics and Data Science Education, 1--10. https://doi.org/10.1080/26939169.2025.2485234
 
