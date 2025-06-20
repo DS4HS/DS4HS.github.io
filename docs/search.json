@@ -488,5 +488,96 @@
     "title": "DS4HS",
     "section": "",
     "text": "Welcome to DS4HS: Data Science for High School, a community-centered, educational initiative hosted at Pomona College. Our Saturday workshops are designed to introduce high school students to the powerful world of data science. Through hands on activities and interactive coding practice, our aim is to make the field of data science accessible to those of any educational background. Whether you’re exploring data for the first time or deepening existing skills, DS4HS aims to create a collaborative and engaging space for all learners. Our curriculum is open-source and accessible, supporting both student exploration and teacher development."
+  },
+  {
+    "objectID": "Friday_June_20.html#website-work",
+    "href": "Friday_June_20.html#website-work",
+    "title": "DS4HS and PAYS",
+    "section": "Website Work",
+    "text": "Website Work"
+  },
+  {
+    "objectID": "Friday_June_20.html#website-work-1",
+    "href": "Friday_June_20.html#website-work-1",
+    "title": "DS4HS and PAYS",
+    "section": "Website Work",
+    "text": "Website Work"
+  },
+  {
+    "objectID": "Friday_June_20.html#data-wrangling-for-public-transit-problem",
+    "href": "Friday_June_20.html#data-wrangling-for-public-transit-problem",
+    "title": "DS4HS and PAYS",
+    "section": "Data Wrangling for Public Transit Problem",
+    "text": "Data Wrangling for Public Transit Problem\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)"
+  },
+  {
+    "objectID": "Friday_June_20.html#pays",
+    "href": "Friday_June_20.html#pays",
+    "title": "DS4HS and PAYS",
+    "section": "PAYS",
+    "text": "PAYS"
+  },
+  {
+    "objectID": "Friday_June_20.html#website-work-2",
+    "href": "Friday_June_20.html#website-work-2",
+    "title": "DS4HS and PAYS",
+    "section": "Website Work",
+    "text": "Website Work"
+  },
+  {
+    "objectID": "Friday_June_20.html#data-wrangling-for-public-transit-problem-1",
+    "href": "Friday_June_20.html#data-wrangling-for-public-transit-problem-1",
+    "title": "DS4HS and PAYS",
+    "section": "Data Wrangling for Public Transit Problem",
+    "text": "Data Wrangling for Public Transit Problem\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / total_pop))|&gt;\n  mutate(GEOID = as.character(GEOID))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
+  },
+  {
+    "objectID": "Friday_June_20.html#section",
+    "href": "Friday_June_20.html#section",
+    "title": "DS4HS and PAYS",
+    "section": "",
+    "text": "PAYS"
+  },
+  {
+    "objectID": "Friday_June_20.html#content",
+    "href": "Friday_June_20.html#content",
+    "title": "DS4HS and PAYS",
+    "section": "Content",
+    "text": "Content\n\nexcel and paper -&gt; R and Rstudio\ntrial running Hooke’s Law activity starting this Monday"
+  },
+  {
+    "objectID": "Friday_June_20.html#section-1",
+    "href": "Friday_June_20.html#section-1",
+    "title": "DS4HS and PAYS",
+    "section": "",
+    "text": "# Remove the line above when you're ready to run the code\n\n# Use ggplot to plot distance the spring stretched as a function of the mass applied. \nlibrary(ggplot2)\n\nspring_data|&gt;\n  ggplot(aes(x = ___, y = ___)) +\n  ___(color = ___) + \n  labs(title = \"___\",\n       x = \"___\", \n       y = \"___\")\n\n\nDo your results seem to obey Hooke’s Law? Specifically, is the graph of your measurements a straight line?"
+  },
+  {
+    "objectID": "Friday_June_20.html#logistics",
+    "href": "Friday_June_20.html#logistics",
+    "title": "DS4HS and PAYS",
+    "section": "Logistics",
+    "text": "Logistics\nDocuments\n\n5.2 R and Rstudio Guide\nHooke_intructions.pdf\nHooke_activity.qmd\nHooke_activity.pdf"
+  },
+  {
+    "objectID": "Friday_June_20.html#logistics-1",
+    "href": "Friday_June_20.html#logistics-1",
+    "title": "DS4HS and PAYS",
+    "section": "Logistics",
+    "text": "Logistics\nR and Rstudio Use\n\nStudents will be working on a set of Pomona lended devices\nEach device is equipped with an installed version of R and Rstudio or Pomona’s Rstudio Server"
+  },
+  {
+    "objectID": "Friday_June_20.html#goals",
+    "href": "Friday_June_20.html#goals",
+    "title": "DS4HS and PAYS",
+    "section": "Goals",
+    "text": "Goals\n\nWork with students over following weeks to see how content is being recieved\nUpdate some PAYS materials to emphasize concepts in data science\n\nExample Mathlink cubes or Saturdata Lesson"
+  },
+  {
+    "objectID": "Friday_June_20.html#projected-concerns",
+    "href": "Friday_June_20.html#projected-concerns",
+    "title": "DS4HS and PAYS",
+    "section": "Projected Concerns",
+    "text": "Projected Concerns\n\naccessing necessary materials\nuploading and exporting files\nwork turn in\n\n\n\nSolution: Pilot run of Canvas and Gradescope for distributing and collecting Rstudio materials"
   }
 ]

@@ -1,0 +1,167 @@
+---
+title: "DS4HS and PAYS"
+format: 
+  revealjs: 
+    incremental: true
+    theme: solarized
+editor: visual
+---
+
+## Website Work
+
+![](Saturdata/images/Index.png)
+
+## Website Work
+
+![](Saturdata/images/Lessons.png)
+
+## Website Work 
+
+![](Saturdata/images/Download.png)
+
+
+## Data Wrangling for Public Transit Problem
+
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2|5|6|9|11|12|13|16|17"
+
+# Original sf at California Open Data Portal titled "California Transit Stops"
+cts_sf <- st_read("cts_sf")
+
+# pulling geography from Tigris and transforming to uniform CRS (NAD83)
+ca_tracts <- tracts(state = "CA", year = 2024, class = "sf")
+stops_sf <- st_transform(cts_sf, crs = st_crs(ca_tracts))
+
+# Joining where stop is within tract
+stops_with_tract <- st_join(stops_sf, ca_tracts, join = st_within)
+
+clean_sf <- stops_with_tract|>
+  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)
+
+# Creates sf folder in working directory
+dir.create("output_shapefile")
+st_write(clean_sf, "output_shapefile/CA_Transit_Stops.shp", delete_layer = TRUE)
+```
+
+
+## Data Wrangling for Public Transit Problem
+
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "2|4|18|19|20|21|22|23|24|29|32|37"
+
+# Pulling relevant variables
+vars <- c(median_income = "B19013_001",
+          num_pov = "B17001_002",
+          avg_commute = "DP03_0025",
+          no_vehicle = "B08201_002",
+          white = "B02001_002",
+          black = "B02001_003",
+          asian = "B02001_005",
+          hispanic_latino = "B03003_003",
+          transit_users = "B08301_010",
+          tot_workers = "B08301_001",
+          total_pop = "B02001_001"
+          )
+
+# Retrieve unique API here "https://api.census.gov/data/key_signup.html"
+library(tidycensus)
+
+census_data <- get_acs(
+  geography = "tract",
+  variables = vars,
+  state = "CA",
+  year = 2023, # Most recent acs5 survey
+  survey = "acs5",
+  geometry = FALSE)
+
+# Cleaning and Transforming Data
+census_data1 <- census_data |>
+  select(GEOID, variable, estimate)|>
+  pivot_wider(names_from = variable, values_from = estimate) |>
+  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|>
+  mutate(pctpov = (num_pov / total_pop) * 100)|>
+  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|>
+  mutate(pct_transit_users = 100 * (transit_users / total_pop))|>
+  mutate(GEOID = as.character(GEOID))|>
+  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)
+
+write_csv(census_data1, "acs_clean_data.csv")
+```
+
+
+## 
+
+<div style="text-align: center;">
+
+<h1>PAYS</h1>
+
+## Content
+
+  - excel and paper -> R and Rstudio
+  - trial running Hooke's Law activity starting this Monday
+
+##
+
+```{r}
+#| eval: false
+#| echo: true
+# Remove the line above when you're ready to run the code
+
+# Use ggplot to plot distance the spring stretched as a function of the mass applied. 
+library(ggplot2)
+
+spring_data|>
+  ggplot(aes(x = ___, y = ___)) +
+  ___(color = ___) + 
+  labs(title = "___",
+       x = "___", 
+       y = "___")
+
+```
+
+. . . 
+
+
+**Do your results seem to obey Hooke's Law? Specifically, is the graph of your measurements a straight line?**
+
+## Logistics
+
+### Documents
+  - 5.2 R and Rstudio Guide
+  - Hooke_intructions.pdf
+  - Hooke_activity.qmd
+  - Hooke_activity.pdf
+
+## Logistics
+
+**R and Rstudio Use**
+  
+  - Students will be working on a set of Pomona lended devices
+  - Each device is equipped with an installed version of R and Rstudio or Pomona's Rstudio Server
+  
+
+## Projected Concerns
+
+  - accessing necessary materials
+  - uploading and exporting files
+  - work turn in 
+
+
+. . . 
+
+
+> Solution: Pilot run of Canvas and Gradescope for distributing and collecting Rstudio materials
+    
+
+## Goals
+
+- Work with students over following weeks to see how content is being recieved
+- Update some PAYS materials to emphasize concepts in data science 
+
+  - **Example** Mathlink cubes or Saturdata Lesson
