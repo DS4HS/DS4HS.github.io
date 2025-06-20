@@ -24,6 +24,8 @@ website:
         menu:
           - text: "Tree Equity Guide"
             href: Saturdata/TES/TLNotes.qmd
+          - text: "Public Transit Guide"
+            href: Saturdata/Transit/PTNotes.qmd
       - text: "Contact"
 
 format:

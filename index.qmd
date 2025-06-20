@@ -7,7 +7,7 @@ format:
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 Welcome to **DS4HS**: Data Science for High School, a community-centered, educational initiative hosted at Pomona College. Our Saturday workshops are designed to introduce high school students to the powerful world of data science. Through hands on activities and interactive coding practice, our aim is to make the field of data science accessible to those of any educational background. Whether you're exploring data for the first time or deepening existing skills, DS4HS aims to create a collaborative and engaging space for all learners. Our curriculum is open-source and accessible, supporting both student exploration and teacher development.
 :::
 

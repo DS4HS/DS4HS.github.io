@@ -20,6 +20,9 @@ execute:
 - Filtered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that's easier for students to explore and model. 
 
 ```{r}
+#| echo: true
+#| eval: false
+
 library(readr)
 library(tidyverse)
 library(stringr)
