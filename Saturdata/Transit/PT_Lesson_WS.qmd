@@ -1,0 +1,86 @@
+---
+title: "Public Transportation and Urban Planning"
+format:
+  pdf: 
+    fontsize: 10.5pt
+    geometry: margin=0.75in
+    toc: false
+execute: 
+  warning: false
+  message: false
+---
+
+## Instructions
+
+In this worksheet, you’ll practice writing **tidyverse-style R code** for data wrangling tasks as well as practicing data viz skills using **`ggplot`** 
+
+**Don't stress yourself out over perfect syntax** -- the goal is to practice what you've  learned about data wrangling and visualization so far.
+
+## Question 1
+
+```{r}
+#| echo: false
+#| eval: true
+library(readr)
+library(tidyverse)
+
+ca_transit <- read_csv("ca_transit.csv")
+head(ca_transit, 1)
+```
+Discuss the following questions with a partner our group:
+
+- *What are the variables? *
+- *What kinds of questions can we ask?*
+
+```
+
+
+
+
+```
+
+## Question 2
+
+What does ridership over time look like for 1 specific Transit Agency? Use tidyverse data verbs and ggplot to wrangle and visualize the `ca_transit` data
+  
+  - Filter data for specific Agency -> "Pomona Valley Transit Authority"
+  - Create line plot of `tot_pass` over time
+  
+```
+
+
+
+
+
+
+
+
+```
+
+## Question 3
+
+Write **ggplot** code to answer the following questions by plotting the relationship between the two variables. 
+
+### (a) Do higher-income areas have more or fewer transit stops?
+
+Plot the variables `mdn_ncm` and `stop_count` on a scatter plot with a line of best fit. What will is mean if the relationship on the graph is **positive**? **Negative**? 
+
+```
+
+
+
+
+
+```
+
+### (b) Do areas where more people don’t own cars have better transit coverage?
+
+Plot the variables `pct_w_c` and `stop_count` on a scatter plot with a line of best fit. What will this mean if the relationship on the graph is **positive**? **Negative**? 
+
+```
+
+
+
+
+```
+

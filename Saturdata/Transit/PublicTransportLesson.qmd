@@ -25,7 +25,8 @@ options(pillar.width = 70)
   - Increases access to Jobs, Education, Healthcare, etc.
   - Impacts Housing affordability and community equity
 
-. . . 
+
+## Public Transportation in Urbn Planning
 
 ### Useful Analyses include:
 
@@ -33,9 +34,7 @@ options(pillar.width = 70)
 - Efficiency: Cost per rider or mile
 - Equity: *Who uses transit?* *Where is/isn't transit accessible?*
 
-
-. . .
-
+. . . 
 
 > *What types of variables should we look for in a dataset/sets to conduct these useful analyses?*
 
@@ -43,6 +42,8 @@ options(pillar.width = 70)
 ## Dataset: National Transit Database (NTD)
 
 - Data is filtered from US data -> CA specific Data
+
+. . .
 
 
 ```{r}
@@ -52,6 +53,7 @@ library(readr)
 library(tidyverse)
 
 ca_transit <- read_csv("ca_transit.csv")
+
 head(ca_transit, 1)
 ```
 
@@ -62,7 +64,7 @@ head(ca_transit, 1)
 - *What are the variables? *
 - *What kinds of questions can we ask?*
 
-## Wrangling for Summary
+## Wrangling Example
 
 > Goal: Compare Agencies Ridership over time
 
@@ -93,6 +95,28 @@ summary <- ca_transit|>
 
 ```{r}
 #| echo: true
+#| eval: false
+#| code-line-numbers: 1|2|3|4|6|7|8|9|10|11|12
+
+top5 <- summary|>
+  filter(Year == 2023)|>
+  slice_max(tot_pass, n = 10)|>
+  pull(Agency)
+
+summary |>
+  filter(Agency %in% top5) |>
+  ggplot(aes(x = Year, y = tot_pass, color = Agency)) +
+  geom_line(linewidth = .6) +
+  labs(title = "Transit Ridership Over Time (Top 5 Agencies)",
+       y = "Persons",
+       x = "Year")
+```
+
+## 
+
+```{r}
+#| echo: false
+#| eval: true
 #| code-line-numbers: 1|2|3|4|6|7|8|9|10|11|12
 
 top5 <- summary|>
@@ -117,7 +141,8 @@ summary |>
   - Create line plot of `tot_pass` over time
 
   
-. . .
+##
+
 
 ```{r}
 #| eval: true
@@ -147,11 +172,15 @@ summary |>
 #| include: false
 library(sf)
 stop_data <- st_read("output_shapefile/CA_Transit_Stops.shp")
+
 ```
 
 ```{r}
 #| echo: false
-head(stop_data, 5) |> select(-district_n) |> as_tibble() |> print(width = Inf)
+head(stop_data, 5) |> 
+  select(-district_n) |> 
+  as_tibble() |> 
+  print(width = Inf)
 ```
 
 ## Variables
@@ -212,21 +241,19 @@ head(geomotry, 5)
 
 . . . 
 
-> A common data wrangling practice used to connect variable that share a common identifier is called **joining**
+> A common data wrangling practice used to connect datasets that share a common variables is called **joining**
 
-- We can use functions like `right_join()` or `left_join()` to connect our `stop_data` to a data set with socioeconomic identifiers. 
-
-## Mathlinks Lesson on Joining
+- We can use functions like `right_join()` or `left_join()` to connect our `stop_data` to a dataset with **socioeconomic** identifiers. 
 
 
 ## Adding Context
 
 ```{r}
-#| echo: false
+#| echo: true
 #| eval: true
+#| include: false
 
-library(readr)
-census_data <- read_csv("acs_clean_data.csv")
+census_data <- st_read("output_shapefile2/CA_Census_Data.shp")
 ```
 
 - Each stop in our `stop_data` is connected to a `GEOID`
@@ -234,21 +261,252 @@ census_data <- read_csv("acs_clean_data.csv")
 
 . . . 
 
-> This means we can joing these 2 datasets on the variable `GEOID` !
+> This means we can join these 2 datasets on the variable `GEOID` !
 
-. . . 
+## Right Join vs. Left Join
+
+> Let's Compare our resulting datasets after using the functions `left_join()` and `right_join()`
+
+##
+
+```{r}
+#| echo: true
+
+right_joined <- census_data |> 
+  right_join(stop_data |> st_drop_geometry(), by = "GEOID")
+
+right_joined
+
+```
+
+##
+
+```{r}
+#| echo: true
+
+left_joined <- census_data |> 
+  left_join(stop_data|> st_drop_geometry(), by = "GEOID")
+
+left_joined
+```
+
+## Right Join vs. Left Join
+
+- `left_join()`: Keep **all rows from the left** (`census_data`), attach matching rows from right
+- `right_join()`: Keep **all rows from the right** (`stop_data`), attach matching left values
+
+. . .
+
+➡️ Use `left_join()` if you want **every census area**, even if it has no stop 
+
+➡️ Use `right_join()` if you want **every transit stop** 
+
+##
+
+> We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we mist use right_join()
+
+. . .
+
+
+```{r}
+#| echo: true
+#| code-line-numbers: 1|2
+
+full_data <- census_data |> 
+  right_join(stop_data |> st_drop_geometry(), by = "GEOID") 
+
+full_data
+
+```
+
+## Exploring: Poverty & Transit Access 
+
+Now that we have out datasets combined, we can start exploring the relationships between our stop data and our census data. 
+
+. . .
+
+
+> **Q: How does `pctpov` (percent in poverty) relate to the number of transit stops in a neighborhood?**
+
+## Exploring: Poverty & Transit Access 
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: 1|2|3|5|6|7|8|9|10|11|12|13
+
+full_data <- full_data |>
+  group_by(GEOID)|>
+  mutate(stop_count = n())
+
+
+full_data|>
+  ggplot(aes(x = pctpov, y = stop_count)) +
+  geom_point(color = "lightgreen") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "Transit Stops vs Poverty Rate",
+       x = "Percent in Poverty",
+       y = "Number of Transit Stops") + 
+  theme_grey()
+
+```
+
+##
+
+```{r}
+#| echo: false
+#| eval: true
+#| code-line-numbers: 1|2|3|5|6|7|8|9|10|11|12|13
+
+full_data <- full_data |>
+  group_by(GEOID)|>
+  mutate(stop_count = n())
+
+
+full_data|>
+  ggplot(aes(x = pctpov, y = stop_count)) +
+  geom_point(color = "lightgreen") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "Transit Stops vs Poverty Rate",
+       x = "Percent in Poverty",
+       y = "Number of Transit Stops") + 
+  theme_grey()
+
+```
+
+## Exploring: Median Income & Transit Access
+
+> **Q: Do higher-income areas have more or fewer transit stops?**
+
+. . .
 
 
 ```{r}
 #| echo: true
 #| eval: false
+#| code-line-numbers: 1|2|3|4|5|6|7|8
 
-library(tidyverse)
-library(sf)
+full_data|>
+  ggplot(aes(x = mdn_ncm, y = stop_count)) + 
+  geom_point(color = "lightblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "Transit Stops vs Median Income",
+       x = "Median Income",
+       y = "Number of Transit Stops") + 
+  theme_grey()
+```
+
+##
+
+```{r}
+#| echo: false
+#| eval: true
+#| code-line-numbers: 1|2|3|4|5|6|7|8
+
+full_data|>
+  ggplot(aes(x = mdn_ncm, y = stop_count)) + 
+  geom_point(color = "lightblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "Transit Stops vs Median Income",
+       x = "Median Income",
+       y = "Number of Transit Stops") + 
+  theme_grey()
+```
+
+## One more!
+
+> **Q: Do areas where more people don’t own cars have better transit coverage?**
+
+. . .
 
 
-joined_data <- stop_data |> 
-  left_join(st_drop_geometry(census_data), by = "GEOID")
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: 1|2|3|4|5|6|7|8
+
+full_data|>
+  ggplot(aes(x = pct_w_c, y = stop_count)) + 
+  geom_point(color = "yellow") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "Transit Stops vs Car Ownership",
+       x = "Percent Without",
+       y = "Number of Transit Stops") + 
+  theme_grey()
+```
+
+##
+
+```{r}
+#| echo: false
+#| eval: true
+#| code-line-numbers: 1|2|3|4|5|6|7|8
+
+full_data|>
+  ggplot(aes(x = pct_w_c, y = stop_count)) + 
+  geom_point(color = "yellow") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "Transit Stops vs Car Ownership",
+       x = "Percent Without",
+       y = "Number of Transit Stops") + 
+  theme_grey()
+```
+
+## Exploration Questions
+
+> These plots highlight the **equity** of the CA Public Transit System. 
+
+Why might these practices be important in areas **Outside** of CA? 
+
+## Visualization 2.0 
+
+With our Data we want to Show...
+
+  - **Where** Transit Stops Are Located
+  - **Which** areas are affected by socioeconomic Factors
+  - **Correlation** between transit stop access and socioeconomic status
+  
+. . . 
+
+> For this task, We can use a Spatial Heat Map to visualize the overlap between the two areas
+
+## Spatial Heat Maps
+
+. . .
+
+> Remeber: Our data contains the variable `Geomotry` with the lat and long values of each stop
+
+- Census Data Automatically Contains the `Geomotry`, or placement on a map, for each GEOID
+- Stop Data places the stop inside each GEOID at its (lat,long) cord.
+- We can Visualize the socioeconomic factors through colors on the map 
+
+. . .
+
+> Our Goal: Create a Map of CA, divided into GEOID's, that compares transit stop frequency to socioeconomic factors
+
+## 
+
+```{r}
+#| eval: false
+#| echo: false
+
+
+facet_data <- full_data |>
+  pivot_longer(cols = c(pctpoc, pctpov, mdn_ncm, pct_w_c),
+    names_to = "census_var",
+    values_to = "value") |>
+  filter(!is.na(value))|>
+  select(geometry, stop_count, census_var, value)
+
+
+ggplot(facet_data) +
+  geom_sf(aes(fill = value), color = NA) +
+  geom_sf_text(aes(label = stop_count), size = 2, color = "black") +
+  scale_fill_viridis_c(option = "C", name = NULL) +
+  facet_wrap(~ census_var, ncol = 2) +
+  theme_minimal()
+
+
 
 ```
 

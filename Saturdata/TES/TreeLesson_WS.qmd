@@ -14,7 +14,7 @@ execute:
 
 In this worksheet, you’ll practice writing **tidyverse-style R code** for data wrangling tasks. Each question guides you through filtering, selecting, mutating, and summarizing the `ca_tes` dataset. 
 
-**Don't stress yourself out over perfect syntax** -- the goal is to practice what you've  learned about data wrangling so far
+**Don't stress yourself out over perfect syntax** -- the goal is to practice what you've  learned about data wrangling so far.
 
 
 ## Practice Questions

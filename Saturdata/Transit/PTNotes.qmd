@@ -17,7 +17,7 @@ execute:
 ## Cleaning Initial Dataset
 
 - Initial Dataset from US Department of Transportation titled *"Monthly Modal Time Series"*
-- Filtered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that's easier for students to explore and model. 
+- Filtered to California Specific Data for higher relevance. Filter Specifically to your state or area for a dataset that's easier for students to explore and model. 
 
 ```{r}
 #| echo: true
@@ -36,11 +36,11 @@ write_csv(pt_data1, "ca_transit.csv")
 
 ## Dataset: National Transit Database (NTD)
 
-**Discuss:** The goal here is to get students to understand that the NTD dataset itself desnot caontain enough information for the insighful analysis we are looking for. 
+**Discuss:** The goal here is to get students to understand that the NTD dataset itself does not contain enough information for the insightful analysis we are looking for. 
 
 ## Cleaning Distribution Materials 
 
-**creating shapefile folder that joins public transit data with CA census tracts.**
+
 ```{r}
 #| echo: true
 #| eval: false
@@ -59,8 +59,22 @@ stops_sf <- st_transform(cts_sf, crs = st_crs(ca_tracts))
 # Joining where stop is within tract
 stops_with_tract <- st_join(stops_sf, ca_tracts, join = st_within)
 
-clean_sf <- stops_with_tract|>
-  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)
+# Separate matched and unmatched stops
+matched_stops <- stops_with_tract |> filter(!is.na(GEOID))
+unmatched_stops <- stops_with_tract |> filter(is.na(GEOID))
+
+# match unmatched stops
+nearest_idx <- st_nearest_feature(unmatched_stops, ca_tracts)
+
+# Pull the nearest GEOIDs from the tracts
+unmatched_stops_fixed <- unmatched_stops |>
+  mutate(
+    GEOID = ca_tracts$GEOID[nearest_idx],
+  )
+
+clean_sf <- bind_rows(matched_stops, unmatched_stops_fixed) |>
+  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in,
+         district_n, GEOID, geometry)
 
 # Creates sf folder in working directory
 dir.create("output_shapefile")
@@ -108,6 +122,151 @@ census_data1 <- census_data |>
   mutate(GEOID = as.character(GEOID))|>
   select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)
 
-write_csv(census_data1, "acs_clean_data.csv")
+# Join with Census Tracts Geomotry
+
+census_data2 <- census_data1|>
+  right_join(ca_tracts, by = "GEOID")
+
+dir.create("output_shapefile2")
+st_write(census_data2, "output_shapefile2/CA_Census_Data.shp", delete_layer = TRUE)
 ```
+
+## Lesson Materials
+
+The worksheet below is intended to follow along with the **"Public Transit Lesson"** lecture slides. With this worksheet specifically, students should also have a computer, or be in groups with a computer, so they can practice some data exploration and analysis in real time.  
+
+<a href="PT_Lesson_WS.pdf" download style="padding:10px 15px; background:#007ACC; color:white; text-decoration:none; border-radius:5px;">In-Class Data Wrangling Practice</a>
+
+## Interactive ggplot
+
+In the section of the lesson "Visualizing with ggplot2", students are prompted to work in groups or pairs to come up with the code to create a specific line plot. In this section, it may be beneficial to have rstudio or your R coding interface open and projected so students can follow along in the coding process. **For example**, the first question in the worksheet asks students to tweak a previous wrangling example and then plot their findings. Project the code below or write it on the board, and once students have finished discussing in groups, have them help to fill in the blanks and complete the wrangling task together. 
+
+```{r}
+#| eval: false
+#| echo: true
+
+summary |> 
+  filter(Agency == "____") |>
+  ggplot(aes(x = ___, y = ___)) +
+  ___(linewidth = 0.6) +
+  labs(
+    title = "___",
+    y = "___",
+    x = "___"
+  )
+```
+
+
+## Mathlinks Lesson on Joining
+
+In the previous lesson(Tree Equity), students used Mathlink Cubes to learn basic data wrangling principles. The same activity can be applied to learn the concept of joining datasets. Below are a few images that visualize the process of different join functions with the mathlink cubes. Showing these images as well as hands on interaction with the cubes are great ways to help cement the new data wrangling concept. Refer back to the "Tree Equity Lesson" for more information about how to best set this activity up in the classroom. 
+
+**`right_join`**
+
+**left_join**
+
+**full_join**
+
+## Joined Data
+
+**Introduce** students to the new dataset. `census_data` has variables such as `pct_pov` or `pct_wo_car`. These variable can help us commit to a better understanding of how the transit stop data is affected by/affects society. 
+
+
+When discussing **`right_join()` vs. `left_join()`**, first have students make observations about the resulting datasets when using the functions on `stop_data`. 
+
+  - Point out the Variables in each resulting dataset
+  - Point out the number of observations in each dataset
+  - notice how using right join leaves us with empty geomotries/tracts (is this something we want to visualize?)
+  
+
+## Exploring Relationships
+
+In this section, guide students through wrangling and plotting exercises to look at the relationships between the transit data in an area and the socioeconomic markers in that area.
+
+**Goal**: Allow students to come up with their own path to answer each question. 
+
+  - **Provide** time for students to work on each problem in pairs/groups
+  - **Use** skeleton/scaffolded R-code to ease the transition from looking at code to writing it alone
+  - **Guide** students back to the dataset if their are unsure of variable names and values
+  - **Allow** different students to answer questions and explain their problem solving techniques to the class
+
+
+### Exploration Question Scaffolds
+
+> **Q: How does `pctpov` (percent in poverty) relate to the number of transit stops in a neighborhood?**
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Wrangling to Count Stops per Tract
+
+full_data <- full_data |>
+  group_by(___)|>
+  ___(stop_count = n())
+
+full_data|>
+  ggplot(aes(x = pctpov, y = ___)) +
+  ___(color = "lightgreen") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "___",
+       x = "___",
+       y = "___") + 
+  theme_grey()
+```
+  
+> **Q: Do higher-income areas have more or fewer transit stops?**
+
+```{r}
+#| echo: true
+#| eval: false
+
+full_data|>
+  ggplot(aes(x = ___, y = ___)) + 
+  ___(color = "lightblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "___",
+       x = "___",
+       y = "___") + 
+  theme_grey()
+```
+  
+> **Q: Do areas where more people don’t own cars have better transit coverage?**
+
+```{r}
+#| echo: true
+#| eval: false
+
+plot_data|>
+  ggplot(___(x = ___, y = ___)) + 
+  ___(color = "yellow") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(title = "___",
+       x = "___",
+       y = "___") + 
+  theme_grey()
+```
+
+## Culminating Ideas
+
+Throughout this entirety of this lesson, the goal has been to show students how to covey the most insightful findings based on their data. Through scatter plots, students can see a correlative relationship between 2 variables, but the spatial heat map allows us to visualize an extra layer of the puzzle: location. **Explain** to students how location is another variable that can make our conclusions about data more insightful and lead us to more educated action. 
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Make adjustments to heat map here
+
+facet_data <- full_data|>
+  pivot_longer(cols = c(pctpov, pctpoc, median_income, pct_wo_car),
+               names_to = "census_var", values_to = "value")
+
+facet_data|>
+  ggplot() +
+  geom_sf(aes(fill = value), color = NA) +
+  scale_fill_viridis_c() +
+  facet_wrap(~ census_var, ncol = 1) +
+  theme_minimal()
+```
+
 

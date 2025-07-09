@@ -1,24 +1,115 @@
 [
   {
+    "objectID": "Friday_June_20.html#website-work",
+    "href": "Friday_June_20.html#website-work",
+    "title": "DS4HS and PAYS",
+    "section": "Website Work",
+    "text": "Website Work"
+  },
+  {
+    "objectID": "Friday_June_20.html#website-work-1",
+    "href": "Friday_June_20.html#website-work-1",
+    "title": "DS4HS and PAYS",
+    "section": "Website Work",
+    "text": "Website Work"
+  },
+  {
+    "objectID": "Friday_June_20.html#website-work-2",
+    "href": "Friday_June_20.html#website-work-2",
+    "title": "DS4HS and PAYS",
+    "section": "Website Work",
+    "text": "Website Work"
+  },
+  {
+    "objectID": "Friday_June_20.html#data-wrangling-for-public-transit-problem",
+    "href": "Friday_June_20.html#data-wrangling-for-public-transit-problem",
+    "title": "DS4HS and PAYS",
+    "section": "Data Wrangling for Public Transit Problem",
+    "text": "Data Wrangling for Public Transit Problem\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)"
+  },
+  {
+    "objectID": "Friday_June_20.html#data-wrangling-for-public-transit-problem-1",
+    "href": "Friday_June_20.html#data-wrangling-for-public-transit-problem-1",
+    "title": "DS4HS and PAYS",
+    "section": "Data Wrangling for Public Transit Problem",
+    "text": "Data Wrangling for Public Transit Problem\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / total_pop))|&gt;\n  mutate(GEOID = as.character(GEOID))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
+  },
+  {
+    "objectID": "Friday_June_20.html#section",
+    "href": "Friday_June_20.html#section",
+    "title": "DS4HS and PAYS",
+    "section": "",
+    "text": "PAYS"
+  },
+  {
+    "objectID": "Friday_June_20.html#content",
+    "href": "Friday_June_20.html#content",
+    "title": "DS4HS and PAYS",
+    "section": "Content",
+    "text": "Content\n\nexcel and paper -&gt; R and Rstudio\ntrial running Hooke’s Law activity starting this Monday"
+  },
+  {
+    "objectID": "Friday_June_20.html#section-1",
+    "href": "Friday_June_20.html#section-1",
+    "title": "DS4HS and PAYS",
+    "section": "",
+    "text": "# Remove the line above when you're ready to run the code\n\n# Use ggplot to plot distance the spring stretched as a function of the mass applied. \nlibrary(ggplot2)\n\nspring_data|&gt;\n  ggplot(aes(x = ___, y = ___)) +\n  ___(color = ___) + \n  labs(title = \"___\",\n       x = \"___\", \n       y = \"___\")\n\n\nDo your results seem to obey Hooke’s Law? Specifically, is the graph of your measurements a straight line?"
+  },
+  {
+    "objectID": "Friday_June_20.html#logistics",
+    "href": "Friday_June_20.html#logistics",
+    "title": "DS4HS and PAYS",
+    "section": "Logistics",
+    "text": "Logistics\nDocuments\n\n5.2 R and Rstudio Guide\nHooke_intructions.pdf\nHooke_activity.qmd\nHooke_activity.pdf"
+  },
+  {
+    "objectID": "Friday_June_20.html#logistics-1",
+    "href": "Friday_June_20.html#logistics-1",
+    "title": "DS4HS and PAYS",
+    "section": "Logistics",
+    "text": "Logistics\nR and Rstudio Use\n\nStudents will be working on a set of Pomona lended devices\nEach device is equipped with an installed version of R and Rstudio or Pomona’s Rstudio Server"
+  },
+  {
+    "objectID": "Friday_June_20.html#projected-concerns",
+    "href": "Friday_June_20.html#projected-concerns",
+    "title": "DS4HS and PAYS",
+    "section": "Projected Concerns",
+    "text": "Projected Concerns\n\naccessing necessary materials\nuploading and exporting files\nwork turn in\n\n\n\nSolution: Pilot run of Canvas and Gradescope for distributing and collecting Rstudio materials"
+  },
+  {
+    "objectID": "Friday_June_20.html#goals",
+    "href": "Friday_June_20.html#goals",
+    "title": "DS4HS and PAYS",
+    "section": "Goals",
+    "text": "Goals\n\nWork with students over following weeks to see how content is being recieved\nUpdate some PAYS materials to emphasize concepts in data science\n\nExample Mathlink cubes or Saturdata Lesson"
+  },
+  {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning",
     "href": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning",
     "title": "CA Public Transportation",
     "section": "Public Transportation in Urbn Planning",
-    "text": "Public Transportation in Urbn Planning\nPublic Transit is a Key factor in shaping how a city/society functions \n\nReduces Traffic Congestion and Pollution (sustainability)\nIncreases access to Jobs, Education, Healthcare, etc.\nImpacts Housing affordability and community equity\n\n\nUseful Analyses include:\n\nTrends in ridership over time\nEfficiency: Cost per rider or mile\nEquity: Who uses transit? Where is/isn’t transit accessible?\n\n. . .\n\nWhat types of variables should we look for in a dataset/sets to conduct these useful analyses?"
+    "text": "Public Transportation in Urbn Planning\nPublic Transit is a Key factor in shaping how a city/society functions \n\nReduces Traffic Congestion and Pollution (sustainability)\nIncreases access to Jobs, Education, Healthcare, etc.\nImpacts Housing affordability and community equity"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning-1",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning-1",
+    "title": "CA Public Transportation",
+    "section": "Public Transportation in Urbn Planning",
+    "text": "Public Transportation in Urbn Planning\nUseful Analyses include:\n\nTrends in ridership over time\nEfficiency: Cost per rider or mile\nEquity: Who uses transit? Where is/isn’t transit accessible?\n\n. . .\n\nWhat types of variables should we look for in a dataset/sets to conduct these useful analyses?"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#dataset-national-transit-database-ntd",
     "href": "Saturdata/Transit/PublicTransportLesson.html#dataset-national-transit-database-ntd",
     "title": "CA Public Transportation",
     "section": "Dataset: National Transit Database (NTD)",
-    "text": "Dataset: National Transit Database (NTD)\n\nData is filtered from US data -&gt; CA specific Data\n\n\n\n# A tibble: 1 × 75\n  NTD.ID Agency          Organization.Type       Mode  Type.of.Service\n   &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;                   &lt;chr&gt; &lt;chr&gt;          \n1  90044 City of Arcadia County or Local Govern… DR    PT             \n# ℹ 70 more variables: Rail..True.False. &lt;lgl&gt;,\n#   Primary.UZA.UACE.Code &lt;dbl&gt;, Primary.UZA.Name &lt;chr&gt;,\n#   Primary.UZA.Sq.Miles &lt;dbl&gt;, Primary.UZA.Population &lt;dbl&gt;,\n#   Service.Area.Sq.Miles &lt;dbl&gt;, Service.Area.Population &lt;dbl&gt;,\n#   Year &lt;dbl&gt;, Month &lt;chr&gt;, Month_Year..timestamp. &lt;dbl&gt;,\n#   VOMS &lt;dbl&gt;, Vehicle.Revenue.Miles &lt;dbl&gt;,\n#   Vehicle.Revenue.Hours &lt;dbl&gt;, Unlinked.Passenger.Trips &lt;dbl&gt;, …\n\n\n\nDiscuss:\n\nWhat are the variables? \nWhat kinds of questions can we ask?"
+    "text": "Dataset: National Transit Database (NTD)\n\nData is filtered from US data -&gt; CA specific Data\n\n\n\n\n# A tibble: 1 × 75\n  NTD.ID Agency          Organization.Type       Mode  Type.of.Service\n   &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;                   &lt;chr&gt; &lt;chr&gt;          \n1  90044 City of Arcadia County or Local Govern… DR    PT             \n# ℹ 70 more variables: Rail..True.False. &lt;lgl&gt;,\n#   Primary.UZA.UACE.Code &lt;dbl&gt;, Primary.UZA.Name &lt;chr&gt;,\n#   Primary.UZA.Sq.Miles &lt;dbl&gt;, Primary.UZA.Population &lt;dbl&gt;,\n#   Service.Area.Sq.Miles &lt;dbl&gt;, Service.Area.Population &lt;dbl&gt;,\n#   Year &lt;dbl&gt;, Month &lt;chr&gt;, Month_Year..timestamp. &lt;dbl&gt;,\n#   VOMS &lt;dbl&gt;, Vehicle.Revenue.Miles &lt;dbl&gt;,\n#   Vehicle.Revenue.Hours &lt;dbl&gt;, Unlinked.Passenger.Trips &lt;dbl&gt;, …\n\n\n\n\nDiscuss:\n\nWhat are the variables? \nWhat kinds of questions can we ask?"
   },
   {
-    "objectID": "Saturdata/Transit/PublicTransportLesson.html#wrangling-for-summary",
-    "href": "Saturdata/Transit/PublicTransportLesson.html#wrangling-for-summary",
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#wrangling-example",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#wrangling-example",
     "title": "CA Public Transportation",
-    "section": "Wrangling for Summary",
-    "text": "Wrangling for Summary\n\nGoal: Compare Agencies Ridership over time\n\n\n\nsummary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = \"drop\")|&gt;\n  arrange(desc(tot_pass))\n\n\n\nWhat does summary look like?"
+    "section": "Wrangling Example",
+    "text": "Wrangling Example\n\nGoal: Compare Agencies Ridership over time\n\n\n\nsummary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = \"drop\")|&gt;\n  arrange(desc(tot_pass))\n\n\n\nWhat does summary look like?"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#visualizing-with-ggplot2",
@@ -32,14 +123,21 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#your-turn",
     "title": "CA Public Transportation",
     "section": "Your Turn",
-    "text": "Your Turn\nWork With a partner/group to:\n\nFilter data for specific Agency -&gt; “Pomona Valley Transit Authority”\nCreate line plot of tot_pass over time\n\n\n\nsummary |&gt; \n  filter(Agency == \"Pomona Valley Transportation Authority\") |&gt;\n  ggplot(aes(x = Year, y = tot_pass)) +\n  geom_line(linewidth = 0.6) +\n  labs(\n    title = \"Pomona Valley Transportation Authority Ridership Over Time\",\n    y = \"Riders/(pop.)\",\n    x = \"Year\"\n  )"
+    "text": "Your Turn\nWork With a partner/group to:\n\nFilter data for specific Agency -&gt; “Pomona Valley Transit Authority”\nCreate line plot of tot_pass over time"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#section-1",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#section-1",
+    "title": "CA Public Transportation",
+    "section": "",
+    "text": "summary |&gt; \n  filter(Agency == \"Pomona Valley Transportation Authority\") |&gt;\n  ggplot(aes(x = Year, y = tot_pass)) +\n  geom_line(linewidth = 0.6) +\n  labs(\n    title = \"Pomona Valley Transportation Authority Ridership Over Time\",\n    y = \"Riders/(pop.)\",\n    x = \"Year\"\n  )"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#new-dataset-california-transit-stops",
     "href": "Saturdata/Transit/PublicTransportLesson.html#new-dataset-california-transit-stops",
     "title": "CA Public Transportation",
     "section": "New Dataset: California Transit Stops",
-    "text": "New Dataset: California Transit Stops\n\nEach row is a public transit stop in California.\n\n\n\n\n# A tibble: 5 × 10\n  agency             stop_id stop_name                             routetypes\n  &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;     \n1 City of Bellflower 2623823 Bellflower Blvd & Somerset Blvd       3         \n2 City of Bellflower 2623825 Bellflower Blvd and Rosencrans Ave    3         \n3 City of Bellflower 2623826 Bellflower Blvd-St. Johns High School 3         \n4 City of Bellflower 2623827 Woodruff Ave & Foster Rd              3         \n5 City of Bellflower 2623828 Woodruff Ave & Arthurdale St          3         \n  n_arrivals n_hours_in COUNTYFP TRACTCE GEOID                   geometry\n       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;                &lt;POINT [°]&gt;\n1         10         10 037      554101  06037554101 (-118.1252 33.89693)\n2          0          0 037      554106  06037554106 (-118.1252 33.90181)\n3          0          0 037      553201  06037553201 (-118.1252 33.90624)\n4         10         10 037      553202  06037553202  (-118.1168 33.9095)\n5          0          0 037      553202  06037553202 (-118.1168 33.90573)"
+    "text": "New Dataset: California Transit Stops\n\nEach row is a public transit stop in California.\n\n\n\n\n# A tibble: 5 × 8\n  agency             stop_id stop_name                             routetypes\n  &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;     \n1 City of Bellflower 2623823 Bellflower Blvd & Somerset Blvd       3         \n2 City of Bellflower 2623825 Bellflower Blvd and Rosencrans Ave    3         \n3 City of Bellflower 2623826 Bellflower Blvd-St. Johns High School 3         \n4 City of Bellflower 2623827 Woodruff Ave & Foster Rd              3         \n5 City of Bellflower 2623828 Woodruff Ave & Arthurdale St          3         \n  n_arrivals n_hours_in GEOID                   geometry\n       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                &lt;POINT [°]&gt;\n1         10         10 06037554101 (-118.1252 33.89693)\n2          0          0 06037554106 (-118.1252 33.90181)\n3          0          0 06037553201 (-118.1252 33.90624)\n4         10         10 06037553202  (-118.1168 33.9095)\n5          0          0 06037553202 (-118.1168 33.90573)"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#variables",
@@ -67,49 +165,168 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#adding-context",
     "title": "CA Public Transportation",
     "section": "Adding Context",
-    "text": "Adding Context\n\n\nA common data wrangling practice used to connect variable that share a common identifier is called joining\n\n\nWe can use functions like right_join() or left_join() to connect our stop_data to a data set with socioeconomic identifiers."
-  },
-  {
-    "objectID": "Saturdata/Transit/PublicTransportLesson.html#mathlinks-lesson-on-joining",
-    "href": "Saturdata/Transit/PublicTransportLesson.html#mathlinks-lesson-on-joining",
-    "title": "CA Public Transportation",
-    "section": "Mathlinks Lesson on Joining",
-    "text": "Mathlinks Lesson on Joining"
+    "text": "Adding Context\n\n\nA common data wrangling practice used to connect datasets that share a common variables is called joining\n\n\nWe can use functions like right_join() or left_join() to connect our stop_data to a dataset with socioeconomic identifiers."
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#adding-context-1",
     "href": "Saturdata/Transit/PublicTransportLesson.html#adding-context-1",
     "title": "CA Public Transportation",
     "section": "Adding Context",
-    "text": "Adding Context\n\nEach stop in our stop_data is connected to a GEOID\nIn our census data, each GEOID has information on the areas demographics and socioeconomic indicators\n\n\n\nThis means we can joing these 2 datasets on the variable GEOID !\n\n\n\n\nlibrary(tidyverse)\nlibrary(sf)\n\n\njoined_data &lt;- stop_data |&gt; \n  left_join(st_drop_geometry(census_data), by = \"GEOID\")"
+    "text": "Adding Context\n\nEach stop in our stop_data is connected to a GEOID\nIn our census data, each GEOID has information on the areas demographics and socioeconomic indicators\n\n\n\nThis means we can join these 2 datasets on the variable GEOID !"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#right-join-vs.-left-join",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#right-join-vs.-left-join",
+    "title": "CA Public Transportation",
+    "section": "Right Join vs. Left Join",
+    "text": "Right Join vs. Left Join\n\nLet’s Compare our resulting datasets after using the functions left_join() and right_join()"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#section-2",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#section-2",
+    "title": "CA Public Transportation",
+    "section": "",
+    "text": "right_joined &lt;- census_data |&gt; \n  right_join(stop_data |&gt; st_drop_geometry(), by = \"GEOID\")\n\nright_joined\n\nSimple feature collection with 132779 features and 28 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -124.4407 ymin: 32.53419 xmax: -114.1312 ymax: 42.0095\nGeodetic CRS:  NAD83\nFirst 10 features:\n         GEOID totl_pp tt_wrkr mdn_ncm avg_cmm   pctpoc   pctpov  pct_w_c\n1  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n2  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n3  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n4  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n5  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n6  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n7  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n8  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n9  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n10 06001400200    2093    1065  225880    28.8 24.98806 7.835643 4.538939\n    pct_tr_ STATEFP COUNTYF TRACTCE              GEOIDFQ NAME           NAMELSA\n1  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n2  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n3  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n4  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n5  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n6  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n7  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n8  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n9  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n10 9.077879      06     001  400200 1400000US06001400200 4002 Census Tract 4002\n   MTFCC FUNCSTA   ALAND AWATER     INTPTLA      INTPTLO\n1  G5020       S 6945855      0 +37.8676563 -122.2318813\n2  G5020       S 6945855      0 +37.8676563 -122.2318813\n3  G5020       S 6945855      0 +37.8676563 -122.2318813\n4  G5020       S 6945855      0 +37.8676563 -122.2318813\n5  G5020       S 6945855      0 +37.8676563 -122.2318813\n6  G5020       S 6945855      0 +37.8676563 -122.2318813\n7  G5020       S 6945855      0 +37.8676563 -122.2318813\n8  G5020       S 6945855      0 +37.8676563 -122.2318813\n9  G5020       S 6945855      0 +37.8676563 -122.2318813\n10 G5020       S  586560      0 +37.8481378 -122.2495916\n                                  agency     stop_id\n1  Alameda-Contra Costa Transit District       51147\n2  Alameda-Contra Costa Transit District       50402\n3  Alameda-Contra Costa Transit District       50991\n4     University of California, Berkeley lawrhall_ib\n5     University of California, Berkeley    lawrhall\n6     University of California, Berkeley  spacelab_d\n7     University of California, Berkeley  spacelab_a\n8     University of California, Berkeley botagard_ib\n9     University of California, Berkeley    botagard\n10 Alameda-Contra Costa Transit District       55903\n                             stop_name routetypes n_arrivals n_hours_in\n1                        261 Tunnel Rd          3          5          5\n2                       Bentley School          3          1          1\n3          Centennial Dr & Parking Lot          3         10         10\n4             Lawrence Hall of Science          3         23         13\n5             Lawrence Hall of Science          3         23         13\n6            Space Sciences Lab / MSRI          3         23         13\n7  Space Sciences Lab / MSRI (Arrival)          3         23         13\n8                  UC Botanical Garden          3          0          0\n9                  UC Botanical Garden          3          0          0\n10           Claremont Av & College Av          3          5          3\n                district_n                       geometry\n1  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n2  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n3  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n4  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n5  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n6  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n7  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n8  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n9  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n10 04 - Bay Area / Oakland MULTIPOLYGON (((-122.2579 3..."
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#section-3",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#section-3",
+    "title": "CA Public Transportation",
+    "section": "",
+    "text": "left_joined &lt;- census_data |&gt; \n  left_join(stop_data|&gt; st_drop_geometry(), by = \"GEOID\")\n\nleft_joined\n\nSimple feature collection with 133752 features and 28 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -124.482 ymin: 32.52951 xmax: -114.1312 ymax: 42.0095\nGeodetic CRS:  NAD83\nFirst 10 features:\n         GEOID totl_pp tt_wrkr mdn_ncm avg_cmm   pctpoc   pctpov  pct_w_c\n1  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n2  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n3  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n4  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n5  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n6  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n7  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n8  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n9  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n10 06001400200    2093    1065  225880    28.8 24.98806 7.835643 4.538939\n    pct_tr_ STATEFP COUNTYF TRACTCE              GEOIDFQ NAME           NAMELSA\n1  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n2  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n3  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n4  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n5  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n6  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n7  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n8  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n9  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n10 9.077879      06     001  400200 1400000US06001400200 4002 Census Tract 4002\n   MTFCC FUNCSTA   ALAND AWATER     INTPTLA      INTPTLO\n1  G5020       S 6945855      0 +37.8676563 -122.2318813\n2  G5020       S 6945855      0 +37.8676563 -122.2318813\n3  G5020       S 6945855      0 +37.8676563 -122.2318813\n4  G5020       S 6945855      0 +37.8676563 -122.2318813\n5  G5020       S 6945855      0 +37.8676563 -122.2318813\n6  G5020       S 6945855      0 +37.8676563 -122.2318813\n7  G5020       S 6945855      0 +37.8676563 -122.2318813\n8  G5020       S 6945855      0 +37.8676563 -122.2318813\n9  G5020       S 6945855      0 +37.8676563 -122.2318813\n10 G5020       S  586560      0 +37.8481378 -122.2495916\n                                  agency     stop_id\n1  Alameda-Contra Costa Transit District       51147\n2  Alameda-Contra Costa Transit District       50402\n3  Alameda-Contra Costa Transit District       50991\n4     University of California, Berkeley lawrhall_ib\n5     University of California, Berkeley    lawrhall\n6     University of California, Berkeley  spacelab_d\n7     University of California, Berkeley  spacelab_a\n8     University of California, Berkeley botagard_ib\n9     University of California, Berkeley    botagard\n10 Alameda-Contra Costa Transit District       55903\n                             stop_name routetypes n_arrivals n_hours_in\n1                        261 Tunnel Rd          3          5          5\n2                       Bentley School          3          1          1\n3          Centennial Dr & Parking Lot          3         10         10\n4             Lawrence Hall of Science          3         23         13\n5             Lawrence Hall of Science          3         23         13\n6            Space Sciences Lab / MSRI          3         23         13\n7  Space Sciences Lab / MSRI (Arrival)          3         23         13\n8                  UC Botanical Garden          3          0          0\n9                  UC Botanical Garden          3          0          0\n10           Claremont Av & College Av          3          5          3\n                district_n                       geometry\n1  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n2  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n3  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n4  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n5  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n6  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n7  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n8  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n9  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n10 04 - Bay Area / Oakland MULTIPOLYGON (((-122.2579 3..."
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#right-join-vs.-left-join-1",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#right-join-vs.-left-join-1",
+    "title": "CA Public Transportation",
+    "section": "Right Join vs. Left Join",
+    "text": "Right Join vs. Left Join\n\nleft_join(): Keep all rows from the left (census_data), attach matching rows from right\nright_join(): Keep all rows from the right (stop_data), attach matching left values\n\n\n➡️ Use left_join() if you want every census area, even if it has no stop\n➡️ Use right_join() if you want every transit stop"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#section-4",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#section-4",
+    "title": "CA Public Transportation",
+    "section": "",
+    "text": "We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we mist use right_join()\n\n\n\nfull_data &lt;- census_data |&gt; \n  right_join(stop_data |&gt; st_drop_geometry(), by = \"GEOID\") \n\nfull_data\n\nSimple feature collection with 132779 features and 28 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -124.4407 ymin: 32.53419 xmax: -114.1312 ymax: 42.0095\nGeodetic CRS:  NAD83\nFirst 10 features:\n         GEOID totl_pp tt_wrkr mdn_ncm avg_cmm   pctpoc   pctpov  pct_w_c\n1  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n2  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n3  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n4  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n5  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n6  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n7  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n8  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n9  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n10 06001400200    2093    1065  225880    28.8 24.98806 7.835643 4.538939\n    pct_tr_ STATEFP COUNTYF TRACTCE              GEOIDFQ NAME           NAMELSA\n1  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n2  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n3  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n4  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n5  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n6  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n7  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n8  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n9  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n10 9.077879      06     001  400200 1400000US06001400200 4002 Census Tract 4002\n   MTFCC FUNCSTA   ALAND AWATER     INTPTLA      INTPTLO\n1  G5020       S 6945855      0 +37.8676563 -122.2318813\n2  G5020       S 6945855      0 +37.8676563 -122.2318813\n3  G5020       S 6945855      0 +37.8676563 -122.2318813\n4  G5020       S 6945855      0 +37.8676563 -122.2318813\n5  G5020       S 6945855      0 +37.8676563 -122.2318813\n6  G5020       S 6945855      0 +37.8676563 -122.2318813\n7  G5020       S 6945855      0 +37.8676563 -122.2318813\n8  G5020       S 6945855      0 +37.8676563 -122.2318813\n9  G5020       S 6945855      0 +37.8676563 -122.2318813\n10 G5020       S  586560      0 +37.8481378 -122.2495916\n                                  agency     stop_id\n1  Alameda-Contra Costa Transit District       51147\n2  Alameda-Contra Costa Transit District       50402\n3  Alameda-Contra Costa Transit District       50991\n4     University of California, Berkeley lawrhall_ib\n5     University of California, Berkeley    lawrhall\n6     University of California, Berkeley  spacelab_d\n7     University of California, Berkeley  spacelab_a\n8     University of California, Berkeley botagard_ib\n9     University of California, Berkeley    botagard\n10 Alameda-Contra Costa Transit District       55903\n                             stop_name routetypes n_arrivals n_hours_in\n1                        261 Tunnel Rd          3          5          5\n2                       Bentley School          3          1          1\n3          Centennial Dr & Parking Lot          3         10         10\n4             Lawrence Hall of Science          3         23         13\n5             Lawrence Hall of Science          3         23         13\n6            Space Sciences Lab / MSRI          3         23         13\n7  Space Sciences Lab / MSRI (Arrival)          3         23         13\n8                  UC Botanical Garden          3          0          0\n9                  UC Botanical Garden          3          0          0\n10           Claremont Av & College Av          3          5          3\n                district_n                       geometry\n1  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n2  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n3  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n4  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n5  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n6  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n7  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n8  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n9  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n10 04 - Bay Area / Oakland MULTIPOLYGON (((-122.2579 3..."
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#exploring-poverty-transit-access",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#exploring-poverty-transit-access",
+    "title": "CA Public Transportation",
+    "section": "Exploring: Poverty & Transit Access",
+    "text": "Exploring: Poverty & Transit Access\nNow that we have out datasets combined, we can start exploring the relationships between our stop data and our census data.\n\n\nQ: How does pctpov (percent in poverty) relate to the number of transit stops in a neighborhood?"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#exploring-poverty-transit-access-1",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#exploring-poverty-transit-access-1",
+    "title": "CA Public Transportation",
+    "section": "Exploring: Poverty & Transit Access",
+    "text": "Exploring: Poverty & Transit Access\n\nfull_data &lt;- full_data |&gt;\n  group_by(GEOID)|&gt;\n  mutate(stop_count = n())\n\n\nfull_data|&gt;\n  ggplot(aes(x = pctpov, y = stop_count)) +\n  geom_point(color = \"lightgreen\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Poverty Rate\",\n       x = \"Percent in Poverty\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#exploring-median-income-transit-access",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#exploring-median-income-transit-access",
+    "title": "CA Public Transportation",
+    "section": "Exploring: Median Income & Transit Access",
+    "text": "Exploring: Median Income & Transit Access\n\nQ: Do higher-income areas have more or fewer transit stops?\n\n\n\nfull_data|&gt;\n  ggplot(aes(x = mdn_ncm, y = stop_count)) + \n  geom_point(color = \"lightblue\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Median Income\",\n       x = \"Median Income\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#one-more",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#one-more",
+    "title": "CA Public Transportation",
+    "section": "One more!",
+    "text": "One more!\n\nQ: Do areas where more people don’t own cars have better transit coverage?\n\n\n\nfull_data|&gt;\n  ggplot(aes(x = pct_w_c, y = stop_count)) + \n  geom_point(color = \"yellow\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Car Ownership\",\n       x = \"Percent Without\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#exploration-questions",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#exploration-questions",
+    "title": "CA Public Transportation",
+    "section": "Exploration Questions",
+    "text": "Exploration Questions\n\nThese plots highlight the equity of the CA Public Transit System.\n\nWhy might these practices be important in areas Outside of CA?"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#visualization-2.0",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#visualization-2.0",
+    "title": "CA Public Transportation",
+    "section": "Visualization 2.0",
+    "text": "Visualization 2.0\nWith our Data we want to Show…\n\nWhere Transit Stops Are Located\nWhich areas are affected by socioeconomic Factors\nCorrelation between transit stop access and socioeconomic status\n\n\n\nFor this task, We can use a Spatial Heat Map to visualize the overlap between the two areas"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html#spatial-heat-maps",
+    "href": "Saturdata/Transit/PublicTransportLesson.html#spatial-heat-maps",
+    "title": "CA Public Transportation",
+    "section": "Spatial Heat Maps",
+    "text": "Spatial Heat Maps\n\n\nRemeber: Our data contains the variable Geomotry with the lat and long values of each stop\n\n\nCensus Data Automatically Contains the Geomotry, or placement on a map, for each GEOID\nStop Data places the stop inside each GEOID at its (lat,long) cord.\nWe can Visualize the socioeconomic factors through colors on the map\n\n\n\n\nOur Goal: Create a Map of CA, divided into GEOID’s, that compares transit stop frequency to socioeconomic factors"
   },
   {
     "objectID": "Saturdata/Transit/PTNotes.html",
     "href": "Saturdata/Transit/PTNotes.html",
     "title": "DS4HS",
     "section": "",
-    "text": "Initial Dataset from US Department of Transportation titled “Monthly Modal Time Series”\nFiltered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that’s easier for students to explore and model.\n\n\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(stringr)\npt_data &lt;- read.csv(\"NTD_TimeSeries.csv\")\n\npt_data1 &lt;- pt_data|&gt;\n  filter(str_detect(Primary.UZA.Name, \"CA$\"))\n\nwrite_csv(pt_data1, \"ca_transit.csv\")"
+    "text": "Initial Dataset from US Department of Transportation titled “Monthly Modal Time Series”\nFiltered to California Specific Data for higher relevance. Filter Specifically to your state or area for a dataset that’s easier for students to explore and model.\n\n\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(stringr)\npt_data &lt;- read.csv(\"NTD_TimeSeries.csv\")\n\npt_data1 &lt;- pt_data|&gt;\n  filter(str_detect(Primary.UZA.Name, \"CA$\"))\n\nwrite_csv(pt_data1, \"ca_transit.csv\")"
   },
   {
     "objectID": "Saturdata/Transit/PTNotes.html#cleaning-initial-dataset",
     "href": "Saturdata/Transit/PTNotes.html#cleaning-initial-dataset",
     "title": "DS4HS",
     "section": "",
-    "text": "Initial Dataset from US Department of Transportation titled “Monthly Modal Time Series”\nFiltered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that’s easier for students to explore and model.\n\n\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(stringr)\npt_data &lt;- read.csv(\"NTD_TimeSeries.csv\")\n\npt_data1 &lt;- pt_data|&gt;\n  filter(str_detect(Primary.UZA.Name, \"CA$\"))\n\nwrite_csv(pt_data1, \"ca_transit.csv\")"
+    "text": "Initial Dataset from US Department of Transportation titled “Monthly Modal Time Series”\nFiltered to California Specific Data for higher relevance. Filter Specifically to your state or area for a dataset that’s easier for students to explore and model.\n\n\nlibrary(readr)\nlibrary(tidyverse)\nlibrary(stringr)\npt_data &lt;- read.csv(\"NTD_TimeSeries.csv\")\n\npt_data1 &lt;- pt_data|&gt;\n  filter(str_detect(Primary.UZA.Name, \"CA$\"))\n\nwrite_csv(pt_data1, \"ca_transit.csv\")"
   },
   {
     "objectID": "Saturdata/Transit/PTNotes.html#dataset-national-transit-database-ntd",
     "href": "Saturdata/Transit/PTNotes.html#dataset-national-transit-database-ntd",
     "title": "DS4HS",
     "section": "2 Dataset: National Transit Database (NTD)",
-    "text": "2 Dataset: National Transit Database (NTD)\nDiscuss: The goal here is to get students to understand that the NTD dataset itself desnot caontain enough information for the insighful analysis we are looking for."
+    "text": "2 Dataset: National Transit Database (NTD)\nDiscuss: The goal here is to get students to understand that the NTD dataset itself does not contain enough information for the insightful analysis we are looking for."
   },
   {
     "objectID": "Saturdata/Transit/PTNotes.html#cleaning-distribution-materials",
     "href": "Saturdata/Transit/PTNotes.html#cleaning-distribution-materials",
     "title": "DS4HS",
     "section": "3 Cleaning Distribution Materials",
-    "text": "3 Cleaning Distribution Materials\ncreating shapefile folder that joins public transit data with CA census tracts.\n\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidyverse)\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)\n\nRetrieving census data from tidycensus package\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / total_pop))|&gt;\n  mutate(GEOID = as.character(GEOID))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
+    "text": "3 Cleaning Distribution Materials\n\nlibrary(sf)\nlibrary(tigris)\nlibrary(tidyverse)\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\n# Separate matched and unmatched stops\nmatched_stops &lt;- stops_with_tract |&gt; filter(!is.na(GEOID))\nunmatched_stops &lt;- stops_with_tract |&gt; filter(is.na(GEOID))\n\n# match unmatched stops\nnearest_idx &lt;- st_nearest_feature(unmatched_stops, ca_tracts)\n\n# Pull the nearest GEOIDs from the tracts\nunmatched_stops_fixed &lt;- unmatched_stops |&gt;\n  mutate(\n    GEOID = ca_tracts$GEOID[nearest_idx],\n  )\n\nclean_sf &lt;- bind_rows(matched_stops, unmatched_stops_fixed) |&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in,\n         district_n, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)\n\nRetrieving census data from tidycensus package\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / total_pop))|&gt;\n  mutate(GEOID = as.character(GEOID))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\n# Join with Census Tracts Geomotry\n\ncensus_data2 &lt;- census_data1|&gt;\n  right_join(ca_tracts, by = \"GEOID\")\n\ndir.create(\"output_shapefile2\")\nst_write(census_data2, \"output_shapefile2/CA_Census_Data.shp\", delete_layer = TRUE)"
+  },
+  {
+    "objectID": "Saturdata/Transit/PTNotes.html#lesson-materials",
+    "href": "Saturdata/Transit/PTNotes.html#lesson-materials",
+    "title": "DS4HS",
+    "section": "4 Lesson Materials",
+    "text": "4 Lesson Materials\nThe worksheet below is intended to follow along with the “Public Transit Lesson” lecture slides. With this worksheet specifically, students should also have a computer, or be in groups with a computer, so they can practice some data exploration and analysis in real time.\nIn-Class Data Wrangling Practice"
+  },
+  {
+    "objectID": "Saturdata/Transit/PTNotes.html#interactive-ggplot",
+    "href": "Saturdata/Transit/PTNotes.html#interactive-ggplot",
+    "title": "DS4HS",
+    "section": "5 Interactive ggplot",
+    "text": "5 Interactive ggplot\nIn the section of the lesson “Visualizing with ggplot2”, students are prompted to work in groups or pairs to come up with the code to create a specific line plot. In this section, it may be beneficial to have rstudio or your R coding interface open and projected so students can follow along in the coding process. For example, the first question in the worksheet asks students to tweak a previous wrangling example and then plot their findings. Project the code below or write it on the board, and once students have finished discussing in groups, have them help to fill in the blanks and complete the wrangling task together.\n\nsummary |&gt; \n  filter(Agency == \"____\") |&gt;\n  ggplot(aes(x = ___, y = ___)) +\n  ___(linewidth = 0.6) +\n  labs(\n    title = \"___\",\n    y = \"___\",\n    x = \"___\"\n  )"
+  },
+  {
+    "objectID": "Saturdata/Transit/PTNotes.html#mathlinks-lesson-on-joining",
+    "href": "Saturdata/Transit/PTNotes.html#mathlinks-lesson-on-joining",
+    "title": "DS4HS",
+    "section": "6 Mathlinks Lesson on Joining",
+    "text": "6 Mathlinks Lesson on Joining\nIn the previous lesson(Tree Equity), students used Mathlink Cubes to learn basic data wrangling principles. The same activity can be applied to learn the concept of joining datasets. Below are a few images that visualize the process of different join functions with the mathlink cubes. Showing these images as well as hands on interaction with the cubes are great ways to help cement the new data wrangling concept. Refer back to the “Tree Equity Lesson” for more information about how to best set this activity up in the classroom.\nright_join\nleft_join\nfull_join"
+  },
+  {
+    "objectID": "Saturdata/Transit/PTNotes.html#joined-data",
+    "href": "Saturdata/Transit/PTNotes.html#joined-data",
+    "title": "DS4HS",
+    "section": "7 Joined Data",
+    "text": "7 Joined Data\nIntroduce students to the new dataset. census_data has variables such as pct_pov or pct_wo_car. These variable can help us commit to a better understanding of how the transit stop data is affected by/affects society.\nWhen discussing right_join() vs. left_join(), first have students make observations about the resulting datasets when using the functions on stop_data.\n\nPoint out the Variables in each resulting dataset\nPoint out the number of observations in each dataset\nnotice how using right join leaves us with empty geomotries/tracts (is this something we want to visualize?)"
+  },
+  {
+    "objectID": "Saturdata/Transit/PTNotes.html#exploring-relationships",
+    "href": "Saturdata/Transit/PTNotes.html#exploring-relationships",
+    "title": "DS4HS",
+    "section": "8 Exploring Relationships",
+    "text": "8 Exploring Relationships\nIn this section, guide students through wrangling and plotting exercises to look at the relationships between the transit data in an area and the socioeconomic markers in that area.\nGoal: Allow students to come up with their own path to answer each question.\n\nProvide time for students to work on each problem in pairs/groups\nUse skeleton/scaffolded R-code to ease the transition from looking at code to writing it alone\nGuide students back to the dataset if their are unsure of variable names and values\nAllow different students to answer questions and explain their problem solving techniques to the class\n\n\n8.1 Exploration Question Scaffolds\n\nQ: How does pctpov (percent in poverty) relate to the number of transit stops in a neighborhood?\n\n\n# Wrangling to Count Stops per Tract\n\nfull_data &lt;- full_data |&gt;\n  group_by(___)|&gt;\n  ___(stop_count = n())\n\nfull_data|&gt;\n  ggplot(aes(x = pctpov, y = ___)) +\n  ___(color = \"lightgreen\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"___\",\n       x = \"___\",\n       y = \"___\") + \n  theme_grey()\n\n\nQ: Do higher-income areas have more or fewer transit stops?\n\n\nfull_data|&gt;\n  ggplot(aes(x = ___, y = ___)) + \n  ___(color = \"lightblue\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"___\",\n       x = \"___\",\n       y = \"___\") + \n  theme_grey()\n\n\nQ: Do areas where more people don’t own cars have better transit coverage?\n\n\nplot_data|&gt;\n  ggplot(___(x = ___, y = ___)) + \n  ___(color = \"yellow\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"___\",\n       x = \"___\",\n       y = \"___\") + \n  theme_grey()"
+  },
+  {
+    "objectID": "Saturdata/Transit/PTNotes.html#culminating-ideas",
+    "href": "Saturdata/Transit/PTNotes.html#culminating-ideas",
+    "title": "DS4HS",
+    "section": "9 Culminating Ideas",
+    "text": "9 Culminating Ideas\nThroughout this entirety of this lesson, the goal has been to show students how to covey the most insightful findings based on their data. Through scatter plots, students can see a correlative relationship between 2 variables, but the spatial heat map allows us to visualize an extra layer of the puzzle: location. Explain to students how location is another variable that can make our conclusions about data more insightful and lead us to more educated action.\n\n# Make adjustments to heat map here\n\nfacet_data &lt;- full_data|&gt;\n  pivot_longer(cols = c(pctpov, pctpoc, median_income, pct_wo_car),\n               names_to = \"census_var\", values_to = \"value\")\n\nfacet_data|&gt;\n  ggplot() +\n  geom_sf(aes(fill = value), color = NA) +\n  scale_fill_viridis_c() +\n  facet_wrap(~ census_var, ncol = 1) +\n  theme_minimal()"
   },
   {
     "objectID": "Saturdata/TES/TLNotes.html",
@@ -488,96 +705,5 @@
     "title": "DS4HS",
     "section": "",
     "text": "Welcome to DS4HS: Data Science for High School, a community-centered, educational initiative hosted at Pomona College. Our Saturday workshops are designed to introduce high school students to the powerful world of data science. Through hands on activities and interactive coding practice, our aim is to make the field of data science accessible to those of any educational background. Whether you’re exploring data for the first time or deepening existing skills, DS4HS aims to create a collaborative and engaging space for all learners. Our curriculum is open-source and accessible, supporting both student exploration and teacher development."
-  },
-  {
-    "objectID": "Friday_June_20.html#website-work",
-    "href": "Friday_June_20.html#website-work",
-    "title": "DS4HS and PAYS",
-    "section": "Website Work",
-    "text": "Website Work"
-  },
-  {
-    "objectID": "Friday_June_20.html#website-work-1",
-    "href": "Friday_June_20.html#website-work-1",
-    "title": "DS4HS and PAYS",
-    "section": "Website Work",
-    "text": "Website Work"
-  },
-  {
-    "objectID": "Friday_June_20.html#data-wrangling-for-public-transit-problem",
-    "href": "Friday_June_20.html#data-wrangling-for-public-transit-problem",
-    "title": "DS4HS and PAYS",
-    "section": "Data Wrangling for Public Transit Problem",
-    "text": "Data Wrangling for Public Transit Problem\n\n# Original sf at California Open Data Portal titled \"California Transit Stops\"\ncts_sf &lt;- st_read(\"cts_sf\")\n\n# pulling geography from Tigris and transforming to uniform CRS (NAD83)\nca_tracts &lt;- tracts(state = \"CA\", year = 2024, class = \"sf\")\nstops_sf &lt;- st_transform(cts_sf, crs = st_crs(ca_tracts))\n\n# Joining where stop is within tract\nstops_with_tract &lt;- st_join(stops_sf, ca_tracts, join = st_within)\n\nclean_sf &lt;- stops_with_tract|&gt;\n  select(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)\n\n# Creates sf folder in working directory\ndir.create(\"output_shapefile\")\nst_write(clean_sf, \"output_shapefile/CA_Transit_Stops.shp\", delete_layer = TRUE)"
-  },
-  {
-    "objectID": "Friday_June_20.html#pays",
-    "href": "Friday_June_20.html#pays",
-    "title": "DS4HS and PAYS",
-    "section": "PAYS",
-    "text": "PAYS"
-  },
-  {
-    "objectID": "Friday_June_20.html#website-work-2",
-    "href": "Friday_June_20.html#website-work-2",
-    "title": "DS4HS and PAYS",
-    "section": "Website Work",
-    "text": "Website Work"
-  },
-  {
-    "objectID": "Friday_June_20.html#data-wrangling-for-public-transit-problem-1",
-    "href": "Friday_June_20.html#data-wrangling-for-public-transit-problem-1",
-    "title": "DS4HS and PAYS",
-    "section": "Data Wrangling for Public Transit Problem",
-    "text": "Data Wrangling for Public Transit Problem\n\n# Pulling relevant variables\nvars &lt;- c(median_income = \"B19013_001\",\n          num_pov = \"B17001_002\",\n          avg_commute = \"DP03_0025\",\n          no_vehicle = \"B08201_002\",\n          white = \"B02001_002\",\n          black = \"B02001_003\",\n          asian = \"B02001_005\",\n          hispanic_latino = \"B03003_003\",\n          transit_users = \"B08301_010\",\n          tot_workers = \"B08301_001\",\n          total_pop = \"B02001_001\"\n          )\n\n# Retrieve unique API here \"https://api.census.gov/data/key_signup.html\"\nlibrary(tidycensus)\n\ncensus_data &lt;- get_acs(\n  geography = \"tract\",\n  variables = vars,\n  state = \"CA\",\n  year = 2023, # Most recent acs5 survey\n  survey = \"acs5\",\n  geometry = FALSE)\n\n# Cleaning and Transforming Data\ncensus_data1 &lt;- census_data |&gt;\n  select(GEOID, variable, estimate)|&gt;\n  pivot_wider(names_from = variable, values_from = estimate) |&gt;\n  mutate(pctpoc = ((black + hispanic_latino + asian ) / total_pop) * 100)|&gt;\n  mutate(pctpov = (num_pov / total_pop) * 100)|&gt;\n  mutate(pct_wo_car = (no_vehicle / total_pop) * 100)|&gt;\n  mutate(pct_transit_users = 100 * (transit_users / total_pop))|&gt;\n  mutate(GEOID = as.character(GEOID))|&gt;\n  select(-black, -asian, -white, -hispanic_latino, -no_vehicle, -num_pov, -transit_users)\n\nwrite_csv(census_data1, \"acs_clean_data.csv\")"
-  },
-  {
-    "objectID": "Friday_June_20.html#section",
-    "href": "Friday_June_20.html#section",
-    "title": "DS4HS and PAYS",
-    "section": "",
-    "text": "PAYS"
-  },
-  {
-    "objectID": "Friday_June_20.html#content",
-    "href": "Friday_June_20.html#content",
-    "title": "DS4HS and PAYS",
-    "section": "Content",
-    "text": "Content\n\nexcel and paper -&gt; R and Rstudio\ntrial running Hooke’s Law activity starting this Monday"
-  },
-  {
-    "objectID": "Friday_June_20.html#section-1",
-    "href": "Friday_June_20.html#section-1",
-    "title": "DS4HS and PAYS",
-    "section": "",
-    "text": "# Remove the line above when you're ready to run the code\n\n# Use ggplot to plot distance the spring stretched as a function of the mass applied. \nlibrary(ggplot2)\n\nspring_data|&gt;\n  ggplot(aes(x = ___, y = ___)) +\n  ___(color = ___) + \n  labs(title = \"___\",\n       x = \"___\", \n       y = \"___\")\n\n\nDo your results seem to obey Hooke’s Law? Specifically, is the graph of your measurements a straight line?"
-  },
-  {
-    "objectID": "Friday_June_20.html#logistics",
-    "href": "Friday_June_20.html#logistics",
-    "title": "DS4HS and PAYS",
-    "section": "Logistics",
-    "text": "Logistics\nDocuments\n\n5.2 R and Rstudio Guide\nHooke_intructions.pdf\nHooke_activity.qmd\nHooke_activity.pdf"
-  },
-  {
-    "objectID": "Friday_June_20.html#logistics-1",
-    "href": "Friday_June_20.html#logistics-1",
-    "title": "DS4HS and PAYS",
-    "section": "Logistics",
-    "text": "Logistics\nR and Rstudio Use\n\nStudents will be working on a set of Pomona lended devices\nEach device is equipped with an installed version of R and Rstudio or Pomona’s Rstudio Server"
-  },
-  {
-    "objectID": "Friday_June_20.html#goals",
-    "href": "Friday_June_20.html#goals",
-    "title": "DS4HS and PAYS",
-    "section": "Goals",
-    "text": "Goals\n\nWork with students over following weeks to see how content is being recieved\nUpdate some PAYS materials to emphasize concepts in data science\n\nExample Mathlink cubes or Saturdata Lesson"
-  },
-  {
-    "objectID": "Friday_June_20.html#projected-concerns",
-    "href": "Friday_June_20.html#projected-concerns",
-    "title": "DS4HS and PAYS",
-    "section": "Projected Concerns",
-    "text": "Projected Concerns\n\naccessing necessary materials\nuploading and exporting files\nwork turn in\n\n\n\nSolution: Pilot run of Canvas and Gradescope for distributing and collecting Rstudio materials"
   }
 ]

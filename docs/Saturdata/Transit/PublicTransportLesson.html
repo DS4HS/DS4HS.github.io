@@ -410,7 +410,9 @@ Paityn Richardson
 <li class="fragment">Increases access to Jobs, Education, Healthcare, etc.</li>
 <li class="fragment">Impacts Housing affordability and community equity</li>
 </ul>
-<div class="fragment">
+</section>
+<section id="public-transportation-in-urbn-planning-1" class="slide level2">
+<h2>Public Transportation in Urbn Planning</h2>
 <h3 id="useful-analyses-include">Useful Analyses include:</h3>
 <ul>
 <li class="fragment">Trends in ridership over time</li>
@@ -421,13 +423,13 @@ Paityn Richardson
 <blockquote>
 <p><em>What types of variables should we look for in a dataset/sets to conduct these useful analyses?</em></p>
 </blockquote>
-</div>
 </section>
 <section id="dataset-national-transit-database-ntd" class="slide level2">
 <h2>Dataset: National Transit Database (NTD)</h2>
 <ul>
 <li class="fragment">Data is filtered from US data -&gt; CA specific Data</li>
 </ul>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 75
@@ -443,6 +445,7 @@ Paityn Richardson
 #   Vehicle.Revenue.Hours &lt;dbl&gt;, Unlinked.Passenger.Trips &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
+</div>
 <div class="fragment">
 <p><strong>Discuss:</strong></p>
 <ul>
@@ -451,8 +454,8 @@ Paityn Richardson
 </ul>
 </div>
 </section>
-<section id="wrangling-for-summary" class="slide level2">
-<h2>Wrangling for Summary</h2>
+<section id="wrangling-example" class="slide level2">
+<h2>Wrangling Example</h2>
 <blockquote>
 <p>Goal: Compare Agencies Ridership over time</p>
 </blockquote>
@@ -487,12 +490,13 @@ Paityn Richardson
 <span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Transit Ridership Over Time (Top 5 Agencies)"</span>,</span>
 <span id="cb3-11"><a href="#cb3-11"></a>       <span class="at">y =</span> <span class="st">"Persons"</span>,</span>
 <span id="cb3-12"><a href="#cb3-12"></a>       <span class="at">x =</span> <span class="st">"Year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</div>
 </div>
 </div>
 </section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 <p><strong>Work With a partner/group to:</strong></p>
@@ -500,7 +504,9 @@ Paityn Richardson
 <li class="fragment">Filter data for specific Agency -&gt; “Pomona Valley Transit Authority”</li>
 <li class="fragment">Create line plot of <code>tot_pass</code> over time</li>
 </ul>
-<div class="fragment">
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>summary <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(Agency <span class="sc">==</span> <span class="st">"Pomona Valley Transportation Authority"</span>) <span class="sc">|&gt;</span></span>
@@ -511,12 +517,9 @@ Paityn Richardson
 <span id="cb4-7"><a href="#cb4-7"></a>    <span class="at">y =</span> <span class="st">"Riders/(pop.)"</span>,</span>
 <span id="cb4-8"><a href="#cb4-8"></a>    <span class="at">x =</span> <span class="st">"Year"</span></span>
 <span id="cb4-9"><a href="#cb4-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+
 </div>
-</div>
-</div>
-</section>
+<img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="new-dataset-california-transit-stops" class="slide level2">
 <h2>New Dataset: California Transit Stops</h2>
 <ul>
@@ -525,7 +528,7 @@ Paityn Richardson
 <div class="fragment">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 10
+<pre><code># A tibble: 5 × 8
   agency             stop_id stop_name                             routetypes
   &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;     
 1 City of Bellflower 2623823 Bellflower Blvd &amp; Somerset Blvd       3         
@@ -533,13 +536,13 @@ Paityn Richardson
 3 City of Bellflower 2623826 Bellflower Blvd-St. Johns High School 3         
 4 City of Bellflower 2623827 Woodruff Ave &amp; Foster Rd              3         
 5 City of Bellflower 2623828 Woodruff Ave &amp; Arthurdale St          3         
-  n_arrivals n_hours_in COUNTYFP TRACTCE GEOID                   geometry
-       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;                &lt;POINT [°]&gt;
-1         10         10 037      554101  06037554101 (-118.1252 33.89693)
-2          0          0 037      554106  06037554106 (-118.1252 33.90181)
-3          0          0 037      553201  06037553201 (-118.1252 33.90624)
-4         10         10 037      553202  06037553202  (-118.1168 33.9095)
-5          0          0 037      553202  06037553202 (-118.1168 33.90573)</code></pre>
+  n_arrivals n_hours_in GEOID                   geometry
+       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                &lt;POINT [°]&gt;
+1         10         10 06037554101 (-118.1252 33.89693)
+2          0          0 06037554106 (-118.1252 33.90181)
+3          0          0 06037553201 (-118.1252 33.90624)
+4         10         10 06037553202  (-118.1168 33.9095)
+5          0          0 06037553202 (-118.1168 33.90573)</code></pre>
 </div>
 </div>
 </div>
@@ -592,15 +595,12 @@ Paityn Richardson
 <h2>Adding Context</h2>
 <div class="fragment">
 <blockquote>
-<p>A common data wrangling practice used to connect variable that share a common identifier is called <strong>joining</strong></p>
+<p>A common data wrangling practice used to connect datasets that share a common variables is called <strong>joining</strong></p>
 </blockquote>
 <ul>
-<li class="fragment">We can use functions like <code>right_join()</code> or <code>left_join()</code> to connect our <code>stop_data</code> to a data set with socioeconomic identifiers.</li>
+<li class="fragment">We can use functions like <code>right_join()</code> or <code>left_join()</code> to connect our <code>stop_data</code> to a dataset with <strong>socioeconomic</strong> identifiers.</li>
 </ul>
 </div>
-</section>
-<section id="mathlinks-lesson-on-joining" class="slide level2">
-<h2>Mathlinks Lesson on Joining</h2>
 </section>
 <section id="adding-context-1" class="slide level2">
 <h2>Adding Context</h2>
@@ -610,22 +610,400 @@ Paityn Richardson
 </ul>
 <div class="fragment">
 <blockquote>
-<p>This means we can joing these 2 datasets on the variable <code>GEOID</code> !</p>
+<p>This means we can join these 2 datasets on the variable <code>GEOID</code> !</p>
 </blockquote>
 </div>
+</section>
+<section id="right-join-vs.-left-join" class="slide level2">
+<h2>Right Join vs.&nbsp;Left Join</h2>
+<blockquote>
+<p>Let’s Compare our resulting datasets after using the functions <code>left_join()</code> and <code>right_join()</code></p>
+</blockquote>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>right_joined <span class="ot">&lt;-</span> census_data <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">right_join</span>(stop_data <span class="sc">|&gt;</span> <span class="fu">st_drop_geometry</span>(), <span class="at">by =</span> <span class="st">"GEOID"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a>right_joined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 132779 features and 28 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -124.4407 ymin: 32.53419 xmax: -114.1312 ymax: 42.0095
+Geodetic CRS:  NAD83
+First 10 features:
+         GEOID totl_pp tt_wrkr mdn_ncm avg_cmm   pctpoc   pctpov  pct_w_c
+1  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+2  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+3  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+4  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+5  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+6  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+7  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+8  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+9  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+10 06001400200    2093    1065  225880    28.8 24.98806 7.835643 4.538939
+    pct_tr_ STATEFP COUNTYF TRACTCE              GEOIDFQ NAME           NAMELSA
+1  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+2  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+3  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+4  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+5  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+6  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+7  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+8  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+9  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+10 9.077879      06     001  400200 1400000US06001400200 4002 Census Tract 4002
+   MTFCC FUNCSTA   ALAND AWATER     INTPTLA      INTPTLO
+1  G5020       S 6945855      0 +37.8676563 -122.2318813
+2  G5020       S 6945855      0 +37.8676563 -122.2318813
+3  G5020       S 6945855      0 +37.8676563 -122.2318813
+4  G5020       S 6945855      0 +37.8676563 -122.2318813
+5  G5020       S 6945855      0 +37.8676563 -122.2318813
+6  G5020       S 6945855      0 +37.8676563 -122.2318813
+7  G5020       S 6945855      0 +37.8676563 -122.2318813
+8  G5020       S 6945855      0 +37.8676563 -122.2318813
+9  G5020       S 6945855      0 +37.8676563 -122.2318813
+10 G5020       S  586560      0 +37.8481378 -122.2495916
+                                  agency     stop_id
+1  Alameda-Contra Costa Transit District       51147
+2  Alameda-Contra Costa Transit District       50402
+3  Alameda-Contra Costa Transit District       50991
+4     University of California, Berkeley lawrhall_ib
+5     University of California, Berkeley    lawrhall
+6     University of California, Berkeley  spacelab_d
+7     University of California, Berkeley  spacelab_a
+8     University of California, Berkeley botagard_ib
+9     University of California, Berkeley    botagard
+10 Alameda-Contra Costa Transit District       55903
+                             stop_name routetypes n_arrivals n_hours_in
+1                        261 Tunnel Rd          3          5          5
+2                       Bentley School          3          1          1
+3          Centennial Dr &amp; Parking Lot          3         10         10
+4             Lawrence Hall of Science          3         23         13
+5             Lawrence Hall of Science          3         23         13
+6            Space Sciences Lab / MSRI          3         23         13
+7  Space Sciences Lab / MSRI (Arrival)          3         23         13
+8                  UC Botanical Garden          3          0          0
+9                  UC Botanical Garden          3          0          0
+10           Claremont Av &amp; College Av          3          5          3
+                district_n                       geometry
+1  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+2  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+3  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+4  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+5  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+6  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+7  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+8  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+9  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+10 04 - Bay Area / Oakland MULTIPOLYGON (((-122.2579 3...</code></pre>
+</div>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>left_joined <span class="ot">&lt;-</span> census_data <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">left_join</span>(stop_data<span class="sc">|&gt;</span> <span class="fu">st_drop_geometry</span>(), <span class="at">by =</span> <span class="st">"GEOID"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>left_joined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 133752 features and 28 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -124.482 ymin: 32.52951 xmax: -114.1312 ymax: 42.0095
+Geodetic CRS:  NAD83
+First 10 features:
+         GEOID totl_pp tt_wrkr mdn_ncm avg_cmm   pctpoc   pctpov  pct_w_c
+1  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+2  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+3  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+4  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+5  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+6  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+7  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+8  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+9  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+10 06001400200    2093    1065  225880    28.8 24.98806 7.835643 4.538939
+    pct_tr_ STATEFP COUNTYF TRACTCE              GEOIDFQ NAME           NAMELSA
+1  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+2  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+3  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+4  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+5  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+6  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+7  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+8  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+9  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+10 9.077879      06     001  400200 1400000US06001400200 4002 Census Tract 4002
+   MTFCC FUNCSTA   ALAND AWATER     INTPTLA      INTPTLO
+1  G5020       S 6945855      0 +37.8676563 -122.2318813
+2  G5020       S 6945855      0 +37.8676563 -122.2318813
+3  G5020       S 6945855      0 +37.8676563 -122.2318813
+4  G5020       S 6945855      0 +37.8676563 -122.2318813
+5  G5020       S 6945855      0 +37.8676563 -122.2318813
+6  G5020       S 6945855      0 +37.8676563 -122.2318813
+7  G5020       S 6945855      0 +37.8676563 -122.2318813
+8  G5020       S 6945855      0 +37.8676563 -122.2318813
+9  G5020       S 6945855      0 +37.8676563 -122.2318813
+10 G5020       S  586560      0 +37.8481378 -122.2495916
+                                  agency     stop_id
+1  Alameda-Contra Costa Transit District       51147
+2  Alameda-Contra Costa Transit District       50402
+3  Alameda-Contra Costa Transit District       50991
+4     University of California, Berkeley lawrhall_ib
+5     University of California, Berkeley    lawrhall
+6     University of California, Berkeley  spacelab_d
+7     University of California, Berkeley  spacelab_a
+8     University of California, Berkeley botagard_ib
+9     University of California, Berkeley    botagard
+10 Alameda-Contra Costa Transit District       55903
+                             stop_name routetypes n_arrivals n_hours_in
+1                        261 Tunnel Rd          3          5          5
+2                       Bentley School          3          1          1
+3          Centennial Dr &amp; Parking Lot          3         10         10
+4             Lawrence Hall of Science          3         23         13
+5             Lawrence Hall of Science          3         23         13
+6            Space Sciences Lab / MSRI          3         23         13
+7  Space Sciences Lab / MSRI (Arrival)          3         23         13
+8                  UC Botanical Garden          3          0          0
+9                  UC Botanical Garden          3          0          0
+10           Claremont Av &amp; College Av          3          5          3
+                district_n                       geometry
+1  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+2  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+3  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+4  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+5  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+6  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+7  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+8  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+9  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+10 04 - Bay Area / Oakland MULTIPOLYGON (((-122.2579 3...</code></pre>
+</div>
+</div>
+</section>
+<section id="right-join-vs.-left-join-1" class="slide level2">
+<h2>Right Join vs.&nbsp;Left Join</h2>
+<ul>
+<li class="fragment"><code>left_join()</code>: Keep <strong>all rows from the left</strong> (<code>census_data</code>), attach matching rows from right</li>
+<li class="fragment"><code>right_join()</code>: Keep <strong>all rows from the right</strong> (<code>stop_data</code>), attach matching left values</li>
+</ul>
+<div class="fragment">
+<p>➡️ Use <code>left_join()</code> if you want <strong>every census area</strong>, even if it has no stop</p>
+<p>➡️ Use <code>right_join()</code> if you want <strong>every transit stop</strong></p>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<blockquote>
+<p>We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we mist use right_join()</p>
+</blockquote>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">library</span>(sf)</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a>joined_data <span class="ot">&lt;-</span> stop_data <span class="sc">|&gt;</span> </span>
-<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">left_join</span>(<span class="fu">st_drop_geometry</span>(census_data), <span class="at">by =</span> <span class="st">"GEOID"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>full_data <span class="ot">&lt;-</span> census_data <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">right_join</span>(stop_data <span class="sc">|&gt;</span> <span class="fu">st_drop_geometry</span>(), <span class="at">by =</span> <span class="st">"GEOID"</span>) </span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a>full_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 132779 features and 28 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -124.4407 ymin: 32.53419 xmax: -114.1312 ymax: 42.0095
+Geodetic CRS:  NAD83
+First 10 features:
+         GEOID totl_pp tt_wrkr mdn_ncm avg_cmm   pctpoc   pctpov  pct_w_c
+1  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+2  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+3  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+4  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+5  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+6  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+7  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+8  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+9  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253
+10 06001400200    2093    1065  225880    28.8 24.98806 7.835643 4.538939
+    pct_tr_ STATEFP COUNTYF TRACTCE              GEOIDFQ NAME           NAMELSA
+1  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+2  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+3  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+4  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+5  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+6  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+7  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+8  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+9  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001
+10 9.077879      06     001  400200 1400000US06001400200 4002 Census Tract 4002
+   MTFCC FUNCSTA   ALAND AWATER     INTPTLA      INTPTLO
+1  G5020       S 6945855      0 +37.8676563 -122.2318813
+2  G5020       S 6945855      0 +37.8676563 -122.2318813
+3  G5020       S 6945855      0 +37.8676563 -122.2318813
+4  G5020       S 6945855      0 +37.8676563 -122.2318813
+5  G5020       S 6945855      0 +37.8676563 -122.2318813
+6  G5020       S 6945855      0 +37.8676563 -122.2318813
+7  G5020       S 6945855      0 +37.8676563 -122.2318813
+8  G5020       S 6945855      0 +37.8676563 -122.2318813
+9  G5020       S 6945855      0 +37.8676563 -122.2318813
+10 G5020       S  586560      0 +37.8481378 -122.2495916
+                                  agency     stop_id
+1  Alameda-Contra Costa Transit District       51147
+2  Alameda-Contra Costa Transit District       50402
+3  Alameda-Contra Costa Transit District       50991
+4     University of California, Berkeley lawrhall_ib
+5     University of California, Berkeley    lawrhall
+6     University of California, Berkeley  spacelab_d
+7     University of California, Berkeley  spacelab_a
+8     University of California, Berkeley botagard_ib
+9     University of California, Berkeley    botagard
+10 Alameda-Contra Costa Transit District       55903
+                             stop_name routetypes n_arrivals n_hours_in
+1                        261 Tunnel Rd          3          5          5
+2                       Bentley School          3          1          1
+3          Centennial Dr &amp; Parking Lot          3         10         10
+4             Lawrence Hall of Science          3         23         13
+5             Lawrence Hall of Science          3         23         13
+6            Space Sciences Lab / MSRI          3         23         13
+7  Space Sciences Lab / MSRI (Arrival)          3         23         13
+8                  UC Botanical Garden          3          0          0
+9                  UC Botanical Garden          3          0          0
+10           Claremont Av &amp; College Av          3          5          3
+                district_n                       geometry
+1  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+2  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+3  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+4  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+5  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+6  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+7  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+8  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+9  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...
+10 04 - Bay Area / Oakland MULTIPOLYGON (((-122.2579 3...</code></pre>
 </div>
+</div>
+</div>
+</section>
+<section id="exploring-poverty-transit-access" class="slide level2">
+<h2>Exploring: Poverty &amp; Transit Access</h2>
+<p>Now that we have out datasets combined, we can start exploring the relationships between our stop data and our census data.</p>
+<div class="fragment">
+<blockquote>
+<p><strong>Q: How does <code>pctpov</code> (percent in poverty) relate to the number of transit stops in a neighborhood?</strong></p>
+</blockquote>
+</div>
+</section>
+<section id="exploring-poverty-transit-access-1" class="slide level2">
+<h2>Exploring: Poverty &amp; Transit Access</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="1|2|3|5|6|7|8|9|10|11|12|13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>full_data <span class="ot">&lt;-</span> full_data <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">group_by</span>(GEOID)<span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">mutate</span>(<span class="at">stop_count =</span> <span class="fu">n</span>())</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a>full_data<span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pctpov, <span class="at">y =</span> stop_count)) <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Transit Stops vs Poverty Rate"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11"></a>       <span class="at">x =</span> <span class="st">"Percent in Poverty"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12"></a>       <span class="at">y =</span> <span class="st">"Number of Transit Stops"</span>) <span class="sc">+</span> </span>
+<span id="cb12-13"><a href="#cb12-13"></a>  <span class="fu">theme_grey</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+
+<img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="exploring-median-income-transit-access" class="slide level2">
+<h2>Exploring: Median Income &amp; Transit Access</h2>
+<blockquote>
+<p><strong>Q: Do higher-income areas have more or fewer transit stops?</strong></p>
+</blockquote>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="1|2|3|4|5|6|7|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>full_data<span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mdn_ncm, <span class="at">y =</span> stop_count)) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Transit Stops vs Median Income"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6"></a>       <span class="at">x =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7"></a>       <span class="at">y =</span> <span class="st">"Number of Transit Stops"</span>) <span class="sc">+</span> </span>
+<span id="cb13-8"><a href="#cb13-8"></a>  <span class="fu">theme_grey</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+
+<img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<section id="one-more" class="slide level2">
+<h2>One more!</h2>
+<blockquote>
+<p><strong>Q: Do areas where more people don’t own cars have better transit coverage?</strong></p>
+</blockquote>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="1|2|3|4|5|6|7|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>full_data<span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pct_w_c, <span class="at">y =</span> stop_count)) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"yellow"</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Transit Stops vs Car Ownership"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6"></a>       <span class="at">x =</span> <span class="st">"Percent Without"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7"></a>       <span class="at">y =</span> <span class="st">"Number of Transit Stops"</span>) <span class="sc">+</span> </span>
+<span id="cb14-8"><a href="#cb14-8"></a>  <span class="fu">theme_grey</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+
+<img data-src="PublicTransportLesson_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<section id="exploration-questions" class="slide level2">
+<h2>Exploration Questions</h2>
+<blockquote>
+<p>These plots highlight the <strong>equity</strong> of the CA Public Transit System.</p>
+</blockquote>
+<p>Why might these practices be important in areas <strong>Outside</strong> of CA?</p>
+</section>
+<section id="visualization-2.0" class="slide level2">
+<h2>Visualization 2.0</h2>
+<p>With our Data we want to Show…</p>
+<ul>
+<li class="fragment"><strong>Where</strong> Transit Stops Are Located</li>
+<li class="fragment"><strong>Which</strong> areas are affected by socioeconomic Factors</li>
+<li class="fragment"><strong>Correlation</strong> between transit stop access and socioeconomic status</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>For this task, We can use a Spatial Heat Map to visualize the overlap between the two areas</p>
+</blockquote>
+</div>
+</section>
+<section id="spatial-heat-maps" class="slide level2">
+<h2>Spatial Heat Maps</h2>
+<div class="fragment">
+<blockquote>
+<p>Remeber: Our data contains the variable <code>Geomotry</code> with the lat and long values of each stop</p>
+</blockquote>
+<ul>
+<li class="fragment">Census Data Automatically Contains the <code>Geomotry</code>, or placement on a map, for each GEOID</li>
+<li class="fragment">Stop Data places the stop inside each GEOID at its (lat,long) cord.</li>
+<li class="fragment">We can Visualize the socioeconomic factors through colors on the map</li>
+</ul>
+</div>
+<div class="fragment">
+<blockquote>
+<p>Our Goal: Create a Map of CA, divided into GEOID’s, that compares transit stop frequency to socioeconomic factors</p>
+</blockquote>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
 
 <div class="footer footer-default">
 
-</div>
 </div>
 </section>
     </div>
