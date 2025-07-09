@@ -172,6 +172,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#cleaning-initial-dataset" id="toc-cleaning-initial-dataset" class="nav-link active" data-scroll-target="#cleaning-initial-dataset"><span class="header-section-number">1</span> Cleaning Initial Dataset</a></li>
   <li><a href="#dataset-national-transit-database-ntd" id="toc-dataset-national-transit-database-ntd" class="nav-link" data-scroll-target="#dataset-national-transit-database-ntd"><span class="header-section-number">2</span> Dataset: National Transit Database (NTD)</a></li>
   <li><a href="#cleaning-distribution-materials" id="toc-cleaning-distribution-materials" class="nav-link" data-scroll-target="#cleaning-distribution-materials"><span class="header-section-number">3</span> Cleaning Distribution Materials</a></li>
+  <li><a href="#lesson-materials" id="toc-lesson-materials" class="nav-link" data-scroll-target="#lesson-materials"><span class="header-section-number">4</span> Lesson Materials</a></li>
+  <li><a href="#interactive-ggplot" id="toc-interactive-ggplot" class="nav-link" data-scroll-target="#interactive-ggplot"><span class="header-section-number">5</span> Interactive ggplot</a></li>
+  <li><a href="#mathlinks-lesson-on-joining" id="toc-mathlinks-lesson-on-joining" class="nav-link" data-scroll-target="#mathlinks-lesson-on-joining"><span class="header-section-number">6</span> Mathlinks Lesson on Joining</a></li>
+  <li><a href="#joined-data" id="toc-joined-data" class="nav-link" data-scroll-target="#joined-data"><span class="header-section-number">7</span> Joined Data</a></li>
+  <li><a href="#exploring-relationships" id="toc-exploring-relationships" class="nav-link" data-scroll-target="#exploring-relationships"><span class="header-section-number">8</span> Exploring Relationships</a>
+  <ul class="collapse">
+  <li><a href="#exploration-question-scaffolds" id="toc-exploration-question-scaffolds" class="nav-link" data-scroll-target="#exploration-question-scaffolds"><span class="header-section-number">8.1</span> Exploration Question Scaffolds</a></li>
+  </ul></li>
+  <li><a href="#culminating-ideas" id="toc-culminating-ideas" class="nav-link" data-scroll-target="#culminating-ideas"><span class="header-section-number">9</span> Culminating Ideas</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="PTNotes.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -184,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="cleaning-initial-dataset"><span class="header-section-number">1</span> Cleaning Initial Dataset</h2>
 <ul>
 <li>Initial Dataset from US Department of Transportation titled <em>“Monthly Modal Time Series”</em></li>
-<li>Filtered to California Specific Data for higher relevance. Filter Specifically to your state or area fr a dataset that’s easier for students to explore and model.</li>
+<li>Filtered to California Specific Data for higher relevance. Filter Specifically to your state or area for a dataset that’s easier for students to explore and model.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -200,11 +209,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dataset-national-transit-database-ntd" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="dataset-national-transit-database-ntd"><span class="header-section-number">2</span> Dataset: National Transit Database (NTD)</h2>
-<p><strong>Discuss:</strong> The goal here is to get students to understand that the NTD dataset itself desnot caontain enough information for the insighful analysis we are looking for.</p>
+<p><strong>Discuss:</strong> The goal here is to get students to understand that the NTD dataset itself does not contain enough information for the insightful analysis we are looking for.</p>
 </section>
 <section id="cleaning-distribution-materials" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="cleaning-distribution-materials"><span class="header-section-number">3</span> Cleaning Distribution Materials</h2>
-<p><strong>creating shapefile folder that joins public transit data with CA census tracts.</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tigris)</span>
@@ -220,12 +228,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Joining where stop is within tract</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>stops_with_tract <span class="ot">&lt;-</span> <span class="fu">st_join</span>(stops_sf, ca_tracts, <span class="at">join =</span> st_within)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>clean_sf <span class="ot">&lt;-</span> stops_with_tract<span class="sc">|&gt;</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in, district_n, COUNTYFP, TRACTCE, GEOID, geometry)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Creates sf folder in working directory</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"output_shapefile"</span>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(clean_sf, <span class="st">"output_shapefile/CA_Transit_Stops.shp"</span>, <span class="at">delete_layer =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Separate matched and unmatched stops</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>matched_stops <span class="ot">&lt;-</span> stops_with_tract <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(GEOID))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>unmatched_stops <span class="ot">&lt;-</span> stops_with_tract <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">is.na</span>(GEOID))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># match unmatched stops</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>nearest_idx <span class="ot">&lt;-</span> <span class="fu">st_nearest_feature</span>(unmatched_stops, ca_tracts)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull the nearest GEOIDs from the tracts</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>unmatched_stops_fixed <span class="ot">&lt;-</span> unmatched_stops <span class="sc">|&gt;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">GEOID =</span> ca_tracts<span class="sc">$</span>GEOID[nearest_idx],</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>clean_sf <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(matched_stops, unmatched_stops_fixed) <span class="sc">|&gt;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(agency, stop_id, stop_name, routetypes, n_arrivals, n_hours_in,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>         district_n, GEOID, geometry)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Creates sf folder in working directory</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"output_shapefile"</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(clean_sf, <span class="st">"output_shapefile/CA_Transit_Stops.shp"</span>, <span class="at">delete_layer =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Retrieving census data from tidycensus package</strong></p>
 <div class="cell">
@@ -265,7 +287,127 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">GEOID =</span> <span class="fu">as.character</span>(GEOID))<span class="sc">|&gt;</span></span>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>black, <span class="sc">-</span>asian, <span class="sc">-</span>white, <span class="sc">-</span>hispanic_latino, <span class="sc">-</span>no_vehicle, <span class="sc">-</span>num_pov, <span class="sc">-</span>transit_users)</span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(census_data1, <span class="st">"acs_clean_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Join with Census Tracts Geomotry</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>census_data2 <span class="ot">&lt;-</span> census_data1<span class="sc">|&gt;</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(ca_tracts, <span class="at">by =</span> <span class="st">"GEOID"</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"output_shapefile2"</span>)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(census_data2, <span class="st">"output_shapefile2/CA_Census_Data.shp"</span>, <span class="at">delete_layer =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lesson-materials" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="lesson-materials"><span class="header-section-number">4</span> Lesson Materials</h2>
+<p>The worksheet below is intended to follow along with the <strong>“Public Transit Lesson”</strong> lecture slides. With this worksheet specifically, students should also have a computer, or be in groups with a computer, so they can practice some data exploration and analysis in real time.</p>
+<p><a href="PT_Lesson_WS.pdf" download="" style="padding:10px 15px; background:#007ACC; color:white; text-decoration:none; border-radius:5px;">In-Class Data Wrangling Practice</a></p>
+</section>
+<section id="interactive-ggplot" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="interactive-ggplot"><span class="header-section-number">5</span> Interactive ggplot</h2>
+<p>In the section of the lesson “Visualizing with ggplot2”, students are prompted to work in groups or pairs to come up with the code to create a specific line plot. In this section, it may be beneficial to have rstudio or your R coding interface open and projected so students can follow along in the coding process. <strong>For example</strong>, the first question in the worksheet asks students to tweak a previous wrangling example and then plot their findings. Project the code below or write it on the board, and once students have finished discussing in groups, have them help to fill in the blanks and complete the wrangling task together.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>summary <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Agency <span class="sc">==</span> <span class="st">"____"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ___, <span class="at">y =</span> ___)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">___</span>(<span class="at">linewidth =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"___"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"___"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"___"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mathlinks-lesson-on-joining" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="mathlinks-lesson-on-joining"><span class="header-section-number">6</span> Mathlinks Lesson on Joining</h2>
+<p>In the previous lesson(Tree Equity), students used Mathlink Cubes to learn basic data wrangling principles. The same activity can be applied to learn the concept of joining datasets. Below are a few images that visualize the process of different join functions with the mathlink cubes. Showing these images as well as hands on interaction with the cubes are great ways to help cement the new data wrangling concept. Refer back to the “Tree Equity Lesson” for more information about how to best set this activity up in the classroom.</p>
+<p><strong><code>right_join</code></strong></p>
+<p><strong>left_join</strong></p>
+<p><strong>full_join</strong></p>
+</section>
+<section id="joined-data" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="joined-data"><span class="header-section-number">7</span> Joined Data</h2>
+<p><strong>Introduce</strong> students to the new dataset. <code>census_data</code> has variables such as <code>pct_pov</code> or <code>pct_wo_car</code>. These variable can help us commit to a better understanding of how the transit stop data is affected by/affects society.</p>
+<p>When discussing <strong><code>right_join()</code> vs.&nbsp;<code>left_join()</code></strong>, first have students make observations about the resulting datasets when using the functions on <code>stop_data</code>.</p>
+<ul>
+<li>Point out the Variables in each resulting dataset</li>
+<li>Point out the number of observations in each dataset</li>
+<li>notice how using right join leaves us with empty geomotries/tracts (is this something we want to visualize?)</li>
+</ul>
+</section>
+<section id="exploring-relationships" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="exploring-relationships"><span class="header-section-number">8</span> Exploring Relationships</h2>
+<p>In this section, guide students through wrangling and plotting exercises to look at the relationships between the transit data in an area and the socioeconomic markers in that area.</p>
+<p><strong>Goal</strong>: Allow students to come up with their own path to answer each question.</p>
+<ul>
+<li><strong>Provide</strong> time for students to work on each problem in pairs/groups</li>
+<li><strong>Use</strong> skeleton/scaffolded R-code to ease the transition from looking at code to writing it alone</li>
+<li><strong>Guide</strong> students back to the dataset if their are unsure of variable names and values</li>
+<li><strong>Allow</strong> different students to answer questions and explain their problem solving techniques to the class</li>
+</ul>
+<section id="exploration-question-scaffolds" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="exploration-question-scaffolds"><span class="header-section-number">8.1</span> Exploration Question Scaffolds</h3>
+<blockquote class="blockquote">
+<p><strong>Q: How does <code>pctpov</code> (percent in poverty) relate to the number of transit stops in a neighborhood?</strong></p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wrangling to Count Stops per Tract</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>full_data <span class="ot">&lt;-</span> full_data <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(___)<span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">___</span>(<span class="at">stop_count =</span> <span class="fu">n</span>())</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>full_data<span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pctpov, <span class="at">y =</span> ___)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">___</span>(<span class="at">color =</span> <span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"___"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"___"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"___"</span>) <span class="sc">+</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Q: Do higher-income areas have more or fewer transit stops?</strong></p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>full_data<span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ___, <span class="at">y =</span> ___)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">___</span>(<span class="at">color =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"___"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"___"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"___"</span>) <span class="sc">+</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Q: Do areas where more people don’t own cars have better transit coverage?</strong></p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plot_data<span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">___</span>(<span class="at">x =</span> ___, <span class="at">y =</span> ___)) <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">___</span>(<span class="at">color =</span> <span class="st">"yellow"</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"___"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"___"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"___"</span>) <span class="sc">+</span> </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_grey</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="culminating-ideas" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="culminating-ideas"><span class="header-section-number">9</span> Culminating Ideas</h2>
+<p>Throughout this entirety of this lesson, the goal has been to show students how to covey the most insightful findings based on their data. Through scatter plots, students can see a correlative relationship between 2 variables, but the spatial heat map allows us to visualize an extra layer of the puzzle: location. <strong>Explain</strong> to students how location is another variable that can make our conclusions about data more insightful and lead us to more educated action.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make adjustments to heat map here</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>facet_data <span class="ot">&lt;-</span> full_data<span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(pctpov, pctpoc, median_income, pct_wo_car),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"census_var"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>facet_data<span class="sc">|&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> value), <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> census_var, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
