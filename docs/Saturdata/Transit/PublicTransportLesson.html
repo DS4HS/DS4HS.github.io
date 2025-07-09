@@ -415,14 +415,11 @@ Paityn Richardson
 <h2>Public Transportation in Urbn Planning</h2>
 <h3 id="useful-analyses-include">Useful Analyses include:</h3>
 <ul>
-<li class="fragment">Trends in ridership over time</li>
-<li class="fragment">Efficiency: Cost per rider or mile</li>
-<li class="fragment">Equity: <em>Who uses transit?</em> <em>Where is/isn’t transit accessible?</em></li>
+<li class="fragment"><p>Trends in ridership over time</p></li>
+<li class="fragment"><p>Efficiency: Cost per rider or mile</p></li>
+<li class="fragment"><p>Equity: <em>Who uses transit?</em> <em>Where is/isn’t transit accessible?</em></p></li>
+<li class="fragment"><p><em>What types of variables should we look for in a dataset/sets to conduct these useful analyses?</em></p></li>
 </ul>
-<p>. . .</p>
-<blockquote>
-<p><em>What types of variables should we look for in a dataset/sets to conduct these useful analyses?</em></p>
-</blockquote>
 </section>
 <section id="dataset-national-transit-database-ntd" class="slide level2">
 <h2>Dataset: National Transit Database (NTD)</h2>
@@ -800,7 +797,7 @@ First 10 features:
 <section id="section-4" class="slide level2">
 <h2></h2>
 <blockquote>
-<p>We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we mist use right_join()</p>
+<p>We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we must use right_join()</p>
 </blockquote>
 <div class="fragment">
 <div class="cell">
@@ -983,16 +980,11 @@ First 10 features:
 </section>
 <section id="spatial-heat-maps" class="slide level2">
 <h2>Spatial Heat Maps</h2>
-<div class="fragment">
-<blockquote>
-<p>Remeber: Our data contains the variable <code>Geomotry</code> with the lat and long values of each stop</p>
-</blockquote>
 <ul>
-<li class="fragment">Census Data Automatically Contains the <code>Geomotry</code>, or placement on a map, for each GEOID</li>
+<li class="fragment">Census Data Automatically Contains the <code>geometry</code>, or placement on a map, for each GEOID</li>
 <li class="fragment">Stop Data places the stop inside each GEOID at its (lat,long) cord.</li>
 <li class="fragment">We can Visualize the socioeconomic factors through colors on the map</li>
 </ul>
-</div>
 <div class="fragment">
 <blockquote>
 <p>Our Goal: Create a Map of CA, divided into GEOID’s, that compares transit stop frequency to socioeconomic factors</p>

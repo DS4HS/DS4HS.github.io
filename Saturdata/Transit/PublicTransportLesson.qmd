@@ -34,9 +34,8 @@ options(pillar.width = 70)
 - Efficiency: Cost per rider or mile
 - Equity: *Who uses transit?* *Where is/isn't transit accessible?*
 
-. . . 
 
-> *What types of variables should we look for in a dataset/sets to conduct these useful analyses?*
+- *What types of variables should we look for in a dataset/sets to conduct these useful analyses?*
 
 
 ## Dataset: National Transit Database (NTD)
@@ -303,7 +302,7 @@ left_joined
 
 ##
 
-> We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we mist use right_join()
+> We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we must use right_join()
 
 . . .
 
@@ -472,11 +471,7 @@ With our Data we want to Show...
 
 ## Spatial Heat Maps
 
-. . .
-
-> Remeber: Our data contains the variable `Geomotry` with the lat and long values of each stop
-
-- Census Data Automatically Contains the `Geomotry`, or placement on a map, for each GEOID
+- Census Data Automatically Contains the `geometry`, or placement on a map, for each GEOID
 - Stop Data places the stop inside each GEOID at its (lat,long) cord.
 - We can Visualize the socioeconomic factors through colors on the map 
 
