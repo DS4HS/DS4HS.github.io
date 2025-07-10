@@ -158,7 +158,7 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#what-can-this-data-tell-us",
     "title": "CA Public Transportation",
     "section": "What Can this Data Tell Us?",
-    "text": "What Can this Data Tell Us?\nOn its own, this data shows:\n\nWhere stops are located\nHow many stops an agency operates\nHow often stop is used/How many routes serve a stop\n\n\nWhat the data doesn’t show is:\n\nWho lives near a certain stop\nWhat the area is like demographically\nWhether transit access is equitable"
+    "text": "What Can this Data Tell Us?\nOn its own, this data shows:\n\nWhere stops are located\nHow many stops an agency operates\nHow often stop is used/How many routes serve a stop\n\n\nWhat the data doesn’t show is:\n\nWho lives near a certain stop\nWhat the area is like demographically\nWhether transit access is equitable\nWhat causes someone to take transit"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#adding-context",
@@ -221,7 +221,7 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#exploring-poverty-transit-access-1",
     "title": "CA Public Transportation",
     "section": "Exploring: Poverty & Transit Access",
-    "text": "Exploring: Poverty & Transit Access\n\nfull_data &lt;- full_data |&gt;\n  group_by(GEOID)|&gt;\n  mutate(stop_count = n())\n\n\nfull_data|&gt;\n  ggplot(aes(x = pctpov, y = stop_count)) +\n  geom_point(color = \"lightgreen\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Poverty Rate\",\n       x = \"Percent in Poverty\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
+    "text": "Exploring: Poverty & Transit Access\n\nfull_data &lt;- full_data |&gt;\n  group_by(GEOID)|&gt;\n  summarize(stop_count = n(),\n            pctpov = first(pctpov),\n            pctpoc = first(pctpoc),\n            mdn_ncm = first(mdn_ncm),\n            pct_w_c = first(pct_w_c))\n\n\nfull_data|&gt;\n  ggplot(aes(x = pctpov, y = stop_count)) +\n  geom_point(color = \"lightgreen\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Poverty Rate\",\n       x = \"Percent in Poverty\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#exploring-median-income-transit-access",

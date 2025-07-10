@@ -15,13 +15,11 @@ editor: visual
 
 ![](Saturdata/images/Lessons.png)
 
-## Website Work 
+## Website Work
 
 ![](Saturdata/images/Download.png)
 
-
 ## Data Wrangling for Public Transit Problem
-
 
 ```{r}
 #| eval: false
@@ -46,9 +44,7 @@ dir.create("output_shapefile")
 st_write(clean_sf, "output_shapefile/CA_Transit_Stops.shp", delete_layer = TRUE)
 ```
 
-
 ## Data Wrangling for Public Transit Problem
-
 
 ```{r}
 #| echo: true
@@ -94,19 +90,14 @@ census_data1 <- census_data |>
 write_csv(census_data1, "acs_clean_data.csv")
 ```
 
-
-## 
-
-<div style="text-align: center;">
-
-<h1>PAYS</h1>
+# PAYS
 
 ## Content
 
-  - excel and paper -> R and Rstudio
-  - trial running Hooke's Law activity starting this Monday
+-   excel and paper -\> R and Rstudio
+-   trial running Hooke's Law activity starting this Monday
 
-##
+## 
 
 ```{r}
 #| eval: false
@@ -125,43 +116,41 @@ spring_data|>
 
 ```
 
-. . . 
-
+. . .
 
 **Do your results seem to obey Hooke's Law? Specifically, is the graph of your measurements a straight line?**
 
 ## Logistics
 
 ### Documents
-  - 5.2 R and Rstudio Guide
-  - Hooke_intructions.pdf
-  - Hooke_activity.qmd
-  - Hooke_activity.pdf
+
+-   5.2 R and Rstudio Guide
+-   Hooke_intructions.pdf
+-   Hooke_activity.qmd
+-   Hooke_activity.pdf
 
 ## Logistics
 
 **R and Rstudio Use**
-  
-  - Students will be working on a set of Pomona lended devices
-  - Each device is equipped with an installed version of R and Rstudio or Pomona's Rstudio Server
-  
+
+-   Students will be working on a set of Pomona lended devices
+-   Each device is equipped with an installed version of R and Rstudio or Pomona's Rstudio Server
 
 ## Projected Concerns
 
-  - accessing necessary materials
-  - uploading and exporting files
-  - work turn in 
+-   accessing necessary materials
+-   uploading and exporting files
+-   work turn in
 
-
-. . . 
-
+. . .
 
 > Solution: Pilot run of Canvas and Gradescope for distributing and collecting Rstudio materials
-    
 
 ## Goals
 
-- Work with students over following weeks to see how content is being recieved
-- Update some PAYS materials to emphasize concepts in data science 
+-   Work with students over following weeks to see how content is being recieved
 
-  - **Example** Mathlink cubes or Saturdata Lesson
+-   Update some PAYS materials to emphasize concepts in data science
+
+    -   **Example** Mathlink cubes or Saturdata Lesson
+:::

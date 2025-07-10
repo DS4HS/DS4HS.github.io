@@ -235,6 +235,7 @@ head(geomotry, 5)
   - Who lives near a certain stop
   - What the area is like demographically
   - Whether transit access is equitable
+  - What causes someone to take transit
   
 ## Adding Context
 
@@ -336,7 +337,11 @@ Now that we have out datasets combined, we can start exploring the relationships
 
 full_data <- full_data |>
   group_by(GEOID)|>
-  mutate(stop_count = n())
+  summarize(stop_count = n(),
+            pctpov = first(pctpov),
+            pctpoc = first(pctpoc),
+            mdn_ncm = first(mdn_ncm),
+            pct_w_c = first(pct_w_c))
 
 
 full_data|>
@@ -482,7 +487,6 @@ With our Data we want to Show...
 ## 
 
 ```{r}
-#| eval: false
 #| echo: false
 
 
@@ -493,15 +497,32 @@ facet_data <- full_data |>
   filter(!is.na(value))|>
   select(geometry, stop_count, census_var, value)
 
+library(patchwork)
 
-ggplot(facet_data) +
-  geom_sf(aes(fill = value), color = NA) +
-  geom_sf_text(aes(label = stop_count), size = 2, color = "black") +
-  scale_fill_viridis_c(option = "C", name = NULL) +
-  facet_wrap(~ census_var, ncol = 2) +
-  theme_minimal()
+plots <- split(facet_data, facet_data$census_var) |> 
+  purrr::map(~ {
+    ggplot(.x) +
+      geom_sf(aes(fill = value)) +
+      #geom_sf_text(aes(label = stop_count), size = 0.5, color = "white") +
+      scale_fill_viridis_c() +
+      theme_minimal() +
+      labs(title = unique(.x$census_var))
+  })
+
+wrap_plots(plots)
 
 
+facet_data |> 
+  filter(census_var == "pctpov") |> 
+ggplot() +
+      geom_sf(aes(fill = value)) +
+      geom_sf_text(aes(label = stop_count), size = 0.5, color = "white") +
+      scale_fill_viridis_c() +
+      xlim(c(-119, -116)) + 
+      ylim(c(33.5,35)) + 
+      theme_minimal() 
+
+ 
 
 ```
 
