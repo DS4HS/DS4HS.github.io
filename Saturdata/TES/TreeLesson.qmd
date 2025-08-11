@@ -1,13 +1,15 @@
 ---
-title: "Tree Equity Lesson"
-author: "Paityn Richardson"
+title: "Data Science with Tree Equity"
+subtitle: "presentation slides"
+author: "Paityn Richardson & Jo Hardin"
 format:
   revealjs:
     theme: simple
     transition: fade
-    incremental: true
+    incremental: false
     scrollable: true
     css: ../../styles.css
+    embed-resources: true
 execute:
   warning: false
   message: false
@@ -17,34 +19,40 @@ execute:
 #| include: false
 
 options(pillar.width = 70)
+library(tidyverse)
 ```
 
-## 🌐 The Big Idea: Why Urban Planning
+## 🌐 Why urban planning?
 
 > Urban planning **IS** data science in action.
 
-## 
+. . .
 
 <div style="text-align: center;">
 
 <h1>HOW??</h1>
+</div>
 
-## What is Data Science??
+## What is data science??
 
--   From IBM US: Data science is the practice of "uncovering actionable insights hidden in data. These insights can be used to guide decision making and strategic planning."
+> Data science is the practice of "uncover[ing] actionable insights hidden in data. These insights can be used to guide decision making and strategic planning."^[https://www.ibm.com/think/topics/data-science]
+
+. . .
+
+**Examples:**
+
 -   🎓 Schools study attendance and grade trends to identify students who may need extra support before they fall behind.
 -   🏥 Hospitals use patient records and trends to predict who's at risk for certain illnesses --- helping doctors intervene earlier.
 
-## Data Science Cycle -\> Urban Planning Cycle
+## DS cycle $\rightarrow$ urban planning cycle
 
 ```{r}
 #| echo: false
-#| results: asis
 
 library(DiagrammeR)
-library(tidyverse)
+library(rsvg)
 
-grViz("
+graph <- grViz("
   digraph cycle {
     graph [rankdir=LR]
     node [shape = ellipse, style=filled, color=lightblue, width=1, height=1, fontsize=12]
@@ -58,45 +66,196 @@ grViz("
     Observe -> Collect -> Analyze -> Intervene -> Evaluate -> Observe
   }
 ")
+
+graph %>%
+  DiagrammeRsvg::export_svg() %>%
+  charToRaw() %>%
+  rsvg_png("cycle.png", width = 2200, height = 1200)
+
+knitr::include_graphics("cycle.png")
+
 ```
 
-## 🌳 Introduction: Tree Equity and City Planning
+# 🌳 Introduction: Tree equity and city planning
 
--   Tree Planting is a direct action of City Planning Initiatives
--   *Why do some neighborhoods have less trees than others? How are these Neighborhoods affected? What can we do?*
+- Tree planting is a direct action of city planning initiatives
+    - *Why do some neighborhoods have fewer trees than others?* 
+    - *How do trees affect neighborhoods?*
+    - *How can we use data to understand the relationship between urban canopy and other variables?*
 
-## American Forests: Tree Equity Score
+## Urban forests: Tree Equity Score
 
-![](../images/TES.png)
+```{r}
+#| out.width: '90%'
+#| fig.align: center
+knitr::include_graphics("../images/TES.png")
+```
 
--   Tree Canopy Coverage...
-    -   Improves Air Quality and Stabalizes Enviromental Hazzards
-    -   Intercepts Rainfall and prevents Stormwater Runnoff
-    -   Reduces Heat extremity improving peoples physical and mental health
 
-## Todays Goals
+-   Tree canopy coverage...
+    -   improves air quality and stabilizes environmental hazards
+    -   intercepts rainfall and prevents stormwater runoff
+    -   reduces heat extremity improving peoples' physical and mental health
+
+## Today's goals
 
 -   Learn to use R for data analysis and communication
 -   Understand what makes a dataset meaningful
 -   Ask important questions about data and the observed world
 -   Explore how data can inform **just** and **sustainable** practices
 
-## A Look at the data
 
-### California Tree Coverage Data [^1]
+# Working with data
 
-[^1]: "Tree Equity Score. 2023. American Forests."
+In order to process the tree equity data, we first need to learn how to **wrangle** the data!
+
+
+## Data wrangling
+
+As a first step, we need to **prepare** the data.
+
+. . . 
+
+**Data wrangling includes:**
+
+-   Cleaning messy or incomplete data
+-   Selecting the most relevant information
+-   Reshaping data into a usable form
+-   Creating new important variables
+
+. . . 
+
+Think of it like *organizing your workspace before starting a project*.
+
+## MathLink cubes
+
+![](../Mathlink/dataset.jpg)
+
+## `filter()`: keep certain rows
+
+`filter()` keeps only the rows that meet specific conditions.
 
 ```{r}
-library(readr)
-ca_tes <- read_csv("ca_csv/ca_tes.csv")
+#| echo: true
+#| eval: false
 
-head(ca_tes, 1)
+cubes |> 
+  filter(red == "triangle")
 ```
 
-## An Observation
+. . . 
+
+![](../Mathlink/filter.jpg)
+
+
+## MathLink cubes
+
+![](../Mathlink/dataset.jpg)
+
+## `select()`: keep certain columns
+
+`select()` keeps only specified variables (columns).
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+cubes |> 
+  select(red, green)
+```
+
+. . . 
+
+![](../Mathlink/select.jpg)
+
+## MathLink cubes
+
+![](../Mathlink/dataset.jpg)
+
+## `mutate()`: add a new column
+
+`mutate()` creates a new column (variable) by transforming existing ones.
+
+```{r}
+#| echo: true
+#| eval: false
+
+cubes |> 
+  mutate(white = case_when(
+    blue == "hexagon" ~ "square",
+    blue != "hexagon" ~ "triangle")
+    )
+```
+
+. . . 
+
+![](../Mathlink/mutate.jpg)
+
+## `arrange()`: ordering the rows
+
+`arrange()` sorts the rows by the values of a variable (ascending or descending).
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Hexagon → Square → Triangle → Pentagon.
+cubes |> 
+  arrange(purple)
+```
+
+. . . 
+
+![](../Mathlink/arrange.jpg)
+
+## `group_by()` and `summarize()`: summarizing by category
+
+`group_by()` holds the rows in groups, specified by a particular variable.
+
+`summarize()` collapses the rows so that there is **only one** row per group. A new variable is created to be the summary value.
+
+```{r}
+#| echo: true
+#| eval: false
+
+cubes |> 
+  group_by(yellow) |> 
+  summarize(count = n())
+```
+
+. . . 
+
+![](../Mathlink/group_by.jpg)
+
+
+
+## A Look at the data
+
+### California tree coverage data [^1]
+
+[^1]: Tree Equity Score. 2023. American Forests. https://www.treeequityscore.org/
+
+```{r}
+library(DT)
+ca_tes <- readr::read_csv("ca_csv/ca_tes.csv")
+num_cols <- which(sapply(head(ca_tes, 4), is.numeric))
+
+datatable(
+  head(ca_tes, 4),
+  options = list(scrollX = TRUE, paging = FALSE),
+  class = "compact" 
+) |>
+  formatRound(columns = num_cols, digits = 2)
+```
+
+Variable descriptions are given (mostly) at https://www.treeequityscore.org/methodology?tab=data-glossary
+
+## An observation
 
 > Observational Unit: object by which data is collected and analyzed
+
+For example, an observational unit could be any of the following:
 
 -   Person
 
@@ -106,38 +265,46 @@ head(ca_tes, 1)
 
 -   Country
 
--   *What is the observational unit in the `ca_tes` data set?*
+. . .
 
-## 
+-   *What is the observational unit in the tree equity dataset?*
+
+## What is the observational unit?
 
 ```{r}
-ca_tes[1, ]
+datatable(
+  head(ca_tes, 4),
+  options = list(scrollX = TRUE, paging = FALSE),
+  class = "compact" 
+) |>
+  formatRound(columns = num_cols, digits = 2)
 ```
 
 -   The GEOID or Census block Group describes a particular community or neighborhood in a given area contains between 600 - 3,000 people [^2]
 
-[^2]: American Forests Methods and Data Glossary
+[^2]: American Forests Methods and Data Glossary. https://www.treeequityscore.org/methodology?tab=data-glossary
 
-## What are the Variables?
+## What are the variables?
 
--   `treecanopy`: Actual tree coverage in an area
--   `tc_goal`: Ideal tree coverage based on needs
--   `tc_gap`: How far behind the area is (tc_goal - treecanopy)
+-   `treecanopy`: actual tree coverage in an area
+-   `tc_goal`: ideal tree coverage based on needs
+-   `tc_gap`: how far behind the area is (`tc_goal` - `treecanopy`)
 -   `pctpocnorm`: % residents who are people of color
--   `pctpovnorm`, `unemplnorm`: Indicators of equity
--   `lingnorm`: % of non-english households (linguistic isolation)
--   `tes`: Tree Equity Score (gap × need)
+-   `pctpovnorm`, `unemplnorm`: indicators of equity
+-   `lingnorm`: % of non-English households (linguistic isolation)
+-   `tes`: tree equity score (gap × need)
 
+<!--
 ## What do we want to know
 
--   **Its not always easy to start analyzing such a large data set. Thats why it is important to ask SMART questions**
--   **S**pecific: Clear, detailed, and not too broad
--   **M**easureable: Can be answered using the available data
--   **A**pplicable: Tied to real-world meaningful contexts
--   **R**easoned: Based on logic or a thoughtful assumption
--   **T**estable: Can be analyzed to reveal patterns or relationships
+-   **Its not always easy to start analyzing large data sets, which is why it is important to ask SMART questions**
+-   **S**pecific: clear, detailed, and not too broad
+-   **M**easureable: can be answered using the available data
+-   **A**pplicable: tied to real-world meaningful contexts
+-   **R**easoned: based on logic or a thoughtful assumption
+-   **T**estable: can be analyzed to reveal patterns or relationships
 
-## SMART vs. Not-so-SMART Questions
+## SMART vs. Not-so-SMART questions
 
 **Don't ask:**
 
@@ -151,118 +318,15 @@ ca_tes[1, ]
 -   *How does tree coverage relate to income in LA neighborhoods?*
 -   *Is the tree coverage gap higher in areas with high unemployment?*
 
-## 
+# Going From Question to Answer
 
-<div style="text-align: center;">
+-->
 
-<h1>Going From Question to Answer</h1>
+## Wrangling the tree data!
 
-## Data Wrangling
+## 1. Keep certain rows
 
-Before we can answer our questions, we need to **prepare** the data.
-
-. . . 
-
-**Data wrangling includes:**
-
--   Cleaning messy or incomplete data
--   Selecting the most relevant information
--   Reshaping data into a usable form
--   Creating new variables that help us analyze
-
-. . . 
-
-Think of it like *organizing your workspace before starting a project*.
-
-## Mathlink Cubes
-
-![](../Mathlink/dataset.jpg)
-
-## `filter()`: Keep Certain Rows
-
-`filter()` lets us select only the rows that meet specific conditions.
-
-```{r}
-#| echo: true
-#| eval: false
-
-filter(red == "triangle")
-```
-
-. . . 
-
-![](../Mathlink/filter.jpg)
-
-## `select()`: Keep Certain Columns
-
-`select()` lets us keep only the variables (columns) we care about.
-
-
-```{r}
-#| echo: true
-#| eval: false
-
-select(red, green)
-```
-
-. . . 
-
-![](../Mathlink/select.jpg)
-
-## `mutate()`: Add a New Insightful Column
-
-`mutate()` lets us create a new column (variable) by transforming existing ones.
-
-```{r}
-#| echo: true
-#| eval: false
-
-# Triangle = yes, Square = no
-mutate(is_hexagon = (blue == "hexagon"))
-```
-
-. . . 
-
-![](../Mathlink/mutate.jpg)
-
-## `arrange()`: Ordering our data
-
-`arrange()` Sort rows by the values of a variable (ascending or descending).
-
-```{r}
-#| echo: true
-#| eval: false
-
-# Hexagon → Square → Triangle → Pentagon.
-arrange(purple)
-```
-
-. . . 
-
-![](../Mathlink/arrange.jpg)
-
-## `group_by()` and `summarise()`: Summariing by Category
-
-`group_by()` lets us group the data by a specific variable.
-
-```{r}
-#| echo: true
-#| eval: false
-#| code-line-numbers: "1|2"
-
-group_by(yellow)|> 
-summarize(count = n())
-```
-
-. . . 
-
-![](../Mathlink/group_by.jpg)
-
-## Now you Try
-
-## 
-
-> Show only neighborhoods with low tree equity scores (`tes` \< 50)
+> Show only neighborhoods with low tree equity scores (`tes` $<$ 50).
 
 -   Hint: `filter()`
 
@@ -271,15 +335,17 @@ summarize(count = n())
 
 ```{r}
 #| echo: true
+#| eval: true
 
-library(tidyverse)
 ca_tes|>
   filter(tes < 50)
 ```
 
-## 
 
-> Focus on `treecanopy`, `tes`, and `unemplnorm` (keep these columns)
+
+## 2. Keep certain columns
+
+> Focus on `treecanopy`, `tes`, and `unemplnorm` (keep only those columns).
 
 -   Hint: `select()`
 
@@ -288,12 +354,27 @@ ca_tes|>
 
 ```{r}
 #| echo: true
+#| eval: true
 
 ca_tes |>
   select(treecanopy, tes, unemplnorm)
 ```
 
-## 
+
+
+## 3. Create a new variable
+
+> What percent of the tree coverage goal has been met?
+
+-   Hint: `mutate()`
+
+```{r}
+ca_tes |> 
+  select(GEOID, place, state, treecanopy, tc_goal)
+```
+
+
+## 3. Create a new variable
 
 > What percent of the tree coverage goal has been met?
 
@@ -304,14 +385,16 @@ ca_tes |>
 
 ```{r}
 #| echo: true
+#| eval: true
 
 ca_tes |>
-  mutate(pct_coverage_met = treecanopy / tc_goal * 100)
+  mutate(pct_coverage_met = treecanopy / tc_goal * 100) |> 
+  select(GEOID, place, state, treecanopy, tc_goal, pct_coverage_met)
 ```
 
-## 
+## 4. Collapse the rows by values of a group
 
-> Compute the average `tes` score by place
+> Compute the average `tes` score by `place`
 
 -   Hint: `group_by()` and `summarise()`
 
@@ -320,53 +403,60 @@ ca_tes |>
 
 ```{r}
 #| echo: true
+#| eval: true
 
 ca_tes |>
   group_by(place) |>
   summarize(avg_tes = mean(tes, na.rm = TRUE))
 ```
 
-## Which neighborhoods have the greatest tree equity need?
+
+## 5. Which neighborhoods have the greatest tree equity need?
+
+> Use only the variables `GEOID`, `place`, and `tes`.
+
+**Hint:** Use `arrange()`
 
 . . . 
 
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "1|2|3|4"
+#| eval: true
+
 ca_tes |>
-  select(GEOID, place, tes)|>
-  arrange(tes)|>
-  slice_head(n = 5)
+  select(GEOID, place, tes) |>
+  arrange(tes)
 ```
 
-## How does tree equity relate to both poverty and health disparity?
 
-- create variable `combined_index` that connects `pctpovnorm` and `health_nor`
+## 6. How does tree equity relate to both poverty and health disparity?
+
+- create variable `combined_index` that connects `pctpovnorm` and `health_nor` as a product
 - cut data set down to desired variables (`place`, `combined_index`, and `tes`)
 - organize data to see which places have highest combined index
+
+**Hint:** to sort *descending*, you'll need to use `desc()` *within* the `arrange()` function.
 
 . . .
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "2|3|4|5"
+#| eval: true
 
-ca_tes|>
-  filter(!is.na(pctpovnorm), !is.na(health_nor))|>
-  mutate(combined_index = pctpov * health_nor)|>
-  select(place, combined_index, tes)|>
+ca_tes |>
+  mutate(combined_index = pctpov * health_nor) |>
+  select(place, combined_index, tes) |>
   arrange(desc(combined_index))
 
 ```
 
-## 
 
-<div style="text-align: center;">
 
-<h1>Visualizing the Data</h1>
+# Visualizing the data
 
-## What and Why
+
+## What and why
 
 -   Data visualization is the process of transforming raw data into visual formats, like **charts**, **graphs**, or **maps**, to make it easier to understand and interpret
 
@@ -379,13 +469,13 @@ ca_tes|>
     -   Urban planning
     -   Business & marketing
 
-## What is ggplot2?
+## What is **ggplot2**?
 
--   ggplot2 is an R package for data visualization.
+-   **ggplot2** is an R package for data visualization
 -   Encoded functions for numerous different plot types
 -   Builds plots in layers using +
 
-## Basic Structure of a ggplot
+## Basic structure of a ggplot
 
 ```{r}
 #| echo: true
@@ -393,7 +483,7 @@ ca_tes|>
 #| code-line-numbers: "2|3|4|5"
 
 # General structure
-data|>
+data |>
   ggplot(aes(x = ..., y = ...)) +
   geom_function() +
   labs("label for you plot and axes")
@@ -402,27 +492,27 @@ data|>
 
 ## Common `geom()` functions
 
--   geom_point(): scatterplots (x vs y)
--   geom_bar(): bar charts (categorical data)
--   geom_col(): bar chart with height from y var
+-   geom_point(): scatter plot (x vs y)
+-   geom_bar(): bar charts (**categorical** data)
+-   geom_col(): bar chart with height from y variable (**categorical** data)
 -   geom_histogram(): distribution of numeric variable
--   geom_line(): trends over continuous x-axis
+-   geom_line(): connect the dots across (x,y) coordinates
 
 ## Which plot should I use?
 
 ::: {.small}
 
-| Variable Type   | Plot Type    | `geom()`?    | When to Use   |
+| variable type   | plot type    | `geom()`?    | when to use   |
 |-----------------|----------------|----------------|-----------|
-| Categorical             | Bar Chart    | `geom_bar()`       | Count frequency of categories      |
-| Continuous              | Histogram    | `geom_histogram()` | Show distribution of one variables |
-| Continuous + Continuous | Scatter Plot | `geom_point()`     | Explore relationships between vars |
-| Continuous + Time       | Line Chart   | `geom_line()`      | Show change over time              |
-| Category + Value        | Column Chart | `geom_col()`       | Compare totals across categories   |
+| Categorical             | bar chart    | `geom_bar()`       | Count frequency of categories      |
+| Numeric                 | histogram    | `geom_histogram()` | Show distribution of one variables |
+| Either + Either         | scatter plot | `geom_point()`     | Explore relationships between vars |
+| Numeric + Either        | line chart   | `geom_line()`      | Show change over x-variable        |
+| Category + Value        | column chart | `geom_col()`       | Compare totals across categories   |
 
 :::
 
-## Types of Variables
+## Types of variables
 
 -   insert graphic on variable types
 
@@ -467,7 +557,7 @@ ca_tes|>
 
 ```
 
-## Tree Equity vs. Linguistic Isolation
+## Tree equity vs. linguistic isolation
 
 > Is there a relationship between linnguistic isolation(`lingnorm`) and `tes` in an area. 
 
@@ -490,14 +580,10 @@ ca_tes|>
        y = "Tree Equity Score")
 ```
 
-##
-
-<div style="text-align: center;">  
-
-<h1>"Explore, Analyze, Present!"</h1>
+# Explore, Analyze, Present!
 
 
-## Its Your Turn 
+## Your turn 
 
 > You will work in small groups to investigate tree equity in a new state(s) 
 
@@ -507,40 +593,50 @@ ca_tes|>
   -   Create plot(s) with ggplot2     
   -   Present findings to the class 
 
-## Your Goals  
+## Your goals  
 
 -   Clearly state your research question  
 -   Support it with r code and graphs  
 -   Use the data to identify a trend, pattern, or disparity  
 -   Communicate **WHY** it matters 
 
-## Examples Questions
+## Sample questions
 
 -   How does tree canopy vary across different neighborhoods in *chosen state*?  
 -   Is there a relationship between percent in poverty and tree equity score in *chosen state*? 
 -   How do tree equity trends compare between two or more *chosen states*?  
 -   Are places with lower tree equity also more likely to have higher health disparities in *chosen state*?  
 
-## Getting the Data 
+## Getting the data 
 
-**Navigate to treeequityscore.org:**
+**Navigate to https://www.treeequityscore.org/:**
 
--   in drop down menu on top left, click "methods and data" tab 
--   choose the "data download" page and you should see something like this: 
-
+-   in drop down menu, click the "methods and data" tab 
+-   choose the "data download" page; you should see something like: 
 
 . . .  
 
 ![](../images/statesdata.png){ width=500px}
 
-##
+
+- by right-clicking on a state, you can get the URL, something like the following: https://tes-app-data-share.s3.amazonaws.com/nc/nc_csv.zip
+
+- you may need to run the code below one line at a time to see what needs adjusting for your choice of state (likely you will **only** need to adjust the two digit state abbreviation).
+
+## Uploading your own state data
 
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
 
 # Example code to load your state data
+tmp <- tempfile(fileext = ".zip")
+nc_data_zip <- download.file("https://tes-app-data-share.s3.amazonaws.com/nc/nc_csv.zip", 
+                             tmp, mode = "wb")
 
-library(readr)
-you_data_name <- read_csv("path_to_your_data.csv")
+unzip(tmp, list = TRUE)
+
+nc_tes <- readr::read_csv(unz(tmp, "nc_tes.csv"))
+
+head(nc_tes)
 ```

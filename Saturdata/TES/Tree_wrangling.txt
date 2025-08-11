@@ -12,9 +12,24 @@ execute:
   message: false
 ---
 
+```{r}
+library(tidyverse)
+tmp <- tempfile(fileext = ".zip")
+ca_data_zip <- download.file("https://tes-app-data-share.s3.amazonaws.com/ca/ca_csv.zip", 
+                             tmp, mode = "wb")
+
+unzip(tmp, list = TRUE)
+
+ca_tes <- readr::read_csv(unz(tmp, "ca_tes.csv"))
+
+head(ca_tes)
+```
+
+
 ## Instructions
 
-In this worksheet, you'll practice writing **tidyverse-style R code** for data wrangling tasks. Each question guides you through filtering, selecting, mutating, and summarizing the `ca_tes` dataset. 
+In this worksheet, you'll practice writing **tidyverse-style R code** for data wrangling tasks.
+Each question guides you through filtering, selecting, mutating, and summarizing the `ca_tes` dataset. 
 
 **Don't stress yourself out over perfect syntax** -- the goal is to practice what you've learned about data wrangling so far.
 
@@ -27,11 +42,7 @@ Show only neighborhoods where the `tes` (Tree Equity Score) is **less than 50**.
 
 **Hint:** Use `filter()`
 
-```
-
-
-
-
+```{r}
 
 ```
 
@@ -41,11 +52,8 @@ Keep only the following columns: `treecanopy`, `tes`, and `unemplnorm`.
 
 **Hint:** Use `select()`
 
-```
+```{r}
 
-
-
- 
 ```
 
 ### 3. Calculate percent of tree coverage goal met
@@ -57,11 +65,7 @@ Compute a new column that represents **the percent of the tree coverage goal tha
 - You'll need to figure out how to calculate the value in question — discuss with a partner if unsure!
 - Remember that `treecanopy` is the actual tree coverage in an area. `tc_goal` is the ideal tree coverage based on needs.
 
-```
-
-
-
-
+```{r}
 
 ```
 
@@ -71,11 +75,7 @@ Group the data by `place` (e.g., city or neighborhood), and compute the **averag
 
 **Hint:** Use `group_by()` and `summarise()`
 
-```
-
- 
-
-
+```{r}
 
 ```
 
@@ -86,11 +86,7 @@ Use only the variables `GEOID`, `place`, and `tes`.
 **Hint:** Use `arrange()`
 
 
-```
-
-
-
-
+```{r}
 
 ```
 
@@ -105,14 +101,24 @@ In this question, you'll explore the relationship between Tree Equity Score (`te
 
 **Hint:** to sort *descending*, you'll need to use `desc()` *within* the `arrange()` function.
 
-```
-
-
-
-
-
+```{r}
 
 
 ```
 
 
+## 7. Additional queries.
+
+Come up with at least one question that you can ask and answer based on the data.
+
+
+
+## 3. Tree Equity vs. Linguistic Isolation
+
+Explore whether there's a relationship between **linguistic isolation** and **tree equity** in different areas.
+
+- Use `ggplot()` to visualize the relationship between `lingnorm` (linguistic isolation) and `tes`
+  - **Hint:** Choose the best type of plot for these two numerical variables.
+
+- Add meaningful labels to your plot:
+  - Use `labs()` to set an informative **title** and **axis labels**.

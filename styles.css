@@ -4,3 +4,14 @@
 .small {
   font-size: 0.65em;
 }
+
+.reveal section img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.dataTables_wrapper table {
+  font-size: 60%;
+}
+
+

@@ -1,0 +1,50 @@
+---
+title: "Practicing Data Wrangling with Tree Equity Data"
+subtitle: "in-class worksheet"
+author: "Paityn Richardson & Jo Hardin"
+format:
+  pdf: 
+    fontsize: 10.5pt
+    geometry: margin=0.75in
+    toc: false
+execute: 
+  warning: false
+  message: false
+---
+
+```{r}
+library(tidyverse)
+tmp <- tempfile(fileext = ".zip")
+ca_data_zip <- download.file("https://tes-app-data-share.s3.amazonaws.com/ca/ca_csv.zip", 
+                             tmp, mode = "wb")
+
+unzip(tmp, list = TRUE)
+
+ca_tes <- readr::read_csv(unz(tmp, "ca_tes.csv"))
+
+head(ca_tes)
+```
+
+
+## Instructions
+
+In this worksheet, you'll practice writing **ggplot R code** for creating data visualizations. 
+Each question guides you through building layers of plots for the `ca_tes` dataset. 
+
+**Don't stress yourself out over perfect syntax** -- the goal is to practice what you've learned about data wrangling so far.
+
+
+## Practice Questions
+
+### 1. 
+
+
+## 3. Tree Equity vs. Linguistic Isolation
+
+Explore whether there's a relationship between **linguistic isolation** and **tree equity** in different areas.
+
+- Use `ggplot()` to visualize the relationship between `lingnorm` (linguistic isolation) and `tes`
+  - **Hint:** Choose the best type of plot for these two numerical variables.
+
+- Add meaningful labels to your plot:
+  - Use `labs()` to set an informative **title** and **axis labels**.

@@ -17,6 +17,12 @@ bibliography:
   - TL.bib
 ---
 
+
+<a href="Tree_wrangling.txt" download = "Tree_wrangling.qmd" style="padding:10px 15px; background:#007ACC; color:white; text-decoration:none; border-radius:5px;">Download wrangling activity</a>
+
+
+<a href="Tree_viz.txt" download = "Tree_viz.qmd" style="padding:10px 15px; background:#007ACC; color:white; text-decoration:none; border-radius:5px;">Download visualization activity</a>
+
 ## What is Data Science and Why Urban Planning
 
 
@@ -157,7 +163,7 @@ Students should work in groups of 2–4, ideally with access to a shared device
 
   - Write out a clear, answerable question (this may take several revisions).
 
-**Students will use R studio to generate at least one graph and one statistical summary.**
+**Students will use R (inside the RStudio IDE) to generate at least one graph and one statistical summary.**
 
 Instructors or mentors should:
 
