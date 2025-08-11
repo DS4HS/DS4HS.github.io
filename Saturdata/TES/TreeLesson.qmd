@@ -230,7 +230,6 @@ cubes |>
 ![](../Mathlink/group_by.jpg)
 
 
-
 ## A Look at the data
 
 ### California tree coverage data [^1]
@@ -238,19 +237,16 @@ cubes |>
 [^1]: Tree Equity Score. 2023. American Forests. https://www.treeequityscore.org/
 
 ```{r}
-library(DT)
 ca_tes <- readr::read_csv("ca_csv/ca_tes.csv")
-num_cols <- which(sapply(head(ca_tes, 4), is.numeric))
 
-datatable(
-  head(ca_tes, 4),
-  options = list(scrollX = TRUE, paging = FALSE),
-  class = "compact" 
-) |>
-  formatRound(columns = num_cols, digits = 2)
+gt::gt(
+  head(ca_tes)) |> 
+  gt::fmt_number(decimals = 2)
 ```
 
 Variable descriptions are given (mostly) at https://www.treeequityscore.org/methodology?tab=data-glossary
+
+
 
 ## An observation
 
@@ -273,12 +269,9 @@ For example, an observational unit could be any of the following:
 ## What is the observational unit?
 
 ```{r}
-datatable(
-  head(ca_tes, 4),
-  options = list(scrollX = TRUE, paging = FALSE),
-  class = "compact" 
-) |>
-  formatRound(columns = num_cols, digits = 2)
+gt::gt(
+  head(ca_tes)) |> 
+  gt::fmt_number(decimals = 2)
 ```
 
 -   The GEOID or Census block Group describes a particular community or neighborhood in a given area contains between 600 - 3,000 people [^2]
