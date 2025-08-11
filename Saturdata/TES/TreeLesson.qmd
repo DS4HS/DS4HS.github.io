@@ -10,6 +10,7 @@ format:
     scrollable: true
     css: ../../styles.css
     embed-resources: true
+    footer: <a href = "https://ds4hs.github.io/" target = "_blank">https://ds4hs.github.io/</a>
 execute:
   warning: false
   message: false
