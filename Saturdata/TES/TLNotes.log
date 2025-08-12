@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.7.11)  11 AUG 2025 22:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.8.11)  11 AUG 2025 22:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **TLNotes.tex
 (./TLNotes.tex
 LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-06-30>
+L3 programming layer <2025-07-20>
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
@@ -97,7 +97,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ) (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-06-30 L3 programming layer (loader) 
+Package: expl3 2025-07-20 L3 programming layer (loader) 
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2025-06-09 L3 backend support: XeTeX
 \g__graphics_track_int=\count291
@@ -486,7 +486,7 @@ Package caption Info: New subtype `subtable' on input line 238.
 ) (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2025-06-21 v7.01n Hypertext links for LaTeX
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
@@ -516,28 +516,28 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count330
 \Hy@pagecounter=\count331
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2025-06-21 v7.01n Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 ) (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count332
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2025-06-21 v7.01n Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4052.
-Package hyperref Info: Hyper figures OFF on input line 4181.
-Package hyperref Info: Link nesting OFF on input line 4186.
-Package hyperref Info: Hyper index ON on input line 4189.
-Package hyperref Info: Plain pages OFF on input line 4196.
-Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Option `unicode' set `true' on input line 4066.
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4448.
+Package hyperref Info: Bookmarks ON on input line 4462.
 \c@Hy@tempcnt=\count333
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip19
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4787.
+LaTeX Info: Redefining \url on input line 4801.
 \XeTeXLinkMargin=\dimen192
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -547,20 +547,20 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 \Fld@menulength=\count334
 \Field@Width=\dimen193
 \Fld@charsize=\dimen194
-Package hyperref Info: Hyper figures OFF on input line 6066.
-Package hyperref Info: Link nesting OFF on input line 6071.
-Package hyperref Info: Hyper index ON on input line 6074.
-Package hyperref Info: backreferencing OFF on input line 6081.
-Package hyperref Info: Link coloring OFF on input line 6086.
-Package hyperref Info: Link coloring with OCG OFF on input line 6091.
-Package hyperref Info: PDF/A mode OFF on input line 6096.
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
 \Hy@abspage=\count335
 \c@Item=\count336
 \c@Hfootnote=\count337
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (/Users/jsh04747/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2025-06-21 v7.01n Hyperref driver for XeTeX
+File: hxetex.def 2025-07-12 v7.01o Hyperref driver for XeTeX
 \pdfm@box=\box67
 \c@Hy@AnnotLevel=\count338
 \HyField@AnnotCount=\count339
@@ -921,10 +921,10 @@ it was not a recognized image format.
 
  
 Here is how much of TeX's memory you used:
- 20392 strings out of 470418
- 376815 string characters out of 5488648
- 960758 words of memory out of 5000000
- 48468 multiletter control sequences out of 15000+600000
+ 20397 strings out of 470397
+ 376911 string characters out of 5488155
+ 961265 words of memory out of 5000000
+ 48494 multiletter control sequences out of 15000+600000
  630383 words of font info for 69 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  90i,5n,114p,1004b,427s stack positions out of 10000i,1000n,20000p,200000b,200000s
