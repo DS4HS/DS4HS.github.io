@@ -36,15 +36,115 @@ Each question guides you through building layers of plots for the `ca_tes` datas
 
 ## Practice Questions
 
-### 1. 
+### 1. Tree Equity vs. Poverty
+
+> Is there a relationship between poverty (`pctpov`) and tree equity (`tes`)?
 
 
-## 3. Tree Equity vs. Linguistic Isolation
+```{r}
+ca_tes |>
+  ___(___(x = ___, y = ___)) +
+  ___(color = "green") 
+```
 
-Explore whether there's a relationship between **linguistic isolation** and **tree equity** in different areas.
 
-- Use `ggplot()` to visualize the relationship between `lingnorm` (linguistic isolation) and `tes`
-  - **Hint:** Choose the best type of plot for these two numerical variables.
+```{r}
 
-- Add meaningful labels to your plot:
-  - Use `labs()` to set an informative **title** and **axis labels**.
+
+```
+
+
+
+### 2. Distribution of tree equity scores
+
+> What is the distribution of tree equity scores?
+
+
+```{r}
+___ |>
+  ggplot(aes(___)) +
+  ___(fill = "red")
+```
+
+
+```{r}
+
+
+```
+
+
+### 3. Tree equity vs. linguistic isolation
+
+> Is there a relationship between linnguistic isolation(`lingnorm`) and `tes` in an area. 
+
+  - Use ggplot to plot the relationship between `tes` and `lingnorm`
+  - Choose the best plot for the variable types
+  - Create fitting labels for your axes and plot title
+
+```{r}
+
+
+```
+
+
+
+### 4. Wrangle + plot
+
+Recreate the plot above, but summarize the information **per `county`** before plotting.
+That is, `Los Angeles County` should now only be represented by one dot. 
+Summarize both `lingnorm` and `tes` using the `mean()` function.
+
+```{r}
+
+
+```
+
+
+
+### 5. Wrangle + plot + label
+
+Recreate the plot above, but now add labels to the plot to indicate the county of each dot.
+Use `geom_label()` or `geom_text()`.
+Try both!
+You'll need to use `label = county`...  do you need `aes()`? 
+
+
+```{r}
+
+
+```
+
+
+### 6. Wrangle + plot + label
+
+There is an R package called **ggrepel**. 
+It includes a geom called `geom_label_repel`.
+Try it!  
+(To use a function from a package, you can write: `ggrepel::geom_label_repel()`.)
+
+**Hint:** Is there a yellow bar at the top asking if you want to load the R package **ggrepel**?  Say yes!
+
+```{r}
+
+
+```
+
+
+
+
+
+## 7. Additional queries.
+
+Come up with at least one question that you can ask and answer based on the data.
+
+- Use at least one of the new data verbs: `filter()`, `select()`, `mutate()`, `arrange()`, `group_by()`, `summarize()`.
+- Use a `geom_*()` that is not on this worksheet.
+- Label your plot well.
+- Use color to make your plot more fun.
+
+```{r}
+
+
+
+```
+

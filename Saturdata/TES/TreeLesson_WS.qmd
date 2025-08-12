@@ -1,6 +1,6 @@
 ---
 title: "Practicing Data Wrangling with Tree Equity Data"
-subtitle: "in-class worksheet"
+subtitle: "in-class worksheet wrangling"
 author: "Paityn Richardson & Jo Hardin"
 format:
   pdf: 
@@ -106,11 +106,6 @@ In this question, you'll explore the relationship between Tree Equity Score (`te
 **Hint:** to sort *descending*, you'll need to use `desc()` *within* the `arrange()` function.
 
 ```
-
-
-
-
-
 
 
 ```

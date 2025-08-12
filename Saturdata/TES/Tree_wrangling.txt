@@ -88,6 +88,9 @@ Use only the variables `GEOID`, `place`, and `tes`.
 
 ```{r}
 
+
+
+
 ```
 
 
@@ -111,14 +114,11 @@ In this question, you'll explore the relationship between Tree Equity Score (`te
 
 Come up with at least one question that you can ask and answer based on the data.
 
+- Use at least three of the new data verbs: `filter()`, `select()`, `mutate()`, `arrange()`, `group_by()`, `summarize()`.
+- Write the R code to address your query.
+
+```{r}
 
 
-## 3. Tree Equity vs. Linguistic Isolation
 
-Explore whether there's a relationship between **linguistic isolation** and **tree equity** in different areas.
-
-- Use `ggplot()` to visualize the relationship between `lingnorm` (linguistic isolation) and `tes`
-  - **Hint:** Choose the best type of plot for these two numerical variables.
-
-- Add meaningful labels to your plot:
-  - Use `labs()` to set an informative **title** and **axis labels**.
+```

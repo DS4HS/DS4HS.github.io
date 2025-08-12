@@ -23,16 +23,7 @@ options(pillar.width = 70)
 library(tidyverse)
 ```
 
-## 🌐 Why urban planning?
-
-> Urban planning **IS** data science in action.
-
-. . .
-
-<div style="text-align: center;">
-
-<h1>HOW??</h1>
-</div>
+# Getting started
 
 ## What is data science??
 
@@ -44,6 +35,19 @@ library(tidyverse)
 
 -   🎓 Schools study attendance and grade trends to identify students who may need extra support before they fall behind.
 -   🏥 Hospitals use patient records and trends to predict who's at risk for certain illnesses --- helping doctors intervene earlier.
+
+## 🌐 Why urban planning?
+
+> Urban planning **IS** data science in action.
+
+. . .
+
+<div style="text-align: center;">
+
+<h1>HOW??</h1>
+</div>
+
+
 
 ## DS cycle $\rightarrow$ urban planning cycle
 
@@ -77,14 +81,8 @@ knitr::include_graphics("cycle.png")
 
 ```
 
-# 🌳 Introduction: Tree equity and city planning
 
-- Tree planting is a direct action of city planning initiatives
-    - *Why do some neighborhoods have fewer trees than others?* 
-    - *How do trees affect neighborhoods?*
-    - *How can we use data to understand the relationship between urban canopy and other variables?*
-
-## Urban forests: Tree Equity Score
+## Urban forests: tree equity score
 
 ```{r}
 #| out.width: '90%'
@@ -97,6 +95,13 @@ knitr::include_graphics("../images/TES.png")
     -   improves air quality and stabilizes environmental hazards
     -   intercepts rainfall and prevents stormwater runoff
     -   reduces heat extremity improving peoples' physical and mental health
+
+## 🌳 Tree equity and city planning
+
+- Tree planting is a direct action of city planning initiatives
+    - *Why do some neighborhoods have fewer trees than others?* 
+    - *How do trees affect neighborhoods?*
+    - *How can we use data to understand the relationship between urban canopy and other variables?*
 
 ## Today's goals
 
@@ -163,7 +168,7 @@ cubes |>
 #| eval: false
 
 cubes |> 
-  select(red, green)
+  select(blue, purple)
 ```
 
 . . . 
@@ -184,8 +189,8 @@ cubes |>
 
 cubes |> 
   mutate(white = case_when(
-    blue == "hexagon" ~ "square",
-    blue != "hexagon" ~ "triangle")
+    yellow == "square" ~ "triangle",
+    yellow != "square" ~ "hexagon")
     )
 ```
 
@@ -230,7 +235,7 @@ cubes |>
 ![](../Mathlink/group_by.jpg)
 
 
-## A Look at the data
+# Tree canopy data
 
 ### California tree coverage data [^1]
 
@@ -316,7 +321,7 @@ gt::gt(
 
 -->
 
-## Wrangling the tree data!
+# Wrangling the tree data
 
 ## 1. Keep certain rows
 
@@ -331,7 +336,7 @@ gt::gt(
 #| echo: true
 #| eval: true
 
-ca_tes|>
+ca_tes |>
   filter(tes < 50)
 ```
 
@@ -454,7 +459,7 @@ ca_tes |>
 
 -   Data visualization is the process of transforming raw data into visual formats, like **charts**, **graphs**, or **maps**, to make it easier to understand and interpret
 
--   Communicate Results **Clearly** and **Effectively**
+-   Communicate results **clearly** and **effectively**
 
 -   Supports evidence-based decisions in fields like:
 
@@ -467,9 +472,11 @@ ca_tes |>
 
 -   **ggplot2** is an R package for data visualization
 -   Encoded functions for numerous different plot types
--   Builds plots in layers using +
+-   Builds plots in layers using `+`
 
 ## Basic structure of a ggplot
+
+We will go over each function one at a time.
 
 ```{r}
 #| echo: true
@@ -479,10 +486,536 @@ ca_tes |>
 # General structure
 data |>
   ggplot(aes(x = ..., y = ...)) +
-  geom_function() +
+  geom_*() +
   labs("label for you plot and axes")
       
 ```
+
+## Births in 2015
+
+Consider the `Births2015` dataset from the **mosaic** R package.
+
+```{r}
+library(mosaic)
+
+Births2015
+```
+
+Obtained from the National Center for Health Statistics, National Vital Statistics System, Natality, 2015 data.
+
+
+
+## How do we make this plot?
+   
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+ggplot(
+  data = Births2015, aes(x = date, y = births)) + 
+  geom_point() +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="50%"}
+Two Questions:
+
+ 1. What do we want R to do?  (What is the goal?)
+ 
+ 2. What does R need to know?
+:::
+::::
+
+
+
+## How do we make this plot?
+   
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+ggplot(
+  data = Births2015, aes(x = date, y = births)) + 
+  geom_point() +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="50%"}
+1. Goal: scatterplot = a plot with points
+ 
+2. What does R need to know?
+ 
+    * data source: `Births2015`
+
+    * aesthetics: 
+ 
+        * `date -> x`
+        * `births -> y`
+        * points (!)
+:::
+::::
+
+## How do we make this plot?
+   
+:::: {.columns} 
+::: {.column width="40%"}
+```{r, echo=FALSE}
+ggplot(
+  data = Births2015, aes(x = date, y = births)) + 
+  geom_point() +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1,2,7,8"
+
+Births2015 |> 
+  ggplot(aes(x = date, y = births)) + 
+  geom_point() +
+  labs(title = "US Births in 2015")
+
+Births2015 |> 
+  ggplot() +
+  geom_point(aes(x = date, y = births)) +
+  labs(title = "US Births in 2015")
+```
+
+:::
+::::
+
+
+## Layers
+
+### Layer 0 
+
+:::: {.columns} 
+::: {.column width="40%"}
+```{r, echo=FALSE}
+ggplot()
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1"
+ggplot() 
+```
+
+:::
+::::
+
+... creates an empty plot screen. Notice that there aren't any scales to the x and y axes. 
+
+
+## Layers
+
+### Layer 1 
+
+:::: {.columns} 
+::: {.column width="40%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015, aes(x = date, y = births))
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "2"
+Births2015 |> 
+  ggplot(aes(x = date, y = births)) 
+```
+
+:::
+::::
+
+## Layers
+
+### Layer 2 
+
+:::: {.columns} 
+::: {.column width="40%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015, aes(x = date, y = births)) + 
+  geom_point()
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "3"
+Births2015 |> 
+  ggplot(aes(x = date, y = births)) + 
+  geom_point()
+```
+
+:::
+::::
+
+
+## Layers
+
+### Layer 3 
+
+:::: {.columns} 
+::: {.column width="40%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015, aes(x = date, y = births)) + 
+  geom_point() +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "4"
+Births2015 |> 
+  ggplot(aes(x = date, y = births)) + 
+  geom_point() +
+  labs(title = "US Births in 2015")
+```
+
+:::
+::::
+
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015) +
+  geom_point(aes(x = date, y = births, color = wday)) +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="50%"}
+What has changed?  
+
+ * new aesthetic: mapping color to day of week
+
+:::
+::::
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015) +
+  geom_point(aes(x = date, y = births, color = wday)) +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "4"
+Births2015 |> 
+  ggplot(aes(x = date,
+             y = births, 
+             color = wday)) +
+  geom_point() +
+  labs(title = "US Births in 2015")
+```
+:::
+::::
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015) +
+  geom_line(aes(x = date, y = births, color = wday)) +
+  labs(title = "US Births in 2015")
+```
+:::
+::::
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015) +
+  geom_line(aes(x = date, y = births, color = wday)) +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="50%"}
+lines instead of dots!
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "5"
+Births2015 |> 
+  ggplot(aes(x = date, 
+             y = births,
+             color = wday)) +
+  geom_line() +
+  labs(title = "US Births in 2015")
+```
+
+:::
+::::
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015, 
+       aes(x = date, y = births, color = wday)) + 
+  geom_point() + 
+  geom_line() +
+  labs(title = "US Births in 2015")
+```
+:::
+::::
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="50%"}
+```{r}
+#| echo: false
+Births2015 |> 
+  ggplot(aes(x = date, y = births, color = wday)) + 
+  geom_point() + 
+  geom_line() +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="50%"}
+Now there are two **layers**: one with points and one with
+lines
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "5,6"
+Births2015 |> 
+  ggplot(aes(x = date,
+             y = births,
+             color = wday)) + 
+  geom_point() +  
+  geom_line() +
+  labs(title = "US Births in 2015")
+```
+
+
+ *  The layers are placed one on top of the other:  the points 
+are *below* and the lines are *above*.   
+
+ * `data` and `aes` specified in `ggplot()` affect all geoms
+:::
+::::
+
+
+## What does this code do?
+  
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "2"
+Births2015 |> 
+  ggplot(aes(x = date, y = births, color = "navy")) + 
+  geom_point() +
+  labs(title = "US Births in 2015") 
+```
+
+
+## What does this code do?
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "2"
+Births2015 |> 
+  ggplot(aes(x = date, y = births, color = "navy")) + 
+  geom_point()  +
+  labs(title = "US Births in 2015")
+```
+
+
+This is *mapping* the color aesthetic to a new variable with 
+only one value ("navy").  
+So all the dots get set to the same color, but it's not navy.
+
+
+## Setting vs. Mapping
+
+If we want to *set* the color to be navy for all of the dots, we do 
+it outside the `aes()` designation:
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "2,3"
+Births2015 |> 
+  ggplot(aes(x = date, y = births)) +   # map variables 
+  geom_point(color = "navy")    +   # set attributes
+  labs(title = "US Births in 2015")
+```
+
+
+* Note that `color = "navy"` is now outside of the aesthetics list.  That's how `ggplot2` distinguishes between mapping and setting.
+
+
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+ggplot(data = Births2015,
+       aes(x = date, y = births)) + 
+  geom_line(aes(color = wday)) +       
+  geom_point(color = "navy")  +          
+  labs(title = "US Births in 2015")
+```
+:::
+::::
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, echo=FALSE}
+Births2015 |> 
+  ggplot(aes(x = date,
+             y = births)) + 
+  geom_line(aes(color = wday)) +       
+  geom_point(color = "navy") +           
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "4,5"
+Births2015 |> 
+  ggplot(aes(x = date,
+             y = births)) + 
+  geom_line(aes(color = wday)) +      
+  geom_point(color = "navy")  +         
+  labs(title = "US Births in 2015")
+```
+
+
+* `ggplot()` establishes the default data and aesthetics
+for the geoms, but each geom may change these defaults.
+
+* good practice: put into `ggplot()` the things that affect all (or most) of the layers; rest in `geom_XXXX()`
+:::
+::::
+
+## Setting vs. Mapping (again)
+
+Information gets passed to the plot via:
+
+a. `map` the **variable** information inside the `aes()` (aesthetic) command
+
+a. `set` the **non-variable** information outside the `aes()` (aesthetic) command
+
+## Other geoms
+ 
+```{r, echo=TRUE, comment=NA}
+apropos("^geom_")
+```
+
+
+
+## Other geoms
+
+help pages will tell you their aesthetics, default stats, etc.
+
+```{r, eval=FALSE}
+?geom_area             # for example
+```
+
+
+
+
+## Let's try `geom_area`
+
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, eval=TRUE}
+Births2015 |> 
+  ggplot(aes(x = date,
+             y = births,
+             fill = wday)) + 
+  geom_area() +
+  labs(title = "US Births in 2015")
+```
+
+:::
+::::
+
+## Let's try `geom_area`
+
+:::: {.columns} 
+::: {.column width="50%"}
+```{r, eval=TRUE}
+Births2015 |> 
+  ggplot(aes(x = date,
+             y = births,
+             fill = wday)) + 
+  geom_area() +
+  labs(title = "US Births in 2015")
+```
+:::
+
+::: {.column width="50%"}
+... not a good plot
+
+
+* overplotting is hiding much of the data
+* extending y-axis to 0 may or may not be desirable.
+:::
+::::
+
+## Side note: what makes a plot good?
+   
+
+Most (all?) graphics are intended to help us make comparisons
+
+* How does something change over time?
+* How do the two groups compare?
+
+::: {.callout-important}
+# Key plot metric
+Does my plot make the comparisons I am interested in:
+
+* easily, and 
+* accurately?
+:::
+
+
+
+
 
 ## Common `geom()` functions
 
@@ -491,6 +1024,25 @@ data |>
 -   geom_col(): bar chart with height from y variable (**categorical** data)
 -   geom_histogram(): distribution of numeric variable
 -   geom_line(): connect the dots across (x,y) coordinates
+
+## Types of geoms
+
+![](../images/geoms.jpg)
+
+https://ggplot2.tidyverse.org/
+
+
+
+## Types of variables
+
+### Numeric:
+![](../images/continuous_discrete.png)
+
+## Types of variables
+
+### Categorical:
+![](../images/nominal_ordinal_binary.png)
+
 
 ## Which plot should I use?
 
@@ -506,13 +1058,21 @@ data |>
 
 :::
 
-## Types of variables
 
--   insert graphic on variable types
 
 ## Tree Equity vs. Poverty
 
-> Is there a relationship between poverty and tree equity?
+> Is there a relationship between poverty (`pctpov`) and tree equity (`tes`)?
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+ca_tes |>
+  ___(___(x = ___, y = ___)) +
+  ___(color = "green") 
+```
 
 . . . 
 
@@ -522,7 +1082,7 @@ data |>
 #| eval: true
 #| code-line-numbers: "1|2|3|4|5|6"
 
-ca_tes|>
+ca_tes |>
   ggplot(aes(x = pctpov, y = tes)) +
   geom_point(color = "green") + 
   labs(title = "Tree Equity vs. Poverty",
@@ -530,9 +1090,20 @@ ca_tes|>
        y = "Tree Equity Score")
 ```
 
-## Distribution of Tree Equity Scores
+## Distribution of tree equity scores
 
-> How many places have each Tree equity score? 
+> What is the distribution of tree equity scores?
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+___ |>
+  ggplot(aes(___)) +
+  ___(fill = "red")
+```
+
 
 . . . 
 
@@ -542,10 +1113,10 @@ ca_tes|>
 #| eval: true
 #| code-line-numbers: "1|2|3|4|5|6"
 
-ca_tes|>
+ca_tes |>
   ggplot(aes(x = tes)) +
   geom_histogram(bins = 15, fill = "red") +
-  labs(title = "Distribution of Tree Equity Scores",
+  labs(title = "Distribution of tree equity scores",
        x = "Tree Equity Score",
        y = "Number of Places")
 
@@ -556,7 +1127,7 @@ ca_tes|>
 > Is there a relationship between linnguistic isolation(`lingnorm`) and `tes` in an area. 
 
   - Use ggplot to plot the relationship between `tes` and `lingnorm`
-  - Choose the **best** plot for the variable types
+  - Choose the best plot for the variable types
   - Create fitting labels for your axes and plot title
 
 ##
@@ -564,12 +1135,85 @@ ca_tes|>
 ```{r}
 #| echo: true
 #| eval: true
-#| #| code-line-numbers: "1|2|3|4|5|6"
+#| code-line-numbers: "1|2|3|4|5|6"
 
-ca_tes|>
+ca_tes |>
   ggplot(aes(x = lingnorm, y = tes)) +
   geom_point(color = "turquoise") + 
-  labs(title = "Tree Equity vs. Linguistiv Isolation",
+  labs(title = "Tree Equity vs. Linguistic Isolation",
+       x = "Percent in Linguistic Isolation",
+       y = "Tree Equity Score")
+```
+
+
+
+## Wrangle + plot
+
+Recreate the plot above, but summarize the information **per `place`** before plotting. That is, `Claremont` should now only be represented by one dot. Summarize both `lingnorm` and `tes` using the `mean()` function.
+
+.  .  .
+
+
+```{r}
+#| echo: true
+#| eval: true
+
+ca_tes |> 
+  group_by(place) |> 
+  summarize(ave_ling = mean(lingnorm),
+            ave_tes = mean(tes)) |> 
+  ggplot(aes(x = ave_ling, y = ave_tes)) + 
+  geom_point() + 
+  labs(title = "Tree Equity vs. Linguistic Isolation",
+       x = "Percent in Linguistic Isolation",
+       y = "Tree Equity Score")
+```
+
+## Wrangle + plot + label
+
+Recreate the plot above, but now add labels to the plot to indicate the county of each dot.  Use `geom_label()` or `geom_text()`. Try both! You'll need to use `label = county`...  do you need `aes()`? 
+
+.  .  .
+
+
+```{r}
+#| echo: true
+#| eval: true
+
+ca_tes |> 
+  group_by(county) |> 
+  summarize(ave_ling = mean(lingnorm),
+            ave_tes = mean(tes)) |> 
+  ggplot(aes(x = ave_ling, y = ave_tes)) + 
+  geom_point() + 
+  geom_text(aes(label = county)) + 
+  labs(title = "Tree Equity vs. Linguistic Isolation",
+       x = "Percent in Linguistic Isolation",
+       y = "Tree Equity Score")
+```
+
+
+## Wrangle + plot + label
+
+There is an R package called **ggrepel**.  It includes a geom called `geom_label_repel`. Try it!  (To use a function from a package, you can write: `ggrepel::geom_label_repel()`.)
+
+**Hint:** Is there a yellow bar at the top asking if you want to load the R package **ggrepel**?  Say yes!
+
+.  .  .
+
+
+```{r}
+#| echo: true
+#| eval: true
+
+ca_tes |> 
+  group_by(county) |> 
+  summarize(ave_ling = mean(lingnorm),
+            ave_tes = mean(tes)) |> 
+  ggplot(aes(x = ave_ling, y = ave_tes)) + 
+  geom_point() + 
+  ggrepel::geom_label_repel(aes(label = county)) + 
+  labs(title = "Tree Equity vs. Linguistic Isolation",
        x = "Percent in Linguistic Isolation",
        y = "Tree Equity Score")
 ```
@@ -581,16 +1225,16 @@ ca_tes|>
 
 > You will work in small groups to investigate tree equity in a new state(s) 
 
--   **Each Group Will: **   
+-   **Each group will:**   
   -   Choose a research question(s)    
   -   Use tidyverse tools to explore the data     
-  -   Create plot(s) with ggplot2     
+  -   Create plot(s) with **ggplot2**     
   -   Present findings to the class 
 
 ## Your goals  
 
 -   Clearly state your research question  
--   Support it with r code and graphs  
+-   Support it with R code and graphs  
 -   Use the data to identify a trend, pattern, or disparity  
 -   Communicate **WHY** it matters 
 

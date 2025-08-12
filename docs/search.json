@@ -87,36 +87,36 @@
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning",
     "href": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning",
     "title": "CA Public Transportation",
-    "section": "Public Transportation in Urbn Planning",
-    "text": "Public Transportation in Urbn Planning\nPublic Transit is a Key factor in shaping how a city/society functions \n\nReduces Traffic Congestion and Pollution (sustainability)\nIncreases access to Jobs, Education, Healthcare, etc.\nImpacts Housing affordability and community equity"
+    "section": "",
+    "text": "Public Transit is a Key factor in shaping how a city/society functions \n\nReduces Traffic Congestion and Pollution (sustainability)\nIncreases access to Jobs, Education, Healthcare, etc.\nImpacts Housing affordability and community equity"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning-1",
     "href": "Saturdata/Transit/PublicTransportLesson.html#public-transportation-in-urbn-planning-1",
     "title": "CA Public Transportation",
     "section": "Public Transportation in Urbn Planning",
-    "text": "Public Transportation in Urbn Planning\nUseful Analyses include:\n\nTrends in ridership over time\nEfficiency: Cost per rider or mile\nEquity: Who uses transit? Where is/isn’t transit accessible?\nWhat types of variables should we look for in a dataset/sets to conduct these useful analyses?"
+    "text": "Public Transportation in Urbn Planning\n\nUseful Analyses include:\n\nTrends in ridership over time\nEfficiency: Cost per rider or mile\nEquity: Who uses transit? Where is/isn’t transit accessible?\nWhat types of variables should we look for in a dataset/sets to conduct these useful analyses?"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#dataset-national-transit-database-ntd",
     "href": "Saturdata/Transit/PublicTransportLesson.html#dataset-national-transit-database-ntd",
     "title": "CA Public Transportation",
     "section": "Dataset: National Transit Database (NTD)",
-    "text": "Dataset: National Transit Database (NTD)\n\nData is filtered from US data -&gt; CA specific Data\n\n\n\n\n# A tibble: 1 × 75\n  NTD.ID Agency          Organization.Type       Mode  Type.of.Service\n   &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;                   &lt;chr&gt; &lt;chr&gt;          \n1  90044 City of Arcadia County or Local Govern… DR    PT             \n# ℹ 70 more variables: Rail..True.False. &lt;lgl&gt;,\n#   Primary.UZA.UACE.Code &lt;dbl&gt;, Primary.UZA.Name &lt;chr&gt;,\n#   Primary.UZA.Sq.Miles &lt;dbl&gt;, Primary.UZA.Population &lt;dbl&gt;,\n#   Service.Area.Sq.Miles &lt;dbl&gt;, Service.Area.Population &lt;dbl&gt;,\n#   Year &lt;dbl&gt;, Month &lt;chr&gt;, Month_Year..timestamp. &lt;dbl&gt;,\n#   VOMS &lt;dbl&gt;, Vehicle.Revenue.Miles &lt;dbl&gt;,\n#   Vehicle.Revenue.Hours &lt;dbl&gt;, Unlinked.Passenger.Trips &lt;dbl&gt;, …\n\n\n\n\nDiscuss:\n\nWhat are the variables? \nWhat kinds of questions can we ask?"
+    "text": "Dataset: National Transit Database (NTD)\n\nData is filtered from US data -&gt; CA specific Data\n\n. . .\n\n\n# A tibble: 1 × 75\n  NTD.ID Agency          Organization.Type       Mode  Type.of.Service\n   &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;                   &lt;chr&gt; &lt;chr&gt;          \n1  90044 City of Arcadia County or Local Govern… DR    PT             \n# ℹ 70 more variables: Rail..True.False. &lt;lgl&gt;,\n#   Primary.UZA.UACE.Code &lt;dbl&gt;, Primary.UZA.Name &lt;chr&gt;,\n#   Primary.UZA.Sq.Miles &lt;dbl&gt;, Primary.UZA.Population &lt;dbl&gt;,\n#   Service.Area.Sq.Miles &lt;dbl&gt;, Service.Area.Population &lt;dbl&gt;,\n#   Year &lt;dbl&gt;, Month &lt;chr&gt;, Month_Year..timestamp. &lt;dbl&gt;,\n#   VOMS &lt;dbl&gt;, Vehicle.Revenue.Miles &lt;dbl&gt;,\n#   Vehicle.Revenue.Hours &lt;dbl&gt;, Unlinked.Passenger.Trips &lt;dbl&gt;, …\n\n\n. . .\nDiscuss:\n\nWhat are the variables? \nWhat kinds of questions can we ask?"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#wrangling-example",
     "href": "Saturdata/Transit/PublicTransportLesson.html#wrangling-example",
     "title": "CA Public Transportation",
     "section": "Wrangling Example",
-    "text": "Wrangling Example\n\nGoal: Compare Agencies Ridership over time\n\n\n\nsummary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = \"drop\")|&gt;\n  arrange(desc(tot_pass))\n\n\n\nWhat does summary look like?"
+    "text": "Wrangling Example\n\nGoal: Compare Agencies Ridership over time\n\n. . .\n\nsummary &lt;- ca_transit|&gt;\n  group_by(Agency, Year)|&gt;\n  summarise(tot_pass = sum(Unlinked.Passenger.Trips), .groups = \"drop\")|&gt;\n  arrange(desc(tot_pass))\n\n. . .\nWhat does summary look like?"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#visualizing-with-ggplot2",
     "href": "Saturdata/Transit/PublicTransportLesson.html#visualizing-with-ggplot2",
     "title": "CA Public Transportation",
     "section": "Visualizing with ggplot2",
-    "text": "Visualizing with ggplot2\n\nLet’s look at the agencies with the top 5 tot_pass\n\n\n\ntop5 &lt;- summary|&gt;\n  filter(Year == 2023)|&gt;\n  slice_max(tot_pass, n = 10)|&gt;\n  pull(Agency)\n\nsummary |&gt;\n  filter(Agency %in% top5) |&gt;\n  ggplot(aes(x = Year, y = tot_pass, color = Agency)) +\n  geom_line(linewidth = .6) +\n  labs(title = \"Transit Ridership Over Time (Top 5 Agencies)\",\n       y = \"Persons\",\n       x = \"Year\")"
+    "text": "Visualizing with ggplot2\n\nLet’s look at the agencies with the top 5 tot_pass\n\n. . .\n\ntop5 &lt;- summary|&gt;\n  filter(Year == 2023)|&gt;\n  slice_max(tot_pass, n = 10)|&gt;\n  pull(Agency)\n\nsummary |&gt;\n  filter(Agency %in% top5) |&gt;\n  ggplot(aes(x = Year, y = tot_pass, color = Agency)) +\n  geom_line(linewidth = .6) +\n  labs(title = \"Transit Ridership Over Time (Top 5 Agencies)\",\n       y = \"Persons\",\n       x = \"Year\")"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#your-turn",
@@ -137,14 +137,14 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#new-dataset-california-transit-stops",
     "title": "CA Public Transportation",
     "section": "New Dataset: California Transit Stops",
-    "text": "New Dataset: California Transit Stops\n\nEach row is a public transit stop in California.\n\n\n\n\n# A tibble: 5 × 8\n  agency             stop_id stop_name                             routetypes\n  &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;     \n1 City of Bellflower 2623823 Bellflower Blvd & Somerset Blvd       3         \n2 City of Bellflower 2623825 Bellflower Blvd and Rosencrans Ave    3         \n3 City of Bellflower 2623826 Bellflower Blvd-St. Johns High School 3         \n4 City of Bellflower 2623827 Woodruff Ave & Foster Rd              3         \n5 City of Bellflower 2623828 Woodruff Ave & Arthurdale St          3         \n  n_arrivals n_hours_in GEOID                   geometry\n       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                &lt;POINT [°]&gt;\n1         10         10 06037554101 (-118.1252 33.89693)\n2          0          0 06037554106 (-118.1252 33.90181)\n3          0          0 06037553201 (-118.1252 33.90624)\n4         10         10 06037553202  (-118.1168 33.9095)\n5          0          0 06037553202 (-118.1168 33.90573)"
+    "text": "New Dataset: California Transit Stops\n\nEach row is a public transit stop in California.\n\n. . .\n\n\n# A tibble: 5 × 8\n  agency             stop_id stop_name                             routetypes\n  &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                                 &lt;chr&gt;     \n1 City of Bellflower 2623823 Bellflower Blvd & Somerset Blvd       3         \n2 City of Bellflower 2623825 Bellflower Blvd and Rosencrans Ave    3         \n3 City of Bellflower 2623826 Bellflower Blvd-St. Johns High School 3         \n4 City of Bellflower 2623827 Woodruff Ave & Foster Rd              3         \n5 City of Bellflower 2623828 Woodruff Ave & Arthurdale St          3         \n  n_arrivals n_hours_in GEOID                   geometry\n       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                &lt;POINT [°]&gt;\n1         10         10 06037554101 (-118.1252 33.89693)\n2          0          0 06037554106 (-118.1252 33.90181)\n3          0          0 06037553201 (-118.1252 33.90624)\n4         10         10 06037553202  (-118.1168 33.9095)\n5          0          0 06037553202 (-118.1168 33.90573)"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#variables",
     "href": "Saturdata/Transit/PublicTransportLesson.html#variables",
     "title": "CA Public Transportation",
     "section": "Variables",
-    "text": "Variables\nSimilar to previous dataset:\n\nAgency\n\n\nNew:\n\nstop_name/id\nroutetype\ngeomotry?\n\n\n\nThis dataset is stored as a shapefile."
+    "text": "Variables\nSimilar to previous dataset:\n\nAgency\n\n. . .\nNew:\n\nstop_name/id\nroutetype\ngeomotry?\n\n. . .\nThis dataset is stored as a shapefile."
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#what-is-a-shapefile",
@@ -158,21 +158,21 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#what-can-this-data-tell-us",
     "title": "CA Public Transportation",
     "section": "What Can this Data Tell Us?",
-    "text": "What Can this Data Tell Us?\nOn its own, this data shows:\n\nWhere stops are located\nHow many stops an agency operates\nHow often stop is used/How many routes serve a stop\n\n\nWhat the data doesn’t show is:\n\nWho lives near a certain stop\nWhat the area is like demographically\nWhether transit access is equitable\nWhat causes someone to take transit"
+    "text": "What Can this Data Tell Us?\nOn its own, this data shows:\n\nWhere stops are located\nHow many stops an agency operates\nHow often stop is used/How many routes serve a stop\n\n. . .\nWhat the data doesn’t show is:\n\nWho lives near a certain stop\nWhat the area is like demographically\nWhether transit access is equitable\nWhat causes someone to take transit"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#adding-context",
     "href": "Saturdata/Transit/PublicTransportLesson.html#adding-context",
     "title": "CA Public Transportation",
     "section": "Adding Context",
-    "text": "Adding Context\n\n\nA common data wrangling practice used to connect datasets that share a common variables is called joining\n\n\nWe can use functions like right_join() or left_join() to connect our stop_data to a dataset with socioeconomic identifiers."
+    "text": "Adding Context\n. . .\n\nA common data wrangling practice used to connect datasets that share a common variables is called joining\n\n\nWe can use functions like right_join() or left_join() to connect our stop_data to a dataset with socioeconomic identifiers."
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#adding-context-1",
     "href": "Saturdata/Transit/PublicTransportLesson.html#adding-context-1",
     "title": "CA Public Transportation",
     "section": "Adding Context",
-    "text": "Adding Context\n\nEach stop in our stop_data is connected to a GEOID\nIn our census data, each GEOID has information on the areas demographics and socioeconomic indicators\n\n\n\nThis means we can join these 2 datasets on the variable GEOID !"
+    "text": "Adding Context\n\nEach stop in our stop_data is connected to a GEOID\nIn our census data, each GEOID has information on the areas demographics and socioeconomic indicators\n\n. . .\n\nThis means we can join these 2 datasets on the variable GEOID !"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#right-join-vs.-left-join",
@@ -200,21 +200,21 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#right-join-vs.-left-join-1",
     "title": "CA Public Transportation",
     "section": "Right Join vs. Left Join",
-    "text": "Right Join vs. Left Join\n\nleft_join(): Keep all rows from the left (census_data), attach matching rows from right\nright_join(): Keep all rows from the right (stop_data), attach matching left values\n\n\n➡️ Use left_join() if you want every census area, even if it has no stop\n➡️ Use right_join() if you want every transit stop"
+    "text": "Right Join vs. Left Join\n\nleft_join(): Keep all rows from the left (census_data), attach matching rows from right\nright_join(): Keep all rows from the right (stop_data), attach matching left values\n\n. . .\n➡️ Use left_join() if you want every census area, even if it has no stop\n➡️ Use right_join() if you want every transit stop"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#section-4",
     "href": "Saturdata/Transit/PublicTransportLesson.html#section-4",
     "title": "CA Public Transportation",
     "section": "",
-    "text": "We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we must use right_join()\n\n\n\nfull_data &lt;- census_data |&gt; \n  right_join(stop_data |&gt; st_drop_geometry(), by = \"GEOID\") \n\nfull_data\n\nSimple feature collection with 132779 features and 28 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -124.4407 ymin: 32.53419 xmax: -114.1312 ymax: 42.0095\nGeodetic CRS:  NAD83\nFirst 10 features:\n         GEOID totl_pp tt_wrkr mdn_ncm avg_cmm   pctpoc   pctpov  pct_w_c\n1  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n2  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n3  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n4  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n5  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n6  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n7  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n8  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n9  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n10 06001400200    2093    1065  225880    28.8 24.98806 7.835643 4.538939\n    pct_tr_ STATEFP COUNTYF TRACTCE              GEOIDFQ NAME           NAMELSA\n1  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n2  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n3  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n4  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n5  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n6  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n7  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n8  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n9  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n10 9.077879      06     001  400200 1400000US06001400200 4002 Census Tract 4002\n   MTFCC FUNCSTA   ALAND AWATER     INTPTLA      INTPTLO\n1  G5020       S 6945855      0 +37.8676563 -122.2318813\n2  G5020       S 6945855      0 +37.8676563 -122.2318813\n3  G5020       S 6945855      0 +37.8676563 -122.2318813\n4  G5020       S 6945855      0 +37.8676563 -122.2318813\n5  G5020       S 6945855      0 +37.8676563 -122.2318813\n6  G5020       S 6945855      0 +37.8676563 -122.2318813\n7  G5020       S 6945855      0 +37.8676563 -122.2318813\n8  G5020       S 6945855      0 +37.8676563 -122.2318813\n9  G5020       S 6945855      0 +37.8676563 -122.2318813\n10 G5020       S  586560      0 +37.8481378 -122.2495916\n                                  agency     stop_id\n1  Alameda-Contra Costa Transit District       51147\n2  Alameda-Contra Costa Transit District       50402\n3  Alameda-Contra Costa Transit District       50991\n4     University of California, Berkeley lawrhall_ib\n5     University of California, Berkeley    lawrhall\n6     University of California, Berkeley  spacelab_d\n7     University of California, Berkeley  spacelab_a\n8     University of California, Berkeley botagard_ib\n9     University of California, Berkeley    botagard\n10 Alameda-Contra Costa Transit District       55903\n                             stop_name routetypes n_arrivals n_hours_in\n1                        261 Tunnel Rd          3          5          5\n2                       Bentley School          3          1          1\n3          Centennial Dr & Parking Lot          3         10         10\n4             Lawrence Hall of Science          3         23         13\n5             Lawrence Hall of Science          3         23         13\n6            Space Sciences Lab / MSRI          3         23         13\n7  Space Sciences Lab / MSRI (Arrival)          3         23         13\n8                  UC Botanical Garden          3          0          0\n9                  UC Botanical Garden          3          0          0\n10           Claremont Av & College Av          3          5          3\n                district_n                       geometry\n1  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n2  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n3  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n4  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n5  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n6  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n7  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n8  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n9  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n10 04 - Bay Area / Oakland MULTIPOLYGON (((-122.2579 3..."
+    "text": "We want to keep every transit stop,even in GEOIDS with multiple stops, meaning we must use right_join()\n\n. . .\n\nfull_data &lt;- census_data |&gt; \n  right_join(stop_data |&gt; st_drop_geometry(), by = \"GEOID\") \n\nfull_data\n\nSimple feature collection with 132779 features and 28 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -124.4407 ymin: 32.53419 xmax: -114.1312 ymax: 42.0095\nGeodetic CRS:  NAD83\nFirst 10 features:\n         GEOID totl_pp tt_wrkr mdn_ncm avg_cmm   pctpoc   pctpov  pct_w_c\n1  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n2  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n3  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n4  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n5  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n6  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n7  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n8  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n9  06001400100    3094    1525  250001    33.2 25.82418 4.330963 2.747253\n10 06001400200    2093    1065  225880    28.8 24.98806 7.835643 4.538939\n    pct_tr_ STATEFP COUNTYF TRACTCE              GEOIDFQ NAME           NAMELSA\n1  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n2  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n3  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n4  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n5  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n6  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n7  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n8  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n9  3.199741      06     001  400100 1400000US06001400100 4001 Census Tract 4001\n10 9.077879      06     001  400200 1400000US06001400200 4002 Census Tract 4002\n   MTFCC FUNCSTA   ALAND AWATER     INTPTLA      INTPTLO\n1  G5020       S 6945855      0 +37.8676563 -122.2318813\n2  G5020       S 6945855      0 +37.8676563 -122.2318813\n3  G5020       S 6945855      0 +37.8676563 -122.2318813\n4  G5020       S 6945855      0 +37.8676563 -122.2318813\n5  G5020       S 6945855      0 +37.8676563 -122.2318813\n6  G5020       S 6945855      0 +37.8676563 -122.2318813\n7  G5020       S 6945855      0 +37.8676563 -122.2318813\n8  G5020       S 6945855      0 +37.8676563 -122.2318813\n9  G5020       S 6945855      0 +37.8676563 -122.2318813\n10 G5020       S  586560      0 +37.8481378 -122.2495916\n                                  agency     stop_id\n1  Alameda-Contra Costa Transit District       51147\n2  Alameda-Contra Costa Transit District       50402\n3  Alameda-Contra Costa Transit District       50991\n4     University of California, Berkeley lawrhall_ib\n5     University of California, Berkeley    lawrhall\n6     University of California, Berkeley  spacelab_d\n7     University of California, Berkeley  spacelab_a\n8     University of California, Berkeley botagard_ib\n9     University of California, Berkeley    botagard\n10 Alameda-Contra Costa Transit District       55903\n                             stop_name routetypes n_arrivals n_hours_in\n1                        261 Tunnel Rd          3          5          5\n2                       Bentley School          3          1          1\n3          Centennial Dr & Parking Lot          3         10         10\n4             Lawrence Hall of Science          3         23         13\n5             Lawrence Hall of Science          3         23         13\n6            Space Sciences Lab / MSRI          3         23         13\n7  Space Sciences Lab / MSRI (Arrival)          3         23         13\n8                  UC Botanical Garden          3          0          0\n9                  UC Botanical Garden          3          0          0\n10           Claremont Av & College Av          3          5          3\n                district_n                       geometry\n1  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n2  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n3  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n4  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n5  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n6  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n7  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n8  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n9  04 - Bay Area / Oakland MULTIPOLYGON (((-122.2469 3...\n10 04 - Bay Area / Oakland MULTIPOLYGON (((-122.2579 3..."
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#exploring-poverty-transit-access",
     "href": "Saturdata/Transit/PublicTransportLesson.html#exploring-poverty-transit-access",
     "title": "CA Public Transportation",
     "section": "Exploring: Poverty & Transit Access",
-    "text": "Exploring: Poverty & Transit Access\nNow that we have out datasets combined, we can start exploring the relationships between our stop data and our census data.\n\n\nQ: How does pctpov (percent in poverty) relate to the number of transit stops in a neighborhood?"
+    "text": "Exploring: Poverty & Transit Access\nNow that we have out datasets combined, we can start exploring the relationships between our stop data and our census data.\n. . .\n\nQ: How does pctpov (percent in poverty) relate to the number of transit stops in a neighborhood?"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#exploring-poverty-transit-access-1",
@@ -228,14 +228,14 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#exploring-median-income-transit-access",
     "title": "CA Public Transportation",
     "section": "Exploring: Median Income & Transit Access",
-    "text": "Exploring: Median Income & Transit Access\n\nQ: Do higher-income areas have more or fewer transit stops?\n\n\n\nfull_data|&gt;\n  ggplot(aes(x = mdn_ncm, y = stop_count)) + \n  geom_point(color = \"lightblue\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Median Income\",\n       x = \"Median Income\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
+    "text": "Exploring: Median Income & Transit Access\n\nQ: Do higher-income areas have more or fewer transit stops?\n\n. . .\n\nfull_data|&gt;\n  ggplot(aes(x = mdn_ncm, y = stop_count)) + \n  geom_point(color = \"lightblue\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Median Income\",\n       x = \"Median Income\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#one-more",
     "href": "Saturdata/Transit/PublicTransportLesson.html#one-more",
     "title": "CA Public Transportation",
     "section": "One more!",
-    "text": "One more!\n\nQ: Do areas where more people don’t own cars have better transit coverage?\n\n\n\nfull_data|&gt;\n  ggplot(aes(x = pct_w_c, y = stop_count)) + \n  geom_point(color = \"yellow\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Car Ownership\",\n       x = \"Percent Without\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
+    "text": "One more!\n\nQ: Do areas where more people don’t own cars have better transit coverage?\n\n. . .\n\nfull_data|&gt;\n  ggplot(aes(x = pct_w_c, y = stop_count)) + \n  geom_point(color = \"yellow\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(title = \"Transit Stops vs Car Ownership\",\n       x = \"Percent Without\",\n       y = \"Number of Transit Stops\") + \n  theme_grey()"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#exploration-questions",
@@ -249,14 +249,14 @@
     "href": "Saturdata/Transit/PublicTransportLesson.html#visualization-2.0",
     "title": "CA Public Transportation",
     "section": "Visualization 2.0",
-    "text": "Visualization 2.0\nWith our Data we want to Show…\n\nWhere Transit Stops Are Located\nWhich areas are affected by socioeconomic Factors\nCorrelation between transit stop access and socioeconomic status\n\n\n\nFor this task, We can use a Spatial Heat Map to visualize the overlap between the two areas"
+    "text": "Visualization 2.0\nWith our Data we want to Show…\n\nWhere Transit Stops Are Located\nWhich areas are affected by socioeconomic Factors\nCorrelation between transit stop access and socioeconomic status\n\n. . .\n\nFor this task, We can use a Spatial Heat Map to visualize the overlap between the two areas"
   },
   {
     "objectID": "Saturdata/Transit/PublicTransportLesson.html#spatial-heat-maps",
     "href": "Saturdata/Transit/PublicTransportLesson.html#spatial-heat-maps",
     "title": "CA Public Transportation",
     "section": "Spatial Heat Maps",
-    "text": "Spatial Heat Maps\n\nCensus Data Automatically Contains the geometry, or placement on a map, for each GEOID\nStop Data places the stop inside each GEOID at its (lat,long) cord.\nWe can Visualize the socioeconomic factors through colors on the map\n\n\n\nOur Goal: Create a Map of CA, divided into GEOID’s, that compares transit stop frequency to socioeconomic factors"
+    "text": "Spatial Heat Maps\n\nCensus Data Automatically Contains the geometry, or placement on a map, for each GEOID\nStop Data places the stop inside each GEOID at its (lat,long) cord.\nWe can Visualize the socioeconomic factors through colors on the map\n\n. . .\n\nOur Goal: Create a Map of CA, divided into GEOID’s, that compares transit stop frequency to socioeconomic factors"
   },
   {
     "objectID": "Saturdata/Transit/PTNotes.html",
@@ -396,7 +396,7 @@
     "href": "Saturdata/TES/TreeLesson.html#section",
     "title": "Data Science with Tree Equity",
     "section": "",
-    "text": "ca_tes|&gt;\n  ggplot(aes(x = lingnorm, y = tes)) +\n  geom_point(color = \"turquoise\") + \n  labs(title = \"Tree Equity vs. Linguistiv Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
+    "text": "ca_tes |&gt;\n  ggplot(aes(x = lingnorm, y = tes)) +\n  geom_point(color = \"turquoise\") + \n  labs(title = \"Tree Equity vs. Linguistic Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#what-is-data-science",
@@ -508,7 +508,7 @@
     "href": "Saturdata/TES/TreeLesson.html#select-keep-certain-columns",
     "title": "Data Science with Tree Equity",
     "section": "select(): keep certain columns",
-    "text": "select(): keep certain columns\nselect() keeps only specified variables (columns).\n\ncubes |&gt; \n  select(red, green)"
+    "text": "select(): keep certain columns\nselect() keeps only specified variables (columns).\n\ncubes |&gt; \n  select(blue, purple)"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#mutate-add-a-new-insightful-column",
@@ -592,7 +592,7 @@
     "href": "Saturdata/TES/TreeLesson.html#what-and-why",
     "title": "Data Science with Tree Equity",
     "section": "What and why",
-    "text": "What and why\n\nData visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret\nCommunicate Results Clearly and Effectively\nSupports evidence-based decisions in fields like:\n\nPublic health\nClimate research\nUrban planning\nBusiness & marketing"
+    "text": "What and why\n\nData visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret\nCommunicate results clearly and effectively\nSupports evidence-based decisions in fields like:\n\nPublic health\nClimate research\nUrban planning\nBusiness & marketing"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#what-is-ggplot2",
@@ -606,7 +606,7 @@
     "href": "Saturdata/TES/TreeLesson.html#basic-structure-of-a-ggplot",
     "title": "Data Science with Tree Equity",
     "section": "Basic structure of a ggplot",
-    "text": "Basic structure of a ggplot\n\n# General structure\ndata |&gt;\n  ggplot(aes(x = ..., y = ...)) +\n  geom_function() +\n  labs(\"label for you plot and axes\")"
+    "text": "Basic structure of a ggplot\nWe will go over each function one at a time.\n\n# General structure\ndata |&gt;\n  ggplot(aes(x = ..., y = ...)) +\n  geom_*() +\n  labs(\"label for you plot and axes\")"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#common-geom-functions",
@@ -627,21 +627,21 @@
     "href": "Saturdata/TES/TreeLesson.html#types-of-variables",
     "title": "Data Science with Tree Equity",
     "section": "Types of variables",
-    "text": "Types of variables\n\ninsert graphic on variable types"
+    "text": "Types of variables\nNumeric:"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-poverty",
     "href": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-poverty",
     "title": "Data Science with Tree Equity",
     "section": "Tree Equity vs. Poverty",
-    "text": "Tree Equity vs. Poverty\n\nIs there a relationship between poverty and tree equity?\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = pctpov, y = tes)) +\n  geom_point(color = \"green\") + \n  labs(title = \"Tree Equity vs. Poverty\",\n       x = \"Percent in Poverty\",\n       y = \"Tree Equity Score\")"
+    "text": "Tree Equity vs. Poverty\n\nIs there a relationship between poverty (pctpov) and tree equity (tes)?\n\n\nca_tes |&gt;\n  ___(___(x = ___, y = ___)) +\n  ___(color = \"green\") \n\n\n\nca_tes |&gt;\n  ggplot(aes(x = pctpov, y = tes)) +\n  geom_point(color = \"green\") + \n  labs(title = \"Tree Equity vs. Poverty\",\n       x = \"Percent in Poverty\",\n       y = \"Tree Equity Score\")"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#distribution-of-tree-equity-scores",
     "href": "Saturdata/TES/TreeLesson.html#distribution-of-tree-equity-scores",
     "title": "Data Science with Tree Equity",
-    "section": "Distribution of Tree Equity Scores",
-    "text": "Distribution of Tree Equity Scores\n\nHow many places have each Tree equity score?\n\n\n\nca_tes|&gt;\n  ggplot(aes(x = tes)) +\n  geom_histogram(bins = 15, fill = \"red\") +\n  labs(title = \"Distribution of Tree Equity Scores\",\n       x = \"Tree Equity Score\",\n       y = \"Number of Places\")"
+    "section": "Distribution of tree equity scores",
+    "text": "Distribution of tree equity scores\n\nWhat is the distribution of tree equity scores?\n\n\n___ |&gt;\n  ggplot(aes(___)) +\n  ___(fill = \"red\")\n\n\n\nca_tes |&gt;\n  ggplot(aes(x = tes)) +\n  geom_histogram(bins = 15, fill = \"red\") +\n  labs(title = \"Distribution of tree equity scores\",\n       x = \"Tree Equity Score\",\n       y = \"Number of Places\")"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
@@ -676,7 +676,7 @@
     "href": "Saturdata/TES/TreeLesson.html#your-goals",
     "title": "Data Science with Tree Equity",
     "section": "Your goals",
-    "text": "Your goals\n\nClearly state your research question\n\nSupport it with r code and graphs\n\nUse the data to identify a trend, pattern, or disparity\n\nCommunicate WHY it matters"
+    "text": "Your goals\n\nClearly state your research question\n\nSupport it with R code and graphs\n\nUse the data to identify a trend, pattern, or disparity\n\nCommunicate WHY it matters"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#examples-questions",
@@ -724,8 +724,8 @@
     "objectID": "Saturdata/TES/TreeLesson.html#urban-forests-tree-equity-score",
     "href": "Saturdata/TES/TreeLesson.html#urban-forests-tree-equity-score",
     "title": "Data Science with Tree Equity",
-    "section": "Urban forests: Tree Equity Score",
-    "text": "Urban forests: Tree Equity Score\n\n\nTree canopy coverage…\n\nimproves air quality and stabilizes environmental hazards\nintercepts rainfall and prevents stormwater runoff\nreduces heat extremity improving peoples’ physical and mental health"
+    "section": "Urban forests: tree equity score",
+    "text": "Urban forests: tree equity score\n\n\nTree canopy coverage…\n\nimproves air quality and stabilizes environmental hazards\nintercepts rainfall and prevents stormwater runoff\nreduces heat extremity improving peoples’ physical and mental health"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#uploading-your-own-state-data",
@@ -739,7 +739,7 @@
     "href": "Saturdata/TES/TreeLesson.html#mutate-add-a-new-column",
     "title": "Data Science with Tree Equity",
     "section": "mutate(): add a new column",
-    "text": "mutate(): add a new column\nmutate() creates a new column (variable) by transforming existing ones.\n\ncubes |&gt; \n  mutate(white = case_when(\n    blue == \"hexagon\" ~ \"square\",\n    blue != \"hexagon\" ~ \"triangle\")\n    )"
+    "text": "mutate(): add a new column\nmutate() creates a new column (variable) by transforming existing ones.\n\ncubes |&gt; \n  mutate(white = case_when(\n    yellow == \"square\" ~ \"triangle\",\n    yellow != \"square\" ~ \"hexagon\")\n    )"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#why-urban-planning",
@@ -788,7 +788,7 @@
     "href": "Saturdata/TES/TreeLesson.html#keep-certain-rows",
     "title": "Data Science with Tree Equity",
     "section": "1. Keep certain rows",
-    "text": "1. Keep certain rows\n\nShow only neighborhoods with low tree equity scores (tes \\(&lt;\\) 50).\n\n\nHint: filter()\n\n\n\nca_tes|&gt;\n  filter(tes &lt; 50)\n\n# A tibble: 578 × 39\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600145010… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 2 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 3 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 4 0600145120… Live… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 5 0600700370… Orov… Cali… CA         Butte… Orovil…  40190 CA Congre…\n 6 0601330400… Byron Cali… CA         Contr… Discov…  15939 CA Congre…\n 7 0601330400… Disc… Cali… CA         Contr… Discov…  15939 CA Congre…\n 8 0601330720… Anti… Cali… CA         Contr… Antioc… 327378 CA Congre…\n 9 0601331000… Pitt… Cali… CA         Contr… Antioc… 327378 CA Congre…\n10 0601500010… Cres… Cali… CA         Del N… Cresce…  15620 CA Congre…\n# ℹ 568 more rows\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
+    "text": "1. Keep certain rows\n\nShow only neighborhoods with low tree equity scores (tes \\(&lt;\\) 50).\n\n\nHint: filter()\n\n\n\nca_tes |&gt;\n  filter(tes &lt; 50)\n\n# A tibble: 578 × 39\n   GEOID       place state state_abbr county ua_name ua_pop congressio\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     \n 1 0600145010… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 2 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 3 0600145075… Dubl… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 4 0600145120… Live… Cali… CA         Alame… Liverm… 240381 CA Congre…\n 5 0600700370… Orov… Cali… CA         Butte… Orovil…  40190 CA Congre…\n 6 0601330400… Byron Cali… CA         Contr… Discov…  15939 CA Congre…\n 7 0601330400… Disc… Cali… CA         Contr… Discov…  15939 CA Congre…\n 8 0601330720… Anti… Cali… CA         Contr… Antioc… 327378 CA Congre…\n 9 0601331000… Pitt… Cali… CA         Contr… Antioc… 327378 CA Congre…\n10 0601500010… Cres… Cali… CA         Del N… Cresce…  15620 CA Congre…\n# ℹ 568 more rows\n# ℹ 31 more variables: cbg_pop &lt;dbl&gt;, acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;,\n#   biome &lt;chr&gt;, cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;,\n#   tc_gap &lt;dbl&gt;, priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;,\n#   pctpov &lt;dbl&gt;, pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;,\n#   unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;, dep_perc &lt;dbl&gt;,\n#   depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;, …"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#keep-certain-columns",
@@ -830,7 +830,7 @@
     "href": "Saturdata/TES/TreeLesson.html#your-turn",
     "title": "Data Science with Tree Equity",
     "section": "Your turn",
-    "text": "Your turn\n\nYou will work in small groups to investigate tree equity in a new state(s)\n\n\nEach Group Will: \n\nChoose a research question(s)\n\nUse tidyverse tools to explore the data\n\nCreate plot(s) with ggplot2\n\nPresent findings to the class"
+    "text": "Your turn\n\nYou will work in small groups to investigate tree equity in a new state(s)\n\n\nEach group will:\n\nChoose a research question(s)\n\nUse tidyverse tools to explore the data\n\nCreate plot(s) with ggplot2\n\nPresent findings to the class"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#sample-questions",
@@ -838,5 +838,271 @@
     "title": "Data Science with Tree Equity",
     "section": "Sample questions",
     "text": "Sample questions\n\nHow does tree canopy vary across different neighborhoods in chosen state?\n\nIs there a relationship between percent in poverty and tree equity score in chosen state?\nHow do tree equity trends compare between two or more chosen states?\n\nAre places with lower tree equity also more likely to have higher health disparities in chosen state?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#tree-equity-and-city-planning",
+    "href": "Saturdata/TES/TreeLesson.html#tree-equity-and-city-planning",
+    "title": "Data Science with Tree Equity",
+    "section": "🌳 Tree equity and city planning",
+    "text": "🌳 Tree equity and city planning\n\nTree planting is a direct action of city planning initiatives\n\nWhy do some neighborhoods have fewer trees than others?\nHow do trees affect neighborhoods?\nHow can we use data to understand the relationship between urban canopy and other variables?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#births-in-2015",
+    "href": "Saturdata/TES/TreeLesson.html#births-in-2015",
+    "title": "Data Science with Tree Equity",
+    "section": "Births in 2015",
+    "text": "Births in 2015\nConsider the Births2015 dataset from the mosaic R package.\n\n\n          date births wday year month day_of_year day_of_month day_of_week\n1   2015-01-01   8068  Thu 2015     1           1            1           5\n2   2015-01-02  10850  Fri 2015     1           2            2           6\n3   2015-01-03   8328  Sat 2015     1           3            3           7\n4   2015-01-04   7065  Sun 2015     1           4            4           1\n5   2015-01-05  11892  Mon 2015     1           5            5           2\n6   2015-01-06  12425  Tue 2015     1           6            6           3\n7   2015-01-07  12141  Wed 2015     1           7            7           4\n8   2015-01-08  12094  Thu 2015     1           8            8           5\n9   2015-01-09  11868  Fri 2015     1           9            9           6\n10  2015-01-10   8014  Sat 2015     1          10           10           7\n11  2015-01-11   7172  Sun 2015     1          11           11           1\n12  2015-01-12  11479  Mon 2015     1          12           12           2\n13  2015-01-13  11924  Tue 2015     1          13           13           3\n14  2015-01-14  12013  Wed 2015     1          14           14           4\n15  2015-01-15  12339  Thu 2015     1          15           15           5\n16  2015-01-16  11861  Fri 2015     1          16           16           6\n17  2015-01-17   8280  Sat 2015     1          17           17           7\n18  2015-01-18   7195  Sun 2015     1          18           18           1\n19  2015-01-19  10602  Mon 2015     1          19           19           2\n20  2015-01-20  12242  Tue 2015     1          20           20           3\n21  2015-01-21  12086  Wed 2015     1          21           21           4\n22  2015-01-22  11949  Thu 2015     1          22           22           5\n23  2015-01-23  11910  Fri 2015     1          23           23           6\n24  2015-01-24   8235  Sat 2015     1          24           24           7\n25  2015-01-25   7186  Sun 2015     1          25           25           1\n26  2015-01-26  11728  Mon 2015     1          26           26           2\n27  2015-01-27  11882  Tue 2015     1          27           27           3\n28  2015-01-28  11602  Wed 2015     1          28           28           4\n29  2015-01-29  11967  Thu 2015     1          29           29           5\n30  2015-01-30  11571  Fri 2015     1          30           30           6\n31  2015-01-31   7987  Sat 2015     1          31           31           7\n32  2015-02-01   7139  Sun 2015     2          32            1           1\n33  2015-02-02  11480  Mon 2015     2          33            2           2\n34  2015-02-03  12079  Tue 2015     2          34            3           3\n35  2015-02-04  11924  Wed 2015     2          35            4           4\n36  2015-02-05  11821  Thu 2015     2          36            5           5\n37  2015-02-06  11656  Fri 2015     2          37            6           6\n38  2015-02-07   8285  Sat 2015     2          38            7           7\n39  2015-02-08   7265  Sun 2015     2          39            8           1\n40  2015-02-09  11937  Mon 2015     2          40            9           2\n41  2015-02-10  12291  Tue 2015     2          41           10           3\n42  2015-02-11  11911  Wed 2015     2          42           11           4\n43  2015-02-12  12285  Thu 2015     2          43           12           5\n44  2015-02-13  11321  Fri 2015     2          44           13           6\n45  2015-02-14   8390  Sat 2015     2          45           14           7\n46  2015-02-15   7508  Sun 2015     2          46           15           1\n47  2015-02-16  11038  Mon 2015     2          47           16           2\n48  2015-02-17  11952  Tue 2015     2          48           17           3\n49  2015-02-18  12061  Wed 2015     2          49           18           4\n50  2015-02-19  11968  Thu 2015     2          50           19           5\n51  2015-02-20  11864  Fri 2015     2          51           20           6\n52  2015-02-21   8343  Sat 2015     2          52           21           7\n53  2015-02-22   7254  Sun 2015     2          53           22           1\n54  2015-02-23  11260  Mon 2015     2          54           23           2\n55  2015-02-24  11941  Tue 2015     2          55           24           3\n56  2015-02-25  11828  Wed 2015     2          56           25           4\n57  2015-02-26  11672  Thu 2015     2          57           26           5\n58  2015-02-27  11596  Fri 2015     2          58           27           6\n59  2015-02-28   7989  Sat 2015     2          59           28           7\n60  2015-03-01   7273  Sun 2015     3          60            1           1\n61  2015-03-02  11609  Mon 2015     3          61            2           2\n62  2015-03-03  12402  Tue 2015     3          62            3           3\n63  2015-03-04  11927  Wed 2015     3          63            4           4\n64  2015-03-05  11681  Thu 2015     3          64            5           5\n65  2015-03-06  11612  Fri 2015     3          65            6           6\n66  2015-03-07   7980  Sat 2015     3          66            7           7\n67  2015-03-08   6929  Sun 2015     3          67            8           1\n68  2015-03-09  11678  Mon 2015     3          68            9           2\n69  2015-03-10  12282  Tue 2015     3          69           10           3\n70  2015-03-11  11850  Wed 2015     3          70           11           4\n71  2015-03-12  12042  Thu 2015     3          71           12           5\n72  2015-03-13  10940  Fri 2015     3          72           13           6\n73  2015-03-14   8217  Sat 2015     3          73           14           7\n74  2015-03-15   7202  Sun 2015     3          74           15           1\n75  2015-03-16  11537  Mon 2015     3          75           16           2\n76  2015-03-17  12312  Tue 2015     3          76           17           3\n77  2015-03-18  11807  Wed 2015     3          77           18           4\n78  2015-03-19  11721  Thu 2015     3          78           19           5\n79  2015-03-20  12040  Fri 2015     3          79           20           6\n80  2015-03-21   8080  Sat 2015     3          80           21           7\n81  2015-03-22   7171  Sun 2015     3          81           22           1\n82  2015-03-23  11674  Mon 2015     3          82           23           2\n83  2015-03-24  12333  Tue 2015     3          83           24           3\n84  2015-03-25  11872  Wed 2015     3          84           25           4\n85  2015-03-26  12065  Thu 2015     3          85           26           5\n86  2015-03-27  11629  Fri 2015     3          86           27           6\n87  2015-03-28   8071  Sat 2015     3          87           28           7\n88  2015-03-29   7125  Sun 2015     3          88           29           1\n89  2015-03-30  11500  Mon 2015     3          89           30           2\n90  2015-03-31  12362  Tue 2015     3          90           31           3\n91  2015-04-01  11596  Wed 2015     4          91            1           4\n92  2015-04-02  12296  Thu 2015     4          92            2           5\n93  2015-04-03  11234  Fri 2015     4          93            3           6\n94  2015-04-04   7981  Sat 2015     4          94            4           7\n95  2015-04-05   6821  Sun 2015     4          95            5           1\n96  2015-04-06  11455  Mon 2015     4          96            6           2\n97  2015-04-07  12334  Tue 2015     4          97            7           3\n98  2015-04-08  11976  Wed 2015     4          98            8           4\n99  2015-04-09  11874  Thu 2015     4          99            9           5\n100 2015-04-10  11724  Fri 2015     4         100           10           6\n101 2015-04-11   8092  Sat 2015     4         101           11           7\n102 2015-04-12   7141  Sun 2015     4         102           12           1\n103 2015-04-13  11503  Mon 2015     4         103           13           2\n104 2015-04-14  12309  Tue 2015     4         104           14           3\n105 2015-04-15  11794  Wed 2015     4         105           15           4\n106 2015-04-16  11947  Thu 2015     4         106           16           5\n107 2015-04-17  11718  Fri 2015     4         107           17           6\n108 2015-04-18   8028  Sat 2015     4         108           18           7\n109 2015-04-19   7180  Sun 2015     4         109           19           1\n110 2015-04-20  11513  Mon 2015     4         110           20           2\n111 2015-04-21  12173  Tue 2015     4         111           21           3\n112 2015-04-22  11917  Wed 2015     4         112           22           4\n113 2015-04-23  11877  Thu 2015     4         113           23           5\n114 2015-04-24  11749  Fri 2015     4         114           24           6\n115 2015-04-25   8101  Sat 2015     4         115           25           7\n116 2015-04-26   7178  Sun 2015     4         116           26           1\n117 2015-04-27  11494  Mon 2015     4         117           27           2\n118 2015-04-28  12221  Tue 2015     4         118           28           3\n119 2015-04-29  11775  Wed 2015     4         119           29           4\n120 2015-04-30  11831  Thu 2015     4         120           30           5\n121 2015-05-01  12178  Fri 2015     5         121            1           6\n122 2015-05-02   8075  Sat 2015     5         122            2           7\n123 2015-05-03   7195  Sun 2015     5         123            3           1\n124 2015-05-04  11724  Mon 2015     5         124            4           2\n125 2015-05-05  12618  Tue 2015     5         125            5           3\n126 2015-05-06  11924  Wed 2015     5         126            6           4\n127 2015-05-07  11649  Thu 2015     5         127            7           5\n128 2015-05-08  11810  Fri 2015     5         128            8           6\n129 2015-05-09   8216  Sat 2015     5         129            9           7\n130 2015-05-10   7246  Sun 2015     5         130           10           1\n131 2015-05-11  11549  Mon 2015     5         131           11           2\n132 2015-05-12  12400  Tue 2015     5         132           12           3\n133 2015-05-13  11572  Wed 2015     5         133           13           4\n134 2015-05-14  11793  Thu 2015     5         134           14           5\n135 2015-05-15  12306  Fri 2015     5         135           15           6\n136 2015-05-16   8337  Sat 2015     5         136           16           7\n137 2015-05-17   7354  Sun 2015     5         137           17           1\n138 2015-05-18  11708  Mon 2015     5         138           18           2\n139 2015-05-19  12469  Tue 2015     5         139           19           3\n140 2015-05-20  12352  Wed 2015     5         140           20           4\n141 2015-05-21  12246  Thu 2015     5         141           21           5\n142 2015-05-22  12147  Fri 2015     5         142           22           6\n143 2015-05-23   8267  Sat 2015     5         143           23           7\n144 2015-05-24   7261  Sun 2015     5         144           24           1\n145 2015-05-25   7746  Mon 2015     5         145           25           2\n146 2015-05-26  12242  Tue 2015     5         146           26           3\n147 2015-05-27  12845  Wed 2015     5         147           27           4\n148 2015-05-28  12722  Thu 2015     5         148           28           5\n149 2015-05-29  12168  Fri 2015     5         149           29           6\n150 2015-05-30   8431  Sat 2015     5         150           30           7\n151 2015-05-31   7367  Sun 2015     5         151           31           1\n152 2015-06-01  11793  Mon 2015     6         152            1           2\n153 2015-06-02  11994  Tue 2015     6         153            2           3\n154 2015-06-03  11890  Wed 2015     6         154            3           4\n155 2015-06-04  11918  Thu 2015     6         155            4           5\n156 2015-06-05  12303  Fri 2015     6         156            5           6\n157 2015-06-06   8313  Sat 2015     6         157            6           7\n158 2015-06-07   7230  Sun 2015     6         158            7           1\n159 2015-06-08  11938  Mon 2015     6         159            8           2\n160 2015-06-09  12479  Tue 2015     6         160            9           3\n161 2015-06-10  12123  Wed 2015     6         161           10           4\n162 2015-06-11  12029  Thu 2015     6         162           11           5\n163 2015-06-12  12064  Fri 2015     6         163           12           6\n164 2015-06-13   8104  Sat 2015     6         164           13           7\n165 2015-06-14   7292  Sun 2015     6         165           14           1\n166 2015-06-15  12348  Mon 2015     6         166           15           2\n167 2015-06-16  12400  Tue 2015     6         167           16           3\n168 2015-06-17  12192  Wed 2015     6         168           17           4\n169 2015-06-18  12323  Thu 2015     6         169           18           5\n170 2015-06-19  11767  Fri 2015     6         170           19           6\n171 2015-06-20   8451  Sat 2015     6         171           20           7\n172 2015-06-21   7580  Sun 2015     6         172           21           1\n173 2015-06-22  11883  Mon 2015     6         173           22           2\n174 2015-06-23  12351  Tue 2015     6         174           23           3\n175 2015-06-24  12292  Wed 2015     6         175           24           4\n176 2015-06-25  12416  Thu 2015     6         176           25           5\n177 2015-06-26  12152  Fri 2015     6         177           26           6\n178 2015-06-27   8652  Sat 2015     6         178           27           7\n179 2015-06-28   7371  Sun 2015     6         179           28           1\n180 2015-06-29  11961  Mon 2015     6         180           29           2\n181 2015-06-30  12932  Tue 2015     6         181           30           3\n182 2015-07-01  13033  Wed 2015     7         182            1           4\n183 2015-07-02  13038  Thu 2015     7         183            2           5\n184 2015-07-03  10375  Fri 2015     7         184            3           6\n185 2015-07-04   7944  Sat 2015     7         185            4           7\n186 2015-07-05   7164  Sun 2015     7         186            5           1\n187 2015-07-06  12088  Mon 2015     7         187            6           2\n188 2015-07-07  13426  Tue 2015     7         188            7           3\n189 2015-07-08  12788  Wed 2015     7         189            8           4\n190 2015-07-09  12517  Thu 2015     7         190            9           5\n191 2015-07-10  12396  Fri 2015     7         191           10           6\n192 2015-07-11   8769  Sat 2015     7         192           11           7\n193 2015-07-12   7591  Sun 2015     7         193           12           1\n194 2015-07-13  11835  Mon 2015     7         194           13           2\n195 2015-07-14  12862  Tue 2015     7         195           14           3\n196 2015-07-15  12853  Wed 2015     7         196           15           4\n197 2015-07-16  12502  Thu 2015     7         197           16           5\n198 2015-07-17  12291  Fri 2015     7         198           17           6\n199 2015-07-18   8546  Sat 2015     7         199           18           7\n200 2015-07-19   7681  Sun 2015     7         200           19           1\n201 2015-07-20  12424  Mon 2015     7         201           20           2\n202 2015-07-21  13264  Tue 2015     7         202           21           3\n203 2015-07-22  12519  Wed 2015     7         203           22           4\n204 2015-07-23  12852  Thu 2015     7         204           23           5\n205 2015-07-24  12612  Fri 2015     7         205           24           6\n206 2015-07-25   8748  Sat 2015     7         206           25           7\n207 2015-07-26   7836  Sun 2015     7         207           26           1\n208 2015-07-27  12416  Mon 2015     7         208           27           2\n209 2015-07-28  13240  Tue 2015     7         209           28           3\n210 2015-07-29  12739  Wed 2015     7         210           29           4\n211 2015-07-30  12797  Thu 2015     7         211           30           5\n212 2015-07-31  12269  Fri 2015     7         212           31           6\n213 2015-08-01   8851  Sat 2015     8         213            1           7\n214 2015-08-02   7907  Sun 2015     8         214            2           1\n215 2015-08-03  12449  Mon 2015     8         215            3           2\n216 2015-08-04  13149  Tue 2015     8         216            4           3\n217 2015-08-05  12793  Wed 2015     8         217            5           4\n218 2015-08-06  12872  Thu 2015     8         218            6           5\n219 2015-08-07  12770  Fri 2015     8         219            7           6\n220 2015-08-08   8956  Sat 2015     8         220            8           7\n221 2015-08-09   7726  Sun 2015     8         221            9           1\n222 2015-08-10  12333  Mon 2015     8         222           10           2\n223 2015-08-11  13010  Tue 2015     8         223           11           3\n224 2015-08-12  12960  Wed 2015     8         224           12           4\n225 2015-08-13  12591  Thu 2015     8         225           13           5\n226 2015-08-14  12861  Fri 2015     8         226           14           6\n227 2015-08-15   8938  Sat 2015     8         227           15           7\n228 2015-08-16   7896  Sun 2015     8         228           16           1\n229 2015-08-17  12337  Mon 2015     8         229           17           2\n230 2015-08-18  13197  Tue 2015     8         230           18           3\n231 2015-08-19  12966  Wed 2015     8         231           19           4\n232 2015-08-20  13002  Thu 2015     8         232           20           5\n233 2015-08-21  12834  Fri 2015     8         233           21           6\n234 2015-08-22   9153  Sat 2015     8         234           22           7\n235 2015-08-23   7821  Sun 2015     8         235           23           1\n236 2015-08-24  12274  Mon 2015     8         236           24           2\n237 2015-08-25  13149  Tue 2015     8         237           25           3\n238 2015-08-26  12729  Wed 2015     8         238           26           4\n239 2015-08-27  12829  Thu 2015     8         239           27           5\n240 2015-08-28  12719  Fri 2015     8         240           28           6\n241 2015-08-29   8772  Sat 2015     8         241           29           7\n242 2015-08-30   7805  Sun 2015     8         242           30           1\n243 2015-08-31  12142  Mon 2015     8         243           31           2\n244 2015-09-01  13231  Tue 2015     9         244            1           3\n245 2015-09-02  12799  Wed 2015     9         245            2           4\n246 2015-09-03  12839  Thu 2015     9         246            3           5\n247 2015-09-04  12862  Fri 2015     9         247            4           6\n248 2015-09-05   8950  Sat 2015     9         248            5           7\n249 2015-09-06   7778  Sun 2015     9         249            6           1\n250 2015-09-07   8127  Mon 2015     9         250            7           2\n251 2015-09-08  12823  Tue 2015     9         251            8           3\n252 2015-09-09  13949  Wed 2015     9         252            9           4\n253 2015-09-10  13925  Thu 2015     9         253           10           5\n254 2015-09-11  12295  Fri 2015     9         254           11           6\n255 2015-09-12   9062  Sat 2015     9         255           12           7\n256 2015-09-13   7900  Sun 2015     9         256           13           1\n257 2015-09-14  12699  Mon 2015     9         257           14           2\n258 2015-09-15  13439  Tue 2015     9         258           15           3\n259 2015-09-16  13136  Wed 2015     9         259           16           4\n260 2015-09-17  13319  Thu 2015     9         260           17           5\n261 2015-09-18  13229  Fri 2015     9         261           18           6\n262 2015-09-19   9195  Sat 2015     9         262           19           7\n263 2015-09-20   8078  Sun 2015     9         263           20           1\n264 2015-09-21  12567  Mon 2015     9         264           21           2\n265 2015-09-22  13047  Tue 2015     9         265           22           3\n266 2015-09-23  12595  Wed 2015     9         266           23           4\n267 2015-09-24  12942  Thu 2015     9         267           24           5\n268 2015-09-25  12792  Fri 2015     9         268           25           6\n269 2015-09-26   8927  Sat 2015     9         269           26           7\n270 2015-09-27   7778  Sun 2015     9         270           27           1\n271 2015-09-28  12158  Mon 2015     9         271           28           2\n272 2015-09-29  12791  Tue 2015     9         272           29           3\n273 2015-09-30  12284  Wed 2015     9         273           30           4\n274 2015-10-01  13043  Thu 2015    10         274            1           5\n275 2015-10-02  12399  Fri 2015    10         275            2           6\n276 2015-10-03   8579  Sat 2015    10         276            3           7\n277 2015-10-04   7530  Sun 2015    10         277            4           1\n278 2015-10-05  12166  Mon 2015    10         278            5           2\n279 2015-10-06  12520  Tue 2015    10         279            6           3\n280 2015-10-07  12429  Wed 2015    10         280            7           4\n281 2015-10-08  12458  Thu 2015    10         281            8           5\n282 2015-10-09  12282  Fri 2015    10         282            9           6\n283 2015-10-10   8550  Sat 2015    10         283           10           7\n284 2015-10-11   7571  Sun 2015    10         284           11           1\n285 2015-10-12  11633  Mon 2015    10         285           12           2\n286 2015-10-13  12094  Tue 2015    10         286           13           3\n287 2015-10-14  12205  Wed 2015    10         287           14           4\n288 2015-10-15  12522  Thu 2015    10         288           15           5\n289 2015-10-16  11917  Fri 2015    10         289           16           6\n290 2015-10-17   8233  Sat 2015    10         290           17           7\n291 2015-10-18   7211  Sun 2015    10         291           18           1\n292 2015-10-19  11388  Mon 2015    10         292           19           2\n293 2015-10-20  12500  Tue 2015    10         293           20           3\n294 2015-10-21  12093  Wed 2015    10         294           21           4\n295 2015-10-22  12013  Thu 2015    10         295           22           5\n296 2015-10-23  11942  Fri 2015    10         296           23           6\n297 2015-10-24   8239  Sat 2015    10         297           24           7\n298 2015-10-25   7288  Sun 2015    10         298           25           1\n299 2015-10-26  11923  Mon 2015    10         299           26           2\n300 2015-10-27  12485  Tue 2015    10         300           27           3\n301 2015-10-28  12266  Wed 2015    10         301           28           4\n302 2015-10-29  11950  Thu 2015    10         302           29           5\n303 2015-10-30  11529  Fri 2015    10         303           30           6\n304 2015-10-31   8049  Sat 2015    10         304           31           7\n305 2015-11-01   7731  Sun 2015    11         305            1           1\n306 2015-11-02  12236  Mon 2015    11         306            2           2\n307 2015-11-03  12524  Tue 2015    11         307            3           3\n308 2015-11-04  12279  Wed 2015    11         308            4           4\n309 2015-11-05  12452  Thu 2015    11         309            5           5\n310 2015-11-06  11909  Fri 2015    11         310            6           6\n311 2015-11-07   8517  Sat 2015    11         311            7           7\n312 2015-11-08   7324  Sun 2015    11         312            8           1\n313 2015-11-09  11688  Mon 2015    11         313            9           2\n314 2015-11-10  12451  Tue 2015    11         314           10           3\n315 2015-11-11  12311  Wed 2015    11         315           11           4\n316 2015-11-12  12329  Thu 2015    11         316           12           5\n317 2015-11-13  11643  Fri 2015    11         317           13           6\n318 2015-11-14   8221  Sat 2015    11         318           14           7\n319 2015-11-15   7378  Sun 2015    11         319           15           1\n320 2015-11-16  11791  Mon 2015    11         320           16           2\n321 2015-11-17  12321  Tue 2015    11         321           17           3\n322 2015-11-18  12230  Wed 2015    11         322           18           4\n323 2015-11-19  12504  Thu 2015    11         323           19           5\n324 2015-11-20  12495  Fri 2015    11         324           20           6\n325 2015-11-21   8392  Sat 2015    11         325           21           7\n326 2015-11-22   7427  Sun 2015    11         326           22           1\n327 2015-11-23  12419  Mon 2015    11         327           23           2\n328 2015-11-24  13051  Tue 2015    11         328           24           3\n329 2015-11-25  11745  Wed 2015    11         329           25           4\n330 2015-11-26   7332  Thu 2015    11         330           26           5\n331 2015-11-27   8942  Fri 2015    11         331           27           6\n332 2015-11-28   7734  Sat 2015    11         332           28           7\n333 2015-11-29   7230  Sun 2015    11         333           29           1\n334 2015-11-30  12214  Mon 2015    11         334           30           2\n335 2015-12-01  13185  Tue 2015    12         335            1           3\n336 2015-12-02  12708  Wed 2015    12         336            2           4\n337 2015-12-03  12281  Thu 2015    12         337            3           5\n338 2015-12-04  11828  Fri 2015    12         338            4           6\n339 2015-12-05   8262  Sat 2015    12         339            5           7\n340 2015-12-06   7194  Sun 2015    12         340            6           1\n341 2015-12-07  11567  Mon 2015    12         341            7           2\n342 2015-12-08  12328  Tue 2015    12         342            8           3\n343 2015-12-09  11857  Wed 2015    12         343            9           4\n344 2015-12-10  12259  Thu 2015    12         344           10           5\n345 2015-12-11  11406  Fri 2015    12         345           11           6\n346 2015-12-12   8073  Sat 2015    12         346           12           7\n347 2015-12-13   7262  Sun 2015    12         347           13           1\n348 2015-12-14  11753  Mon 2015    12         348           14           2\n349 2015-12-15  12437  Tue 2015    12         349           15           3\n350 2015-12-16  12282  Wed 2015    12         350           16           4\n351 2015-12-17  12339  Thu 2015    12         351           17           5\n352 2015-12-18  12247  Fri 2015    12         352           18           6\n353 2015-12-19   8368  Sat 2015    12         353           19           7\n354 2015-12-20   7361  Sun 2015    12         354           20           1\n355 2015-12-21  12692  Mon 2015    12         355           21           2\n356 2015-12-22  13131  Tue 2015    12         356           22           3\n357 2015-12-23  11595  Wed 2015    12         357           23           4\n358 2015-12-24   8714  Thu 2015    12         358           24           5\n359 2015-12-25   6515  Fri 2015    12         359           25           6\n360 2015-12-26   7294  Sat 2015    12         360           26           7\n361 2015-12-27   7518  Sun 2015    12         361           27           1\n362 2015-12-28  13100  Mon 2015    12         362           28           2\n363 2015-12-29  13458  Tue 2015    12         363           29           3\n364 2015-12-30  13100  Wed 2015    12         364           30           4\n365 2015-12-31  11608  Thu 2015    12         365           31           5\n\n\nObtained from the National Center for Health Statistics, National Vital Statistics System, Natality, 2015 data."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nTwo Questions:\n\nWhat do we want R to do? (What is the goal?)\nWhat does R need to know?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-1",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-1",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoal: scatterplot = a plot with points\nWhat does R need to know?\n\ndata source: Births2015\naesthetics:\n\ndate -&gt; x\nbirths -&gt; y\npoints (!)"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-2",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-2",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births)) + \n  geom_point() +\n  labs(title = \"US Births in 2015\")\n\nBirths2015 |&gt; \n  ggplot() +\n  geom_point(aes(x = date, y = births)) +\n  labs(title = \"US Births in 2015\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#layers",
+    "href": "Saturdata/TES/TreeLesson.html#layers",
+    "title": "Data Science with Tree Equity",
+    "section": "Layers",
+    "text": "Layers\nLayer 0\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot() \n\n\n… creates an empty plot screen. Notice that there aren’t any scales to the x and y axes."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#layers-1",
+    "href": "Saturdata/TES/TreeLesson.html#layers-1",
+    "title": "Data Science with Tree Equity",
+    "section": "Layers",
+    "text": "Layers\nLayer 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births))"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#layers-2",
+    "href": "Saturdata/TES/TreeLesson.html#layers-2",
+    "title": "Data Science with Tree Equity",
+    "section": "Layers",
+    "text": "Layers\nLayer 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births)) + \n  geom_point()"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#layers-3",
+    "href": "Saturdata/TES/TreeLesson.html#layers-3",
+    "title": "Data Science with Tree Equity",
+    "section": "Layers",
+    "text": "Layers\nLayer 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births)) + \n  geom_point() +\n  labs(title = \"US Births in 2015\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-3",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-3",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nWhat has changed?\n\nnew aesthetic: mapping color to day of week"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-4",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-4",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date,\n             y = births, \n             color = wday)) +\n  geom_point() +\n  labs(title = \"US Births in 2015\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-5",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-5",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-6",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-6",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nlines instead of dots!\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, \n             y = births,\n             color = wday)) +\n  geom_line() +\n  labs(title = \"US Births in 2015\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-7",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-7",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-8",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-8",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nNow there are two layers: one with points and one with lines\n\nBirths2015 |&gt; \n  ggplot(aes(x = date,\n             y = births,\n             color = wday)) + \n  geom_point() +  \n  geom_line() +\n  labs(title = \"US Births in 2015\")\n\n\nThe layers are placed one on top of the other: the points are below and the lines are above.\ndata and aes specified in ggplot() affect all geoms"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#what-does-this-code-do",
+    "href": "Saturdata/TES/TreeLesson.html#what-does-this-code-do",
+    "title": "Data Science with Tree Equity",
+    "section": "What does this code do?",
+    "text": "What does this code do?\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births, color = \"navy\")) + \n  geom_point() +\n  labs(title = \"US Births in 2015\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#what-does-this-code-do-1",
+    "href": "Saturdata/TES/TreeLesson.html#what-does-this-code-do-1",
+    "title": "Data Science with Tree Equity",
+    "section": "What does this code do?",
+    "text": "What does this code do?\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births, color = \"navy\")) + \n  geom_point()  +\n  labs(title = \"US Births in 2015\")\n\n\nThis is mapping the color aesthetic to a new variable with only one value (“navy”).\nSo all the dots get set to the same color, but it’s not navy."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#setting-vs.-mapping",
+    "href": "Saturdata/TES/TreeLesson.html#setting-vs.-mapping",
+    "title": "Data Science with Tree Equity",
+    "section": "Setting vs. Mapping",
+    "text": "Setting vs. Mapping\nIf we want to set the color to be navy for all of the dots, we do it outside the aes() designation:\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births)) +   # map variables \n  geom_point(color = \"navy\")    +   # set attributes\n  labs(title = \"US Births in 2015\")\n\n\n\nNote that color = \"navy\" is now outside of the aesthetics list. That’s how ggplot2 distinguishes between mapping and setting."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-9",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-9",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-10",
+    "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-10",
+    "title": "Data Science with Tree Equity",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date,\n             y = births)) + \n  geom_line(aes(color = wday)) +      \n  geom_point(color = \"navy\")  +         \n  labs(title = \"US Births in 2015\")\n\n\nggplot() establishes the default data and aesthetics for the geoms, but each geom may change these defaults.\ngood practice: put into ggplot() the things that affect all (or most) of the layers; rest in geom_XXXX()"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#setting-vs.-mapping-again",
+    "href": "Saturdata/TES/TreeLesson.html#setting-vs.-mapping-again",
+    "title": "Data Science with Tree Equity",
+    "section": "Setting vs. Mapping (again)",
+    "text": "Setting vs. Mapping (again)\nInformation gets passed to the plot via:\n\nmap the variable information inside the aes() (aesthetic) command\nset the non-variable information outside the aes() (aesthetic) command"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#other-geoms",
+    "href": "Saturdata/TES/TreeLesson.html#other-geoms",
+    "title": "Data Science with Tree Equity",
+    "section": "Other geoms",
+    "text": "Other geoms\n\napropos(\"^geom_\")\n\n [1] \"geom_abline\"            \"geom_area\"              \"geom_ash\"              \n [4] \"geom_bar\"               \"geom_bin_2d\"            \"geom_bin2d\"            \n [7] \"geom_blank\"             \"geom_boxplot\"           \"geom_col\"              \n[10] \"geom_contour\"           \"geom_contour_filled\"    \"geom_count\"            \n[13] \"geom_crossbar\"          \"geom_curve\"             \"geom_density\"          \n[16] \"geom_density_2d\"        \"geom_density_2d_filled\" \"geom_density2d\"        \n[19] \"geom_density2d_filled\"  \"geom_dotplot\"           \"geom_errorbar\"         \n[22] \"geom_errorbarh\"         \"geom_freqpoly\"          \"geom_function\"         \n[25] \"geom_hex\"               \"geom_histogram\"         \"geom_hline\"            \n[28] \"geom_jitter\"            \"geom_label\"             \"geom_line\"             \n[31] \"geom_linerange\"         \"geom_lm\"                \"geom_map\"              \n[34] \"geom_path\"              \"geom_point\"             \"geom_pointrange\"       \n[37] \"geom_polygon\"           \"geom_qq\"                \"geom_qq_line\"          \n[40] \"geom_quantile\"          \"geom_raster\"            \"geom_rect\"             \n[43] \"geom_ribbon\"            \"geom_rug\"               \"geom_segment\"          \n[46] \"geom_sf\"                \"geom_sf_label\"          \"geom_sf_text\"          \n[49] \"geom_smooth\"            \"geom_spline\"            \"geom_spoke\"            \n[52] \"geom_step\"              \"geom_text\"              \"geom_tile\"             \n[55] \"geom_violin\"            \"geom_vline\""
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#other-geoms-1",
+    "href": "Saturdata/TES/TreeLesson.html#other-geoms-1",
+    "title": "Data Science with Tree Equity",
+    "section": "Other geoms",
+    "text": "Other geoms\nhelp pages will tell you their aesthetics, default stats, etc."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#lets-try-geom_area",
+    "href": "Saturdata/TES/TreeLesson.html#lets-try-geom_area",
+    "title": "Data Science with Tree Equity",
+    "section": "Let’s try geom_area",
+    "text": "Let’s try geom_area"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#lets-try-geom_area-1",
+    "href": "Saturdata/TES/TreeLesson.html#lets-try-geom_area-1",
+    "title": "Data Science with Tree Equity",
+    "section": "Let’s try geom_area",
+    "text": "Let’s try geom_area\n\n\n\n\n\n\n\n\n\n\n\n\n… not a good plot\n\noverplotting is hiding much of the data\nextending y-axis to 0 may or may not be desirable."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#side-note-what-makes-a-plot-good",
+    "href": "Saturdata/TES/TreeLesson.html#side-note-what-makes-a-plot-good",
+    "title": "Data Science with Tree Equity",
+    "section": "Side note: what makes a plot good?",
+    "text": "Side note: what makes a plot good?\nMost (all?) graphics are intended to help us make comparisons\n\nHow does something change over time?\nHow do the two groups compare?\n\n\n\n\n\n\n\nKey plot metric\n\n\nDoes my plot make the comparisons I am interested in:\n\neasily, and\naccurately?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#types-of-geoms",
+    "href": "Saturdata/TES/TreeLesson.html#types-of-geoms",
+    "title": "Data Science with Tree Equity",
+    "section": "Types of geoms",
+    "text": "Types of geoms\n\nhttps://ggplot2.tidyverse.org/"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#types-of-variables-1",
+    "href": "Saturdata/TES/TreeLesson.html#types-of-variables-1",
+    "title": "Data Science with Tree Equity",
+    "section": "Types of variables",
+    "text": "Types of variables\nCategorical:"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#wrangle-plot",
+    "href": "Saturdata/TES/TreeLesson.html#wrangle-plot",
+    "title": "Data Science with Tree Equity",
+    "section": "Wrangle + plot",
+    "text": "Wrangle + plot\nRecreate the plot above, but summarize the information per place before plotting. That is, Claremont should now only be represented by one dot. Summarize both lingnorm and tes using the mean() function.\n\n\nca_tes |&gt; \n  group_by(place) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  labs(title = \"Tree Equity vs. Linguistic Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#wrangle-plot-label",
+    "href": "Saturdata/TES/TreeLesson.html#wrangle-plot-label",
+    "title": "Data Science with Tree Equity",
+    "section": "Wrangle + plot + label",
+    "text": "Wrangle + plot + label\nRecreate the plot above, but now add labels to the plot to indicate the county of each dot. Use geom_label() or geom_text(). Try both! You’ll need to use label = county… do you need aes()?\n\n\nca_tes |&gt; \n  group_by(county) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  geom_text(aes(label = county)) + \n  labs(title = \"Tree Equity vs. Linguistic Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#wrangle-plot-label-1",
+    "href": "Saturdata/TES/TreeLesson.html#wrangle-plot-label-1",
+    "title": "Data Science with Tree Equity",
+    "section": "Wrangle + plot + label",
+    "text": "Wrangle + plot + label\nThere is an R package called ggrepel. It includes a geom called geom_label_repel. Try it! (To use a function from a package, you can write: ggrepel::geom_label_repel().)\nHint: Is there a yellow bar at the top asking if you want to load the R package ggrepel? Say yes!\n\n\nca_tes |&gt; \n  group_by(county) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  ggrepel::geom_label_repel(aes(label = county)) + \n  labs(title = \"Tree Equity vs. Linguistic Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
+  },
+  {
+    "objectID": "Saturdata/Goals_and_Logistics.html",
+    "href": "Saturdata/Goals_and_Logistics.html",
+    "title": "Goals and Logistics",
+    "section": "",
+    "text": "Goals:\n\nBuild confidence in problem solving mindset/skills through interaction with tangible examples.\nBroaden the scope of imagination within the realm of data science and programming. Get students to see the bigger picture of data within scientific reasoning.\nPromote higher education and career goals by connecting data science to numerous professional fields.\nReaching students from diverse backgrounds of ethnicity, gender, and socioeconomic status. Making content accessible for those of all incoming skill levels and educational backgrounds.(not assuming nay prior knowledge)\nIncreased confidence in understanding foundational statistics and data science concepts.\n\nIdentifying a problem and hypothesis formation\nCollecting and finding unbiased and helpful data\nData wrangling and exploration\nstatistic analysis for significance\ndata visualization and communication\n\nCommunicating what is data science? Who does Data science?\n\n\n\nHow to achieve:\n\nPromote inclusivity when reaching out to high schools and students\nPotentially having student volunteers and or mentors serve as guest speakers and give examples of research or projects they have done that have connected their interests to data science. (similar to data4all lunch speakers)\nIce breakers to facilitate connections between students(improve attendance)\ninstruction framework: observing scenario -&gt; what do we want to know and why? -&gt; data exploration -&gt; result analysis -&gt; communication of results(visualizations or presentations)\nUse of physical activities/simulations to understand weekly concepts before delving into programming work.\nimplementing feedback methods before, during, and after the program through student and mentor surveys\nPotentially connect with Pomona college community engagement center to better out outreach plans.\nconnecting all goals with a part of the structure/curriculum intended to achieve said goal(similar to data4all visualizations slide 56)\n\n\n\nTopics:\n\nStudents were interested in topics that extended past the scope of just the medical field. They wanted to delve into prospects of community engagement or violence prevention. It will be important to reckon with a multitude of interests and also maybe include the possibility for flexibility of work in the form of projects.\nApproaching data wrangling through physical interaction with mathlink cubes. This will help ease the connection between a common sense mindset and a coding/programming mindset when exploring data.\n\n\n\nStructure:\n\nStudents working in groups of 2 - 4 on loaner devices?? Or potentially their own but definitely not required. CS labs at Pomona host at least computers that could be connected to the R server.\nDay Schedule: Ice breaker(possibly connected to learning goals of the day) -&gt; Introduction to content and lecture -&gt; activity/lab/simulation with connection to applicable skills -&gt; lunch/speaker series -&gt; introduce problem -&gt; group data exploration -&gt; presentations w/ mentor/ student leader on findings\nExamples/Cases:\n\nData4all: - Cholera: started with many different hypothesis for the cause of the disease and explained the scientific theory behind each one.\n\nStudents may be interested in global warming/environmentalism. This could start with observations such as the hottest recorded year in 2024 or a rising sea level.And from there questions and hypotheses can be formed around the causes and data can be used to prove and visualize.\nI also think a city plan could be a good example for understanding data science. This unit could start with the history of a city, perhaps LA, and search for root causes of problems and issues that modernly plague the city. And then, student scan explore issues that affect their everyday life such as traffic, over consumption of energy, lack of resources(poor planning or something else), and even high crime and poverty rates. Tying these all back to the initial planning of the city helps draw a connection between dat science and the professional field of urban planning. Many students may find interest in aiding these social issues from a lens other than social justice.\npublic infrastructure planning\nplanting of trees\naccess to parks\nbenches, sidewalks, bike lanes\nfood deserts/ resource placement\n\ncity planning as an ongoing process of data science\n\n\nUsing r studio server:\n\nopened the rstudio server very easily from a quick google search and using my Pomona id login. I dont know if data days students will have log-ins unlike the pays student though.\n\n\n\nData 4 all read through:\n\n“redesigning learning environments and creating equitable access to curriculum that exposes students from non-dominant communities to programming, statistics, and mapping in the context of scientific reasoning and real-world problem-solving with data.”\n“Starting with a real world puzzle to solve made data science more accessible and relevant for students who did not intend to major in computer science – compared to traditional data science bootcamps that only code.”\n\n\n\nUCLA IDS\n\nprogram abides by standards of CCSS-Math for High School Statistics and Probability and Practice for Modeling.\ntalks about the concept of data collection and how differences in these practices have a clear effect on the patterns recognized and reported"
+  },
+  {
+    "objectID": "Saturdata/Transit/PublicTransportLesson.html",
+    "href": "Saturdata/Transit/PublicTransportLesson.html",
+    "title": "CA Public Transportation",
+    "section": "",
+    "text": "Public Transit is a Key factor in shaping how a city/society functions \n\nReduces Traffic Congestion and Pollution (sustainability)\nIncreases access to Jobs, Education, Healthcare, etc.\nImpacts Housing affordability and community equity"
+  },
+  {
+    "objectID": "Saturdata/Transit/PT_Lesson_WS.html",
+    "href": "Saturdata/Transit/PT_Lesson_WS.html",
+    "title": "Public Transportation and Urban Planning",
+    "section": "",
+    "text": "In this worksheet, you’ll practice writing tidyverse-style R code for data wrangling tasks as well as practicing data viz skills using ggplot\nDon’t stress yourself out over perfect syntax – the goal is to practice what you’ve learned about data wrangling and visualization so far."
+  },
+  {
+    "objectID": "Saturdata/Transit/PT_Lesson_WS.html#instructions",
+    "href": "Saturdata/Transit/PT_Lesson_WS.html#instructions",
+    "title": "Public Transportation and Urban Planning",
+    "section": "",
+    "text": "In this worksheet, you’ll practice writing tidyverse-style R code for data wrangling tasks as well as practicing data viz skills using ggplot\nDon’t stress yourself out over perfect syntax – the goal is to practice what you’ve learned about data wrangling and visualization so far."
+  },
+  {
+    "objectID": "Saturdata/Transit/PT_Lesson_WS.html#question-1",
+    "href": "Saturdata/Transit/PT_Lesson_WS.html#question-1",
+    "title": "Public Transportation and Urban Planning",
+    "section": "Question 1",
+    "text": "Question 1\n\n\n# A tibble: 1 × 75\n  NTD.ID Agency        Organization.Type Mode  Type.of.Service Rail..True.False.\n   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt;           &lt;lgl&gt;            \n1  90044 City of Arca… County or Local … DR    PT              FALSE            \n# ℹ 69 more variables: Primary.UZA.UACE.Code &lt;dbl&gt;, Primary.UZA.Name &lt;chr&gt;,\n#   Primary.UZA.Sq.Miles &lt;dbl&gt;, Primary.UZA.Population &lt;dbl&gt;,\n#   Service.Area.Sq.Miles &lt;dbl&gt;, Service.Area.Population &lt;dbl&gt;, Year &lt;dbl&gt;,\n#   Month &lt;chr&gt;, Month_Year..timestamp. &lt;dbl&gt;, VOMS &lt;dbl&gt;,\n#   Vehicle.Revenue.Miles &lt;dbl&gt;, Vehicle.Revenue.Hours &lt;dbl&gt;,\n#   Unlinked.Passenger.Trips &lt;dbl&gt;, Collisions.with.Motor.Vehicle &lt;dbl&gt;,\n#   Collisions.with.Person &lt;dbl&gt;, Collisions.with.Fixed.Object &lt;dbl&gt;, …\n\n\nDiscuss the following questions with a partner our group:\n\nWhat are the variables? \nWhat kinds of questions can we ask?"
+  },
+  {
+    "objectID": "Saturdata/Transit/PT_Lesson_WS.html#question-2",
+    "href": "Saturdata/Transit/PT_Lesson_WS.html#question-2",
+    "title": "Public Transportation and Urban Planning",
+    "section": "Question 2",
+    "text": "Question 2\nWhat does ridership over time look like for 1 specific Transit Agency? Use tidyverse data verbs and ggplot to wrangle and visualize the ca_transit data\n\nFilter data for specific Agency -&gt; “Pomona Valley Transit Authority”\nCreate line plot of tot_pass over time"
+  },
+  {
+    "objectID": "Saturdata/Transit/PT_Lesson_WS.html#question-3",
+    "href": "Saturdata/Transit/PT_Lesson_WS.html#question-3",
+    "title": "Public Transportation and Urban Planning",
+    "section": "Question 3",
+    "text": "Question 3\nWrite ggplot code to answer the following questions by plotting the relationship between the two variables.\n\n(a) Do higher-income areas have more or fewer transit stops?\nPlot the variables mdn_ncm and stop_count on a scatter plot with a line of best fit. What will is mean if the relationship on the graph is positive? Negative?\n\n\n\n\n\n\n\n(b) Do areas where more people don’t own cars have better transit coverage?\nPlot the variables pct_w_c and stop_count on a scatter plot with a line of best fit. What will this mean if the relationship on the graph is positive? Negative?"
   }
 ]
