@@ -36,12 +36,17 @@ Each question guides you through building layers of plots for the `ca_tes` datas
 
 ## Practice Questions
 
-### 1. Tree Equity vs. Poverty
 
-> Is there a relationship between poverty (`pctpov`) and tree equity (`tes`)?
+
+## 1. Tree Equity vs. Poverty
+
+> Is there a relationship between poverty (`pctpov`) and tree equity score (`tes`)?
 
 
 ```{r}
+#| echo: true
+#| eval: false
+
 ca_tes |>
   ___(___(x = ___, y = ___)) +
   ___(color = "green") 
@@ -53,60 +58,58 @@ ca_tes |>
 
 ```
 
+## 2. Distribution of tree equity scores
 
-
-### 2. Distribution of tree equity scores
-
-> What is the distribution of tree equity scores?
+> What is the distribution of tree equity scores (`tes`)?
 
 
 ```{r}
+#| echo: true
+#| eval: false
+
 ___ |>
   ggplot(aes(___)) +
   ___(fill = "red")
 ```
 
 
+
 ```{r}
+
+
+
+```
+
+## 3. Distribution of tree equity scores
+
+> What is the distribution of tree equity scores (`tes`) created by a boxplot?
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+___ |>
+  ggplot(aes(___)) +
+  ___(fill = "violet")
+```
+
+
+```{r}
+
 
 
 ```
 
 
-### 3. Tree equity vs. linguistic isolation
+## 4. Tree equity vs. linguistic isolation
 
-> Is there a relationship between linnguistic isolation(`lingnorm`) and `tes` in an area. 
+> Is there a relationship between linguistic isolation(`lingnorm`) and `tes` in an area. 
 
   - Use ggplot to plot the relationship between `tes` and `lingnorm`
   - Choose the best plot for the variable types
   - Create fitting labels for your axes and plot title
 
-```{r}
-
-
-```
-
-
-
-### 4. Wrangle + plot
-
-Recreate the plot above, but summarize the information **per `county`** before plotting.
-That is, `Los Angeles County` should now only be represented by one dot. 
-Summarize both `lingnorm` and `tes` using the `mean()` function.
-
-```{r}
-
-
-```
-
-
-
-### 5. Wrangle + plot + label
-
-Recreate the plot above, but now add labels to the plot to indicate the county of each dot.
-Use `geom_label()` or `geom_text()`.
-Try both!
-You'll need to use `label = county`...  do you need `aes()`? 
 
 
 ```{r}
@@ -115,14 +118,24 @@ You'll need to use `label = county`...  do you need `aes()`?
 ```
 
 
-### 6. Wrangle + plot + label
 
-There is an R package called **ggrepel**. 
-It includes a geom called `geom_label_repel`.
-Try it!  
-(To use a function from a package, you can write: `ggrepel::geom_label_repel()`.)
+## 5. Wrangle + plot
 
-**Hint:** Is there a yellow bar at the top asking if you want to load the R package **ggrepel**?  Say yes!
+Recreate the plot above, but summarize the information **per `county`** before plotting. That is, `Los Angeles County` should now only be represented by one dot. Summarize both `lingnorm` and `tes` using the `mean()` function.
+
+
+
+```{r}
+
+
+
+```
+
+## 6. Wrangle + plot + label
+
+Recreate the plot above, but now add labels to the plot to indicate the county of each dot.  Use `geom_label()` or `geom_text()`. Try both! You'll need to use `label = county`...  do you need `aes()`? 
+
+
 
 ```{r}
 
@@ -130,15 +143,23 @@ Try it!
 ```
 
 
+## 7. Wrangle + plot + label
+
+There is an R package called **ggrepel**.  It includes a geom called `geom_label_repel`. Try it!  (To use a function from a package, you can write: `ggrepel::geom_label_repel()`.)
+
+**Hint:** If R can't find the **ggrepel** package, you may need to type `install.packages("ggrepel")` in the Console down below.
+
+```{r}
 
 
+```
 
-## 7. Additional queries.
+## 8. Make your own plot!
 
 Come up with at least one question that you can ask and answer based on the data.
 
 - Use at least one of the new data verbs: `filter()`, `select()`, `mutate()`, `arrange()`, `group_by()`, `summarize()`.
-- Use a `geom_*()` that is not on this worksheet.
+- Use a `geom_*()` that is not already used on this worksheet.
 - Label your plot well.
 - Use color to make your plot more fun.
 

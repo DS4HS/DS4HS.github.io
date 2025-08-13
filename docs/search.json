@@ -333,56 +333,56 @@
     "href": "Saturdata/TES/TLNotes.html",
     "title": "Tree Equity Instructor Guide",
     "section": "",
-    "text": "Download wrangling activity\nDownload visualization activity"
+    "text": "Download wrangling activity\nDownload visualization activity\nDownload project activity"
   },
   {
     "objectID": "Saturdata/TES/TLNotes.html#what-is-data-science-and-why-urban-planning",
     "href": "Saturdata/TES/TLNotes.html#what-is-data-science-and-why-urban-planning",
     "title": "Tree Equity Instructor Guide",
-    "section": "1 What is Data Science and Why Urban Planning",
-    "text": "1 What is Data Science and Why Urban Planning\n\n\nKey Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
+    "section": "1 What is data science and why urban planning?",
+    "text": "1 What is data science and why urban planning?\n\n\nKey Idea: Data science is about extracting insight from data to inform action.\nFocus on applications of data science that connect to students interests\nAsk students to add their own example of data science they’ve seen and why they suspect it to be data science.\n\nEmphasis on Data science and Urban Planning as a cycle that is repetitive. There is always new data being collected and new solutions to be found. This opens up possibilities for limitless data exploration within the field which makes it an amazing introductory example of data science for beginner students."
   },
   {
     "objectID": "Saturdata/TES/TLNotes.html#tree-coverage-as-a-social-issue",
     "href": "Saturdata/TES/TLNotes.html#tree-coverage-as-a-social-issue",
     "title": "Tree Equity Instructor Guide",
-    "section": "2 Tree Coverage as a Social Issue",
-    "text": "2 Tree Coverage as a Social Issue\n\nRemember This concept might be difficult for students to grasp. “How does the amount of trees in my neighborhood affect me?”\nAsk Students, “What does a tree do? What is its purpose” Answers might be “Provides Shade” or “Creates Oxygen” These are already good markers to highlight disparity but informing students of trees other functions and how their presence in a community or the lack thereof can make a large difference in the well-being of its members will help make their studies feel relevant and impactful."
+    "section": "2 Tree coverage as a social issue",
+    "text": "2 Tree coverage as a social issue\n\nRemember This concept might be difficult for students to grasp. “How does the number of trees in my neighborhood affect me?”\nAsk Students, “What does a tree do? What is its purpose” Answers might be “provides shade” or “creates oxygen.” These are already good markers to highlight disparity but informing students of trees other functions and how trees in a community - or the lack thereof - can make a large difference in the well-being of the community members will help make the project feel relevant and impactful."
   },
   {
     "objectID": "Saturdata/TES/TLNotes.html#understanding-the-tree-equity-score",
     "href": "Saturdata/TES/TLNotes.html#understanding-the-tree-equity-score",
     "title": "Tree Equity Instructor Guide",
-    "section": "3 Understanding the Tree Equity Score",
-    "text": "3 Understanding the Tree Equity Score\nHere you can find the methodology behind American Forests Tree Equity Research.\n\nThe Tree Equity Score represents the Need for tree planting in an area. Need or Priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution and other environmental hazards which could be reduced with the benefits of trees."
+    "section": "3 Understanding the tree equity score",
+    "text": "3 Understanding the tree equity score\nYou can find the methodology behind American Forests Tree Equity Research.\n\nThe tree equity score underscores the need for tree planting in an area. Need or priority in a neighborhood is calculated by a number of factors that may highlight the potential for the area to be disproportionately affected by extreme heat, pollution, and other environmental hazards, which could be reduced with the benefits of trees."
   },
   {
     "objectID": "Saturdata/TES/TLNotes.html#foundational-learning",
     "href": "Saturdata/TES/TLNotes.html#foundational-learning",
     "title": "Tree Equity Instructor Guide",
-    "section": "4 Foundational Learning",
-    "text": "4 Foundational Learning\nDS4HS places a priority on shifting the narrative on data scienc and its accessibility. One of the main goals of this curriculum is to make content as tangible as possible for those with little to no experience in data or statistical analysis. This section introduces key concepts in data science and we want to make sure these concepts are grasped as thoroughly as possible.\n\nObservation vs. Observational Unit: Be explicit—each row is one observation, and the observational unit is the “thing” each row represents (e.g., a tree, a bus stop, a city block). In this example the “GEOID” represents one city block group.\nAsk: “What is one row describing?” Have students answer in plain language.\nVariable Types: Clarify the difference between categorical and numerical variables. Use color/highlight in your slides or board to mark a few examples from the dataset. Students often confuse column headers for variable values. Reinforce that variables are columns, values are entries in rows.\nIf possible, have students follow along in R to observe the data set. This can help them get used to the variable names and what a typical value looks like for a given variable."
+    "section": "4 Foundational learning",
+    "text": "4 Foundational learning\nDS4HS places a priority on shifting the narrative on data science and its accessibility. One of the main goals of this curriculum is to make content as tangible as possible for those with little to no experience in data or statistical analysis. We introduce key concepts in data science, and we endeavor to make sure the concepts are grasped as thoroughly as possible.\n\nObservation vs. Observational Unit: Be explicit—each row is one observation, and the observational unit is the “thing” each row represents (e.g., a tree, a bus stop, a city block). In this example the “GEOID” represents one observational unit, a census block group of particular community or neighborhood in a given area that contains between 600 - 3,000 people.\nAsk: “What does one row describe?” Have students answer in plain language.\nVariable Types: Clarify the difference between categorical and numerical variables. Use color/highlight in your slides or board to mark a few examples from the dataset. Students often confuse column headers for variable values. Reinforce that variables are columns, values are entries in rows.\nIf possible, have students follow along in R to observe the data set. This can help them get used to the variable names and what a typical value looks like for a given variable."
   },
   {
     "objectID": "Saturdata/TES/TLNotes.html#mathlink-cubes",
     "href": "Saturdata/TES/TLNotes.html#mathlink-cubes",
     "title": "Tree Equity Instructor Guide",
     "section": "5 Mathlink Cubes",
-    "text": "5 Mathlink Cubes\nIn every lesson, there is some sort of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning (McGowan 2025). Using Mathlink Cubes to Introduce Data Wrangling[^1] helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Dependending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example.\n\nThe images below show the process of connecting the Mathlink cubes inta a data-like structure that can be purposfulley taken apart and reconstructed by students.\nFirst, connect one column vertically.\n\nNext, connect one row horizontally, anchored to the first cube in your columnn.\n\nEach subsequent row should then be connected horizontally and connected to a cube in the first column:\n\nFinally, reconstruct your first column vertically and you should be left with something like this:"
+    "text": "5 Mathlink Cubes\nIn every lesson, there is some sort of interactive portion to help students grasp the task of data wrangling through a physical simulation of the practice.\nThis example comes from an article in the Journal of Statistics and Data Science Learning (McGowan 2025). Using Mathlink Cubes to Introduce Data Wrangling helps to facilitate a tangible understanding of datasets and data manipulation.\nThis example can also be replicated with paper strips and squares (though the creation of these materials may be tedious.)\n\nHand out Mathlink Cubes to students in the form of “a dataset” meaning cubes are arranged in columns by color. Depending on the size of your data set(amount of rows), students will need that many blocks of a unique colored block for the mutate example.\n\nThe images below show the process of connecting the Mathlink cubes into a data-like structure that can be purposefully taken apart and reconstructed by students.\nFirst, connect one column vertically.\n\nNext, connect one row horizontally, anchored to the first cube in your column.\n\nEach subsequent row should then be connected horizontally and connected to a cube in the first column:\n\nFinally, reconstruct your first column vertically and you should be left with something like this:"
   },
   {
     "objectID": "Saturdata/TES/TLNotes.html#teaching-tidyverse-and-ggplot",
     "href": "Saturdata/TES/TLNotes.html#teaching-tidyverse-and-ggplot",
     "title": "Tree Equity Instructor Guide",
     "section": "6 Teaching tidyverse and ggplot",
-    "text": "6 Teaching tidyverse and ggplot\nThe worksheet below is intended to follow along with the “Tree Equity Lesson” lecture slides. The goal of an activity like this is to help students commit data wrangling and visualization strategies to memory and think bout the processes critically.\nIn-Class Data Wrangling Practice\n\n6.1 Core Goals\n\nStudents experience transforming a dataset using tidyverse data verbs\nThey start asking questions of the data: Who’s impacted? Where? What relationships exist?\nStudents see visualization as a tool for insight, not just graphics.\n\n\n\n6.2 Pedagogical Tips and Emphases\n1. Emphasize the “verbs” as actions\n\nAnchor each function to a mental model:\n\nfilter() = “cut out rows you don’t need”\nselect() = “keep only the columns you care about”\nmutate() = “make new columns using calucaltions with exsisting ones”\ngroupby() = “Sort data into baskets by value”\nsummarize() = “Pull out the big-picture”\n\n\n2. Highlight data types when visualizing\n\nCategorical → bar/column\nContinuous → histogram, scatter\nTime-based → line plot\nEncourage asking: “What kind of variable is this? What would help me see patterns?”\n\n3. Don’t skip reading outputs\n\nStop after each code chunk and ask: “What changed? What does this output tell us?”\nIt’s easy for students to focus on syntax and miss what the data is really saying.\n\n4. Ask real-world connection questions\n\n“What trend do you notice?”, “What might explain that relationship?”, “What other variable might influence both?”\nEncourage students to answer these questions in normal and confortable language rather than expecting a more refined “data-sciency” answer. This will help bridge the gap between their common sense and trained data analysis"
+    "text": "6 Teaching tidyverse and ggplot\nThe worksheet below is intended to follow along with the “Tree Equity Lesson” lecture slides. The goal of an activity like this is to help students commit data wrangling and visualization strategies to memory and think bout the processes critically.\nIn-Class Data Wrangling Practice\n\n6.1 Core Goals\n\nStudents experience transforming a dataset using tidyverse data verbs\nThey start asking questions of the data: Who’s impacted? Where? What relationships exist?\nStudents see visualization as a tool for insight, not just graphics.\n\n\n\n6.2 Pedagogical Tips and Emphases\n1. Emphasize the “verbs” as actions\n\nAnchor each function to a mental model:\n\nfilter() = “keep specific rows”\nselect() = “keep specific columns”\nmutate() = “create new variables from existing ones”\ngroup_by() = “hold data into baskets by value”\nsummarize() = “collapse dataset into one row per item in group”\n\n\n2. Highlight data types when visualizing\n\nCategorical → bar/column\nNumeric → histogram, scatter\nTime-based → line plot\nEncourage asking: “What kind of variable is this? What would help uncover patterns?”\n\n3. Don’t skip reading outputs\n\nStop after each code chunk and ask: “What changed? What does the output show?”\nIt is easy for students to focus on syntax and miss what the data is saying.\n\n4. Ask real-world connection questions\n\n“What trend(s) do you notice?”, “What might explain the relationship?”, “What other variable might connect to the two variables already plotted?”\nEncourage students to answer questions in plain and comfortable language rather than expecting a more refined “data-science-y” answer. Practicing communicating will help bridge the gap between their common sense and trained data analysis."
   },
   {
     "objectID": "Saturdata/TES/TLNotes.html#student-exploration-final-project",
     "href": "Saturdata/TES/TLNotes.html#student-exploration-final-project",
     "title": "Tree Equity Instructor Guide",
     "section": "7 Student Exploration + Final Project",
-    "text": "7 Student Exploration + Final Project\nThis capstone activity gives students the chance to apply everything they’ve learned from the lesson. It should feel open-ended and empowering, encouraging curiosity and creative problem-solving.\nThis is also the moment where data becomes personal and meaningful: students choose their question, their variables, and their visualization. The instructor’s role shifts from direct teaching to coaching, guiding students to sharpen questions, troubleshoot code, and draw clear, grounded conclusions. A presenation template for this project is provided below as a .qmd file.\nDownload Student Quarto Guide \n\n7.1 Group Work Guidance\nStudents should work in groups of 2–4, ideally with access to a shared device\nEncourage them to:\n\nSettle on a single state or comparison they find interesting.\nWrite out a clear, answerable question (this may take several revisions).\n\nStudents will use R (inside the RStudio IDE) to generate at least one graph and one statistical summary.\nInstructors or mentors should:\n\nCirculate and offer help with debugging.\nAsk clarifying questions to refine vague research questions.\n“What are you trying to compare? What variable would show that?”\n\n\n\n7.2 Managing Student Presentations\nEach group should give a short (~3–4 min) presentation of:\n\nTheir question/data use\nTheir data wrangling process\nTheir plot(s) and the trends they suggest\nA brief interpretation: “What does this mean?” and “Why does it matter?”\n\nWhile students present:\n\nHighlight clarity of visualizations, originality of questions, or insightful interpretations.\nCelebrate one strong point from each group to model good data science communication. For Example,\n\n“What I loved about this presentation was how clear the graph labels were — it helped us understand the pattern immediately.”"
+    "text": "7 Student Exploration + Final Project\nThe project activity gives students the chance to apply everything they’ve learned from the lesson. It should feel open-ended and empowering, encouraging curiosity and creative problem-solving.\nThe data analysis can also become personal and meaningful: students choose their question, their variables, and their visualization. The instructor’s role shifts from direct teaching to coaching and guiding students to sharpen questions, troubleshoot code, and draw clear, grounded conclusions. A presentation template for the project is provided below as a .qmd file.\nDownload project activity\n\n7.1 Group Work Guidance\nStudents should work in groups of 2–4, ideally with access to a shared computer.\nEncourage them to:\n\nSettle on a single state or two for a comparison they find interesting.\nWrite out a clear, answerable question, which may take several revisions.\n\nStudents will use R (inside the RStudio IDE) to generate at least one graph and one statistical summary.\nInstructors or mentors should:\n\nCirculate and offer help with debugging.\nAsk clarifying questions to refine vague research questions.\n“What are you trying to compare? What variable would show that?”\n\n\n\n7.2 Managing Student Presentations\nEach group should give a short (~3–4 min) presentation of:\n\nresearch question / dataset\ndata wrangling process\nplot(s) and the trends they suggest\nbrief interpretation: “What does this mean?” and “Why does it matter?”\n\nWhile students present:\n\nHighlight clarity of visualizations, originality of questions, or insightful interpretations.\nCelebrate one strong point from each group to model good data science communication.\n\nFor example, “What I loved about this presentation was how clearly the graphs were labeled — it helped us understand the patterns immediately.”"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#the-big-idea-why-urban-planning",
@@ -592,7 +592,7 @@
     "href": "Saturdata/TES/TreeLesson.html#what-and-why",
     "title": "Data Science with Tree Equity",
     "section": "What and why",
-    "text": "What and why\n\nData visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret\nCommunicate results clearly and effectively\nSupports evidence-based decisions in fields like:\n\nPublic health\nClimate research\nUrban planning\nBusiness & marketing"
+    "text": "What and why\n\nData visualization is the process of transforming raw data into visual formats, like charts, graphs, or maps, to make it easier to understand and interpret\nCommunicate results clearly and effectively\nSupports evidence-based decisions across many fields."
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#what-is-ggplot2",
@@ -633,22 +633,22 @@
     "objectID": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-poverty",
     "href": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-poverty",
     "title": "Data Science with Tree Equity",
-    "section": "Tree Equity vs. Poverty",
-    "text": "Tree Equity vs. Poverty\n\nIs there a relationship between poverty (pctpov) and tree equity (tes)?\n\n\nca_tes |&gt;\n  ___(___(x = ___, y = ___)) +\n  ___(color = \"green\") \n\n\n\nca_tes |&gt;\n  ggplot(aes(x = pctpov, y = tes)) +\n  geom_point(color = \"green\") + \n  labs(title = \"Tree Equity vs. Poverty\",\n       x = \"Percent in Poverty\",\n       y = \"Tree Equity Score\")"
+    "section": "1. Tree Equity vs. Poverty",
+    "text": "1. Tree Equity vs. Poverty\n\nIs there a relationship between poverty (pctpov) and tree equity score (tes)?\n\n\nca_tes |&gt;\n  ___(___(x = ___, y = ___)) +\n  ___(color = \"green\") \n\n\n\nca_tes |&gt;\n  ggplot(aes(x = pctpov, y = tes)) +\n  geom_point(color = \"green\") + \n  labs(title = \"Tree Equity vs. Poverty\",\n       x = \"Percent in Poverty\",\n       y = \"Tree Equity Score\")"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#distribution-of-tree-equity-scores",
     "href": "Saturdata/TES/TreeLesson.html#distribution-of-tree-equity-scores",
     "title": "Data Science with Tree Equity",
-    "section": "Distribution of tree equity scores",
-    "text": "Distribution of tree equity scores\n\nWhat is the distribution of tree equity scores?\n\n\n___ |&gt;\n  ggplot(aes(___)) +\n  ___(fill = \"red\")\n\n\n\nca_tes |&gt;\n  ggplot(aes(x = tes)) +\n  geom_histogram(bins = 15, fill = \"red\") +\n  labs(title = \"Distribution of tree equity scores\",\n       x = \"Tree Equity Score\",\n       y = \"Number of Places\")"
+    "section": "2. Distribution of tree equity scores",
+    "text": "2. Distribution of tree equity scores\n\nWhat is the distribution of tree equity scores (tes)?\n\n\n___ |&gt;\n  ggplot(aes(___)) +\n  ___(fill = \"red\")\n\n\n\nca_tes |&gt;\n  ggplot(aes(x = tes)) +\n  geom_histogram(fill = \"red\") +\n  labs(title = \"Distribution of tree equity scores\",\n       x = \"Tree Equity Score\")"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
     "href": "Saturdata/TES/TreeLesson.html#tree-equity-vs.-linguistic-isolation",
     "title": "Data Science with Tree Equity",
-    "section": "Tree equity vs. linguistic isolation",
-    "text": "Tree equity vs. linguistic isolation\n\nIs there a relationship between linnguistic isolation(lingnorm) and tes in an area.\n\n\nUse ggplot to plot the relationship between tes and lingnorm\nChoose the best plot for the variable types\nCreate fitting labels for your axes and plot title"
+    "section": "4. Tree equity vs. linguistic isolation",
+    "text": "4. Tree equity vs. linguistic isolation\n\nIs there a relationship between linguistic isolation(lingnorm) and tes in an area.\n\n\nUse ggplot to plot the relationship between tes and lingnorm\nChoose the best plot for the variable types\nCreate fitting labels for your axes and plot title"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#section-8",
@@ -676,7 +676,7 @@
     "href": "Saturdata/TES/TreeLesson.html#your-goals",
     "title": "Data Science with Tree Equity",
     "section": "Your goals",
-    "text": "Your goals\n\nClearly state your research question\n\nSupport it with R code and graphs\n\nUse the data to identify a trend, pattern, or disparity\n\nCommunicate WHY it matters"
+    "text": "Your goals\n\nClearly state your research question\n\nSupport your question with R code and graphs\n\nUse the data to identify a trend, pattern, or disparity\n\nCommunicate WHY it matters"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#examples-questions",
@@ -823,21 +823,21 @@
     "href": "Saturdata/TES/TreeLesson.html#what-is-the-observational-unit",
     "title": "Data Science with Tree Equity",
     "section": "What is the observational unit?",
-    "text": "What is the observational unit?\n\n\n\n\n\n\n\n\nGEOID\nplace\nstate\nstate_abbr\ncounty\nua_name\nua_pop\ncongressio\ncbg_pop\nacs_pop\nland_area\nbiome\ncnpysource\ntc_goal\ntreecanopy\ntc_gap\npriority_i\npctpoc\npctpocnorm\npctpov\npctpovnorm\nunemplrate\nunemplnorm\ndep_ratio\ndep_perc\ndepratnorm\nlinguistic\nlingnorm\nhealth_nor\ntemp_diff\ntemp_norm\ntes\ntesctyscor\nholc_grade\nchild_perc\nseniorperc\nej_disadva\nrank\nrankgrpsz\n\n\n\n\n060014001001\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,789.00\n1,963.00\n3.50\nMediterranean\nGoogle\n0.30\n0.60\n0.00\n0.31\n0.27\n0.27\n0.12\n0.12\n0.02\n0.05\n0.86\n0.46\n0.43\n0.00\n0.00\n0.26\n−5.75\n0.49\n100.00\n84.00\nC\n0.26\n0.20\nNA\n1.00\n353.00\n\n\n060014001002\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,249.00\n1,361.00\n1.21\nMediterranean\nGoogle\n0.30\n0.46\n0.00\n0.34\n0.34\n0.34\n0.09\n0.09\n0.05\n0.10\n0.77\n0.43\n0.38\n0.00\n0.00\n0.26\n1.32\n0.66\n100.00\n84.00\nA\n0.14\n0.30\nNA\n1.00\n353.00\n\n\n060014002001\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,022.00\n1,029.00\n0.29\nMediterranean\nGoogle\n0.30\n0.28\n0.02\n0.31\n0.21\n0.21\n0.05\n0.05\n0.04\n0.08\n1.01\n0.50\n0.51\n0.00\n0.00\n0.25\n−2.10\n0.58\n98.00\n84.00\nC\n0.19\n0.31\nNA\n57.00\n353.00\n\n\n060014002002\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n979.00\n1,009.00\n0.30\nMediterranean\nGoogle\n0.30\n0.31\n0.00\n0.32\n0.38\n0.38\n0.13\n0.13\n0.10\n0.19\n0.45\n0.31\n0.22\n0.00\n0.00\n0.25\n−3.20\n0.55\n100.00\n84.00\nC\n0.16\n0.15\nNA\n1.00\n353.00\n\n\n060014003001\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,123.00\n1,122.00\n0.27\nMediterranean\nGoogle\n0.30\n0.22\n0.08\n0.31\n0.34\n0.34\n0.04\n0.04\n0.03\n0.05\n0.56\n0.36\n0.28\n0.03\n0.03\n0.30\n−0.31\n0.62\n94.00\n84.00\nC\n0.17\n0.19\nNA\n87.00\n353.00\n\n\n060014003002\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,528.00\n1,623.00\n0.27\nMediterranean\nGoogle\n0.25\n0.21\n0.04\n0.33\n0.44\n0.44\n0.08\n0.08\n0.05\n0.09\n0.41\n0.29\n0.20\n0.03\n0.03\n0.30\n−0.11\n0.62\n96.00\n84.00\nC\n0.10\n0.19\nNA\n65.00\n353.00\n\n\n\n\n\n\n\n\nThe GEOID or Census block Group describes a particular community or neighborhood in a given area contains between 600 - 3,000 people 1\n\nAmerican Forests Methods and Data Glossary. https://www.treeequityscore.org/methodology?tab=data-glossary"
+    "text": "What is the observational unit?\n\n\n\n\n\n\n\n\nGEOID\nplace\nstate\nstate_abbr\ncounty\nua_name\nua_pop\ncongressio\ncbg_pop\nacs_pop\nland_area\nbiome\ncnpysource\ntc_goal\ntreecanopy\ntc_gap\npriority_i\npctpoc\npctpocnorm\npctpov\npctpovnorm\nunemplrate\nunemplnorm\ndep_ratio\ndep_perc\ndepratnorm\nlinguistic\nlingnorm\nhealth_nor\ntemp_diff\ntemp_norm\ntes\ntesctyscor\nholc_grade\nchild_perc\nseniorperc\nej_disadva\nrank\nrankgrpsz\n\n\n\n\n060014001001\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,789.00\n1,963.00\n3.50\nMediterranean\nGoogle\n0.30\n0.60\n0.00\n0.31\n0.27\n0.27\n0.12\n0.12\n0.02\n0.05\n0.86\n0.46\n0.43\n0.00\n0.00\n0.26\n−5.75\n0.49\n100.00\n84.00\nC\n0.26\n0.20\nNA\n1.00\n353.00\n\n\n060014001002\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,249.00\n1,361.00\n1.21\nMediterranean\nGoogle\n0.30\n0.46\n0.00\n0.34\n0.34\n0.34\n0.09\n0.09\n0.05\n0.10\n0.77\n0.43\n0.38\n0.00\n0.00\n0.26\n1.32\n0.66\n100.00\n84.00\nA\n0.14\n0.30\nNA\n1.00\n353.00\n\n\n060014002001\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,022.00\n1,029.00\n0.29\nMediterranean\nGoogle\n0.30\n0.28\n0.02\n0.31\n0.21\n0.21\n0.05\n0.05\n0.04\n0.08\n1.01\n0.50\n0.51\n0.00\n0.00\n0.25\n−2.10\n0.58\n98.00\n84.00\nC\n0.19\n0.31\nNA\n57.00\n353.00\n\n\n060014002002\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n979.00\n1,009.00\n0.30\nMediterranean\nGoogle\n0.30\n0.31\n0.00\n0.32\n0.38\n0.38\n0.13\n0.13\n0.10\n0.19\n0.45\n0.31\n0.22\n0.00\n0.00\n0.25\n−3.20\n0.55\n100.00\n84.00\nC\n0.16\n0.15\nNA\n1.00\n353.00\n\n\n060014003001\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,123.00\n1,122.00\n0.27\nMediterranean\nGoogle\n0.30\n0.22\n0.08\n0.31\n0.34\n0.34\n0.04\n0.04\n0.03\n0.05\n0.56\n0.36\n0.28\n0.03\n0.03\n0.30\n−0.31\n0.62\n94.00\n84.00\nC\n0.17\n0.19\nNA\n87.00\n353.00\n\n\n060014003002\nOakland\nCalifornia\nCA\nAlameda County\nSan Francisco--Oakland, CA\n3,521,738.00\nCA Congressional District 13\n1,528.00\n1,623.00\n0.27\nMediterranean\nGoogle\n0.25\n0.21\n0.04\n0.33\n0.44\n0.44\n0.08\n0.08\n0.05\n0.09\n0.41\n0.29\n0.20\n0.03\n0.03\n0.30\n−0.11\n0.62\n96.00\n84.00\nC\n0.10\n0.19\nNA\n65.00\n353.00\n\n\n\n\n\n\n\n\nThe GEOID or census block group describes a particular community or neighborhood in a given area that contains between 600 - 3,000 people 1\n\nAmerican Forests Methods and Data Glossary. https://www.treeequityscore.org/methodology?tab=data-glossary"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#your-turn",
     "href": "Saturdata/TES/TreeLesson.html#your-turn",
     "title": "Data Science with Tree Equity",
     "section": "Your turn",
-    "text": "Your turn\n\nYou will work in small groups to investigate tree equity in a new state(s)\n\n\nEach group will:\n\nChoose a research question(s)\n\nUse tidyverse tools to explore the data\n\nCreate plot(s) with ggplot2\n\nPresent findings to the class"
+    "text": "Your turn\n\nYou will work in small groups to investigate tree equity in a new state(s)\n\n\nEach group will:\n\nChoose a research question(s)\n\nUse tidyverse wrangling tools to explore the data\n\nCreate plot(s) with ggplot2\n\nPresent findings to the class"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#sample-questions",
     "href": "Saturdata/TES/TreeLesson.html#sample-questions",
     "title": "Data Science with Tree Equity",
     "section": "Sample questions",
-    "text": "Sample questions\n\nHow does tree canopy vary across different neighborhoods in chosen state?\n\nIs there a relationship between percent in poverty and tree equity score in chosen state?\nHow do tree equity trends compare between two or more chosen states?\n\nAre places with lower tree equity also more likely to have higher health disparities in chosen state?"
+    "text": "Sample questions\n\nHow does tree canopy vary across different neighborhoods in chosen state?\n\nIs there a relationship between percent in poverty and tree equity score in chosen state?\nHow do tree equity trends compare between two or more chosen states?\n\nAre places with lower tree equity also more likely to have higher health disparities in chosen state?\n\nWhat if you break down / summarize() the information by county?"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#tree-equity-and-city-planning",
@@ -865,7 +865,7 @@
     "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-1",
     "title": "Data Science with Tree Equity",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoal: scatterplot = a plot with points\nWhat does R need to know?\n\ndata source: Births2015\naesthetics:\n\ndate -&gt; x\nbirths -&gt; y\npoints (!)"
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoal: scatterplot = a plot with points\nWhat does R need to know?\n\ndata source: Births2015\naesthetics:\n\ndate -&gt; x\nbirths -&gt; y\n\npoints"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-2",
@@ -977,7 +977,7 @@
     "href": "Saturdata/TES/TreeLesson.html#how-do-we-make-this-plot-10",
     "title": "Data Science with Tree Equity",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date,\n             y = births)) + \n  geom_line(aes(color = wday)) +      \n  geom_point(color = \"navy\")  +         \n  labs(title = \"US Births in 2015\")\n\n\nggplot() establishes the default data and aesthetics for the geoms, but each geom may change these defaults.\ngood practice: put into ggplot() the things that affect all (or most) of the layers; rest in geom_XXXX()"
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date,\n             y = births)) + \n  geom_line(aes(color = wday)) +      \n  geom_point(color = \"navy\")  +         \n  labs(title = \"US Births in 2015\")\n\n\nggplot() establishes the default data and aesthetics for the geoms, but each geom may change these defaults.\ngood practice: put into ggplot() the things that affect all (or most) of the layers; rest in geom_*()"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#setting-vs.-mapping-again",
@@ -998,21 +998,21 @@
     "href": "Saturdata/TES/TreeLesson.html#other-geoms-1",
     "title": "Data Science with Tree Equity",
     "section": "Other geoms",
-    "text": "Other geoms\nhelp pages will tell you their aesthetics, default stats, etc."
+    "text": "Other geoms\nhelp pages will tell you their aesthetics, default stats, etc.\n\n?geom_area             # for example"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#lets-try-geom_area",
     "href": "Saturdata/TES/TreeLesson.html#lets-try-geom_area",
     "title": "Data Science with Tree Equity",
-    "section": "Let’s try geom_area",
-    "text": "Let’s try geom_area"
+    "section": "Let’s try geom_area()",
+    "text": "Let’s try geom_area()"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#lets-try-geom_area-1",
     "href": "Saturdata/TES/TreeLesson.html#lets-try-geom_area-1",
     "title": "Data Science with Tree Equity",
-    "section": "Let’s try geom_area",
-    "text": "Let’s try geom_area\n\n\n\n\n\n\n\n\n\n\n\n\n… not a good plot\n\noverplotting is hiding much of the data\nextending y-axis to 0 may or may not be desirable."
+    "section": "Let’s try geom_area()",
+    "text": "Let’s try geom_area()\n\n\n\n\n\n\n\n\n\n\n\n\n… not a good plot\n\noverplotting is hiding much of the data\nextending y-axis to 0 may or may not be desirable."
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#side-note-what-makes-a-plot-good",
@@ -1039,22 +1039,22 @@
     "objectID": "Saturdata/TES/TreeLesson.html#wrangle-plot",
     "href": "Saturdata/TES/TreeLesson.html#wrangle-plot",
     "title": "Data Science with Tree Equity",
-    "section": "Wrangle + plot",
-    "text": "Wrangle + plot\nRecreate the plot above, but summarize the information per place before plotting. That is, Claremont should now only be represented by one dot. Summarize both lingnorm and tes using the mean() function.\n\n\nca_tes |&gt; \n  group_by(place) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  labs(title = \"Tree Equity vs. Linguistic Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
+    "section": "5. Wrangle + plot",
+    "text": "5. Wrangle + plot\nRecreate the plot above, but summarize the information per county before plotting. That is, Los Angeles County should now only be represented by one dot. Summarize both lingnorm and tes using the mean() function.\n\n\nca_tes |&gt; \n  group_by(county) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  labs(title = \"Tree Equity vs. Linguistic Isolation by County\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#wrangle-plot-label",
     "href": "Saturdata/TES/TreeLesson.html#wrangle-plot-label",
     "title": "Data Science with Tree Equity",
-    "section": "Wrangle + plot + label",
-    "text": "Wrangle + plot + label\nRecreate the plot above, but now add labels to the plot to indicate the county of each dot. Use geom_label() or geom_text(). Try both! You’ll need to use label = county… do you need aes()?\n\n\nca_tes |&gt; \n  group_by(county) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  geom_text(aes(label = county)) + \n  labs(title = \"Tree Equity vs. Linguistic Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
+    "section": "6. Wrangle + plot + label",
+    "text": "6. Wrangle + plot + label\nRecreate the plot above, but now add labels to the plot to indicate the county of each dot. Use geom_label() or geom_text(). Try both! You’ll need to use label = county… do you need aes()?\n\n\nca_tes |&gt; \n  group_by(county) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  geom_text(aes(label = county)) + \n  labs(title = \"Tree Equity vs. Linguistic Isolation by County\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
   },
   {
     "objectID": "Saturdata/TES/TreeLesson.html#wrangle-plot-label-1",
     "href": "Saturdata/TES/TreeLesson.html#wrangle-plot-label-1",
     "title": "Data Science with Tree Equity",
-    "section": "Wrangle + plot + label",
-    "text": "Wrangle + plot + label\nThere is an R package called ggrepel. It includes a geom called geom_label_repel. Try it! (To use a function from a package, you can write: ggrepel::geom_label_repel().)\nHint: Is there a yellow bar at the top asking if you want to load the R package ggrepel? Say yes!\n\n\nca_tes |&gt; \n  group_by(county) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  ggrepel::geom_label_repel(aes(label = county)) + \n  labs(title = \"Tree Equity vs. Linguistic Isolation\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
+    "section": "7. Wrangle + plot + label",
+    "text": "7. Wrangle + plot + label\nThere is an R package called ggrepel. It includes a geom called geom_label_repel. Try it! (To use a function from a package, you can write: ggrepel::geom_label_repel().)\nHint: Is there a yellow bar at the top asking if you want to load the R package ggrepel? Say yes!\n\n\nca_tes |&gt; \n  group_by(county) |&gt; \n  summarize(ave_ling = mean(lingnorm),\n            ave_tes = mean(tes)) |&gt; \n  ggplot(aes(x = ave_ling, y = ave_tes)) + \n  geom_point() + \n  ggrepel::geom_label_repel(aes(label = county)) + \n  labs(title = \"Tree Equity vs. Linguistic Isolation by County\",\n       x = \"Percent in Linguistic Isolation\",\n       y = \"Tree Equity Score\")"
   },
   {
     "objectID": "Saturdata/Goals_and_Logistics.html",
@@ -1104,5 +1104,159 @@
     "title": "Public Transportation and Urban Planning",
     "section": "Question 3",
     "text": "Question 3\nWrite ggplot code to answer the following questions by plotting the relationship between the two variables.\n\n(a) Do higher-income areas have more or fewer transit stops?\nPlot the variables mdn_ncm and stop_count on a scatter plot with a line of best fit. What will is mean if the relationship on the graph is positive? Negative?\n\n\n\n\n\n\n\n(b) Do areas where more people don’t own cars have better transit coverage?\nPlot the variables pct_w_c and stop_count on a scatter plot with a line of best fit. What will this mean if the relationship on the graph is positive? Negative?"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#distribution-of-tree-equity-scores-1",
+    "href": "Saturdata/TES/TreeLesson.html#distribution-of-tree-equity-scores-1",
+    "title": "Data Science with Tree Equity",
+    "section": "3. Distribution of tree equity scores",
+    "text": "3. Distribution of tree equity scores\n\nWhat is the distribution of tree equity scores (tes) created by a boxplot?\n\n\n___ |&gt;\n  ggplot(aes(___)) +\n  ___(fill = \"violet\")\n\n\n\nca_tes |&gt;\n  ggplot(aes(x = tes)) +\n  geom_boxplot(fill = \"violet\") +\n  labs(title = \"Distribution of tree equity scores\",\n       x = \"Tree Equity Score\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson_WS_wrangle.html",
+    "href": "Saturdata/TES/TreeLesson_WS_wrangle.html",
+    "title": "Practicing Data Wrangling with Tree Equity Data",
+    "section": "",
+    "text": "In this worksheet, you’ll practice writing tidyverse-style R code for data wrangling tasks. Each question guides you through filtering, selecting, mutating, and summarizing the ca_tes dataset.\nDon’t stress yourself out over perfect syntax – the goal is to practice what you’ve learned about data wrangling so far."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson_WS_wrangle.html#instructions",
+    "href": "Saturdata/TES/TreeLesson_WS_wrangle.html#instructions",
+    "title": "Practicing Data Wrangling with Tree Equity Data",
+    "section": "",
+    "text": "In this worksheet, you’ll practice writing tidyverse-style R code for data wrangling tasks. Each question guides you through filtering, selecting, mutating, and summarizing the ca_tes dataset.\nDon’t stress yourself out over perfect syntax – the goal is to practice what you’ve learned about data wrangling so far."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson_WS_wrangle.html#practice-questions",
+    "href": "Saturdata/TES/TreeLesson_WS_wrangle.html#practice-questions",
+    "title": "Practicing Data Wrangling with Tree Equity Data",
+    "section": "Practice Questions",
+    "text": "Practice Questions\n\n1. Filter for neighborhoods with low tree equity scores\nShow only neighborhoods where the tes (Tree Equity Score) is less than 50.\nHint: Use filter()\n\n\n\n\n\n\n\n2. Focus on specific columns of interest\nKeep only the following columns: treecanopy, tes, and unemplnorm.\nHint: Use select()\n\n\n\n \n\n\n3. Calculate percent of tree coverage goal met\nCompute a new column that represents the percent of the tree coverage goal that has been met.\nHint: Use mutate()\n\nYou’ll need to figure out how to calculate the value in question — discuss with a partner if unsure!\nRemember that treecanopy is the actual tree coverage in an area. tc_goal is the ideal tree coverage based on needs.\n\n\n\n\n\n\n\n\n4. Compute average tree equity score by place\nGroup the data by place (e.g., city or neighborhood), and compute the average tes score in each place.\nHint: Use group_by() and summarise()"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson_WS_wrangle.html#which-neighborhoods-have-the-greatest-tree-equity-need",
+    "href": "Saturdata/TES/TreeLesson_WS_wrangle.html#which-neighborhoods-have-the-greatest-tree-equity-need",
+    "title": "Practicing Data Wrangling with Tree Equity Data",
+    "section": "5. Which neighborhoods have the greatest tree equity need?",
+    "text": "5. Which neighborhoods have the greatest tree equity need?\nUse only the variables GEOID, place, and tes.\nHint: Use arrange()"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson_WS_wrangle.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity",
+    "href": "Saturdata/TES/TreeLesson_WS_wrangle.html#how-does-tree-equity-relate-to-both-poverty-and-health-disparity",
+    "title": "Practicing Data Wrangling with Tree Equity Data",
+    "section": "6. How does tree equity relate to both poverty and health disparity?",
+    "text": "6. How does tree equity relate to both poverty and health disparity?\nIn this question, you’ll explore the relationship between Tree Equity Score (tes), poverty, and health disparity.\n\ncreate variable combined_index that connects pctpovnorm and health_nor as a product\ncut data set down to desired variables (place, combined_index, and tes)\norganize data to see which places have highest combined index\n\nHint: to sort descending, you’ll need to use desc() within the arrange() function."
+  },
+  {
+    "objectID": "TreeProject.html#instructions-for-students-delete-this-slide-before-submitting",
+    "href": "TreeProject.html#instructions-for-students-delete-this-slide-before-submitting",
+    "title": "Tree Equity Student Presentation",
+    "section": "Instructions for Students (Delete This Slide Before Submitting)",
+    "text": "Instructions for Students (Delete This Slide Before Submitting)\n\nThis is your template for presenting your project.\nYour final presentation should have 4 slides:\n\nResearch Question + Dataset\nData Wrangling Code\nPlot + ggplot Code\nKey Insights\n\n\nOnce you’ve completed the slides, delete this instruction slide before rendering."
+  },
+  {
+    "objectID": "TreeProject.html#slide-1-your-dataset-research-question",
+    "href": "TreeProject.html#slide-1-your-dataset-research-question",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 1: Your Dataset & Research Question",
+    "text": "Slide 1: Your Dataset & Research Question\nDataset Chosen:\n\ne.g., Tree Equity data from Alabama, Arizona, etc.\n\n\nInclude the source of the data (link + resource name)\n\nResearch Question:\n\nThe question you’re investigating using the TES dataset."
+  },
+  {
+    "objectID": "TreeProject.html#slide-2-data-wrangling",
+    "href": "TreeProject.html#slide-2-data-wrangling",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 2: Data Wrangling",
+    "text": "Slide 2: Data Wrangling\nUse tidyverse functions like filter(), mutate(), select(), group_by(), summarise(), etc. Show all the code that you used to clean or transform the data for your plot."
+  },
+  {
+    "objectID": "TreeProject.html#slide-3-plot",
+    "href": "TreeProject.html#slide-3-plot",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 3: Plot",
+    "text": "Slide 3: Plot\nUse ggplot2 to visualize your findings. Include code and plot."
+  },
+  {
+    "objectID": "TreeProject.html#slide-4-key-takeaways",
+    "href": "TreeProject.html#slide-4-key-takeaways",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 4: Key Takeaways",
+    "text": "Slide 4: Key Takeaways\nWhat did you learn from your analysis? Your answer should make statements about what you learned, so you should delete all of this text and write down your takeaways.\n\nWhat patterns or disparities did you observe?\nWhat conclusions can you draw from your plot?\nWhy do these findings matter?"
+  },
+  {
+    "objectID": "TreeProject.html#slide-1-dataset-research-question",
+    "href": "TreeProject.html#slide-1-dataset-research-question",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 1: Dataset & Research Question",
+    "text": "Slide 1: Dataset & Research Question\nDataset Chosen:\n\ne.g., Tree Equity data from Alabama, Arizona, etc.\n\n\nInclude the source of the data (link + resource name)\n\nResearch Question:\n\nThe question you are investigating using the TES dataset."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#layers-layer-0",
+    "href": "Saturdata/TES/TreeLesson.html#layers-layer-0",
+    "title": "Data Science with Tree Equity",
+    "section": "Layers: layer 0",
+    "text": "Layers: layer 0\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot() \n\n\n… creates an empty plot screen. Notice that there aren’t any scales to the x and y axes."
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#layers-layer-1",
+    "href": "Saturdata/TES/TreeLesson.html#layers-layer-1",
+    "title": "Data Science with Tree Equity",
+    "section": "Layers: layer 1",
+    "text": "Layers: layer 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births))"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#layers-layer-2",
+    "href": "Saturdata/TES/TreeLesson.html#layers-layer-2",
+    "title": "Data Science with Tree Equity",
+    "section": "Layers: layer 2",
+    "text": "Layers: layer 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births)) + \n  geom_point()"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#layers-layer-3",
+    "href": "Saturdata/TES/TreeLesson.html#layers-layer-3",
+    "title": "Data Science with Tree Equity",
+    "section": "Layers: layer 3",
+    "text": "Layers: layer 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths2015 |&gt; \n  ggplot(aes(x = date, y = births)) + \n  geom_point() +\n  labs(title = \"US Births in 2015\")"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#geom_-types",
+    "href": "Saturdata/TES/TreeLesson.html#geom_-types",
+    "title": "Data Science with Tree Equity",
+    "section": "geom_*() types",
+    "text": "geom_*() types\n\napropos(\"^geom_\")\n\n [1] \"geom_abline\"            \"geom_area\"              \"geom_ash\"              \n [4] \"geom_bar\"               \"geom_bin_2d\"            \"geom_bin2d\"            \n [7] \"geom_blank\"             \"geom_boxplot\"           \"geom_col\"              \n[10] \"geom_contour\"           \"geom_contour_filled\"    \"geom_count\"            \n[13] \"geom_crossbar\"          \"geom_curve\"             \"geom_density\"          \n[16] \"geom_density_2d\"        \"geom_density_2d_filled\" \"geom_density2d\"        \n[19] \"geom_density2d_filled\"  \"geom_dotplot\"           \"geom_errorbar\"         \n[22] \"geom_errorbarh\"         \"geom_freqpoly\"          \"geom_function\"         \n[25] \"geom_hex\"               \"geom_histogram\"         \"geom_hline\"            \n[28] \"geom_jitter\"            \"geom_label\"             \"geom_line\"             \n[31] \"geom_linerange\"         \"geom_lm\"                \"geom_map\"              \n[34] \"geom_path\"              \"geom_point\"             \"geom_pointrange\"       \n[37] \"geom_polygon\"           \"geom_qq\"                \"geom_qq_line\"          \n[40] \"geom_quantile\"          \"geom_raster\"            \"geom_rect\"             \n[43] \"geom_ribbon\"            \"geom_rug\"               \"geom_segment\"          \n[46] \"geom_sf\"                \"geom_sf_label\"          \"geom_sf_text\"          \n[49] \"geom_smooth\"            \"geom_spline\"            \"geom_spoke\"            \n[52] \"geom_step\"              \"geom_text\"              \"geom_tile\"             \n[55] \"geom_violin\"            \"geom_vline\""
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#geom_-pics",
+    "href": "Saturdata/TES/TreeLesson.html#geom_-pics",
+    "title": "Data Science with Tree Equity",
+    "section": "geom_*() pics",
+    "text": "geom_*() pics\n\nhttps://ggplot2.tidyverse.org/"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#geom_-help",
+    "href": "Saturdata/TES/TreeLesson.html#geom_-help",
+    "title": "Data Science with Tree Equity",
+    "section": "geom_*() help",
+    "text": "geom_*() help\nhelp pages will tell you their aesthetics, default stats, etc.\n\n?geom_area             # for example"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#types-of-variables-numeric",
+    "href": "Saturdata/TES/TreeLesson.html#types-of-variables-numeric",
+    "title": "Data Science with Tree Equity",
+    "section": "Types of variables: numeric",
+    "text": "Types of variables: numeric"
+  },
+  {
+    "objectID": "Saturdata/TES/TreeLesson.html#types-of-variables-categorical",
+    "href": "Saturdata/TES/TreeLesson.html#types-of-variables-categorical",
+    "title": "Data Science with Tree Equity",
+    "section": "Types of variables: categorical",
+    "text": "Types of variables: categorical"
+  },
+  {
+    "objectID": "TODO.html",
+    "href": "TODO.html",
+    "title": "DS4HS",
+    "section": "",
+    "text": "make the Mathlinks Cubes images smaller (they are too big on slides)\nneed images of a row, column, etc. for the instructor resources\nwhere do students submit their rendered quarto files?"
   }
 ]

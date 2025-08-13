@@ -237,7 +237,7 @@ cubes |>
 
 # Tree canopy data
 
-### California tree coverage data [^1]
+**California tree coverage data** [^1]
 
 [^1]: Tree Equity Score. 2023. American Forests. https://www.treeequityscore.org/
 
@@ -271,6 +271,8 @@ For example, an observational unit could be any of the following:
 
 -   *What is the observational unit in the tree equity dataset?*
 
+
+
 ## What is the observational unit?
 
 ```{r}
@@ -279,7 +281,7 @@ gt::gt(
   gt::fmt_number(decimals = 2)
 ```
 
--   The GEOID or Census block Group describes a particular community or neighborhood in a given area contains between 600 - 3,000 people [^2]
+-   The GEOID or census block group describes a particular community or neighborhood in a given area that contains between 600 - 3,000 people [^2]
 
 [^2]: American Forests Methods and Data Glossary. https://www.treeequityscore.org/methodology?tab=data-glossary
 
@@ -461,12 +463,7 @@ ca_tes |>
 
 -   Communicate results **clearly** and **effectively**
 
--   Supports evidence-based decisions in fields like:
-
-    -   Public health
-    -   Climate research
-    -   Urban planning
-    -   Business & marketing
+-   Supports evidence-based decisions across many fields.
 
 ## What is **ggplot2**?
 
@@ -548,10 +545,10 @@ ggplot(
     * data source: `Births2015`
 
     * aesthetics: 
- 
         * `date -> x`
         * `births -> y`
-        * points (!)
+        
+    * points
 :::
 ::::
 
@@ -588,9 +585,8 @@ Births2015 |>
 ::::
 
 
-## Layers
+## Layers: layer 0
 
-### Layer 0 
 
 :::: {.columns} 
 ::: {.column width="40%"}
@@ -613,9 +609,7 @@ ggplot()
 ... creates an empty plot screen. Notice that there aren't any scales to the x and y axes. 
 
 
-## Layers
-
-### Layer 1 
+## Layers: layer 1 
 
 :::: {.columns} 
 ::: {.column width="40%"}
@@ -636,9 +630,7 @@ Births2015 |>
 :::
 ::::
 
-## Layers
-
-### Layer 2 
+## Layers: layer 2 
 
 :::: {.columns} 
 ::: {.column width="40%"}
@@ -662,9 +654,7 @@ Births2015 |>
 ::::
 
 
-## Layers
-
-### Layer 3 
+## Layers: layer 3 
 
 :::: {.columns} 
 ::: {.column width="40%"}
@@ -927,7 +917,7 @@ Births2015 |>
 * `ggplot()` establishes the default data and aesthetics
 for the geoms, but each geom may change these defaults.
 
-* good practice: put into `ggplot()` the things that affect all (or most) of the layers; rest in `geom_XXXX()`
+* good practice: put into `ggplot()` the things that affect all (or most) of the layers; rest in `geom_*()`
 :::
 ::::
 
@@ -939,26 +929,33 @@ a. `map` the **variable** information inside the `aes()` (aesthetic) command
 
 a. `set` the **non-variable** information outside the `aes()` (aesthetic) command
 
-## Other geoms
+## `geom_*()` types
  
 ```{r, echo=TRUE, comment=NA}
 apropos("^geom_")
 ```
 
+## `geom_*()` pics
 
+![](../images/geoms.jpg)
 
-## Other geoms
+https://ggplot2.tidyverse.org/
+
+## `geom_*()` help
 
 help pages will tell you their aesthetics, default stats, etc.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
+#| echo: true
+
 ?geom_area             # for example
 ```
 
 
 
 
-## Let's try `geom_area`
+## Let's try `geom_area()`
 
 :::: {.columns} 
 ::: {.column width="50%"}
@@ -974,7 +971,7 @@ Births2015 |>
 :::
 ::::
 
-## Let's try `geom_area`
+## Let's try `geom_area()`
 
 :::: {.columns} 
 ::: {.column width="50%"}
@@ -1025,22 +1022,16 @@ Does my plot make the comparisons I am interested in:
 -   geom_histogram(): distribution of numeric variable
 -   geom_line(): connect the dots across (x,y) coordinates
 
-## Types of geoms
-
-![](../images/geoms.jpg)
-
-https://ggplot2.tidyverse.org/
 
 
+## Types of variables: numeric
 
-## Types of variables
 
-### Numeric:
 ![](../images/continuous_discrete.png)
 
-## Types of variables
+## Types of variables: categorical
 
-### Categorical:
+
 ![](../images/nominal_ordinal_binary.png)
 
 
@@ -1060,9 +1051,9 @@ https://ggplot2.tidyverse.org/
 
 
 
-## Tree Equity vs. Poverty
+## 1. Tree Equity vs. Poverty
 
-> Is there a relationship between poverty (`pctpov`) and tree equity (`tes`)?
+> Is there a relationship between poverty (`pctpov`) and tree equity score (`tes`)?
 
 
 ```{r}
@@ -1090,9 +1081,9 @@ ca_tes |>
        y = "Tree Equity Score")
 ```
 
-## Distribution of tree equity scores
+## 2. Distribution of tree equity scores
 
-> What is the distribution of tree equity scores?
+> What is the distribution of tree equity scores (`tes`)?
 
 
 ```{r}
@@ -1111,20 +1102,51 @@ ___ |>
 ```{r}
 #| echo: true
 #| eval: true
-#| code-line-numbers: "1|2|3|4|5|6"
+#| code-line-numbers: "3"
 
 ca_tes |>
   ggplot(aes(x = tes)) +
-  geom_histogram(bins = 15, fill = "red") +
+  geom_histogram(fill = "red") +
   labs(title = "Distribution of tree equity scores",
-       x = "Tree Equity Score",
-       y = "Number of Places")
+       x = "Tree Equity Score")
 
 ```
 
-## Tree equity vs. linguistic isolation
+## 3. Distribution of tree equity scores
 
-> Is there a relationship between linnguistic isolation(`lingnorm`) and `tes` in an area. 
+> What is the distribution of tree equity scores (`tes`) created by a boxplot?
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+___ |>
+  ggplot(aes(___)) +
+  ___(fill = "violet")
+```
+
+
+. . . 
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "3"
+
+ca_tes |>
+  ggplot(aes(x = tes)) +
+  geom_boxplot(fill = "violet") +
+  labs(title = "Distribution of tree equity scores",
+       x = "Tree Equity Score")
+
+```
+
+
+## 4. Tree equity vs. linguistic isolation
+
+> Is there a relationship between linguistic isolation(`lingnorm`) and `tes` in an area. 
 
   - Use ggplot to plot the relationship between `tes` and `lingnorm`
   - Choose the best plot for the variable types
@@ -1147,9 +1169,9 @@ ca_tes |>
 
 
 
-## Wrangle + plot
+## 5. Wrangle + plot
 
-Recreate the plot above, but summarize the information **per `place`** before plotting. That is, `Claremont` should now only be represented by one dot. Summarize both `lingnorm` and `tes` using the `mean()` function.
+Recreate the plot above, but summarize the information **per `county`** before plotting. That is, `Los Angeles County` should now only be represented by one dot. Summarize both `lingnorm` and `tes` using the `mean()` function.
 
 .  .  .
 
@@ -1157,19 +1179,20 @@ Recreate the plot above, but summarize the information **per `place`** before pl
 ```{r}
 #| echo: true
 #| eval: true
+#| code-line-numbers: "1,2,3,4"
 
 ca_tes |> 
-  group_by(place) |> 
+  group_by(county) |> 
   summarize(ave_ling = mean(lingnorm),
             ave_tes = mean(tes)) |> 
   ggplot(aes(x = ave_ling, y = ave_tes)) + 
   geom_point() + 
-  labs(title = "Tree Equity vs. Linguistic Isolation",
+  labs(title = "Tree Equity vs. Linguistic Isolation by County",
        x = "Percent in Linguistic Isolation",
        y = "Tree Equity Score")
 ```
 
-## Wrangle + plot + label
+## 6. Wrangle + plot + label
 
 Recreate the plot above, but now add labels to the plot to indicate the county of each dot.  Use `geom_label()` or `geom_text()`. Try both! You'll need to use `label = county`...  do you need `aes()`? 
 
@@ -1179,6 +1202,7 @@ Recreate the plot above, but now add labels to the plot to indicate the county o
 ```{r}
 #| echo: true
 #| eval: true
+#| code-line-numbers: "7"
 
 ca_tes |> 
   group_by(county) |> 
@@ -1187,13 +1211,13 @@ ca_tes |>
   ggplot(aes(x = ave_ling, y = ave_tes)) + 
   geom_point() + 
   geom_text(aes(label = county)) + 
-  labs(title = "Tree Equity vs. Linguistic Isolation",
+  labs(title = "Tree Equity vs. Linguistic Isolation by County",
        x = "Percent in Linguistic Isolation",
        y = "Tree Equity Score")
 ```
 
 
-## Wrangle + plot + label
+## 7. Wrangle + plot + label
 
 There is an R package called **ggrepel**.  It includes a geom called `geom_label_repel`. Try it!  (To use a function from a package, you can write: `ggrepel::geom_label_repel()`.)
 
@@ -1205,6 +1229,7 @@ There is an R package called **ggrepel**.  It includes a geom called `geom_label
 ```{r}
 #| echo: true
 #| eval: true
+#| code-line-numbers: "7"
 
 ca_tes |> 
   group_by(county) |> 
@@ -1213,7 +1238,7 @@ ca_tes |>
   ggplot(aes(x = ave_ling, y = ave_tes)) + 
   geom_point() + 
   ggrepel::geom_label_repel(aes(label = county)) + 
-  labs(title = "Tree Equity vs. Linguistic Isolation",
+  labs(title = "Tree Equity vs. Linguistic Isolation by County",
        x = "Percent in Linguistic Isolation",
        y = "Tree Equity Score")
 ```
@@ -1227,14 +1252,14 @@ ca_tes |>
 
 -   **Each group will:**   
   -   Choose a research question(s)    
-  -   Use tidyverse tools to explore the data     
+  -   Use tidyverse wrangling tools to explore the data     
   -   Create plot(s) with **ggplot2**     
   -   Present findings to the class 
 
 ## Your goals  
 
 -   Clearly state your research question  
--   Support it with R code and graphs  
+-   Support your question with R code and graphs  
 -   Use the data to identify a trend, pattern, or disparity  
 -   Communicate **WHY** it matters 
 
@@ -1244,6 +1269,7 @@ ca_tes |>
 -   Is there a relationship between percent in poverty and tree equity score in *chosen state*? 
 -   How do tree equity trends compare between two or more *chosen states*?  
 -   Are places with lower tree equity also more likely to have higher health disparities in *chosen state*?  
+-   What if you break down / `summarize()` the information by county?
 
 ## Getting the data 
 
