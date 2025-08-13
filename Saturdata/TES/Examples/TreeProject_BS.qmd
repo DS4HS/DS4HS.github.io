@@ -1,0 +1,91 @@
+---
+title: "Tree Equity Student Presentation"
+author: "Billie Sutherland"
+format: 
+  revealjs:
+    slide-number: true
+    theme: simple
+    transition: slide
+    scrollable: true
+    center: true
+    toc: false
+    embed-resources: true
+    echo: true
+---
+
+
+
+```{r}
+#| echo: false
+#| include: false
+library(tidyverse)
+tmp <- tempfile(fileext = ".zip")
+ca_data_zip <- download.file("https://tes-app-data-share.s3.amazonaws.com/ny/ny_csv.zip", 
+                             tmp, mode = "wb")
+
+unzip(tmp, list = TRUE)
+
+ny_tes <- readr::read_csv(unz(tmp, "ny_tes.csv"))
+
+```
+
+
+## Slide 1: Dataset & Research Question
+
+**Dataset Chosen:**  
+
+> Tree Equity data from New York
+
+> treeequityscore.org
+
+```{r}
+#| echo: false
+
+# read in your dataset here
+# see how the data were loaded in the wrangling and ggplot examples
+```
+
+**Research Question:**  
+
+>What is the relationship between HOLC Grade and Tree Equity Score in New York?
+
+
+
+## Slide 2: Data Wrangling
+
+Use tidyverse functions like `filter()`, `mutate()`, `select()`, `group_by()`, `summarise()`, etc. Show all the code that you used to clean or transform the data for your plot.
+
+```{r}
+ny_tes|>
+  filter(!is.na(holc_grade))
+
+```
+
+## Slide 3: Plot
+
+Use **ggplot2** to visualize your findings. Include code and plot.
+
+```{r}
+ny_tes|>
+  filter(!is.na(holc_grade))|>
+  ggplot(aes(y=tes, x=holc_grade))+
+  geom_boxplot(fill="pink")+
+  geom_jitter(color="navy", alpha=0.05)
+
+```
+
+
+## Slide 4: Key Takeaways
+
+
+- What patterns or disparities did you observe?
+
+The more trees, the higher the HOLC score, but this not causal.
+
+- What conclusions can you draw from your plot?
+
+I can tell that places with worse HOLC scores, there are less trees.
+
+- Why do these findings matter?
+
+Because it is important to know that even if data sets have negative relationships, they can still be causal or not.

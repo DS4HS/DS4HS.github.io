@@ -1152,7 +1152,7 @@
     "href": "TreeProject.html#instructions-for-students-delete-this-slide-before-submitting",
     "title": "Tree Equity Student Presentation",
     "section": "Instructions for Students (Delete This Slide Before Submitting)",
-    "text": "Instructions for Students (Delete This Slide Before Submitting)\n\nThis is your template for presenting your project.\nYour final presentation should have 4 slides:\n\nResearch Question + Dataset\nData Wrangling Code\nPlot + ggplot Code\nKey Insights\n\n\nOnce you’ve completed the slides, delete this instruction slide before rendering."
+    "text": "Instructions for Students (Delete This Slide Before Submitting)\n\nThis is your template for presenting your project.\nYour final presentation should have 4 slides:\n\nResearch Question + Dataset\nData Wrangling Code\nPlot + ggplot Code\nKey Insights\n\n\nOnce you’ve completed the slides, delete this instruction slide before rendering.\nNote that the datasets are here: https://www.treeequityscore.org/methodology?tab=data-download\nThe data glossary is here: https://www.treeequityscore.org/methodology?tab=data-glossary"
   },
   {
     "objectID": "TreeProject.html#slide-1-your-dataset-research-question",
@@ -1180,7 +1180,7 @@
     "href": "TreeProject.html#slide-4-key-takeaways",
     "title": "Tree Equity Student Presentation",
     "section": "Slide 4: Key Takeaways",
-    "text": "Slide 4: Key Takeaways\nWhat did you learn from your analysis? Your answer should make statements about what you learned, so you should delete all of this text and write down your takeaways.\n\nWhat patterns or disparities did you observe?\nWhat conclusions can you draw from your plot?\nWhy do these findings matter?"
+    "text": "Slide 4: Key Takeaways\nWhat did you learn from your analysis? Your answer should make statements about what you learned, so you should delete all of this text and write down your takeaways. For example, you might respond to some / all of these questions:\n\nWhat patterns or disparities did you observe?\nWhat conclusions can you draw from your plot?\nWhy do these findings matter?"
   },
   {
     "objectID": "TreeProject.html#slide-1-dataset-research-question",
@@ -1257,6 +1257,69 @@
     "href": "TODO.html",
     "title": "DS4HS",
     "section": "",
-    "text": "make the Mathlinks Cubes images smaller (they are too big on slides)\nneed images of a row, column, etc. for the instructor resources\nwhere do students submit their rendered quarto files?"
+    "text": "make the Mathlinks Cubes images smaller (they are too big on slides)\nneed images of a row, column, etc. for the instructor resources\nwhere do students submit their rendered quarto files?\nthey might not actually do any wrangling in their project???"
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_AH.html",
+    "href": "Saturdata/TES/Examples/TreeProject_AH.html",
+    "title": "Tree Equity Student Presentation",
+    "section": "",
+    "text": "Dataset Chosen:\n\nTree Equity data from Oregon\n\n\nhttps://www.treeequityscore.org Tree Equity Score\n\nResearch Question:\n\nWhat is the relationship between poverty and tree equity scores in different counties in Oregon?"
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_AH.html#slide-1-dataset-research-question",
+    "href": "Saturdata/TES/Examples/TreeProject_AH.html#slide-1-dataset-research-question",
+    "title": "Tree Equity Student Presentation",
+    "section": "",
+    "text": "Dataset Chosen:\n\nTree Equity data from Oregon\n\n\nhttps://www.treeequityscore.org Tree Equity Score\n\nResearch Question:\n\nWhat is the relationship between poverty and tree equity scores in different counties in Oregon?"
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_AH.html#slide-3-plot",
+    "href": "Saturdata/TES/Examples/TreeProject_AH.html#slide-3-plot",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 3: Plot",
+    "text": "Slide 3: Plot\nUse ggplot2 to visualize your findings. Include code and plot.\n\nor_tes |&gt;\n  ggplot(aes(x = pctpov, y = tes, color=county)) +\n  geom_point(size = 0.75) +\n  facet_wrap(~county) +\n  theme(legend.position=\"none\")"
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_AH.html#slide-4-key-takeaways",
+    "href": "Saturdata/TES/Examples/TreeProject_AH.html#slide-4-key-takeaways",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 4: Key Takeaways",
+    "text": "Slide 4: Key Takeaways\n\nThe patterns I saw was that the bigger the population the more trees.\nThe concusions I can draw is that the less poverty the more trees.\nThese findings matter because we want more trees so there is less poverty."
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_BS.html",
+    "href": "Saturdata/TES/Examples/TreeProject_BS.html",
+    "title": "Tree Equity Student Presentation",
+    "section": "",
+    "text": "Dataset Chosen:\n\nTree Equity data from New York\n\n\ntreeequityscore.org\n\nResearch Question:\n\nWhat is the relationship between HOLC Grade and Tree Equity Score in New York?"
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_BS.html#slide-1-dataset-research-question",
+    "href": "Saturdata/TES/Examples/TreeProject_BS.html#slide-1-dataset-research-question",
+    "title": "Tree Equity Student Presentation",
+    "section": "",
+    "text": "Dataset Chosen:\n\nTree Equity data from New York\n\n\ntreeequityscore.org\n\nResearch Question:\n\nWhat is the relationship between HOLC Grade and Tree Equity Score in New York?"
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_BS.html#slide-2-data-wrangling",
+    "href": "Saturdata/TES/Examples/TreeProject_BS.html#slide-2-data-wrangling",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 2: Data Wrangling",
+    "text": "Slide 2: Data Wrangling\nUse tidyverse functions like filter(), mutate(), select(), group_by(), summarise(), etc. Show all the code that you used to clean or transform the data for your plot.\n\nny_tes|&gt;\n  filter(!is.na(holc_grade))\n\n# A tibble: 8,006 × 48\n          GEOID place  state state_abbr county ua_name ua_pop congressio cbg_pop\n          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;\n 1 360010001001 Albany New … NY         Alban… Albany… 592184 NY Congre…     944\n 2 360010001002 Albany New … NY         Alban… Albany… 592184 NY Congre…    1129\n 3 360010002011 Albany New … NY         Alban… Albany… 592184 NY Congre…     791\n 4 360010002012 Albany New … NY         Alban… Albany… 592184 NY Congre…    1448\n 5 360010002013 Albany New … NY         Alban… Albany… 592184 NY Congre…     886\n 6 360010002021 Albany New … NY         Alban… Albany… 592184 NY Congre…    1614\n 7 360010002022 Albany New … NY         Alban… Albany… 592184 NY Congre…     984\n 8 360010003011 Albany New … NY         Alban… Albany… 592184 NY Congre…    1662\n 9 360010003012 Albany New … NY         Alban… Albany… 592184 NY Congre…    1528\n10 360010003021 Albany New … NY         Alban… Albany… 592184 NY Congre…    2317\n# ℹ 7,996 more rows\n# ℹ 39 more variables: acs_pop &lt;dbl&gt;, land_area &lt;dbl&gt;, biome &lt;chr&gt;,\n#   cnpysource &lt;chr&gt;, tc_goal &lt;dbl&gt;, treecanopy &lt;dbl&gt;, tc_gap &lt;dbl&gt;,\n#   priority_i &lt;dbl&gt;, pctpoc &lt;dbl&gt;, pctpocnorm &lt;dbl&gt;, pctpov &lt;dbl&gt;,\n#   pctpovnorm &lt;dbl&gt;, unemplrate &lt;dbl&gt;, unemplnorm &lt;dbl&gt;, dep_ratio &lt;dbl&gt;,\n#   dep_perc &lt;dbl&gt;, depratnorm &lt;dbl&gt;, linguistic &lt;dbl&gt;, lingnorm &lt;dbl&gt;,\n#   health_nor &lt;dbl&gt;, temp_diff &lt;dbl&gt;, temp_norm &lt;dbl&gt;, tes &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_BS.html#slide-3-plot",
+    "href": "Saturdata/TES/Examples/TreeProject_BS.html#slide-3-plot",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 3: Plot",
+    "text": "Slide 3: Plot\nUse ggplot2 to visualize your findings. Include code and plot.\n\nny_tes|&gt;\n  filter(!is.na(holc_grade))|&gt;\n  ggplot(aes(y=tes, x=holc_grade))+\n  geom_boxplot(fill=\"pink\")+\n  geom_jitter(color=\"navy\", alpha=0.05)"
+  },
+  {
+    "objectID": "Saturdata/TES/Examples/TreeProject_BS.html#slide-4-key-takeaways",
+    "href": "Saturdata/TES/Examples/TreeProject_BS.html#slide-4-key-takeaways",
+    "title": "Tree Equity Student Presentation",
+    "section": "Slide 4: Key Takeaways",
+    "text": "Slide 4: Key Takeaways\n\nWhat patterns or disparities did you observe?\n\nThe more trees, the higher the HOLC score, but this not causal.\n\nWhat conclusions can you draw from your plot?\n\nI can tell that places with worse HOLC scores, there are less trees.\n\nWhy do these findings matter?\n\nBecause it is important to know that even if data sets have negative relationships, they can still be causal or not."
   }
 ]

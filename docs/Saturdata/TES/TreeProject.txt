@@ -10,6 +10,7 @@ format:
     center: true
     toc: false
     embed-resources: true
+    echo: true
 ---
 
 ## Instructions for Students (Delete This Slide Before Submitting)
@@ -67,7 +68,9 @@ Use **ggplot2** to visualize your findings. Include code and plot.
 
 ## Slide 4: Key Takeaways
 
-What did you learn from your analysis? Your answer should make statements about what you learned, so you should delete all of this text and write down your takeaways.
+What did you learn from your analysis?
+Your answer should make statements about what you learned, so you should delete all of this text and write down your takeaways.
+For example, you might respond to some / all of these questions:
 
 - What patterns or disparities did you observe?
 - What conclusions can you draw from your plot?

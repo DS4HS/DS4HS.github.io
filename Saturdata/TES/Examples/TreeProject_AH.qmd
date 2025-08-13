@@ -1,0 +1,77 @@
+---
+title: "Tree Equity Student Presentation"
+author: "Annika Heitkemper"
+format: 
+  revealjs:
+    slide-number: true
+    theme: simple
+    transition: slide
+    scrollable: true
+    center: true
+    toc: false
+    embed-resources: true
+    echo: true
+---
+
+
+```{r}
+#| echo: false
+#| include: false
+
+library(tidyverse)
+tmp <- tempfile(fileext = ".zip")
+or_data_zip <- download.file("https://tes-app-data-share.s3.amazonaws.com/or/or_csv.zip", 
+                             tmp, mode = "wb")
+
+unzip(tmp, list = TRUE)
+
+or_tes <- readr::read_csv(unz(tmp, "or_tes.csv"))
+```
+
+
+
+
+## Slide 1: Dataset & Research Question
+
+**Dataset Chosen:**  
+
+> Tree Equity data from Oregon
+
+> https://www.treeequityscore.org Tree Equity Score
+
+```{r}
+#| echo: false
+
+# read in your dataset here
+# see how the data were loaded in the wrangling and ggplot examples
+```
+
+**Research Question:**  
+
+> What is the relationship between poverty and tree equity scores in different counties in Oregon?
+
+
+
+
+
+## Slide 3: Plot
+
+Use **ggplot2** to visualize your findings. Include code and plot.
+
+```{r}
+or_tes |>
+  ggplot(aes(x = pctpov, y = tes, color=county)) +
+  geom_point(size = 0.75) +
+  facet_wrap(~county) +
+  theme(legend.position="none")
+
+```
+
+
+## Slide 4: Key Takeaways
+
+
+- The patterns I saw was that the bigger the population the more trees.
+- The concusions I can draw is that the less poverty the more trees.
+- These findings matter because we want more trees so there is less poverty.
+

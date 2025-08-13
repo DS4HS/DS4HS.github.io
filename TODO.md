@@ -3,3 +3,6 @@
 * need images of a row, column, etc. for the instructor resources
 
 * where do students submit their rendered quarto files?
+
+* they might not actually do any wrangling in their project???
+

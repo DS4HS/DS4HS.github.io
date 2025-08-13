@@ -13,6 +13,9 @@ execute:
 ---
 
 ```{r}
+#| echo: false
+#| include: false
+
 library(tidyverse)
 tmp <- tempfile(fileext = ".zip")
 ca_data_zip <- download.file("https://tes-app-data-share.s3.amazonaws.com/ca/ca_csv.zip", 
