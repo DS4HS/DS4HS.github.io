@@ -1,6 +1,6 @@
 ---
 title: "Practicing Data Wrangling with Tree Equity Data"
-subtitle: "in-class worksheet"
+subtitle: "in-class worksheet for visualization"
 author: "Paityn Richardson & Jo Hardin"
 format:
   pdf: 
